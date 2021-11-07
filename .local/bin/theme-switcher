@@ -1,0 +1,28 @@
+#!/bin/sh
+
+xres="$XDG_CONFIG_HOME/x11/xresources"
+
+# turn light theme on
+if [[ "$(cat "$xres" | grep 'Light Theme Off')" > /dev/null ]]; then
+	#echo "turn light theme on"
+	sed -i '
+	41s/\!! Light Theme Off/\!! Light Theme On/
+	42,77s/\!//
+	79s/\!! Dark Theme On/\!! Dark Theme Off/
+	80,115s/\(^.*$\)/\!\1/
+	' "$xres"
+	notify-send "light theme on"
+	xrdb "${xres}"
+
+# turn dark theme on
+elif [[ "$(cat "$xres" | grep 'Dark Theme Off')" < /dev/null ]]; then
+	#echo "turn dark theme on"
+	sed -i '
+	41s/\!! Light Theme On/\!! Light Theme Off/
+	42,77s/\(^.*$\)/\!\1/
+	79s/\!! Dark Theme Off/\!! Dark Theme On/
+	80,115s/\!//
+	' "$xres"
+	notify-send "dark theme on"
+	xrdb "${xres}"
+fi
