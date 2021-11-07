@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xdotool mousemove --sync 50 300
+xdotool mousemove --sync 1 300
