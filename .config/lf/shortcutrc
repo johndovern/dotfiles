@@ -1,0 +1,87 @@
+# Config files
+map gc.  cd ~/.config
+map gcl  cd ~/.config/lf
+map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
+map gcEs $$EDITOR "/home/anon/.config/lf/shortcutrc"
+map gcm  cd ~/.config/mpv
+map gcy  cd ~/.config/yt-dlp
+map gcx  cd ~/.config/x11
+map gcs  cd ~/.config/shell
+map gcq  cd ~/.config/qutebrowser
+map gcz  cd ~/.config/zsh
+
+# ~/videos
+map gv.  cd ~/videos/wd5t/
+map gva  cd ~/videos/sandisk/anime-webms
+map gvw  cd ~/videos/sandisk/webms
+map gvy  cd ~/videos/sandisk/youtube
+map gv4  cd ~/videos/sandisk/4chan-banners
+
+# ~/pictures
+map gp.  cd ~/pictures
+map gp4  cd ~/pictures/sandisk/4chan-banners
+map gpa  cd ~/pictures/sandisk/anime-related
+map gw.  cd ~/pictures/sandisk/walls
+
+# Music
+map gmu  cd ~/music
+map gmy  cd ~/music/sandisk/youtube
+map gmw  cd ~/music/sandisk/wsg-worthy
+map gmn  cd ~/music/sandisk/newpipe
+
+# Downloads
+map gds  cd ~/downloads/sandisk/webms-to-sort
+
+# Manga
+map gma cd ~/documents/sandisk/Mangas/
+
+# src
+map gl.  cd ~/.local
+map glb  cd ~/.local/bin
+map gld  cd ~/.local/src/dwm
+map glm  cd ~/.local/src/dmenu
+map gls  cd ~/.local/src/st
+
+# Server
+map siv  cd /mnt/server/symlinks/inland/Videos
+map sw5  cd /mnt/server/symlinks/wd5t
+#map s  cd /mnt/server/symlinks
+
+# PIXEL
+#map dp  cd /mnt/drives/pixel/
+
+# Home
+map gh.  cd ~/
+
+## ~/[Misc]
+#map gD   cd ~/downloads
+#
+#map Ccac cd "/home/anon/.cache"
+#map Ccf cd "/home/anon/.config"
+#map CD cd "/home/anon/Downloads"
+#map Cd cd "/home/anon/Documents"
+#map Cdt cd "/home/anon/.local/share"
+#map Crr cd "/home/anon/.local/src"
+#map Ch cd "/home/anon"
+#map Cm cd "/home/anon/Music"
+#map Cmn cd "/mnt"
+#map Cpp cd "/home/anon/Pictures"
+#map Csc cd "/home/anon/.local/bin"
+#map Csrc cd "/home/anon/.local/src"
+#map Cvv cd "/home/anon/Videos"
+#map Ebf $$EDITOR "/home/anon/.config/shell/bm-files"
+#map Ebd $$EDITOR "/home/anon/.config/shell/bm-dirs"
+#map Ecfx $$EDITOR "/home/anon/.config/x11/xresources"
+#map Ecfb $$EDITOR "~/.local/src/dwmblocks/config.h"
+#map Ecfv $$EDITOR "/home/anon/.config/nvim/init.vim"
+#map Ecfz $$EDITOR "/home/anon/.config/zsh/.zshrc"
+#map Ecfa $$EDITOR "/home/anon/.config/shell/aliasrc"
+#map Ecfp $$EDITOR "/home/anon/.config/shell/profile"
+#map Ecfm $$EDITOR "/home/anon/.config/mutt/muttrc"
+#map Ecfn $$EDITOR "/home/anon/.config/newsboat/config"
+#map Ecfu $$EDITOR "/home/anon/.config/newsboat/urls"
+#map Ecfmb $$EDITOR "/home/anon/.config/ncmpcpp/bindings"
+#map Ecfmc $$EDITOR "/home/anon/.config/ncmpcpp/config"
+#map Ecfl $$EDITOR "/home/anon/.config/lf/lfrc"
+#map EcfL $$EDITOR "/home/anon/.config/lf/scope"
+#map EcfX $$EDITOR "/home/anon/.config/sxiv/exec/key-handler"

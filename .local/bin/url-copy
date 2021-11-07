@@ -1,0 +1,2 @@
+#!/bin/sh
+sleep 1 ; xdotool key "ctrl+l" ; sleep 0.5 ; xdotool key "ctrl+c" "Tab" "Tab" "Tab" ; sleep 0.5 ; mpv  --loop-playlist=no --keep-open=no "$(xclip -o)"

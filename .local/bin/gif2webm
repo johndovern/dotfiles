@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+# Takes a gif, loops it to the length of the specified audio file and outputs a webm
+
+
+video="$1"
+audio="$2"
+vbitrate="$3" # defaults to 0 if not set must include k when set
+abitrate="$4" # defaults to 192 if not set
+outputdir="$5" # defaults to ~/videos/4chan-banners if not set
+title="$6" # defaults to gif tilename if not set
+format="vp8"
+scale=300 # gif scaled to 300px width, change accordingly
+threads=4
+
+shopt -s extglob
+if [ -z "$vbitrate" ]; then vbitrate=0; fi
+if [ -z "$abitrate" ]; then abitrate=192; fi
+if [ -z "$outputdir" ]; then outputdir=~/videos/sandisk/4chan-banners; fi
+if [ -z "$title" ]; then title="${video//+(*\/|.*)}"; fi
+if [ -z "$scale" ]; then
+    vf=""
+else
+    vf="-vf scale=$scale:-1"
+fi
+
+
+if [ -z "$1" ]  && [ -z "$2" ]; then
+    echo "gif2webm <gif> <audio> [outputdir] [vbitrate] [abitrate] [title]"
+else
+    if [ "$format" = "vp8" ]; then
+	ffmpeg -i "${video}" ${vf} -c:v libvpx -b:v ${vbitrate} -auto-alt-ref 0 -crf 30 -pass 1 -an -f null /dev/null -threads ${threads} && \
+	ffmpeg -i "${audio}" -ignore_loop 0 -i "${video}" ${vf} -shortest -c:v libvpx -b:v ${vbitrate} -auto-alt-ref 0 -crf 30 -pass 2 -c:a libvorbis -b:a ${abitrate}k -threads ${threads} -metadata "title=$title" "${video%.*}.webm"
+    else
+    	ffmpeg -i "${video}" ${vf} -c:v libvpx-vp9 -b:v ${vbitrate} -crf 30 -pass 1 -an -f null /dev/null -threads ${threads} && \
+	ffmpeg -i "${audio}" -ignore_loop 0 -i "${video}" ${vf} -shortest -c:v libvpx-vp9 -b:v ${vbitrate} -crf 30 -pass 2 -c:a libvorbis -b:a ${abitrate}k -threads ${threads} -metadata "title=$title" "${video%.*}.webm"
+    fi
+fi
+
+if [ ! -z "$outputdir" ]; then
+    if [ ! -d "$outputdir" ]; then
+    	echo -e "\033[0;32mDirectory '$outputdir' doesn't exist, creating...\033[0m"
+	mkdir -p $outputdir
+    fi
+    echo -e "\033[0;32mMoving ${video%.*}.webm to '$outputdir' directory\033[0m"
+    mv "${video%.*}.webm" $outputdir
+fi
