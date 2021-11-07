@@ -1,9 +1,0 @@
-#!/bin/sh
-if [ -d "/home/anon/drives/pixel/Internal shared storage" ]
-then
-	fusermount -u ~/drives/pixel
-	notify-send "🤖Pixel unmounted"
-else
-	jmtpfs ~/drives/pixel
-	notify-send "🤖Pixel mounted"
-fi

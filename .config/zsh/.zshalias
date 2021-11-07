@@ -1,9 +1,0 @@
-# ZSH alias' sourced by $HOME/.config/zsh/.zshrc
-
-alias lf="lfrun"
-alias suckclean="sudo make clean install"
-alias unsuck="sudo make uninstall"
-alias lfav="cd /mnt/drives/inland/home/seraphim/Videos/Animu ; lfrun"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias suvim='sudo nvim'
-alias supi='sudo pacman -S'

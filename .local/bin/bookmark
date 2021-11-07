@@ -1,2 +1,0 @@
-#!/bin/sh
-sleep 0.5; xdotool key "ctrl+l" ; sleep 0.5 ; xdotool key "Tab" "Tab" ; sleep 0.2 ; xdotool key "Right" "Right" "Right" "Right" "Return" ; sleep 0.5 ; xdotool key "Tab" "Tab" "Return"

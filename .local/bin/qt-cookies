@@ -1,3 +1,0 @@
-#!/bin/sh
-rm ~/.local/share/qutebrowser/webengine/C*
-rm ~/.local/share/qutebrowser/co*
