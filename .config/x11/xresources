@@ -23,7 +23,7 @@ Xft.dpi: 120
 !*.topbar: 			! 0 means bottom bar
 !*.nmaster: 			! number of clients in master area
 !*.resizehints:			! 1 means respect size hints in tiled resizals
-!*.mfact: 			! factor of master area size [0.05.0.95]
+*.mfact: 0.65			! factor of master area size [0.05.0.95]
 !*.swallowfloating: 		! 1 means swallow floating windows by default
 
 !! DWM & DMENU color settings
