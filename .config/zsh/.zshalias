@@ -7,3 +7,4 @@ alias lfav="cd /mnt/drives/inland/home/seraphim/Videos/Animu ; lfrun"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias suvim='sudo nvim'
 alias supi='sudo pacman -S'
+alias homedir='/usr/bin/git --git-dir=/home/anon/.hmd/ --work-tree=/home/anon'
