@@ -1,10 +1,10 @@
 # Bindings for normal mode
 # Binds for mpv and yt-dlp
-config.bind('.mth', 'hint links spawn --detach mpv --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.mtn', 'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
-config.bind('.mun', 'spawn --detach umpv {url}')
-config.bind('.muh', 'hint links spawn --detach umpv {hint-url}')
-config.bind('.mur', 'hint --rapid links spawn --detach umpv {hint-url}')
+config.bind('.mh', 'hint links spawn --detach mpv --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.mn', 'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
+config.bind('.un', 'spawn --detach umpv {url}')
+config.bind('.uh', 'hint links spawn --detach umpv {hint-url}')
+config.bind('.ur', 'hint --rapid links spawn --detach umpv {hint-url}')
 config.bind('.mps', 'hint links spawn --detach mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.dyph', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/yt-dlp-audio-for-webms-playlist.conf {hint-url}')
 config.bind('.dypn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/yt-dlp-audio-for-webms-playlist.conf {url}')
