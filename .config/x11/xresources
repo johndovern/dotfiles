@@ -38,78 +38,78 @@ Xft.dpi: 120
 !! Set the background, foreground and cursor colors as below:
 
 !! Color settings for st
-!! Light Theme On
-! special
-*.foreground:   #515253
-*.background:   #b7b8b9
-*.cursorColor:  #515253
-
-! black
-*.color0:       #0c0d0e
-*.color8:       #737475
-
-! red
-*.color1:       #e31a1c
-*.color9:       #e31a1c
-
-! green
-*.color2:       #31a354
-*.color10:      #31a354
-
-! yellow
-*.color3:       #dca060
-*.color11:      #dca060
-
-! blue
-*.color4:       #3182bd
-*.color12:      #3182bd
-
-! magenta
-*.color5:       #756bb1
-*.color13:      #756bb1
-
-! cyan
-*.color6:       #80b1d3
-*.color14:      #80b1d3
-!0c0d0e
-! white
-*.color7:       #fcfdfe
-*.color15:      #fcfdfe
-
-!! Dark Theme Off
+!! Light Theme Off
 !! special
-!*.foreground:   #b7b8b9
-!*.background:   #0c0d0e
-!*.cursorColor:  #b7b8b9
+!*.foreground:   #515253
+!*.background:   #b7b8b9
+!*.cursorColor:  #515253
 !
 !! black
 !*.color0:       #0c0d0e
 !*.color8:       #737475
 !
 !! red
-!*.color1:       #db2d20
-!*.color9:       #db2d20
+!*.color1:       #e31a1c
+!*.color9:       #e31a1c
 !
 !! green
-!*.color2:       #01a252
-!*.color10:      #01a252
+!*.color2:       #31a354
+!*.color10:      #31a354
 !
 !! yellow
-!*.color3:       #fded02
-!*.color11:      #fded02
+!*.color3:       #dca060
+!*.color11:      #dca060
 !
 !! blue
-!*.color4:       #01a0e4
-!*.color12:      #01a0e4
+!*.color4:       #3182bd
+!*.color12:      #3182bd
 !
 !! magenta
-!*.color5:       #a16a94
-!*.color13:      #a16a94
+!*.color5:       #756bb1
+!*.color13:      #756bb1
 !
 !! cyan
-!*.color6:       #b5e4f4
-!*.color14:      #b5e4f4
-!
+!*.color6:       #80b1d3
+!*.color14:      #80b1d3
+!!fcfdfe 0c0d0e
 !! white
-!*.color7:       #0c0d0e
+!*.color7:       #737475
 !*.color15:      #fcfdfe
+
+!! Dark Theme On
+! special
+*.foreground:   #b7b8b9
+*.background:   #0c0d0e
+*.cursorColor:  #b7b8b9
+
+! black
+*.color0:       #0c0d0e
+*.color8:       #737475
+
+! red
+*.color1:       #db2d20
+*.color9:       #db2d20
+
+! green
+*.color2:       #01a252
+*.color10:      #01a252
+
+! yellow
+*.color3:       #fded02
+*.color11:      #fded02
+
+! blue
+*.color4:       #01a0e4
+*.color12:      #01a0e4
+
+! magenta
+*.color5:       #a16a94
+*.color13:      #a16a94
+
+! cyan
+*.color6:       #b5e4f4
+*.color14:      #b5e4f4
+
+! white
+*.color7:       #b7b8b9
+*.color15:      #fcfdfe
