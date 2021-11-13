@@ -1,0 +1,15 @@
+*
+!auto_profiles.conf
+!coverart.conf
+!crop.conf
+!.gitignore
+!manga-reader.conf
+!osc.conf
+!persist_properties.conf
+!playlistmanager.conf
+!stats.conf
+!sub_select.conf
+!sub-select.json
+!trackselect.conf
+!webm.conf
+!youtube-quality.conf

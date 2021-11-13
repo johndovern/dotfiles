@@ -1,6 +1,11 @@
-icc
-playlists
-shaders/folder
-shaders/shader-cache-dir
-unused
-watch_later
+*
+!fonts
+!script-opts
+!scripts
+!shaders
+!.gitignore
+!image-input.conf
+!input.conf
+!menu.json
+!mpv.conf
+!persistent_config.json

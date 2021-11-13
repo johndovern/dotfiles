@@ -1,2 +1,0 @@
-#!/bin/sh
-yt-dlp --config-location ~/.config/yt-dlp/yt-dlp-audio-for-webms-playlist.conf $(xclip -selection clipboard -o)

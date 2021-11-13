@@ -113,3 +113,5 @@ Xft.dpi: 120
 ! white
 *.color7:       #b7b8b9
 *.color15:      #fcfdfe
+
+*.message: henlo

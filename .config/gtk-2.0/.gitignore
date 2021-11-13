@@ -1,0 +1,4 @@
+*
+!.gitignore
+!gtkfilechooser.ini
+!gtkrc-2.0

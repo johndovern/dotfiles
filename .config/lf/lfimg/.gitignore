@@ -1,0 +1,9 @@
+*
+!cleaner
+!.gitignore
+!lfrun
+!LICENSE
+!Makefile
+!preview
+!README.md
+!screenshot.png

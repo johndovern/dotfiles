@@ -1,7 +1,0 @@
-#!/bin/sh
-
-/usr/bin/echo hello > test.txt
-
-#if [[ $(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status | /usr/bin/grep "changes not staged") < /dev/null ]]; then
-#	/usr/bin/notify-send "Unstaged changes in tracked files"
-#fi

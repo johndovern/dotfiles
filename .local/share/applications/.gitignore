@@ -1,9 +1,9 @@
 *
 !file.desktop
+!.gitignore
 !img.desktop
 !mail.desktop
 !pdf.desktop
 !rss.desktop
 !text.desktop
 !torrent.desktop
-!.gitignore

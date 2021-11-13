@@ -1,2 +1,0 @@
-#!/bin/sh
-sleep 0.5 ; xdotool key "Return" ; sleep 3 ; xdotool key "Escape"
