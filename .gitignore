@@ -1,8 +1,11 @@
 .cache
 .cfg
-.local/src
+.git
+.gnupg
+.librewolf
 .pki
 .ssh
+.steam
 backup
 documents
 downloads
@@ -19,6 +22,9 @@ vimwiki
 .bash_logout
 .bash_profile
 .bashrc
+.pulse-cookie
+.steampath
+.steampid
 .umpv_socket
 .Xauthority
-test
+ffmpeg2pass-0.log

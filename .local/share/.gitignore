@@ -1,6 +1,6 @@
-lf
-nvim
-qutebrowser
-syncthing
-wineprefixes/fate
-xorg
+*
+!applications
+!larbs
+!wineprefixes
+!.gitignore
+!bg

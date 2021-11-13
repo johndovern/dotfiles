@@ -1,0 +1,135 @@
+#!/bin/bash
+#
+# Make webm with image (looped if possible) and audio file
+# Currently supported formats: static images, animated gifs
+#
+# https://trac.ffmpeg.org/wiki/Encode/VP8
+# https://www.webmproject.org/docs/encoder-parameters/
+# https://trac.ffmpeg.org/wiki/Encode/VP9
+# https://sites.google.com/a/webmproject.org/wiki/ffmpeg/vp9-encoding-guide
+
+VIDEO=
+AUDIO=
+VIDEO_BITRATE=0
+AUDIO_BITRATE=
+CRF_VALUE=20
+VIDEO_ENCODER="vp9"
+OUTPUT=
+SCALE=
+TITLE=
+
+
+usage() {
+  cat <<EOF
+Usage:  image2webm [options] image audio
+
+Options:
+ --ab <bitrate>		   Set audio bitrate.
+ --vb <bitrate>		   Set video bitrate. Defaults to CQ mode if unset.
+ --crf 			   Set CRF value between 0-50. Defaults to 20.
+ -e, --encoder={vp8|vp9}   Specify video encoder. Defaults to vp9.
+ -o, --output=<file>       Place output into <file>. Defaults to placing
+     	       		   <image>.webm in the current directory.
+ -s, --scale=<size>	   Scale video to specified size.
+			       -s 320:420
+			   scales the output image to 320x420. Width and
+			   height values can also be replaced with -1 to keep
+			   aspect ratio.
+			       -s 320:-1
+			   will set the width of the output image to 320px and
+			   will calculate the height of the output image
+			   according to the aspect ratio of the input image.
+ -t, --title=<title>	   Specify webm title. Defaults to <audio>.
+
+ -h, --help  		   Show this help message and exit.
+EOF
+}
+
+# getopt parsing
+OPTS=$(
+  getopt -n 'image2webm' \
+	 -o e:ho:s:t: \
+	 --long ab:,vb:,crf:,encoder:,help,output:,scale:,title: -- "$@"
+)
+if [ $? != 0 ]; then
+  echo "Try 'image2webm --help' for more information."
+  exit 1
+fi
+eval set -- "$OPTS"
+
+while : ; do
+  case "$1" in
+    -h | --help )     usage;                  exit 0;;
+    --ab )            AUDIO_BITRATE="$2";    shift 2;;
+    --vb )            VIDEO_BITRATE="$2";    shift 2;;
+    --crf )           CRF_VALUE="$2";        shift 2;;
+    -e | --encoder )  VIDEO_ENCODER="$2";    shift 2;;
+    -o | --output )   OUTPUT="$2";           shift 2;;
+    -s | --scale )    SCALE="$2";            shift 2;;
+    -t | --title )    TITLE="$2";            shift 2;;
+    -- ) shift; break;;
+    * )  echo "Unexpected option: $1"; exit 1;;
+  esac
+done
+
+# check for video and audio
+VIDEO=$1
+AUDIO=$2
+if [ -z "$VIDEO" ] || [ -z "$AUDIO" ]; then
+  cat <<EOF
+image2webm: input error
+An image file and audio file must be provided.
+Try 'image2webm --help' for more information."
+EOF
+  exit 1
+fi
+
+# build ffmpeg parameters
+# title
+if [ -z "$TITLE" ]; then T="${AUDIO##*/}"; T="${T%.*}"; else T="$TITLE"; fi
+# output
+if [ -z "$OUTPUT" ]; then O="${VIDEO%.*}.webm"; else O="$OUTPUT"; fi
+# video bitrate
+B_V="-b:v $VIDEO_BITRATE"
+# audio bitrate
+if ! [ -z "$AUDIO_BITRATE" ]; then B_A="-b:a $AUDIO_BITRATE"; fi
+# crf
+CRF="-crf $CRF_VALUE -qmin 0 -qmax 50"
+# audio encoder
+if [[ "$VIDEO_ENCODER" == "vp8" ]]; then
+  ENC_A="-c:a libvorbis"
+else
+  ENC_A="-c:a libopus"
+fi
+# video encoder
+if [[ "$VIDEO_ENCODER" == "vp8" ]]; then
+  ENC_V="-c:v libvpx -auto-alt-ref 0"
+else
+  ENC_V="-c:v libvpx-vp9"
+fi
+# check if we have to loop image
+FRAMES=$(identify -format "%n\n" "$VIDEO" 2>/dev/null | head -n1)
+if [[ $FRAMES -gt 1 ]]; then LOOP="-ignore_loop 0"; else unset FRAMES; fi
+# shortest
+if ! [ -z "$FRAMES" ]; then SHORTEST="-shortest"; fi
+# scale
+if ! [ -z "$SCALE" ]; then SCALE="-vf scale=$SCALE"; fi
+
+
+ffmpeg -i "${VIDEO}" -pass 1 \
+       $ENC_V $B_V $CRF -f null /dev/null && \
+  ffmpeg -i "${AUDIO}" $LOOP -i "${VIDEO}" -pass 2 \
+	 $ENC_V $B_V $CRF $SCALE $ENC_A $B_A $SHORTEST \
+	 -metadata "title=$T" "${O}"
+
+
+# fudge duration metadata if audio file is greater than 300s
+DURATION=$(ffprobe -v error -show_entries format=duration \
+		   -of compact=nk=1:p=0 "${O}")
+if [[ "$VIDEO_ENCODER" == "vp8" ]] && [[ ${DURATION%.*} -ge 300 ]]; then
+  echo "WebM duration longer than 5 mins, fudging metadata with dd"
+  OFFSET=$(LANG=C grep -obUaP -m 1 "\x44\x89" "${O}")
+  OFFSET=${OFFSET%:*}
+  printf '\x44\x89\x88\x41\x12\x4F\x80' | \
+    dd of="${O}" bs=1 seek=$OFFSET count=7 conv=notrunc
+fi
