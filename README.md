@@ -2,7 +2,7 @@ muh dotfiles sheeiiiit
 
 meant to be forked and maintained as a bare git repo.
 using reverse .gitignore technique to allow for seemless maintenence.
-nothing unless explicitly added to the porper.gitignore file or forced
+nothing unless explicitly added to the proper.gitignore file or forced
 with -f will be added to this repo. that might be weird or cumbersome in
 a normal repo but this "repo" lives with me. i don't want to install
 some shit and have git bother me about it.
