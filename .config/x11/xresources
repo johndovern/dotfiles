@@ -115,3 +115,6 @@ Xft.dpi: 120
 *.color15:      #fcfdfe
 
 *.message: henlo
+*.sfont: -adobe-new century schoolbook-medium-i-normal--34-240-100-100-p-182-iso8859-1
+!*.sfont: -adobe-courier-bold-r-normal--34-240-100-100-m-200-iso8859-1
+!*.sfont: -b&h-lucidabright-medium-r-normal--34-240-100-100-p-193-iso8859-1

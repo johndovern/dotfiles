@@ -102,11 +102,11 @@ c.tabs.show = 'always'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.start_pages = 'https://searx.tiekoetter.com/'
+c.url.start_pages = 'https://anon.sx/'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'https://searx.tiekoetter.com/'
+c.url.default_page = 'https://anon.sx/'
 
 # Adblocking lists
 c.content.blocking.adblock.lists = [

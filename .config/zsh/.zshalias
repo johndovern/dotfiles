@@ -3,7 +3,7 @@
 alias lf="lfrun"
 alias suckclean="sudo make clean install"
 alias unsuck="sudo make uninstall"
-alias lfav="cd /mnt/drives/inland/home/seraphim/Videos/Animu ; lfrun"
+alias lfav="cd ~/videos/wd5t && lfrun"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias suvim='sudo nvim'
 alias supi='sudo pacman -S'
