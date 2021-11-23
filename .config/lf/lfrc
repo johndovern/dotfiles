@@ -39,7 +39,7 @@ cmd open ${{
 	video/*) mpv $f -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
 	application/pgp-encrypted) $EDITOR $fx ;;
-	application/x-7z-compressed) zathura $fx -quiet >/dev/null 2>&1 ;;
+	application/x-7z-compressed) zathura $fx >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
     esac
 }}

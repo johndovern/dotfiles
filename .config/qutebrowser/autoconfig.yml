@@ -8,3 +8,4 @@ config_version: 2
 settings:
   content.notifications.enabled:
     https://boards.4chan.org: true
+    https://boards.4channel.org: true
