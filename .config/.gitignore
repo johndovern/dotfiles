@@ -30,6 +30,7 @@
 !nvim/
 !pinetry/
 !pulse/
+!qt5ct
 !qutebrowser/
 !shell/
 !sxiv/
@@ -39,5 +40,8 @@
 !zathura/
 !zsh/
 !.gitignore
+!dolphinrc
+!kdeglobals
 !mimeapps.list
 !user-dirs.dirs
+!xdg-desktop-portal-kderc
