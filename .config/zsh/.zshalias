@@ -5,10 +5,10 @@ alias suckclean="sudo make clean install"
 alias unsuck="sudo make uninstall"
 alias lfav="cd ~/videos/wd5t && lfrun"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias suvim='sudo nvim'
 alias supi='sudo pacman -S'
 alias lsgit='ls -a | sed '1,2d' | sed 's/^/!/' >> .gitignore'
 alias conf-up='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .'
 alias conf-stat='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
 alias conf-commit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update"'
 alias conf-push='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin master'
+alias rsync2='rsync --info=progress2 --partial -auvz'

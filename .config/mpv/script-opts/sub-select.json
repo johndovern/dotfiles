@@ -5,8 +5,8 @@
     },
     {
         "alang": "j[ap]n?",
-        "slang": ["eng?", "und"],
-        "blacklist": [ "sign", "song"]
+        "slang": ["eng?", "und", "jpn?"],
+        "blacklist": [ "Sings/Songs", "signs", "songs", "sign", "song"]
     },
     {
         "alang": "eng?",
