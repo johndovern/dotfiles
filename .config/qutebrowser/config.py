@@ -99,6 +99,7 @@ config.set('content.autoplay', False)
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
 c.tabs.show = 'switching'
+c.tabs.show_switching_delay = 1500
 
 # When to show the status bar.
 # Type: String
@@ -368,7 +369,7 @@ c.colors.tabs.even.bg = '#212121'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = '#ff6c6b'
+c.colors.tabs.selected.odd.fg = '#01a252'
 
 # Background color of selected odd tabs.
 # Type: QtColor
@@ -376,7 +377,7 @@ c.colors.tabs.selected.odd.bg = '#212121'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = '#ff6c6b'
+c.colors.tabs.selected.even.fg = '#01a252'
 
 # Background color of selected even tabs.
 # Type: QtColor
@@ -428,4 +429,4 @@ c.fonts.prompts = 'default_size sans-serif'
 c.fonts.statusbar = '11pt "FantasqueSansMono Nerd Font Mono"'
 
 # Padding around text for tabs
-c.tabs.padding = ({"bottom": 0, "left": 5, "right": 5, "top": 2})
+c.tabs.padding = ({"bottom": 3, "left": 5, "right": 5, "top": 3})

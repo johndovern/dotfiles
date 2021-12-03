@@ -10,6 +10,11 @@ map gcs  cd ~/.config/shell
 map gcq  cd ~/.config/qutebrowser
 map gcz  cd ~/.config/zsh
 
+# ~/repos
+map gr.  cd ~/repos
+map grb  cd ~/repos/basic-arch
+map grn  cd ~/repos/NARDS
+
 # ~/videos
 map gv.  cd ~/videos/wd5t/
 map gva  cd ~/videos/sandisk/anime-webms
@@ -40,6 +45,7 @@ map gl.  cd ~/.local
 map glb  cd ~/.local/bin
 map gld  cd ~/.local/src/dwm
 map glm  cd ~/.local/src/dmenu
+map glp  cd ~/.local/bin/scripts
 map gls  cd ~/.local/src/st
 
 # Server

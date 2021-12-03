@@ -1,5 +1,6 @@
 !! Transparency (0-1):
 *.alpha: 0.7
+!*.alphaOffset: 0.0
 
 !! Set a default font and font size below
 !! To see avaliable fonts on your system run
@@ -27,12 +28,12 @@ Xft.dpi: 120
 !*.swallowfloating: 		! 1 means swallow floating windows by default
 
 !! DWM & DMENU color settings
-*.colornbg:      #212121
-*.colornbord:    #eeeeee
-*.colornfg:      #eeeeee
-*.colorselbg:    #eeeeee
-*.colorselbord:  #f44336
-*.colorselfg:    #212121
+*.colornbg:      #0c0d0e
+*.colornbord:    #fcfdfe
+*.colornfg:      #fcfdfe
+*.colorselbg:    #fcfdfe
+*.colorselbord:  #db2d20
+*.colorselfg:    #0c0d0e
 
 !! DWM gaps, font, and other settings
 !! Set the background, foreground and cursor colors as below:
@@ -71,7 +72,7 @@ Xft.dpi: 120
 !! cyan
 !*.color6:       #80b1d3
 !*.color14:      #80b1d3
-!!fcfdfe 0c0d0e
+!
 !! white
 !*.color7:       #737475
 !*.color15:      #fcfdfe
@@ -111,10 +112,10 @@ Xft.dpi: 120
 *.color14:      #b5e4f4
 
 ! white
-*.color7:       #b7b8b9
+*.color7:       #fcfdfe
 *.color15:      #fcfdfe
 
+*.rcursorColor: #db2d20
 *.message: henlo
 *.sfont: -adobe-new century schoolbook-medium-i-normal--34-240-100-100-p-182-iso8859-1
-!*.sfont: -adobe-courier-bold-r-normal--34-240-100-100-m-200-iso8859-1
-!*.sfont: -b&h-lucidabright-medium-r-normal--34-240-100-100-p-193-iso8859-1
+*.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true

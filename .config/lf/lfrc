@@ -101,6 +101,15 @@ cmd chmod ${{
   lf -remote 'send reload'
 }}
 
+cmd chmodx ${{
+  for file in "$fx"
+  do
+    chmod +x $file
+  done
+
+  lf -remote 'send reload'
+}}
+
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(sed -e 's/#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
@@ -130,6 +139,7 @@ map b   $setbg $f
 map U   unselect
 map u   clear
 map .ch chmod
+map .cx chmodx
 
 map <c-e> down
 map <c-y> up
