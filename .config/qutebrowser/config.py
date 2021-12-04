@@ -84,6 +84,7 @@ c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https:/
 # default is used.
 # Type: Directory
 c.downloads.location.directory = '~/downloads/sandisk'
+c.downloads.remove_finished = 1000
 
 # Zoom for chan
 #config.set('zoom', '125', 'https://4channel.org/*')
@@ -285,7 +286,7 @@ c.colors.completion.category.border.bottom = '#3f4147'
 
 # Foreground color of the selected completion item.
 # Type: QtColor
-c.colors.completion.item.selected.fg = '#212121'
+c.colors.completion.item.selected.fg = '#0c0d0e'
 
 # Background color of the selected completion item.
 # Type: QssColor
@@ -305,7 +306,7 @@ c.colors.completion.scrollbar.fg = 'white'
 
 # Background color for the download bar.
 # Type: QssColor
-c.colors.downloads.bar.bg = '#212121'
+c.colors.downloads.bar.bg = '#0c0d0e'
 
 # Background color for downloads with errors.
 # Type: QtColor
@@ -313,19 +314,23 @@ c.colors.downloads.error.bg = '#ff6c6b'
 
 # Font color for hints.
 # Type: QssColor
-c.colors.hints.fg = '#212121'
+c.colors.hints.bg = '#0c0d0e'
+
+# Font color for hints.
+# Type: QssColor
+c.colors.hints.fg = '#fcfdfe'
 
 # Font color for the matched part of hints.
 # Type: QtColor
-c.colors.hints.match.fg = '#98be65'
+c.colors.hints.match.fg = '#ff6c6b'
 
 # Background color of an info message.
 # Type: QssColor
-c.colors.messages.info.bg = '#212121'
+c.colors.messages.info.bg = '#0c0d0e'
 
 # Background color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.bg = '#212121'
+c.colors.statusbar.normal.bg = '#0c0d0e'
 
 # Foreground color of the statusbar in insert mode.
 # Type: QssColor
@@ -333,15 +338,15 @@ c.colors.statusbar.insert.fg = 'white'
 
 # Background color of the statusbar in insert mode.
 # Type: QssColor
-c.colors.statusbar.insert.bg = '#497920'
+c.colors.statusbar.insert.bg = '#01a252'
 
 # Background color of the statusbar in passthrough mode.
 # Type: QssColor
-c.colors.statusbar.passthrough.bg = '#34426f'
+c.colors.statusbar.passthrough.bg = '#01a0e4'
 
 # Background color of the statusbar in command mode.
 # Type: QssColor
-c.colors.statusbar.command.bg = '#212121'
+c.colors.statusbar.command.bg = '#0c0d0e'
 
 # Foreground color of the URL in the statusbar when there's a warning.
 # Type: QssColor
@@ -349,39 +354,39 @@ c.colors.statusbar.url.warn.fg = 'yellow'
 
 # Background color of the tab bar.
 # Type: QssColor
-c.colors.tabs.bar.bg = '#212121'
+c.colors.tabs.bar.bg = '#0c0d0e'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#eeeeee'
+c.colors.tabs.odd.fg = '#01a252'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#212121'
+c.colors.tabs.odd.bg = '#0c0d0e'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#eeeeee'
+c.colors.tabs.even.fg = '#01a252'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#212121'
+c.colors.tabs.even.bg = '#0c0d0e'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = '#01a252'
+c.colors.tabs.selected.odd.fg = '#fcfdfe'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#212121'
+c.colors.tabs.selected.odd.bg = '#0c0d0e'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = '#01a252'
+c.colors.tabs.selected.even.fg = '#fcfdfe'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#212121'
+c.colors.tabs.selected.even.bg = '#0c0d0e'
 
 # Background color of pinned unselected odd tabs.
 # Type: QtColor
@@ -393,11 +398,11 @@ c.colors.tabs.pinned.even.bg = 'darkseagreen'
 
 # Background color of pinned selected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.odd.bg = '#212121'
+c.colors.tabs.pinned.selected.odd.bg = '#0c0d0e'
 
 # Background color of pinned selected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.selected.even.bg = '#212121'
+c.colors.tabs.pinned.selected.even.bg = '#0c0d0e'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
@@ -427,6 +432,10 @@ c.fonts.prompts = 'default_size sans-serif'
 # Font used in the statusbar.
 # Type: Font
 c.fonts.statusbar = '11pt "FantasqueSansMono Nerd Font Mono"'
+
+# Font used for hints
+# Type: Font
+c.fonts.hints = '14 "FantasqueSansMono Nerd Font Mono"'
 
 # Padding around text for tabs
 c.tabs.padding = ({"bottom": 3, "left": 5, "right": 5, "top": 3})
