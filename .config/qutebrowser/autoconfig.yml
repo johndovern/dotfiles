@@ -21,3 +21,5 @@ settings:
     global: bold default_size default_family
   statusbar.show:
     global: in-mode
+  tabs.show:
+    global: always
