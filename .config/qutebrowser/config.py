@@ -324,6 +324,10 @@ c.colors.hints.fg = '#fcfdfe'
 # Type: QtColor
 c.colors.hints.match.fg = '#ff6c6b'
 
+# Font color for border of hints
+# Type: QtColor
+c.hints.border = '1px solid #fcfdfe'
+
 # Background color of an info message.
 # Type: QssColor
 c.colors.messages.info.bg = '#0c0d0e'
