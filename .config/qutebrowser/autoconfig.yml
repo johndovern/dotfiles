@@ -20,4 +20,4 @@ settings:
   fonts.hints:
     global: bold default_size default_family
   statusbar.show:
-    global: always
+    global: in-mode

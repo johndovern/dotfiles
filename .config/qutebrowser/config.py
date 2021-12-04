@@ -32,6 +32,7 @@ config.bind('.ab', 'adblock-update')
 # Binds for opening websites
 config.bind('chg', 'open -t https://4chan.org/g')
 config.bind('wsg', 'open -t https://4chan.org/wsg')
+config.bind('.iv', 'open -t https://yewtu.be')
 
 # Rebinding defaults for qutebrowser
 config.bind('dw', 'hint linds download')
@@ -362,7 +363,7 @@ c.colors.tabs.bar.bg = '#0c0d0e'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#01a252'
+c.colors.tabs.odd.fg = '#01a0e4'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
@@ -370,7 +371,7 @@ c.colors.tabs.odd.bg = '#0c0d0e'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#01a252'
+c.colors.tabs.even.fg = '#01a0e4'
 
 # Background color of unselected even tabs.
 # Type: QtColor
