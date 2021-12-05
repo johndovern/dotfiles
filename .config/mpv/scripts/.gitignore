@@ -21,5 +21,6 @@
 !sub-select.lua
 !trackselect.lua
 !webm.lua
+!youtube-download.lua
 !youtube-quality.lua
 !ytdl_hook.lua
