@@ -101,7 +101,7 @@ config.set('content.autoplay', False)
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
 c.tabs.show = 'switching'
-c.tabs.show_switching_delay = 1500
+c.tabs.show_switching_delay = 2500
 
 # When to show the status bar.
 # Type: String

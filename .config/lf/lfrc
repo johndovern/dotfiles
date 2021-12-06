@@ -21,13 +21,6 @@ set cleaner ~/.config/lf/cleaner
 
 # cmds/functions
 
-#cmd open ${{
-#    case $(file --mime-type "$f" -bL) in
-#        text/*|application/json) $EDITOR "$f";;
-#        *) xdg-open "$f" ;;
-#    esac
-#}}
-
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -bL) in
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura $fx >/dev/null 2>&1 ;;
@@ -90,24 +83,39 @@ cmd setbg "$1"
 cmd bulkrename $vidir
 
 cmd chmod ${{
-  printf "Mode Bits: "
-  read ans
+	printf "Mode Bits: "
+	read ans
 
-  for file in "$fx"
-  do
-    chmod $ans $file
-  done
+	for file in "$fx"; do
+	chmod $ans $file
+	done
 
-  lf -remote 'send reload'
+	lf -remote 'send reload'
 }}
 
 cmd chmodx ${{
-  for file in "$fx"
-  do
-    chmod +x $file
-  done
+	for file in "$fx"; do
+	chmod +x $file
+	done
 
-  lf -remote 'send reload'
+	lf -remote 'send reload'
+}}
+
+cmd bscript ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "script name: "
+	read ans
+	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans
+}}
+
+cmd track ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "track?[y/N]"
+	read ans
+	[ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
 }}
 
 # Bindings
@@ -146,6 +154,8 @@ map <c-y> up
 map V push :!nvim<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
+map S bscript
+map T track
 
 map d
 

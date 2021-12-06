@@ -14,8 +14,8 @@
 Xft.dpi: 120
 
 !!! DWM resources
-*.borderpx: 4	! border pixel of windows
-*.gappih: 10	! horiz inner gap between windows
+*.borderpx: 2	! border pixel of windows
+*.gappih: 15	! horiz inner gap between windows
 *.gappiv: 15	! vert inner gap between windows
 *.gappoh: 20	! horiz outer gap between windows and screen edge
 *.gappov: 20	! vert outer gap between windows and screen edge

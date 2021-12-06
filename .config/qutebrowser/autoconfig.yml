@@ -9,4 +9,4 @@ settings:
   content.notifications.enabled:
     https://boards.4channel.org: true
   tabs.show:
-    global: always
+    global: switching
