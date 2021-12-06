@@ -35,7 +35,7 @@ config.bind('wsg', 'open -t https://4chan.org/wsg')
 config.bind('.iv', 'open -t https://yewtu.be')
 
 # Rebinding defaults for qutebrowser
-config.bind('dw', 'hint linds download')
+config.bind('dw', 'hint links download')
 config.bind('scp', 'config-source')
 config.bind('.zh', 'history-clear')
 config.bind('k', 'scroll-page 0 -0.5')
@@ -50,8 +50,9 @@ config.bind('l', 'tab-next')
 config.bind('h', 'tab-prev')
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('e', 'hint all tab')
+config.bind('m', 'tab-move')
 config.unbind('q')
-config.unbind('m')
+config.unbind('gm')
 
 # Bind chanined commands
 def bind_chained(key, *commands):
