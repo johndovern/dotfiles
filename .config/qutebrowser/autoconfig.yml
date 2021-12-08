@@ -8,5 +8,3 @@ config_version: 2
 settings:
   content.notifications.enabled:
     https://boards.4channel.org: true
-  statusbar.show:
-    global: in-mode
