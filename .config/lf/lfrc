@@ -107,6 +107,14 @@ cmd bscript ${{
 	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans
 }}
 
+cmd cred ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "file name: "
+	read ans
+	[ ! -e $ans ] && nvim $ans
+}}
+
 cmd track ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -146,6 +154,7 @@ map U   unselect
 map u   clear
 map .ch chmod
 map .cx chmodx
+map .ce cred
 map .gi %dmenugitignore
 
 map <c-e> down

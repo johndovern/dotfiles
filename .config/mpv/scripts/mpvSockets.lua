@@ -40,7 +40,12 @@ end
 mp.register_event("file-loaded", socket_later)
 
 function shutdown_handler()
+    local media_title = mp.get_property("media-title")
+    if os.execute(string.format("umpv-check '%s'", media_title, "down")) then
         os.remove(join_paths(tempDir, "mpvSockets", ppid))
+    else
+        os.remove(join_paths(tempDir, "mpvSockets/umpv_socket"))
+    end
 end
 
 mp.register_event("shutdown", shutdown_handler)

@@ -1,7 +1,7 @@
-### Updated on Thu Dec  9 07:31:44 PM PST 2021 ###
+### Updated on Thu Dec  9 10:39:29 PM PST 2021 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 !bookmark
 !booksplit
 !compiler
@@ -57,4 +57,6 @@
 !transadd
 !tutorialvids
 !umpv
+!umpv-backup
 !umpv-check
+!umpv-shutdown
