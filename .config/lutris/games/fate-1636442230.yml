@@ -1,0 +1,7 @@
+game:
+  exe: "/home/anon/games/Fate\uFF0Fstay night[Realta Nua] Ultimate Edition/Fate.exe"
+  prefix: ~/.local/share/wineprefixes/fate
+system:
+  game_path: /home/anon/games
+wine:
+  esync: false

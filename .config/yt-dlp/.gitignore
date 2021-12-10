@@ -1,0 +1,10 @@
+### Updated on Thu Dec  9 09:36:14 PM PST 2021 ###
+*
+!.gitignore
+!audio.conf
+#audio-soundcloud.conf
+!audio-webms.conf
+#audio-webms-playlist.conf
+!video.conf
+!video-playlist.conf
+!wsg-video.conf
