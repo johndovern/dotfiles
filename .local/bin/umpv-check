@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sleep 0.5
+i=$(wmctrl -lx | grep "$1")
+if echo "$i" | grep "gl.mpv"; then exit 0;
+elif echo "$i" | grep "umpv.mpv"; then exit 1;
+else exit 1; fi
+#notify-send "not umpv $i";
+#notify-send "umpv $i";

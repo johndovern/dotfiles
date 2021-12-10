@@ -1,6 +1,4 @@
-
-#set cleaner ~/.config/lf/cleaner
-# Luke's lf settings
+# lf settings
 
 # Basic vars
 set shell bash
@@ -148,6 +146,7 @@ map U   unselect
 map u   clear
 map .ch chmod
 map .cx chmodx
+map .gi %dmenugitignore
 
 map <c-e> down
 map <c-y> up
@@ -156,6 +155,7 @@ map V push :!nvim<space>
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 map S bscript
 map T track
+map <esc> :clear
 
 map d
 
