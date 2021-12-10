@@ -1,4 +1,9 @@
+### Updated on Thu Dec  9 09:41:33 PM PST 2021 ###
 *
 !.gitignore
 !autoconfig.yml
+#bookmarks
 !config.py
+#greasemonkey
+#qsettings
+#quickmarks

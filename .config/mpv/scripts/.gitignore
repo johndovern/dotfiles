@@ -1,12 +1,14 @@
+### Updated on Thu Dec  9 09:45:15 PM PST 2021 ###
 *
+!.gitignore
 !auto-profiles.lua
 !autospeedwin.lua
 !betterchapters.lua
 !coverart.lua
 !crop.lua
-!.gitignore
 !lrc-autoload.lua
 !manga-reader.lua
+!mpvSockets.lua
 !ontop-playback.lua
 !open-file-dialog.lua
 !persist-properties.lua
@@ -24,4 +26,3 @@
 !youtube-download.lua
 !youtube-quality.lua
 !ytdl_hook.lua
-!mpvSockets.lua

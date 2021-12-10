@@ -1,11 +1,16 @@
+### Updated on Thu Dec  9 09:43:46 PM PST 2021 ###
 *
-!fonts
-!script-opts
-!scripts
-!shaders
 !.gitignore
+!fonts
+#icc
 !image-input.conf
 !input.conf
 !menu.json
 !mpv.conf
 !persistent_config.json
+#playlists
+!script-opts
+!scripts
+!shaders
+#unused
+#watch_later

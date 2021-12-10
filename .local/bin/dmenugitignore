@@ -19,7 +19,7 @@ while read -r t; do t1=${t:1}; in=$(echo "#$t1"); b=0; l=0
   while read -r o; do i=${o:1}; k=$(wc -l < "$og"); l=$((l+1))
     if [[ "$o" == "*" ]]; then continue; fi
     if [[ "$t1" == "$i" ]]; then echo "$o" >> "$g"; l=$((l-1)); continue; fi
-    if [[ "$l" == "$k" ]]; then case "$(printf "Track\\nIgnore" | dmenu -i -p "New item -- $t1 ")" in
+    if [[ "$l" == "$k" ]]; then nn=1; case "$(printf "Track\\nIgnore" | dmenu -i -p "New item -- $t1 ")" in
       "Track") echo "$t" >> "$g"; continue ;;
       "Ignore") echo "$in" >> "$g"; continue ;;
       *) continue;;
@@ -36,7 +36,10 @@ done < "$og"
 while read -r i; do
   if [[ "$i" == "*" ]]; then s=1; break; fi
 done < "$g"
-if [[ -z ${s+x} ]]; then sed -i "$ a *" "$g"; fi
+rmog=$(<"$og")
+if [[ "$rmog" == "###" ]]; then rm "$og"; fi
+if [[ -z ${s+x} ]]; then sed -i "1 a *" "$g"; fi
+if [[ -z ${nn+x} ]]; then rm "$og"; fi
 rm -rf "$tmp"
 if [[ -n ${dir+x} ]]; then notify-send "gitignore file in $dir updated"; fi
 exit

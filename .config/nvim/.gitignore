@@ -1,3 +1,6 @@
+### Updated on Thu Dec  9 09:42:20 PM PST 2021 ###
 *
 !.gitignore
+#autoload
 !init.vim
+#plugged

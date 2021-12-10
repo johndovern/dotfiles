@@ -1,8 +1,9 @@
+### Updated on Thu Dec  9 09:41:28 PM PST 2021 ###
 *
+!.gitignore
 !aliasrc
 !bm-dirs
 !bm-files
-!.gitignore
 !inputrc
 !profile
 !shortcutrc

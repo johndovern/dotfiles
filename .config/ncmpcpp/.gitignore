@@ -1,4 +1,6 @@
+### Updated on Thu Dec  9 09:43:28 PM PST 2021 ###
 *
+!.gitignore
 !bindings
 !config
-!.gitignore
+#error.log
