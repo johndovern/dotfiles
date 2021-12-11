@@ -1,4 +1,5 @@
-### Updated on Thu Dec  9 09:45:15 PM PST 2021 ###
+### Updated on Fri Dec 10 04:11:14 PM PST 2021 ###
+### < !mpvSockets.lua > deleted since last update ###
 *
 !.gitignore
 !auto-profiles.lua
@@ -8,7 +9,7 @@
 !crop.lua
 !lrc-autoload.lua
 !manga-reader.lua
-!mpvSockets.lua
+!mpvSockets-umpv.lua
 !ontop-playback.lua
 !open-file-dialog.lua
 !persist-properties.lua
