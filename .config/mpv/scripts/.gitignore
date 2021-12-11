@@ -1,9 +1,11 @@
-### Updated on Fri Dec 10 04:11:14 PM PST 2021 ###
-### < !mpvSockets.lua > deleted since last update ###
+### Updated on Fri Dec 10 07:19:21 PM PST 2021 ###
+### < !youtube-download.lua > deleted since last update ###
+### < !autospeedwin.lua > deleted since last update ###
 *
 !.gitignore
+#.gitignore-old
+!autocrop.lua
 !auto-profiles.lua
-!autospeedwin.lua
 !betterchapters.lua
 !coverart.lua
 !crop.lua
@@ -24,6 +26,5 @@
 !sub-select.lua
 !trackselect.lua
 !webm.lua
-!youtube-download.lua
 !youtube-quality.lua
 !ytdl_hook.lua
