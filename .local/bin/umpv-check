@@ -1,7 +1,15 @@
 #!/bin/sh
 
+output=$(xdotool search -pid "$1" | xargs -I '{}' xprop -id '{}' | grep umpv)
+if xdotool search -pid "$1" | xargs -I '{}' xprop -id '{}' | grep umpv; then
+	notify-send -u critical "xdotool, works here is the ppid $1"
+	notify-send -u critical "$output"
+	exit 1
+else
+	notify-send -u critical "$output"
+	exit 0
+fi
 if [[ "$2" != "down" ]]; then sleep 0.5; fi
 i=$(wmctrl -lx | grep "$1")
-if echo "$i" | grep "gl.mpv"; then exit 0;
-elif echo "$i" | grep "umpv.mpv"; then exit 1;
-else exit 1; fi
+if echo "$i" | grep "umpv.mpv"; then exit 1; fi
+if echo "$i" | grep "gl.mpv"; then exit 0; fi
