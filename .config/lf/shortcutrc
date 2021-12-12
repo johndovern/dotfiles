@@ -4,10 +4,11 @@ map gcl  cd ~/.config/lf
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
 map gcEs $$EDITOR "/home/anon/.config/lf/shortcutrc"
 map gcm  cd ~/.config/mpv
-map gcy  cd ~/.config/yt-dlp
-map gcx  cd ~/.config/x11
-map gcs  cd ~/.config/shell
+map gcv  cd ~/.config/nvim
 map gcq  cd ~/.config/qutebrowser
+map gcs  cd ~/.config/shell
+map gcx  cd ~/.config/x11
+map gcy  cd ~/.config/yt-dlp
 map gcz  cd ~/.config/zsh
 
 # ~/repos
