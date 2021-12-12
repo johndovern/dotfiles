@@ -1,8 +1,12 @@
-### Updated on Fri Dec 10 07:19:59 PM PST 2021 ###
+### Updated on Sat Dec 11 10:38:56 PM PST 2021 ###
+### < #umpv-check-fucked > deleted since last update ###
+### < #umpv-check-backup > deleted since last update ###
+### < !umpv-check > deleted since last update ###
+### < !umpv-backup > deleted since last update ###
+### < #.gitignore-very-old > deleted since last update ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
-#.gitignore-very-old
 !bookmark
 !booksplit
 !compiler
@@ -58,7 +62,4 @@
 !transadd
 !tutorialvids
 !umpv
-!umpv-backup
-!umpv-check
-#umpv-check-backup
-#umpv-check-fucked
+!wally
