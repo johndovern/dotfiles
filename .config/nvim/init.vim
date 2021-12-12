@@ -18,6 +18,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 set title
@@ -30,6 +32,9 @@ set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Some basics:
 	nnoremap c "_c
@@ -124,6 +129,13 @@ set noshowcmd
 	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 " Recompile dwmblocks on config edit.
 	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+" Autocenter screen when entering insert mode
+  autocmd InsertEnter * norm zz
+
+" Fix indenting visual block
+  vmap > >gv
+  vmap < <gv
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
