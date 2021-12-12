@@ -1,8 +1,9 @@
+### Updated on Sun Dec 12 12:55:55 AM PST 2021 ###
 *
 !.config
-!.local
 !.gitignore
 !.gitmodules
+!.local
 !.xprofile
 !.zprofile
 !README.md

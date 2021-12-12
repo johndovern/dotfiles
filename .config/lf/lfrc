@@ -162,7 +162,7 @@ map u   clear
 map .ch chmod
 map .cx chmodx
 map .ce cred
-map .gi %dmenugitignore
+map .gi %dmenugitignore $f
 
 map <c-e> down
 map <c-y> up
