@@ -111,7 +111,7 @@ cmd bscript ${{
 	set -f
 	printf "script name: "
 	read ans
-	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans
+	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans && nvim $ans
 }}
 
 cmd cred ${{

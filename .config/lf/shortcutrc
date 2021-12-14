@@ -19,8 +19,9 @@ map grm  cd ~/repos/mpvSockets-umpv
 map grr  cd ~/repos/reverse-gitignore
 
 # ~/videos
-map gv.  cd ~/videos/wd5t/
-map gva  cd ~/videos/sandisk/anime-webms
+map gv.  cd ~/videos/sandisk/
+map gva  cd ~/videos/wd5t/
+map gvA  cd ~/videos/sandisk/anime-webms
 map gvw  cd ~/videos/sandisk/webms
 map gvy  cd ~/videos/sandisk/youtube
 map gv4  cd ~/videos/sandisk/4chan-banners

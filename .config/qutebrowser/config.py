@@ -1,9 +1,9 @@
 # Bindings for normal mode
 # Binds for mpv and yt-dlp
 config.bind('.mh', 'hint links spawn --detach mpv --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.uh', 'hint links spawn --detach umpv {hint-url}')
 config.bind('.mn', 'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
 config.bind('.un', 'spawn --detach umpv {url}')
-config.bind('.uh', 'hint links spawn --detach umpv {hint-url}')
 config.bind('.ur', 'hint --rapid links spawn --detach umpv {hint-url}')
 config.bind('.mps', 'hint links spawn --detach mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.dyph', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {hint-url}')
@@ -17,7 +17,7 @@ config.bind('.dsch', 'hint links spawn --output-messages yt-dlp --config-locatio
 
 # open 4chan webms/pics in mpv
 config.bind('.wsg', 'spawn --detach wsg2mpv')
-config.bind('.dwsg', 'spawn --detach --output-messages wsg2ytdlp')
+config.bind('.dwsg', 'spawn --detach --output-messages wsg2ytdlp-qute {url}')
 
 # Custom dot commands
 config.unbind('.')
