@@ -1,4 +1,4 @@
-### Updated on Thu Dec  9 08:53:29 PM PST 2021 ###
+### Updated on Tue Dec 14 12:07:07 AM PST 2021 ###
 *
 !.gitignore
 #BraveSoftware
@@ -13,6 +13,7 @@
 #goa-1.0
 !gtk-2.0
 !gtk-3.0
+#hakuneko-desktop
 #htop
 !kdeglobals
 #kdenlive-layoutsrc
@@ -43,7 +44,7 @@
 !sxiv
 #syncthing
 #syncthing-gtk
-#transmission
+!transmission
 #trashrc
 !user-dirs.dirs
 #vlc
