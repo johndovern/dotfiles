@@ -1,0 +1,9 @@
+### Updated on Tue Dec 14 12:07:45 AM PST 2021 ###
+*
+!.gitignore
+#blocklists
+#dht.dat
+#resume
+!settings.json
+#stats.json
+#torrents
