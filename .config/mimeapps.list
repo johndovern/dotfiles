@@ -13,6 +13,7 @@ application/rss+xml=rss.desktop
 video/x-matroska=video.desktop
 x-scheme-handler/lbry=lbry.desktop
 inode/directory=file.desktop
+video/webm=mpv.desktop
 
 [Added Associations]
-video/webm=org.qutebrowser.qutebrowser.desktop;brave-browser.desktop;
+video/webm=mpv.desktop;org.qutebrowser.qutebrowser.desktop;brave-browser.desktop;
