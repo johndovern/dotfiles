@@ -27,19 +27,20 @@ set cleaner ~/.config/lf/cleaner
 #}}
 
 cmd open ${{
-    case $(file --mime-type "$(readlink -f $fx)" -bL) in
-	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura $fx >/dev/null 2>&1 ;;
-        text/*) $EDITOR $fx;;
-	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | setsid -f sxiv -aio 2>/dev/null | lf-select & ;;
-	audio/*) mpv --audio-display=no $f ;;
-	video/*) mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
-	application/pgp-encrypted) $EDITOR $fx ;;
-	application/x-7z-compressed) zathura $fx >/dev/null 2>&1 ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
-    esac
+  case $(file --mime-type "$(readlink -f $fx)" -bL) in
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura $fx >/dev/null 2>&1 ;;
+    text/*) $EDITOR $fx;;
+    application/json) $EDITOR $fx;;
+    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+    image/svg+xml) display -- $f ;;
+    image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | setsid -f sxiv -aio 2>/dev/null | lf-select & ;;
+    audio/*) mpv --audio-display=no $f ;;
+    video/*) mpv $f -quiet >/dev/null 2>&1 ;;
+    application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
+    application/pgp-encrypted) $EDITOR $fx ;;
+    application/x-7z-compressed) zathura $fx >/dev/null 2>&1 ;;
+    *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+  esac
 }}
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
@@ -170,6 +171,7 @@ map .ce cred
 map .gi %dmenugitignore $f
 map .mf mknf
 map .l  $lfrun
+map .r  reload
 
 map <c-e> down
 map <c-y> up

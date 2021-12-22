@@ -1,6 +1,7 @@
-### Updated on Tue Dec 14 12:07:07 AM PST 2021 ###
+### Updated on Tue Dec 21 12:29:51 AM PST 2021 ###
 *
 !.gitignore
+#.gitignore-old
 #BraveSoftware
 !calcurse
 #cef_user_data
