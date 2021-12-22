@@ -1,7 +1,7 @@
 # ZSH alias' sourced by $HOME/.config/zsh/.zshrc
 
 alias lf="lfrun"
-alias suckclean="sudo make uninstall && sudo make clean install"
+alias suckclean="sudo make uninstall && sudo make clean install && renew-dwm"
 alias lfav="cd ~/videos/wd5t && lfrun"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias supi='sudo pacman -Sy'

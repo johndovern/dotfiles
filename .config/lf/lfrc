@@ -184,6 +184,6 @@ map <esc> :clear
 
 map d
 
-map <a-z> $sudo make uninstall && sudo make clean install
+map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
