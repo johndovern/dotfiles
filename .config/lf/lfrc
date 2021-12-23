@@ -28,7 +28,7 @@ set cleaner ~/.config/lf/cleaner
 
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip) zathura $fx >/dev/null 2>&1 ;;
     text/*) $EDITOR $fx;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
@@ -137,6 +137,10 @@ cmd mknf ${{
 	lf -remote 'send reload'
 }}
 
+cmd prefresh %{{
+  lf -remote 'send reload'
+}}
+
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
@@ -172,6 +176,7 @@ map .gi %dmenugitignore $f
 map .mf mknf
 map .l  $lfrun
 map .r  reload
+map p   paste && $lf -remote reload
 
 map <c-e> down
 map <c-y> up
