@@ -19,16 +19,9 @@ set cleaner ~/.config/lf/cleaner
 
 # cmds/functions
 
-#cmd open ${{
-#    case $(file --mime-type "$f" -bL) in
-#        text/*|application/json) $EDITOR "$f";;
-#        *) xdg-open "$f" ;;
-#    esac
-#}}
-
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip) zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*) $EDITOR $fx;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
@@ -137,8 +130,9 @@ cmd mknf ${{
 	lf -remote 'send reload'
 }}
 
-cmd prefresh %{{
-  lf -remote 'send reload'
+cmd mangamove ${{
+  [ ! -e read ] && mkdir read
+  mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
 }}
 
 # Bindings
@@ -173,10 +167,11 @@ map .ch chmod
 map .cx chmodx
 map .ce cred
 map .gi %dmenugitignore $f
-map .mf mknf
+map .nf mknf
 map .l  $lfrun
 map .r  reload
-map p   paste && $lf -remote reload
+map .m  mangamove
+map .zm %manga-zip
 
 map <c-e> down
 map <c-y> up
