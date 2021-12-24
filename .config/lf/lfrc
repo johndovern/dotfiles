@@ -135,6 +135,11 @@ cmd mangamove ${{
   mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
 }}
 
+cmd mangabulk %{{
+  manga-bulk
+  lf -remote 'send reload'
+}}
+
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
@@ -170,8 +175,11 @@ map .gi %dmenugitignore $f
 map .nf mknf
 map .l  $lfrun
 map .r  reload
-map .m  mangamove
-map .zm %manga-zip
+map .mm  mangamove
+map .mz %manga-zip
+map .mc $manga-name-clean
+map .mb $manga-bulk
+map .bm mangabulk
 
 map <c-e> down
 map <c-y> up
