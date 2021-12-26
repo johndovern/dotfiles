@@ -1,16 +1,13 @@
-### Updated on Sat Dec 11 10:38:56 PM PST 2021 ###
-### < #umpv-check-fucked > deleted since last update ###
-### < #umpv-check-backup > deleted since last update ###
-### < !umpv-check > deleted since last update ###
-### < !umpv-backup > deleted since last update ###
-### < #.gitignore-very-old > deleted since last update ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Sun Dec 26 03:36:04 AM PST 2021 ###
 *
 !.gitignore
+#.gitignore-old
+#.gitignore-very-old
 !bookmark
 !booksplit
 !compiler
 !cron
+!dgitauto
 !displayselect
 !dmenugitignore
 !dmenuhandler

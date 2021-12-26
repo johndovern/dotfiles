@@ -1,3 +1,18 @@
+### Updated on Sun Dec 26 03:35:36 AM PST 2021 ###
 *
 !.gitignore
+#.gitignore-old
+#40da7ccbd00701ac27ca6da361845606-card-database.tdb
+#40da7ccbd00701ac27ca6da361845606-default-sink
+#40da7ccbd00701ac27ca6da361845606-default-source
+#40da7ccbd00701ac27ca6da361845606-device-volumes.tdb
+#40da7ccbd00701ac27ca6da361845606-runtime
+#40da7ccbd00701ac27ca6da361845606-stream-volumes.tdb
+#cookie
 !daemon.conf
+#de3f7e49cb29e2d728514f9f618e0aed-card-database.tdb
+#de3f7e49cb29e2d728514f9f618e0aed-default-sink
+#de3f7e49cb29e2d728514f9f618e0aed-default-source
+#de3f7e49cb29e2d728514f9f618e0aed-device-volumes.tdb
+#de3f7e49cb29e2d728514f9f618e0aed-runtime
+#de3f7e49cb29e2d728514f9f618e0aed-stream-volumes.tdb

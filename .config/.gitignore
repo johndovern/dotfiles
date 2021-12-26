@@ -1,10 +1,12 @@
-### Updated on Tue Dec 21 12:29:51 AM PST 2021 ###
+### Updated on Sun Dec 26 03:35:13 AM PST 2021 ###
 *
 !.gitignore
-#.gitignore-old
+#.gitignore-very-old
 #BraveSoftware
 !calcurse
 #cef_user_data
+#coreapps
+#cubocore
 #dconf
 !dolphinrc
 !dunst
@@ -48,6 +50,7 @@
 !transmission
 #trashrc
 !user-dirs.dirs
+#Vieb
 #vlc
 !wal
 !wget

@@ -1,0 +1,6 @@
+### Updated on Sun Dec 26 12:05:51 AM PST 2021 ###
+*
+!.gitignore
+!conf
+#hooks
+!keys

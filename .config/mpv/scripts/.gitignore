@@ -1,5 +1,4 @@
-### Updated on Tue Dec 21 12:28:19 AM PST 2021 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Sun Dec 26 03:35:29 AM PST 2021 ###
 *
 !.gitignore
 !autocrop.lua
