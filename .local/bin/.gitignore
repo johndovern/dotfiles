@@ -1,4 +1,5 @@
-### Updated on Sun Dec 26 03:36:04 AM PST 2021 ###
+### Updated on Sun Dec 26 03:41:00 AM PST 2021 ###
+### < !dgitauto > deleted since last update ###
 *
 !.gitignore
 #.gitignore-old
@@ -7,9 +8,9 @@
 !booksplit
 !compiler
 !cron
-!dgitauto
 !displayselect
 !dmenugitignore
+!dmenugitignore-auto
 !dmenuhandler
 !dmenumount
 !dmenumountcifs
