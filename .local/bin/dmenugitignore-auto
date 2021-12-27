@@ -8,8 +8,10 @@ Options:
   -d, --dir           path to the git dir whose .gitignore files you want to update.
                       must be a valid git dir. default is \$HOME/.cfg
                       e.g.  --git-dir=\$HOME/.cfg
+                      NOTE the lack of trailing "/"
   -t, --tree          working tree for the git repo, default is \$HOME
                       e.g.  --work-tree=/path/to/working/tree
+                      NOTE the lack of trailing "/"
   -b, --branch        update the files tracked in a certain branch.
                       useful if you maintian mutliple branches on one system.
                       default is master.
@@ -39,8 +41,8 @@ eval set -- "$OPTS"
 while : ; do
   case "$1" in
     -h | --help ) usage;                 exit 0;;
-    -d | --dir )  gitrepodir="$2";     shift 2;;
-    -t | --tree ) gitrepotree="$2";    shift 2;;
+    -d | --dir )  gitrepodir="${2%/}";     shift 2;;
+    -t | --tree ) gitrepotree="${2%/}";    shift 2;;
     -b | --branch ) branch="$2";        shift 2;;
     *) break;;
   esac
@@ -53,7 +55,7 @@ if [ -z "$branch" ]; then branch="master"; fi
 autoupdater() { \
   gitignorefiles=$(/usr/bin/git --git-dir="$gitrepodir" --work-tree="$gitrepotree" ls-tree -r "$branch" --name-only | grep ".gitignore")
   while IFS= read -r dirswithgit; do
-    dirstoupdate="$HOME/${dirswithgit%.gitignore}"
+    dirstoupdate="$gitrepotree/${dirswithgit%.gitignore}"
     if [ -d "$dirstoupdate" ]; then
       cd "$dirstoupdate" || exit
       dmenugitignore
