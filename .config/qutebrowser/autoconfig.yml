@@ -6,6 +6,16 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
+  content.javascript.enabled:
+    '*://*.boards.4channel.org/*': true
+    '*://boards.4channel.org/*': true
   content.notifications.enabled:
     https://boards.4channel.org: true
   statusbar.show:
