@@ -1,4 +1,4 @@
-### Updated on Sun Dec 26 03:35:13 AM PST 2021 ###
+### Updated on Tue Dec 28 08:12:37 PM PST 2021 ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -33,6 +33,7 @@
 !mpv
 !ncmpcpp
 #neofetch
+!nsxiv
 !nvim
 #pavucontrol.ini
 #pcmanfm
@@ -47,6 +48,7 @@
 !sxiv
 #syncthing
 #syncthing-gtk
+!tmux
 !transmission
 #trashrc
 !user-dirs.dirs
