@@ -42,7 +42,7 @@ Xft.dpi: 120
 !! Light Theme Off
 !! special
 !*.foreground:   #515253
-!*.background:   #b7b8b9
+!*.background:   #fcfdfe
 !*.cursorColor:  #515253
 !
 !! black

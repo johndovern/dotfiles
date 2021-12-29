@@ -17,3 +17,4 @@ alias conf-update='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add -u &
 alias conf-add='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add . && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update" && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin master'
 alias rsync2='rsync --info=progress2 --partial -auvz'
 alias test-txt='nvim test.txt'
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'

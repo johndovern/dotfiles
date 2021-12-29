@@ -7,6 +7,7 @@ map gcm  cd ~/.config/mpv
 map gcv  cd ~/.config/nvim
 map gcq  cd ~/.config/qutebrowser
 map gcs  cd ~/.config/shell
+map gct  cd ~/.config/tmux
 map gcx  cd ~/.config/x11
 map gcy  cd ~/.config/yt-dlp
 map gcz  cd ~/.config/zsh
