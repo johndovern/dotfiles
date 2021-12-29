@@ -85,7 +85,7 @@ c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https:/
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
 # Type: Directory
-c.downloads.location.directory = '~/downloads/sandisk'
+c.downloads.location.directory = '~/'
 c.downloads.remove_finished = 1000
 
 # Zoom for chan

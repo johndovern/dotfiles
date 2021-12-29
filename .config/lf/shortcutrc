@@ -45,54 +45,11 @@ map gds  cd ~/downloads/sandisk/webms-to-sort
 # Manga
 map gma cd ~/documents/sandisk/Mangas/
 
-# src
+# local
 map gl.  cd ~/.local
 map glb  cd ~/.local/bin
 map gld  cd ~/.local/src/dwm
 map glm  cd ~/.local/src/dmenu
 map glp  cd ~/.local/bin/scripts
+map glr  cd ~/.local/src/
 map gls  cd ~/.local/src/st
-
-# Server
-map siv  cd /mnt/server/symlinks/inland/Videos
-map sw5  cd /mnt/server/symlinks/wd5t
-#map s  cd /mnt/server/symlinks
-
-# PIXEL
-#map dp  cd /mnt/drives/pixel/
-
-# Home
-map gh.  cd ~/
-
-## ~/[Misc]
-#map gD   cd ~/downloads
-#
-#map Ccac cd "/home/anon/.cache"
-#map Ccf cd "/home/anon/.config"
-#map CD cd "/home/anon/Downloads"
-#map Cd cd "/home/anon/Documents"
-#map Cdt cd "/home/anon/.local/share"
-#map Crr cd "/home/anon/.local/src"
-#map Ch cd "/home/anon"
-#map Cm cd "/home/anon/Music"
-#map Cmn cd "/mnt"
-#map Cpp cd "/home/anon/Pictures"
-#map Csc cd "/home/anon/.local/bin"
-#map Csrc cd "/home/anon/.local/src"
-#map Cvv cd "/home/anon/Videos"
-#map Ebf $$EDITOR "/home/anon/.config/shell/bm-files"
-#map Ebd $$EDITOR "/home/anon/.config/shell/bm-dirs"
-#map Ecfx $$EDITOR "/home/anon/.config/x11/xresources"
-#map Ecfb $$EDITOR "~/.local/src/dwmblocks/config.h"
-#map Ecfv $$EDITOR "/home/anon/.config/nvim/init.vim"
-#map Ecfz $$EDITOR "/home/anon/.config/zsh/.zshrc"
-#map Ecfa $$EDITOR "/home/anon/.config/shell/aliasrc"
-#map Ecfp $$EDITOR "/home/anon/.config/shell/profile"
-#map Ecfm $$EDITOR "/home/anon/.config/mutt/muttrc"
-#map Ecfn $$EDITOR "/home/anon/.config/newsboat/config"
-#map Ecfu $$EDITOR "/home/anon/.config/newsboat/urls"
-#map Ecfmb $$EDITOR "/home/anon/.config/ncmpcpp/bindings"
-#map Ecfmc $$EDITOR "/home/anon/.config/ncmpcpp/config"
-#map Ecfl $$EDITOR "/home/anon/.config/lf/lfrc"
-#map EcfL $$EDITOR "/home/anon/.config/lf/scope"
-#map EcfX $$EDITOR "/home/anon/.config/sxiv/exec/key-handler"
