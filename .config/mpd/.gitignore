@@ -1,6 +1,7 @@
-### Updated on Sun Dec 26 03:35:22 AM PST 2021 ###
+### Updated on Wed Dec 29 08:41:29 PM PST 2021 ###
 *
 !.gitignore
 #.gitignore-old
+#.gitignore-very-old
 !mpd.conf
 #playlists

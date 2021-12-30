@@ -1,4 +1,4 @@
-### Updated on Sun Dec 26 03:36:25 AM PST 2021 ###
+### Updated on Wed Dec 29 08:42:35 PM PST 2021 ###
 *
 !.gitignore
 !applications
@@ -32,6 +32,7 @@
 #user-places.xbel
 #user-places.xbel.bak
 #user-places.xbel.tbcache
+#vifm
 #vlc
 #vulkan
 #webkitgtk

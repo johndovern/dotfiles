@@ -1,6 +1,7 @@
-### Updated on Tue Dec 28 08:12:37 PM PST 2021 ###
+### Updated on Wed Dec 29 08:48:42 PM PST 2021 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 #BraveSoftware
 !calcurse
@@ -33,6 +34,7 @@
 !mpv
 !ncmpcpp
 #neofetch
+!nnn
 !nsxiv
 !nvim
 #pavucontrol.ini
@@ -48,6 +50,7 @@
 !sxiv
 #syncthing
 #syncthing-gtk
+#systemd
 !tmux
 !transmission
 #trashrc

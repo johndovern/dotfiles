@@ -1,11 +1,11 @@
-### Updated on Sun Dec 26 03:41:00 AM PST 2021 ###
-### < !dgitauto > deleted since last update ###
+### Updated on Wed Dec 29 08:41:58 PM PST 2021 ###
 *
 !.gitignore
 #.gitignore-old
 #.gitignore-very-old
 !bookmark
 !booksplit
+!cht.sh
 !compiler
 !cron
 !displayselect
@@ -60,4 +60,6 @@
 !transadd
 !tutorialvids
 !umpv
+#vifmimg
+#vifmrun
 !wally

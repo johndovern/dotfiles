@@ -52,6 +52,7 @@ config.bind('h', 'tab-prev')
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('e', 'hint all tab')
 config.bind('m', 'tab-move')
+config.bind('F', 'set-cmd-text -sr :tab-focus')
 config.unbind('q')
 config.unbind('gm')
 
