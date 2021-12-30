@@ -18,3 +18,4 @@ alias conf-add='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add . && /u
 alias rsync2='rsync --info=progress2 --partial -auvz'
 alias test-txt='nvim test.txt'
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+alias cht='cht.sh'

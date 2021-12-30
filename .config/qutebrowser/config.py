@@ -33,6 +33,7 @@ config.bind('.ab', 'adblock-update')
 config.bind('chg', 'open -t https://4chan.org/g')
 config.bind('wsg', 'open -t https://4chan.org/wsg')
 config.bind('.iv', 'open -t https://yewtu.be')
+config.bind('.yi', 'open -t https://yandex.com/images')
 
 # Rebinding defaults for qutebrowser
 config.bind('dw', 'hint links download')
@@ -80,7 +81,7 @@ c.editor.command = ["st", "-e", "nvim", "'{}'"]
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'tk': 'https://searx.tiekoetter.com/search?q={}', 'iv': 'https://yewtu.be/search?q={}', 'ny': 'https://nyaa.si/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'tk': 'https://searx.tiekoetter.com/search?q={}', 'iv': 'https://yewtu.be/search?q={}', 'ny': 'https://nyaa.si/?q={}', 'yi': 'https://yandex.com/images/search?text={}'}
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.

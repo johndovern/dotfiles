@@ -9,6 +9,4 @@ settings:
   content.notifications.enabled:
     https://boards.4channel.org: true
   statusbar.show:
-    global: always
-  tabs.show:
-    global: switching
+    global: in-mode
