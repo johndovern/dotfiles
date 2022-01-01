@@ -1,0 +1,5 @@
+### Updated on Sat Jan  1 03:51:07 PM PST 2022 ###
+*
+!.gitignore
+#default.target.wants
+!kmonad@.service
