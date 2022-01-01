@@ -1,5 +1,6 @@
 # Config files
 map gc.  cd ~/.config
+map gck  cd ~/.config/kmonad
 map gcl  cd ~/.config/lf
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
 map gcEs $$EDITOR "/home/anon/.config/lf/shortcutrc"
@@ -7,6 +8,7 @@ map gcm  cd ~/.config/mpv
 map gcv  cd ~/.config/nvim
 map gcq  cd ~/.config/qutebrowser
 map gcs  cd ~/.config/shell
+map gcd  cd ~/.config/systemd
 map gct  cd ~/.config/tmux
 map gcx  cd ~/.config/x11
 map gcy  cd ~/.config/yt-dlp
@@ -33,16 +35,16 @@ map gp4  cd ~/pictures/sandisk/4chan-banners
 map gpa  cd ~/pictures/sandisk/anime-related
 map gw.  cd ~/pictures/sandisk/walls
 
-# Music
+# music
 map gmu  cd ~/music
 map gmy  cd ~/music/sandisk/youtube
 map gmw  cd ~/music/sandisk/wsg-worthy
 map gmn  cd ~/music/sandisk/newpipe
 
-# Downloads
+# downloads
 map gds  cd ~/downloads/sandisk/webms-to-sort
 
-# Manga
+# manga
 map gma cd ~/documents/sandisk/Mangas/
 
 # local
@@ -53,3 +55,6 @@ map glm  cd ~/.local/src/dmenu
 map glp  cd ~/.local/bin/scripts
 map glr  cd ~/.local/src/
 map gls  cd ~/.local/src/st
+
+# home
+map gh.  cd ~/
