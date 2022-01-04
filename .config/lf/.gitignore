@@ -1,4 +1,4 @@
-### Updated on Sat Jan  1 06:06:26 PM PST 2022 ###
+### Updated on Mon Jan  3 10:31:47 PM PST 2022 ###
 *
 !.gitignore
 !cleaner
@@ -7,6 +7,7 @@
 !lfimg
 !lfrc
 !Luke
+!myrc
 !preview
 !scope
 !shortcutrc
