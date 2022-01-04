@@ -4,6 +4,7 @@ map gck  cd ~/.config/kmonad
 map gcl  cd ~/.config/lf
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
 map gcEs $$EDITOR "/home/anon/.config/lf/shortcutrc"
+map gcEm $$EDITOR "/home/anon/.config/lf/myrc"
 map gcm  cd ~/.config/mpv
 map gcv  cd ~/.config/nvim
 map gcq  cd ~/.config/qutebrowser
@@ -22,9 +23,10 @@ map grm  cd ~/repos/mpvSockets-umpv
 map grr  cd ~/repos/reverse-gitignore
 
 # ~/videos
-map gv.  cd ~/videos/sandisk/
-map gva  cd ~/videos/wd5t/
+map gv.  cd ~/videos
+map gva  cd ~/videos/wd5t
 map gvA  cd ~/videos/sandisk/anime-webms
+map gvs  cd ~/videos/sandisk
 map gvw  cd ~/videos/sandisk/webms
 map gvy  cd ~/videos/sandisk/youtube
 map gv4  cd ~/videos/sandisk/4chan-banners
@@ -45,7 +47,7 @@ map gmn  cd ~/music/sandisk/newpipe
 map gds  cd ~/downloads/sandisk/webms-to-sort
 
 # manga
-map gma cd ~/documents/sandisk/Mangas/
+map gma cd ~/documents/sandisk/Mangas
 
 # local
 map gl.  cd ~/.local
@@ -53,7 +55,7 @@ map glb  cd ~/.local/bin
 map gld  cd ~/.local/src/dwm
 map glm  cd ~/.local/src/dmenu
 map glp  cd ~/.local/bin/scripts
-map glr  cd ~/.local/src/
+map glr  cd ~/.local/src
 map gls  cd ~/.local/src/st
 
 # home

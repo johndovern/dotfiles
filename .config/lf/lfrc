@@ -1,21 +1,39 @@
 # lf settings
 
-# Basic vars
-set shell bash
-set shellopts '-eu'
-set ifs "\n"
-set filesep "\n"
-set scrolloff 10
-set icons
-set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+# Bindings
+map <c-f> $lf -remote "send $id select '$(fzf)'"
+map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
+map gh
+map gg top
+map dd cut
+map D delete
+map E extract
+map C copyto
+map M moveto
+map <c-n> push :mkdir<space>
+map <c-r> reload
+map <c-s> set hidden!
+map <enter> shell
+map x $$f
+map X !$f
+map o $mimeopen $f
+map O $mimeopen --ask $f
 
-# lfimg
-set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/cleaner
+map A   rename # at the very end
+map c   push A<c-u> # new rename
+map I   push A<c-a> # at the very beginning
+map i   push A<a-b><a-b><a-f> # before extention
+map a   push A<a-b> # after extention
+map B   bulkrename
+map b   $setbg $f
+map U   unselect
+map u   clear
 
-# Vars that depend on environmental variables
-#$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
+map <c-e> down
+map <c-y> up
+map V push :!nvim<space>
+
+map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 # cmds/functions
 
@@ -27,7 +45,7 @@ cmd open ${{
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
     image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | setsid -f nsxiv -aio 2>/dev/null | lf-select & ;;
-    audio/*) mpv --audio-display=no $f ;;
+    audio/*) mpv $f >/dev/null 2>&1 ;;
     video/*) mpv $f -quiet >/dev/null 2>&1 ;;
     application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR $fx ;;
@@ -81,41 +99,6 @@ cmd copyto ${{
 cmd setbg "$1"
 cmd bulkrename $vidir
 
-cmd chmod ${{
-	printf "Mode Bits: "
-	read ans
-
-	for file in "$fx"; do
-	chmod $ans $file
-	done
-
-	lf -remote 'send reload'
-}}
-
-cmd chmodx ${{
-	for file in "$fx"; do
-	chmod +x $file
-	done
-
-	lf -remote 'send reload'
-}}
-
-cmd bscript ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "script name: "
-	read ans
-	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans && nvim $ans
-}}
-
-cmd cred ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "file name: "
-	read ans
-	[ ! -e $ans ] && nvim $ans
-}}
-
 cmd track ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -125,66 +108,25 @@ cmd track ${{
 	[ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
 }}
 
-cmd mknf ${{
-  mkdir folder
-	lf -remote 'send reload'
-}}
+# Basic vars
+set shell bash
+set shellopts '-eu'
+set ifs "\n"
+set filesep "\n"
+set scrolloff 10
+set icons
+set period 1
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 
-cmd mangamove ${{
-  [ ! -e read ] && mkdir read
-  mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
-}}
+# lfimg
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
 
-# Bindings
-map <c-f> $lf -remote "send $id select '$(fzf)'"
-map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-map gh
-map gg top
-map dd cut
-map D delete
-map E extract
-map C copyto
-map M moveto
-map <c-n> push :mkdir<space>
-map <c-r> reload
-map <c-s> set hidden!
-map <enter> shell
-map x $$f
-map X !$f
-map o $mimeopen $f
-map O $mimeopen --ask $f
-
-map A   rename # at the very end
-map c   push A<c-u> # new rename
-map I   push A<c-a> # at the very beginning
-map i   push A<a-b><a-b><a-f> # before extention
-map a   push A<a-b> # after extention
-map B   bulkrename
-map b   $setbg $f
-map U   unselect
-map u   clear
-map .ch chmod
-map .cx chmodx
-map .ce cred
-map .gi %dmenugitignore $f
-map .nf mknf
-map .l  $lfrun
-map .r  reload
-map .mm mangamove
-map .mb $manga-bulk
-
-map <c-e> down
-map <c-y> up
-map V push :!nvim<space>
-
-map W $setsid -f $TERMINAL >/dev/null 2>&1
-map S bscript
-map T track
-map <esc> :clear
-
-map d
-
-map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
+# Vars that depend on environmental variables
+#$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
+
+# Source User settings
+source "~/.config/lf/myrc"

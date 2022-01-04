@@ -1,6 +1,6 @@
-### Updated on Wed Dec 29 08:41:49 PM PST 2021 ###
+### Updated on Sat Jan  1 06:06:34 PM PST 2022 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 !zathurarc

@@ -17,3 +17,4 @@ video/webm=mpv.desktop
 
 [Added Associations]
 video/webm=mpv.desktop;org.qutebrowser.qutebrowser.desktop;brave-browser.desktop;
+application/x-shellscript=nvim.desktop;
