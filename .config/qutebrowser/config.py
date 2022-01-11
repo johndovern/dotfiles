@@ -84,7 +84,7 @@ c.editor.command = ["st", "-e", "nvim", "'{}'"]
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'tk': 'https://searx.tiekoetter.com/search?q={}', 'iv': 'https://yewtu.be/search?q={}', 'ny': 'https://nyaa.si/?q={}', 'yi': 'https://yandex.com/images/search?text={}'}
+c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'ams': 'https://www.smile.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'tk': 'https://searx.tiekoetter.com/search?q={}', 'iv': 'https://yewtu.be/search?q={}', 'ny': 'https://nyaa.si/?q={}', 'yi': 'https://yandex.com/images/search?text={}'}
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.

@@ -25,29 +25,30 @@ map grr  cd ~/repos/reverse-gitignore
 # ~/videos
 map gv.  cd ~/videos
 map gva  cd ~/videos/wd5t
-map gvA  cd ~/videos/sandisk/anime-webms
-map gvs  cd ~/videos/sandisk
-map gvw  cd ~/videos/sandisk/webms
-map gvy  cd ~/videos/sandisk/youtube
-map gv4  cd ~/videos/sandisk/4chan-banners
+map gvA  cd ~/videos/webms/anime-webms
+map gvs  cd ~/videos/webms
+map gvw  cd ~/videos/webms/webms
+map gvW  cd ~/videos/webms/webms-to-sort
+map gvy  cd ~/videos/webms/youtube
+map gv4  cd ~/videos/webms/4chan-banners
 
 # ~/pictures
 map gp.  cd ~/pictures
-map gp4  cd ~/pictures/sandisk/4chan-banners
-map gpa  cd ~/pictures/sandisk/anime-related
-map gw.  cd ~/pictures/sandisk/walls
+map gp4  cd ~/pictures/shared/4chan-banners
+map gpa  cd ~/pictures/shared/anime-related
+map gw.  cd ~/pictures/shared/walls
 
 # music
 map gmu  cd ~/music
-map gmy  cd ~/music/sandisk/youtube
-map gmw  cd ~/music/sandisk/wsg-worthy
-map gmn  cd ~/music/sandisk/newpipe
+map gmy  cd ~/music/tmaster/youtube
+map gmw  cd ~/music/tmaster/wsg-worthy
+map gmn  cd ~/music/tmaster/newpipe
 
 # downloads
-map gds  cd ~/downloads/sandisk/webms-to-sort
 
 # manga
-map gma cd ~/documents/sandisk/Mangas
+map gma cd ~/documents/manga
+map gms cd ~/mnt/drives/tmaster/backup/syncthing/Tachiyomi-manga
 
 # local
 map gl.  cd ~/.local
