@@ -30,7 +30,6 @@ end
 ppid = utils.getpid()
 
 function socket_later()
-    -- if os.execute("xdotool search -pid " .. ppid .. " | xargs -I '{}' xprop -id '{}' | grep umpv") then
     -- if os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv") then
     local umpv = os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
     if umpv == 0 then
@@ -46,10 +45,8 @@ end
 mp.register_event("file-loaded", socket_later)
 
 function shutdown_handler()
-    -- if os.execute("xdotool search -pid '"..ppid.."' | xargs -I '{}' xprop -id '{}' | grep umpv") then
-    -- local umpv = os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
-    if umpv == 0 then
     -- if os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv") then
+    if umpv == 0 then
         os.remove(join_paths(tempDir, "mpvSockets/umpv_socket"))
     else
         os.remove(join_paths(tempDir, "mpvSockets", ppid))

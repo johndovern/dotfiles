@@ -9,6 +9,7 @@ map .r   reload
 map .mm  mangamove
 map .mb  $manga-bulk
 map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
+map .am  animove
 
 map S bscript
 map T track
@@ -66,4 +67,9 @@ cmd mknf ${{
 cmd mangamove ${{
   [ ! -e read ] && mkdir read
   mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
+}}
+
+cmd animove ${{
+  [ ! -e folder ] && mkdir folder
+  mv "$fx" $(pwd)/folder/ && lf -remote 'send reload'
 }}

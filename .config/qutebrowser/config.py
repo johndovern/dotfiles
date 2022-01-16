@@ -147,6 +147,7 @@ c.completion.web_history.max_items = 0
 
 # Disable Javascript
 config.bind('.tsh', 'config-cycle -p -t -u *://{url:host}/* content.javascript.enabled ;; reload')
+config.bind('.js', 'config-cycle -p -t -u *://{url:host}/* content.javascript.enabled ;; reload')
 config.bind('.tSh', 'config-cycle -p -u *://{url:host}/* content.javascript.enabled ;; reload')
 config.bind('.tsH', 'config-cycle -p -t -u *://*.{url:host}/* content.javascript.enabled ;; reload')
 config.bind('.tSH', 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload')

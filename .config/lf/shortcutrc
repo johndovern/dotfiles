@@ -24,7 +24,7 @@ map grr  cd ~/repos/reverse-gitignore
 
 # ~/videos
 map gv.  cd ~/videos
-map gva  cd ~/videos/wd5t
+map gva  cd ~/videos/anime
 map gvA  cd ~/videos/webms/anime-webms
 map gvs  cd ~/videos/webms
 map gvw  cd ~/videos/webms/webms
