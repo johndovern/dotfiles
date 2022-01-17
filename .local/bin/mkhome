@@ -1,0 +1,16 @@
+#!/bin/sh
+
+for dir in backup documents downloads games mnt music pictures programs public repos sync templates videos; do
+  [ $dir = "mnt" ] && ln -s /mnt "/home/$1/$dir"
+  [ $dir = "repos" ] && ln -s /mnt/drives/tmaster/backup/repos "/home/$1/$dir"
+  [ ! $dir = "mnt" ] && [ ! $dir = "repos" ] && mkdir -p "/home/$1/$dir"
+  [ $dir = "documents" ] && ln -s /mnt/drives/tmaster/backup/documents/mangas  "/home/$1/$dir/manga"
+  [ $dir = "documents" ] && ln -s /mnt/drives/tmaster/backup/documents "/home/$1/$dir/tmaster"
+  [ $dir = "downloads" ] && ln -s /mnt/drives/tmaster/backup/downloads "/home/$1/$dir/tmaster"
+  [ $dir = "games" ] && ln -s /mnt/drives/tmaster/backup/games "/home/$1/$dir/tmaster"
+  [ $dir = "music" ] && ln -s /mnt/drives/tmaster/backup/music "/home/$1/$dir/tmaster"
+  [ $dir = "pictures" ] && ln -s /mnt/drives/tmaster/backup/pictures/shared "/home/$1/$dir/shared"
+  [ $dir = "pictures" ] && ln -s /mnt/drives/tmaster/backup/pictures "/home/$1/$dir/tmaster"
+  [ $dir = "videos" ] && ln -s /mnt/drives/tmaster/media/Animu "/home/$1/$dir/anime"
+  [ $dir = "videos" ] && ln -s /mnt/drives/tmaster/backup/videos "/home/$1/$dir/webms"
+done
