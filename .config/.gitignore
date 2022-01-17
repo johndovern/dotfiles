@@ -1,11 +1,13 @@
-### Updated on Sat Jan  1 06:06:06 PM PST 2022 ###
+### Updated on Sun Jan 16 05:44:51 PM PST 2022 ###
 *
 !.gitignore
 #.gitignore-old
 #.gitignore-very-old
+#autostart
 #BraveSoftware
 !calcurse
 #cef_user_data
+#configstore
 #coreapps
 #cubocore
 #dconf
@@ -33,6 +35,7 @@
 !mimeapps.list
 !mpd
 !mpv
+#Mullvad VPN
 !ncmpcpp
 #neofetch
 !nnn

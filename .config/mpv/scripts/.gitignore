@@ -1,4 +1,4 @@
-### Updated on Sat Jan  1 06:06:28 PM PST 2022 ###
+### Updated on Sun Jan 16 05:45:47 PM PST 2022 ###
 *
 !.gitignore
 !autocrop.lua
@@ -15,6 +15,7 @@
 !persist-properties.lua
 !playlistmanager.lua
 !quack.lua
+!reload.lua
 !seek-to.lua
 !segment-linking.lua
 !sponsorblock.lua
