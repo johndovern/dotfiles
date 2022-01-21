@@ -10,6 +10,7 @@ map .mm  mangamove
 map .mb  $manga-bulk
 map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
 map .am  animove
+map .sc  push $curl<space>-LJO<space>
 
 map S bscript
 map T track

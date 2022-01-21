@@ -27,9 +27,10 @@ config.bind('.zc', 'spawn --output-messages qt-cookies')
 config.bind('.bb', 'config-cycle statusbar.show always in-mode')
 config.bind('.tt', 'config-cycle tabs.show always switching')
 config.bind('.xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always switching')
-config.bind('.ce', 'spawn st -e nvim /home/anon/.config/qutebrowser/config.py')
+config.bind('.ce', 'spawn --detach st -e nvim /home/anon/.config/qutebrowser/config.py')
 config.bind('.zz', 'zoom 133')
 config.bind('.ab', 'adblock-update')
+config.bind('.cc', 'spawn --detach quit-qute')
 
 # Binds for opening websites
 config.bind('chg', 'open -t https://4chan.org/g')
@@ -61,7 +62,7 @@ config.unbind('gm')
 # Bind chanined commands
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
-bind_chained('.cc', 'history-clear', 'spawn --output-messages qt-cookies')
+# bind_chained('.cc', 'history-clear', 'spawn --output-messages qt-cookies')
 
 # Set editor
 c.editor.command = ["st", "-e", "nvim", "'{}'"]
@@ -84,7 +85,21 @@ c.editor.command = ["st", "-e", "nvim", "'{}'"]
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://anon.sx/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'ams': 'https://www.smile.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'tk': 'https://searx.tiekoetter.com/search?q={}', 'iv': 'https://yewtu.be/search?q={}', 'ny': 'https://nyaa.si/?q={}', 'yi': 'https://yandex.com/images/search?text={}'}
+c.url.searchengines = {
+    'DEFAULT': 'https://serx.cf/search?q={}',
+    'ddg': 'https://duckduckgo.com/?q={}',
+    'am': 'https://www.amazon.com/s?k={}',
+    'ams': 'https://www.smile.amazon.com/s?k={}',
+    'aw': 'https://wiki.archlinux.org/?search={}',
+    'goog': 'https://www.google.com/search?q={}',
+    'hoog': 'https://hoogle.haskell.org/?hoogle={}',
+    'yt': 'https://www.youtube.com/results?search_query={}',
+    'tk': 'https://searx.tiekoetter.com/search?q={}',
+    'iv': 'https://yewtu.be/search?q={}',
+    'ny': 'https://nyaa.si/?q={}',
+    'yi': 'https://yandex.com/images/search?text={}',
+    'an': 'https://anon.sx/search?q={}'
+}
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
@@ -118,11 +133,11 @@ c.statusbar.show = 'in-mode'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.start_pages = 'https://anon.sx/'
+c.url.start_pages = 'https://serx.cf/'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'https://anon.sx/'
+c.url.default_page = 'https://serx.cf/'
 
 # Adblocking lists
 c.content.blocking.adblock.lists = [

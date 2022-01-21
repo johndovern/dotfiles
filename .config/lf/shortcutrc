@@ -61,3 +61,19 @@ map gls  cd ~/.local/src/st
 
 # home
 map gh.  cd ~/
+
+# drives
+map gd.  cd ~/mnt
+map gdb  cd ~/mnt/backup
+map gdd. cd ~/mnt/drives
+map gdh  cd ~/mnt/drives/toshext
+map gdm  cd ~/mnt/drives/tmaster
+map gdn  cd ~/mnt/drives/sandisk
+map gds  cd ~/mnt/drives/samhdd
+map gdt  cd ~/mnt/tmp
+map gdu. cd ~/mnt/usb
+map gdu1 cd ~/mnt/usb/1
+map gdu2 cd ~/mnt/usb/2
+map gdu3 cd ~/mnt/usb/3
+map gd2  cd ~/mnt/drives/wd2t
+map gd5  cd ~/mnt/drives/wd5t
