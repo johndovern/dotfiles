@@ -31,6 +31,8 @@ config.bind('.ce', 'spawn --detach st -e nvim /home/anon/.config/qutebrowser/con
 config.bind('.zz', 'zoom 133')
 config.bind('.ab', 'adblock-update')
 config.bind('.cc', 'spawn --detach quit-qute')
+config.bind('.pp', 'spawn --detach mullvad-exclude brave {url}')
+config.bind('.kk', 'spawn --detach qute-accept')
 
 # Binds for opening websites
 config.bind('chg', 'open -t https://4chan.org/g')
@@ -86,7 +88,7 @@ c.editor.command = ["st", "-e", "nvim", "'{}'"]
 # qutebrowser`.
 # Type: Dict
 c.url.searchengines = {
-    'DEFAULT': 'https://serx.cf/search?q={}',
+    'DEFAULT': 'https://search.disroot.org/search?q={}',
     'ddg': 'https://duckduckgo.com/?q={}',
     'am': 'https://www.amazon.com/s?k={}',
     'ams': 'https://www.smile.amazon.com/s?k={}',
@@ -98,7 +100,8 @@ c.url.searchengines = {
     'iv': 'https://yewtu.be/search?q={}',
     'ny': 'https://nyaa.si/?q={}',
     'yi': 'https://yandex.com/images/search?text={}',
-    'an': 'https://anon.sx/search?q={}'
+    'an': 'https://anon.sx/search?q={}',
+    'be': 'https://searx.be/search?q={}'
 }
 
 # Directory to save downloads to. If unset, a sensible OS-specific

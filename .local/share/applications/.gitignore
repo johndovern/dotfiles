@@ -1,5 +1,4 @@
-### Updated on Sun Jan 16 05:46:13 PM PST 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Sat Jan 22 02:13:54 AM PST 2022 ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -12,6 +11,7 @@
 !rss.desktop
 !text.desktop
 !torrent.desktop
+!video.desktop
 #wine-extension-chm.desktop
 #wine-extension-gif.desktop
 #wine-extension-hlp.desktop

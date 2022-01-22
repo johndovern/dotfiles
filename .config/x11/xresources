@@ -1,33 +1,34 @@
-!! Transparency (0-1):
+/* Transparency (0-1): */
 *.alpha: 0.7
-!*.alphaOffset: 0.0
+/* *.alphaOffset: 0.0 */
 
-!! Set a default font and font size below
-!! To see avaliable fonts on your system run
-!! fc-list > fonts.txt
-!! and search for your desired font name in that file
+/* Set a default font and font size below */
+/* To see avaliable fonts on your system run */
+/* fc-list > fonts.txt */
+/* and search for your desired font name in that file */
 *.font: FantasqueSansMono Nerd Font Mono:size=14:antialias=true:autohint=true
 *.font1: JoyPixels:pixelsize=12:antialias=true:autohint=true
 *.font2: M+ 1c:pixelsize=20:antialias=true:autohint=true
+/* *.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true */
 
-!! hiDPI setting
+/* hiDPI setting */
 Xft.dpi: 120
 
-!!! DWM resources
+/* DWM resources */
 *.borderpx: 2	! border pixel of windows
-*.gappih: 15	! horiz inner gap between windows
+*.gappih: 20	! horiz inner gap between windows
 *.gappiv: 15	! vert inner gap between windows
 *.gappoh: 20	! horiz outer gap between windows and screen edge
 *.gappov: 20	! vert outer gap between windows and screen edge
 *.snap: 5	! snap pixel
-!*.showbar: 			! 0 means no bar
-!*.topbar: 			! 0 means bottom bar
-!*.nmaster: 			! number of clients in master area
-!*.resizehints:			! 1 means respect size hints in tiled resizals
+/* *.showbar: 			! 0 means no bar */
+/* *.topbar: 			! 0 means bottom bar */
+/* *.nmaster: 			! number of clients in master area */
+/* *.resizehints:			! 1 means respect size hints in tiled resizals */
 *.mfact: 0.60			! factor of master area size [0.05.0.95]
-!*.swallowfloating: 		! 1 means swallow floating windows by default
+/* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
-!! DWM & DMENU color settings
+/* DWM & DMENU color settings */
 *.colornbg:      #0c0d0e
 *.colornbord:    #fcfdfe
 *.colornfg:      #fcfdfe
@@ -35,87 +36,46 @@ Xft.dpi: 120
 *.colorselbord:  #db2d20
 *.colorselfg:    #0c0d0e
 
-!! DWM gaps, font, and other settings
-!! Set the background, foreground and cursor colors as below:
+/* Color settings for St */
 
-!! Color settings for st
-!! Light Theme Off
-!! special
-!*.foreground:   #515253
-!*.background:   #fcfdfe
-!*.cursorColor:  #515253
-!
-!! black
-!*.color0:       #0c0d0e
-!*.color8:       #737475
-!
-!! red
-!*.color1:       #e31a1c
-!*.color9:       #e31a1c
-!
-!! green
-!*.color2:       #31a354
-!*.color10:      #31a354
-!
-!! yellow
-!*.color3:       #dca060
-!*.color11:      #dca060
-!
-!! blue
-!*.color4:       #3182bd
-!*.color12:      #3182bd
-!
-!! magenta
-!*.color5:       #756bb1
-!*.color13:      #756bb1
-!
-!! cyan
-!*.color6:       #80b1d3
-!*.color14:      #80b1d3
-!
-!! white
-!*.color7:       #737475
-!*.color15:      #fcfdfe
-
-!! Dark Theme On
-! special
-*.foreground:   #b7b8b9
+/* ! special */
+*.foreground:   #d9d8d8
 *.background:   #0c0d0e
-*.cursorColor:  #fcfdfe
+*.cursorColor:  #d9d8d8
+*.rcursorColor: #db2d20
 
-! black
+/* black */
 *.color0:       #0c0d0e
-*.color8:       #737475
-
-! red
+*.color8:       #737171
+/* red */
 *.color1:       #db2d20
 *.color9:       #db2d20
 
-! green
+/* green */
 *.color2:       #01a252
 *.color10:      #01a252
 
-! yellow
+/* yellow */
 *.color3:       #fded02
 *.color11:      #fded02
 
-! blue
-*.color4:       #01a0e4
-*.color12:      #01a0e4
+/* blue */
+*.color4:       #009ddc
+*.color12:      #009ddc
 
-! magenta
+/* magenta */
 *.color5:       #a16a94
 *.color13:      #a16a94
 
-! cyan
+/* cyan */
 *.color6:       #b5e4f4
 *.color14:      #b5e4f4
 
-! white
-*.color7:       #fcfdfe
+
+/* white */
+*.color7:       #d9d8d8
 *.color15:      #fcfdfe
 
-*.rcursorColor: #db2d20
+/* Slock settings */
 *.message: henlo
 *.sfont: -adobe-new century schoolbook-medium-i-normal--34-240-100-100-p-182-iso8859-1
-*.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true

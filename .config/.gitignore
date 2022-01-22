@@ -1,4 +1,4 @@
-### Updated on Sun Jan 16 05:44:51 PM PST 2022 ###
+### Updated on Sat Jan 22 02:13:02 AM PST 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -51,6 +51,7 @@
 !qutebrowser
 #session
 !shell
+!sxhkd
 !sxiv
 #syncthing
 #syncthing-gtk
