@@ -21,8 +21,8 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    
   -------------------------------------------------------------------------- |#
 (defcfg
   input   (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
-  output  (uinput-sink "KMonad output"
-    "/bin/sleep 1 && /usr/bin/xset r rate 250 50")
+  output (uinput-sink "KMonad output"
+    "/bin/sleep 1 && xset r rate 250 50")
 
   fallthrough   true
   allow-cmd     false
@@ -39,62 +39,106 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  
                                                                left down rght
 )
 
+#| --------------------------------------------------------------------------
+
+                    -- CONVENTION FOR ALIASING MODIFICATIONS --
+
+      t = tap
+
+      If the first is t the next letter is the key for the tap action
+      i.e. (tap-hold-next-release  200   ret   C-A-lsft  ) is aliased
+      to trm. t for tap, r for return, and m because I refer to C-A-lsft
+      as the 'meh' key. If you use multiple versions of the 'tap'
+      modification you may wish to use a different letter
+
+      l = layer
+
+      For layer aliases the second letter is the layer change convention.
+      i.e. (layer-next vim) is aliased to lnv. l for layer, n for next,
+      and v for vim. If this was a layer-switch alias it would be lsv.
+      If you use very complex layer switching you may want to find a
+      different convention for naming these aliases.
+
+      This is only for aliasing things like layer-switch or tap-hold etc.
+      Use whatever you like for things like C-c, C-v, etc.
+      These aren't rules just the convention I am using.
+      I only recommend that you use 3 letter aliases to keep things clean.
+
+      For me this just makes things a bit more simple and it allows me to
+      not need to be creative when thinking of alias names. Feel free
+      to use a different system if your setup is more complex.
+
+  -------------------------------------------------------------------------- |#
+
 (defalias
-  meh   (tap-hold-next-release  200   ret   C-A-lsft  )
-  tmx   (tap-hold-next-release  200   C-b   lalt      )
-  meb   (tap-hold-next-release  200   tab   C-A-lsft  )
-  ecs   (tap-hold-next-release  200   esc   met       )
-  ;; gonna need to use a layer switch for macros
-  ;; this shit don't work on top of tap-next-etc
-  ;; may want to test further to ensure macros don't work this way
-  vms   #(S-z P10 S-z)
-  vmq   #(S-z P10 S-q)
-  lnv   (layer-next vim)
+  bck   C-S-left
+  cpy   C-c
+  cut   C-x
+
+  ;; layers
+
+  lnv   (layer-next   vim)
+  lsb   (layer-switch base)
+  lsi   (layer-switch brs-ins)
   lsv   (layer-switch vim)
-  hom   (layer-switch base)
-  lsb   (layer-switch brs-ins)
+  rdo   C-y
+
+  ;; sticky-keys
+
+  ;; ssk   (sticky-key 500 lmet)
+
+  ;; tapping
+
+  tas   (tap-hold-next-release  200   a     lmet)
+  tbc   (tap-hold-next-release  200   @lsb  lctl)
+  tes   (tap-hold-next-release  200   esc   lsft)
+  trm   (tap-hold-next-release  200   ret   C-A-lsft)
+  tss   (tap-hold-next-release  200   spc   lmet)
+  tta   (tap-hold-next-release  200   C-b   lalt)
+  ttm   (tap-hold-next-release  200   tab   C-A-lsft)
+  tts   (tap-hold-next-release  200   C-b   lsft)
   tva   (tap-hold-next-release  200   @lnv  lalt)
   tvc   (tap-hold-next-release  200   @lsv  lctl)
   tvs   (tap-hold-next-release  200   @lsv  lmet)
-  tss   (tap-hold-next-release  200   spc   lsft)
-  wrd   C-S-rght
-  bck   C-S-left
-  cut   C-x
+
   pst   C-v
   rev   C-z
-  rdo   C-y
-  cpy   C-c
+
+  vms   #(S-z P10 S-z)
+  vmq   #(S-z P10 S-q)
+
+  wrd   C-S-rght
 )
 
 (deflayer base
        _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
-  @meb _    _    _    _    _    _    _    _    _    _    _    _     _
-  @ecs _    _    _    _    _    _    _    _    _    _    _          @meh
-  lctl _    _    _    _    _    _    _    _    _    _               _
-  _    _    @tvs @tmx           @tss           @tva _    @tvc  _    _    _
+  @ttm _    _    _    _    _    _    _    _    _    _    _    _     _
+  @tes @tas _    _    _    _    _    _    _    _    _    _          @trm
+  lctl _    _    _    _    _    _    _    _    _    _               @tts
+  _    _    @tvs @tta           @tss           @tva _    @tvc  _    _    _
                                                                _    _    _
 )
 
 (deflayer vim
        _    _    _
-_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+@lsb _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
-  _    @vmq @wrd @wrd @rdo _    @cpy @rev @lsb _    @pst _    _     _
-  @lsb _    _    @cut _    _    left down up   rght _    _          @meh
-  lctl @vms del  _    _    @bck _    _    _    _    _               _
-  _    _    @hom _              @tss           _    _    @hom  _    _    _
+  _    @vmq @wrd @wrd @rdo _    @cpy @rev @lsi _    @pst _    _     _
+  @lsi _    _    @cut _    _    left down up   rght _    _          @trm
+  lctl @vms del  _    _    @bck _    _    _    _    _               @tts
+  _    @lsb @lsb _              @tss           _    _    @lsb  _    _    _
                                                                _    _    _
 )
 
 (deflayer brs-ins
        _    _    _
-_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+@lsb _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
   @lsv _    _    _    _    _    _    _    _    _    _    _          _
   lctl _    _    _    _    _    _    _    _    _    _               _
-  _    _    _    _              @tss           _    _    _     _    _    _
+  _    @tbc _    _              @tss           _    _    _     _    _    _
                                                                _    _    _
 )

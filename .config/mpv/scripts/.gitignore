@@ -1,22 +1,23 @@
-### Updated on Sat Jan 22 02:13:21 AM PST 2022 ###
+### Updated on Mon Jan 24 11:18:27 PM PST 2022 ###
+### < !reload.lua > deleted since last update ###
+### < !manga-reader.lua > deleted since last update ###
+### < !lrc-autoload.lua > deleted since last update ###
+### < !crop.lua > deleted since last update ###
 *
 !.gitignore
 #.gitignore-old
+#.gitignore-very-old
 !autocrop.lua
 !auto-profiles.lua
 !betterchapters.lua
 !coverart.lua
-!crop.lua
 !file-browser.lua
-!lrc-autoload.lua
-!manga-reader.lua
 !mpvSockets-umpv.lua
 !ontop-playback.lua
 !open-file-dialog.lua
 !persist-properties.lua
 !playlistmanager.lua
 !quack.lua
-!reload.lua
 !seek-to.lua
 !segment-linking.lua
 !sponsorblock.lua

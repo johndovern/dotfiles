@@ -1,4 +1,4 @@
-### Updated on Sat Jan 22 02:13:17 AM PST 2022 ###
+### Updated on Mon Jan 24 11:17:59 PM PST 2022 ###
 *
 !.gitignore
 !fonts
@@ -11,6 +11,7 @@
 #playlists
 !script-opts
 !scripts
+!secondary-scripts
 !shaders
 #unused
 #watch_later
