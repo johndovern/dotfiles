@@ -21,7 +21,7 @@ local options = {
 
     -- Note that sponsored segments may ocasionally be inaccurate if this is turned off
     -- see https://blog.ajay.app/voting-and-pseudo-randomness-or-sponsorblock-or-youtube-sponsorship-segment-blocker
-    local_database = true,
+    local_database = false,
 
     -- Update database on first run, does nothing if local_database is false
     auto_update = true,
@@ -105,7 +105,7 @@ local fade_timer = nil
 local fade_dir = nil
 local volume_before = mp.get_property_number("volume")
 local categories = {}
-local all_categories = {"sponsor", "intro", "outro", "interaction", "selfpromo", "music_offtopic"}
+local all_categories = {"sponsor", "intro", "outro", "interaction", "selfpromo", "preview", "music_offtopic"}
 local chapter_cache = {}
 
 for category in string.gmatch(options.skip_categories, "([^,]+)") do
