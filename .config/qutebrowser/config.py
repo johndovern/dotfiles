@@ -1,12 +1,12 @@
 # Bindings for normal mode
 # Binds for mpv and yt-dlp
-config.bind('.mh', 'hint links spawn --detach mpv --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.uh', 'hint links spawn --detach umpv {hint-url}')
-config.bind('.mn', 'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
-config.bind('.un', 'spawn --detach umpv {url}')
-config.bind('.ur', 'hint --rapid links spawn --detach umpv {hint-url}')
-config.bind('.mps', 'hint links spawn --detach mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.mf', 'hint links spawn --detatch fmpv --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.mh', 'hint links spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.uh', 'hint links spawn --detach mullvad-exclude umpv {hint-url}')
+config.bind('.mn', 'spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {url}')
+config.bind('.un', 'spawn --detach mullvad-exclude umpv {url}')
+config.bind('.ur', 'hint --rapid links spawn --detach mullvad-exclude umpv {hint-url}')
+config.bind('.mps', 'hint links spawn --detach mullvad-exclude mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.mf', 'hint links spawn --detatch mullvad-exclude fmpv --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.dyph', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {hint-url}')
 config.bind('.dypn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {url}')
 config.bind('.dywh', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms.conf {hint-url}')
@@ -292,47 +292,58 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
-c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
+# c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
+# c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
+c.colors.completion.fg = ['#fcfdfe', 'white', 'white']
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-c.colors.completion.odd.bg = '#1c1f24'
+# c.colors.completion.odd.bg = '#1c1f24'
+c.colors.completion.odd.bg = '#0c0d0e'
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-c.colors.completion.even.bg = '#232429'
+# c.colors.completion.even.bg = '#232429'
+c.colors.completion.even.bg = '#0c0d0e'
 
 # Foreground color of completion widget category headers.
 # Type: QtColor
-c.colors.completion.category.fg = '#e1acff'
+# c.colors.completion.category.fg = '#e1acff'
+c.colors.completion.category.fg = '#01a252'
 
 # Background color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #000000, stop:1 #232429)'
+c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #000000, stop:1 #0c0d0e)'
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.border.top = '#3f4147'
+# c.colors.completion.category.border.top = '#3f4147'
+c.colors.completion.category.border.top = '#0c0d0e'
 
 # Bottom border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.border.bottom = '#3f4147'
+# c.colors.completion.category.border.bottom = '#3f4147'
+c.colors.completion.category.border.bottom = '#0c0d0e'
 
 # Foreground color of the selected completion item.
 # Type: QtColor
+# c.colors.completion.item.selected.fg = '#0c0d0e'
 c.colors.completion.item.selected.fg = '#0c0d0e'
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = '#ecbe7b'
+# c.colors.completion.item.selected.bg = '#ecbe7b'
+c.colors.completion.item.selected.bg = '#fcfdfe'
 
 # Foreground color of the matched text in the selected completion item.
 # Type: QtColor
-c.colors.completion.item.selected.match.fg = '#c678dd'
+# c.colors.completion.item.selected.match.fg = '#c678dd'
+c.colors.completion.item.selected.match.fg = '#ff6c6b'
 
 # Foreground color of the matched text in the completion.
 # Type: QtColor
-c.colors.completion.match.fg = '#c678dd'
+# c.colors.completion.match.fg = '#c678dd'
+c.colors.completion.match.fg = '#ff6c6b'
 
 # Color of the scrollbar handle in the completion view.
 # Type: QssColor
@@ -412,7 +423,7 @@ c.colors.tabs.even.bg = '#0c0d0e'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = '#FF3D00'
+c.colors.tabs.selected.odd.fg = '#ff6c6b'
 
 # Background color of selected odd tabs.
 # Type: QtColor
@@ -420,7 +431,7 @@ c.colors.tabs.selected.odd.bg = '#0c0d0e'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = '#FF3D00'
+c.colors.tabs.selected.even.fg = '#ff6c6b'
 
 # Background color of selected even tabs.
 # Type: QtColor
@@ -453,15 +464,15 @@ c.fonts.default_family = '"FantasqueSansMono Nerd Font Mono"'
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '11pt'
+c.fonts.default_size = '12pt'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '11pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.completion.entry = '12pt "FantasqueSansMono Nerd Font Mono"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '11pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.debug_console = '12pt "FantasqueSansMono Nerd Font Mono"'
 
 # Font used for prompts.
 # Type: Font
@@ -469,7 +480,7 @@ c.fonts.prompts = 'default_size sans-serif'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '11pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.statusbar = '12pt "FantasqueSansMono Nerd Font Mono"'
 
 # Font used for hints
 # Type: Font
