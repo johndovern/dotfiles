@@ -37,6 +37,7 @@ config.bind('.kk', 'spawn --detach qute-accept')
 # Binds for opening websites
 config.bind('chg', 'open -t https://4chan.org/g')
 config.bind('wsg', 'open -t https://4chan.org/wsg')
+config.bind('wap', 'open -t https://wapchan.org/')
 config.bind('.iv', 'open -t https://yewtu.be')
 config.bind('.yi', 'open -t https://yandex.com/images')
 
