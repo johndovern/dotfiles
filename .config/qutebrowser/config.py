@@ -1,45 +1,87 @@
 # Bindings for normal mode
-# Binds for mpv and yt-dlp
-config.bind('.mh', 'hint links spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.uh', 'hint links spawn --detach mullvad-exclude umpv {hint-url}')
-config.bind('.mn', 'spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {url}')
-config.bind('.un', 'spawn --detach mullvad-exclude umpv {url}')
-config.bind('.ur', 'hint --rapid links spawn --detach mullvad-exclude umpv {hint-url}')
-config.bind('.mps', 'hint links spawn --detach mullvad-exclude mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.mf', 'hint links spawn --detatch mullvad-exclude fmpv --loop-playlist=no --keep-open=no {hint-url}')
-config.bind('.dyph', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {hint-url}')
-config.bind('.dypn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {url}')
-config.bind('.dywh', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms.conf {hint-url}')
-config.bind('.dywn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms.conf {url}')
-config.bind('.dyvh', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/video.conf {hint-url}')
-config.bind('.dyvn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/video.conf {url}')
-config.bind('.dscn', 'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-soundcloud.conf {url}')
-config.bind('.dsch', 'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-soundcloud.conf {hint-url}')
+
+# mpv binds
+config.bind('.mh',
+    'hint links spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.mn',
+    'spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {url}')
+config.bind('.mps',
+    'hint links spawn --detach mullvad-exclude mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
+config.bind('.mf',
+    'hint links spawn --detatch mullvad-exclude fmpv --loop-playlist=no --keep-open=no {hint-url}')
+
+# umpv binds
+config.bind('.uh',
+    'hint links spawn --detach mullvad-exclude umpv {hint-url}')
+config.bind('.un',
+    'spawn --detach mullvad-exclude umpv {url}')
+config.bind('.ur',
+    'hint --rapid links spawn --detach mullvad-exclude umpv {hint-url}')
+
+# yt-dlp binds
+config.bind('.dyah',
+    'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio.conf {hint-url}')
+config.bind('.dyan',
+    'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio.conf {url}')
+config.bind('.dyph',
+    'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {hint-url}')
+config.bind('.dypn',
+    'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms-playlist.conf {url}')
+config.bind('.dywh',
+    'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms.conf {hint-url}')
+config.bind('.dywn',
+    'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-webms.conf {url}')
+config.bind('.dyvh',
+    'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/video.conf {hint-url}')
+config.bind('.dyvn',
+    'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/video.conf {url}')
+config.bind('.dscn',
+    'spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-soundcloud.conf {url}')
+config.bind('.dsch',
+    'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio-soundcloud.conf {hint-url}')
 
 # open 4chan webms/pics in mpv
-config.bind('.wh', 'hint links spawn --detach wsg2mpv {hint-url}')
-config.bind('.wn', 'spawn --detach wsg2mpv {url}')
-config.bind('.dwsg', 'spawn --detach --output-messages wsg2ytdlp-qute {url}')
+config.bind('.wh',
+    'hint links spawn --detach wsg2mpv {hint-url}')
+config.bind('.wn',
+    'spawn --detach wsg2mpv {url}')
+config.bind('.dwsg',
+    'spawn --detach --output-messages wsg2ytdlp-qute {url}')
 
 # Custom dot commands
 config.unbind('.')
-config.bind('.zc', 'spawn --output-messages qt-cookies')
-config.bind('.bb', 'config-cycle statusbar.show always in-mode')
-config.bind('.tt', 'config-cycle tabs.show always switching')
-config.bind('.xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always switching')
-config.bind('.ce', 'spawn --detach st -e nvim /home/anon/.config/qutebrowser/config.py')
-config.bind('.zz', 'zoom 133')
-config.bind('.ab', 'adblock-update')
-config.bind('.cc', 'spawn --detach quit-qute')
-config.bind('.pp', 'spawn --detach mullvad-exclude brave {url}')
-config.bind('.kk', 'spawn --detach qute-accept')
+config.bind('.zc',
+    'spawn --output-messages qt-cookies')
+config.bind('.bb',
+    'config-cycle statusbar.show always in-mode')
+config.bind('.tt',
+    'config-cycle tabs.show always switching')
+config.bind('.xx',
+    'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always switching')
+config.bind('.ce',
+    'spawn --detach st -e nvim /home/anon/.config/qutebrowser/config.py')
+config.bind('.zz',
+    'zoom 133')
+config.bind('.ab',
+    'adblock-update')
+config.bind('.cc',
+    'spawn --detach quit-qute')
+config.bind('.pp',
+    'spawn --detach mullvad-exclude brave {url}')
+config.bind('.kk',
+    'spawn --detach qute-accept')
 
 # Binds for opening websites
-config.bind('chg', 'open -t https://4chan.org/g')
-config.bind('wsg', 'open -t https://4chan.org/wsg')
-config.bind('wap', 'open -t https://wapchan.org/')
-config.bind('.iv', 'open -t https://yewtu.be')
-config.bind('.yi', 'open -t https://yandex.com/images')
+config.bind('chg',
+    'open -t https://4chan.org/g')
+config.bind('wsg',
+    'open -t https://4chan.org/wsg')
+config.bind('wap',
+    'open -t https://wapchan.org/')
+config.bind('.iv',
+    'open -t https://yewtu.be')
+config.bind('.yi',
+    'open -t https://yandex.com/images')
 
 # Rebinding defaults for qutebrowser
 config.bind('dw', 'hint links download')
@@ -152,6 +194,7 @@ c.content.blocking.adblock.lists = [
             "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
             "https://raw.githubusercontent.com/notracking/hosts-blocklists/master/adblock/adblock.txt",
             ]
+
 # Set default zoom
 c.zoom.default = '150%'
 

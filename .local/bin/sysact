@@ -11,8 +11,8 @@ case "$(printf "🔒 lock\n🚪 leave dwm\n♻️ renew dwm\n🐻 hibernate\n�
 	'♻️ renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
 	'🐻 hibernate') slock $ctl hibernate ;;
 	'💤 sleep') slock $ctl suspend ;;
-	'🔃 reboot') st -e key-zip reboot ;;
-	'🔌shutdown') st -e key-zip shutdown ;;
+	'🔃 reboot'|'🔌shutdown') st -e key-zip 1 ;;
+	# '🔌shutdown') st -e key-zip shutdown ;;
 	'📺 display off') xset dpms force off ;;
 	*) exit 1 ;;
 esac
