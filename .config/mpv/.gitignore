@@ -1,17 +1,20 @@
-### Updated on Mon Jan 24 11:17:59 PM PST 2022 ###
+### Updated on Wed Feb  9 11:41:24 PM PST 2022 ###
+### < #mpv_sponsorblock > deleted since last update ###
 *
 !.gitignore
+#.gitignore-old
+#.gitignore-very-old
 !fonts
 #icc
 !image-input.conf
 !input.conf
 !menu.json
 !mpv.conf
+!other-scripts
 !persistent_config.json
 #playlists
 !script-opts
 !scripts
-!other-scripts
 !shaders
 #unused
 #watch_later

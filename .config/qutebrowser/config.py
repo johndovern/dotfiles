@@ -8,7 +8,7 @@ config.bind('.mn',
 config.bind('.mps',
     'hint links spawn --detach mullvad-exclude mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.mf',
-    'hint links spawn --detatch mullvad-exclude fmpv --loop-playlist=no --keep-open=no {hint-url}')
+    'hint links spawn --detach mullvad-exclude mpv --x11-name=fmpv --loop-playlist=no --keep-open=no {hint-url}')
 
 # umpv binds
 config.bind('.uh',
@@ -131,8 +131,8 @@ c.editor.command = ["st", "-e", "nvim", "'{}'"]
 # qutebrowser`.
 # Type: Dict
 c.url.searchengines = {
-    'DEFAULT': 'https://search.disroot.org/search?q={}',
-    'ddg': 'https://duckduckgo.com/?q={}',
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'dis': 'https://search.disroot.org/search?q={}',
     'am': 'https://www.amazon.com/s?k={}',
     'ams': 'https://www.smile.amazon.com/s?k={}',
     'aw': 'https://wiki.archlinux.org/?search={}',

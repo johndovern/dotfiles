@@ -1,5 +1,5 @@
 /* Transparency (0-1): */
-*.alpha: 0.7
+*.alpha: 0.85
 /* *.alphaOffset: 0.0 */
 
 /* Set a default font and font size below */
@@ -44,37 +44,116 @@ Xft.dpi: 120
 *.cursorColor:  #d9d8d8
 *.rcursorColor: #db2d20
 
-/* black */
+/* d - black */
 *.color0:       #0c0d0e
-*.color8:       #737171
-/* red */
+/* *.color0:       #1d1f21 */
+/* *.color0:       #2e3436 */
+/* *.color0:       #303030 */
+
+/* l - black */
+/* *.color8:       #737171 */
+*.color8:       #969896
+/* *.color8:       #737475 */
+/* *.color8:       #555753 */
+/* *.color8:       #5d5d5d */
+
+/* d - red */
 *.color1:       #db2d20
-*.color9:       #db2d20
+/* *.color1:       #cc342b */
+/* *.color1:       #e31a1c */
+/* *.color1:       #cc0000 */
+/* *.color1:       #e1321a */
 
-/* green */
+/* l - red */
+/* *.color9:       #db2d20 */
+/* *.color9:       #cc342b */
+/* *.color9:       #e31a1c */
+/* *.color9:       #ef2929 */
+*.color9:       #ff361e
+
+/* d - green */
+/* *.color2:       #31a354 */
 *.color2:       #01a252
-*.color10:      #01a252
+/* *.color2:       #198844 */
+/* *.color2:       #31a354 */
+/* *.color2:       #4e9a06 */
+/* *.color2:       #6ab017 */
 
-/* yellow */
-*.color3:       #fded02
+/* l - green */
+/* *.color10:      #01a252 */
+*.color10:      #a5c261
+/* *.color10:      #198844 */
+/* *.color10:      #31a354 */
+/* *.color10:      #8ae234 */
+/* *.color10:      #7bc91f */
+
+/* d - yellow */
+/* *.color3:       #fded02 */
+*.color3:       #fba922
+/* *.color3:       #dca060 */
+/* *.color3:       #c4a000 */
+/* *.color3:       #ffc005 */
+
+/* l - yellow */
 *.color11:      #fded02
+/* *.color11:      #fba922 */
+/* *.color11:      #dca060 */
+/* *.color11:      #fce94f */
+/* *.color11:      #ffd00a */
 
-/* blue */
-*.color4:       #009ddc
+/* d - blue */
+/* *.color4:       #009ddc */
+/* *.color4:       #3971ed */
+*.color4:       #3182bd
+/* *.color4:       #3465a4 */
+/* *.color4:       #004f9e */
+
+/* l - blue */
 *.color12:      #009ddc
+/* *.color12:      #3971ed */
+/* *.color12:      #3182bd */
+/* *.color12:      #729fcf */
+/* *.color12:      #0071ff */
 
-/* magenta */
+/* d - magenta */
 *.color5:       #a16a94
-*.color13:      #a16a94
+/* *.color5:       #a36ac7 */
+/* *.color5:       #756bb1 */
+/* *.color5:       #75507b */
 
-/* cyan */
-*.color6:       #b5e4f4
+/* l - magenta */
+/* *.color13:      #a16a94 */
+/* *.color13:      #a36ac7 */
+/* *.color13:      #756bb1 */
+*.color13:      #ad7fa8
+
+/* d - cyan */
+/* *.color6:       #b5e4f4 */
+/* *.color6:       #3971ed */
+*.color6:       #80b1d3
+/* *.color6:       #06989a */
+/* *.color6:       #2aa7e7 */
+
+/* l - cyan */
 *.color14:      #b5e4f4
+/* *.color14:      #3971ed */
+/* *.color14:      #80b1d3 */
+/* *.color14:      #34e2e2 */
+/* *.color14:      #4bb8fd */
 
-
-/* white */
+/* d - white */
 *.color7:       #d9d8d8
-*.color15:      #fcfdfe
+/* *.color7:       #f2f2f2 */
+/* *.color7:       #c5c8c6 */
+/* *.color7:       #b7b8b9 */
+/* *.color7:       #d3d7cf */
+
+/* l - white */
+/* *.color15:      #fcfdfe */
+/* *.color15:      #a020f0 */
+*.color15:      #ffffff
+/* *.color15:      #fcfdfe */
+/* *.color15:      #eeeeec */
 
 /* Slock settings */
 *.message: henlo

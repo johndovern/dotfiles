@@ -1,9 +1,10 @@
-### Updated on Mon Jan 24 11:12:17 PM PST 2022 ###
+### Updated on Wed Feb  9 11:40:07 PM PST 2022 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 #autostart
+#baloofileinformationrc
 #BraveSoftware
 !calcurse
 #cef_user_data
@@ -61,7 +62,9 @@
 !transmission
 #trashrc
 !user-dirs.dirs
+#VeraCrypt
 #Vieb
+#VirtualBox
 #vlc
 !wal
 !wget

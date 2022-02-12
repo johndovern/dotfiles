@@ -12,8 +12,9 @@ map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 &&
 map .am  animove
 map .cs  push $curl<space>-LJO<space>
 
-map S bscript
-map T track
+map L    $nvim -M $fx
+map S    bscript
+map T    track
 map <esc> candr
 map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 
