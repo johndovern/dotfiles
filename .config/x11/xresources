@@ -6,7 +6,7 @@
 /* To see avaliable fonts on your system run */
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
-*.font: FantasqueSansMono Nerd Font Mono:size=14:antialias=true:autohint=true
+*.font:  monospace:size=14:antialias=true:autohint=true
 *.font1: JoyPixels:pixelsize=12:antialias=true:autohint=true
 *.font2: M+ 1c:pixelsize=20:antialias=true:autohint=true
 /* *.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true */

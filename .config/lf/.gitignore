@@ -1,5 +1,5 @@
-### Updated on Mon Jan 24 11:12:27 PM PST 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Sun Feb 13 12:43:12 AM PST 2022 ###
+### < !shortcutrc > deleted since last update ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -12,5 +12,5 @@
 !myrc
 !preview
 !scope
-!shortcutrc
+!shortrc
 !working-lf-with-previews

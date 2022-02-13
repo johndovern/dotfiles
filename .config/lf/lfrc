@@ -126,7 +126,7 @@ set cleaner ~/.config/lf/cleaner
 #$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
 # Source Bookmarks
-source "~/.config/lf/shortcutrc"
+source "~/.config/lf/shortrc"
 
 # Source User settings
 source "~/.config/lf/myrc"
