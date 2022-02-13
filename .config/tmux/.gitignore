@@ -3,5 +3,5 @@
 !.gitignore
 #.gitignore-old
 !tmux.conf
-!tmux-resurrect
+!tmux-res
 !tmux-yank
