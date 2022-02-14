@@ -3,7 +3,7 @@ map gc.  cd ~/.config
 map gcd  cd ~/.config/systemd
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
 map gcEm $$EDITOR "/home/anon/.config/lf/myrc"
-map gcEs $$EDITOR "/home/anon/.config/lf/shortcutrc"
+map gcEs $$EDITOR "/home/anon/.config/lf/shortrc"
 map gch  cd ~/.config/sxhkd
 map gck  cd ~/.config/kmonad
 map gcl  cd ~/.config/lf
@@ -61,7 +61,7 @@ map glr  cd ~/.local/src
 map gls  cd ~/.local/src/st
 
 # home
-map gh.  cd ~/
+map gh   cd ~/
 
 # drives
 map gd.  cd ~/mnt

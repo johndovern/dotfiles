@@ -2,22 +2,24 @@
 
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
-map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
+map J   $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 map gh
-map gg top
-map dd cut
-map D delete
-map E extract
-map C copyto
-map M moveto
+map gg  top
+map dd  cut
+map D   delete
+map E   extract
+map C   copyto
+map M   moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-s> set hidden!
 map <enter> shell
-map x $$f
-map X !$f
-map o $mimeopen $f
-map O $mimeopen --ask $f
+map x   $$f
+map X   !$f
+map o   $mimeopen $f
+map O   $mimeopen --ask $f
+map q   lf_close
+# map q   $setsid -f lf-close
 
 map A   rename # at the very end
 map c   push A<c-u> # new rename
@@ -31,11 +33,20 @@ map u   clear
 
 map <c-e> down
 map <c-y> up
-map V push :!nvim<space>
+map V   push :!nvim<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 # cmds/functions
+
+cmd lf_close ${{
+  if xprop -id $(xdotool getactivewindow) WM_CLASS | grep -q "lf_run" ; then
+    lf -remote "send $id quit"
+  else
+    setsid -f tmux run-shell "sleep 0.02 && tmux select-layout main-vertical" &
+    lf -remote "send $id quit"
+  fi
+}}
 
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
