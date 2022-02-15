@@ -6,7 +6,7 @@ map J   $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*/
 map gh
 map gg  top
 map dd  cut
-map D   delete
+map D   %trash-put $fx
 map E   extract
 map C   copyto
 map M   moveto
@@ -19,7 +19,6 @@ map X   !$f
 map o   $mimeopen $f
 map O   $mimeopen --ask $f
 map q   lf_close
-# map q   $setsid -f lf-close
 
 map A   rename # at the very end
 map c   push A<c-u> # new rename
@@ -114,7 +113,7 @@ cmd track ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "track?[y/N]"
+	printf "Track? [y/N] "
 	read ans
 	[ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
 }}
