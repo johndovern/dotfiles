@@ -3,12 +3,12 @@
     follow = keyboard
     width = 350
     height = 400
-    offset = 0x25
+    offset = 0x30
     padding = 8
     horizontal_padding = 8
     frame_width = 2
     transparency = 10
-    font = monospace 13
+    font = monospace 11
     format = "<b>%s</b>\n%b"
 
 [urgency_low]

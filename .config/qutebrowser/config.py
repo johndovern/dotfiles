@@ -79,7 +79,7 @@ config.bind('wsg',
 config.bind('wap',
     'open -t https://wapchan.org/')
 config.bind('.iv',
-    'open -t https://yewtu.be')
+    'open -t https://vid.puffyan.us/feed/popular')
 config.bind('.yi',
     'open -t https://yandex.com/images')
 
@@ -336,23 +336,18 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
-# c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
-# c.colors.completion.fg = ['#9cc4ff', 'white', 'white']
-c.colors.completion.fg = ['#fcfdfe', 'white', 'white']
+c.colors.completion.fg = ['#ffffff', 'white', 'white']
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-# c.colors.completion.odd.bg = '#1c1f24'
 c.colors.completion.odd.bg = '#0c0d0e'
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-# c.colors.completion.even.bg = '#232429'
 c.colors.completion.even.bg = '#0c0d0e'
 
 # Foreground color of completion widget category headers.
 # Type: QtColor
-# c.colors.completion.category.fg = '#e1acff'
 c.colors.completion.category.fg = '#01a252'
 
 # Background color of the completion widget category headers.
@@ -361,32 +356,26 @@ c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-# c.colors.completion.category.border.top = '#3f4147'
 c.colors.completion.category.border.top = '#0c0d0e'
 
 # Bottom border color of the completion widget category headers.
 # Type: QssColor
-# c.colors.completion.category.border.bottom = '#3f4147'
 c.colors.completion.category.border.bottom = '#0c0d0e'
 
 # Foreground color of the selected completion item.
 # Type: QtColor
-# c.colors.completion.item.selected.fg = '#0c0d0e'
 c.colors.completion.item.selected.fg = '#0c0d0e'
 
 # Background color of the selected completion item.
 # Type: QssColor
-# c.colors.completion.item.selected.bg = '#ecbe7b'
-c.colors.completion.item.selected.bg = '#fcfdfe'
+c.colors.completion.item.selected.bg = '#ffffff'
 
 # Foreground color of the matched text in the selected completion item.
 # Type: QtColor
-# c.colors.completion.item.selected.match.fg = '#c678dd'
 c.colors.completion.item.selected.match.fg = '#ff6c6b'
 
 # Foreground color of the matched text in the completion.
 # Type: QtColor
-# c.colors.completion.match.fg = '#c678dd'
 c.colors.completion.match.fg = '#ff6c6b'
 
 # Color of the scrollbar handle in the completion view.
@@ -407,7 +396,7 @@ c.colors.hints.bg = '#0c0d0e'
 
 # Font color for hints.
 # Type: QssColor
-c.colors.hints.fg = '#fcfdfe'
+c.colors.hints.fg = '#ffffff'
 
 # Font color for the matched part of hints.
 # Type: QtColor
@@ -415,7 +404,7 @@ c.colors.hints.match.fg = '#ff6c6b'
 
 # Font color for border of hints
 # Type: QtColor
-c.hints.border = '1px solid #fcfdfe'
+c.hints.border = '1px solid #ffffff'
 
 # Background color of an info message.
 # Type: QssColor
@@ -435,7 +424,7 @@ c.colors.statusbar.insert.bg = '#01a252'
 
 # Background color of the statusbar in passthrough mode.
 # Type: QssColor
-c.colors.statusbar.passthrough.bg = '#01a0e4'
+c.colors.statusbar.passthrough.bg = '#009ddc'
 
 # Background color of the statusbar in command mode.
 # Type: QssColor
@@ -451,7 +440,7 @@ c.colors.tabs.bar.bg = '#0c0d0e'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#fcfdfe'
+c.colors.tabs.odd.fg = '#ffffff'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
@@ -459,7 +448,7 @@ c.colors.tabs.odd.bg = '#0c0d0e'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#fcfdfe'
+c.colors.tabs.even.fg = '#ffffff'
 
 # Background color of unselected even tabs.
 # Type: QtColor
@@ -501,22 +490,22 @@ c.colors.tabs.pinned.selected.even.bg = '#0c0d0e'
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = '"FantasqueSansMono Nerd Font Mono"'
+c.fonts.default_family = '"Hack"'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '12pt'
+c.fonts.default_size = '11pt'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '12pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.completion.entry = '11pt "Hack"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '12pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.debug_console = '11pt "Hack"'
 
 # Font used for prompts.
 # Type: Font
@@ -524,11 +513,11 @@ c.fonts.prompts = 'default_size sans-serif'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '12pt "FantasqueSansMono Nerd Font Mono"'
+c.fonts.statusbar = '11pt "Hack"'
 
 # Font used for hints
 # Type: Font
-c.fonts.hints = '14 "FantasqueSansMono Nerd Font Mono"'
+c.fonts.hints = '12pt "Hack"'
 
 # Padding around text for tabs
 c.tabs.padding = ({"bottom": 3, "left": 5, "right": 5, "top": 3})

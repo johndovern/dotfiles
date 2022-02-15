@@ -30,10 +30,10 @@ Xft.dpi: 120
 
 /* DWM & DMENU color settings */
 *.colornbg:      #0c0d0e
-*.colornbord:    #fcfdfe
-*.colornfg:      #fcfdfe
-*.colorselbg:    #fcfdfe
-*.colorselbord:  #db2d20
+*.colornbord:    #ffffff
+*.colornfg:      #ffffff
+*.colorselbg:    #ffffff
+*.colorselbord:  #ff361e
 *.colorselfg:    #0c0d0e
 
 /* Color settings for St */
