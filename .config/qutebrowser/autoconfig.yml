@@ -6,7 +6,10 @@
 
 config_version: 2
 settings:
-  statusbar.show:
-    global: in-mode
-  tabs.show:
-    global: switching
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save

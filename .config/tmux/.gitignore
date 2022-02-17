@@ -1,9 +1,12 @@
-### Updated on Mon Feb 14 06:26:25 PM PST 2022 ###
+### Updated on Wed Feb 16 07:41:12 PM PST 2022 ###
+### < !movement.conf > deleted since last update ###
 *
 !.gitignore
 #.gitignore-old
 #.gitignore-very-old
-!movement.conf
+!sxhkd.conf
 !tmux.conf
+#tmux.conf-backup
 !tmux-res
 !tmux-yank
+!twm.conf

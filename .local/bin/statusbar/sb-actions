@@ -1,0 +1,29 @@
+#!/bin/sh
+
+play_music() { \
+  if ! mpc current | grep -q ".*" ; then
+    mpc load mish-mash >/dev/null 2>&1 && mpc random off >/dev/null 2>&1 && mpc repeat on >/dev/null 2>&1 && mpc play >/dev/null 2>&1 && mpc random on >/dev/null 2>&1
+  else
+    mpc toggle >/dev/null 2>&1
+  fi
+}
+
+case $BLOCK_BUTTON in
+  1) open=$(printf "music\\nqute\\npcmanfm" | dmenu -i -p "Open:")
+    case "$open" in
+      "music") echo -e "[+]" ; play_music ;;
+      "qute") echo -e "[+]"
+        if pidof -qx qutebrowser ; then
+          wmctrl -xa "qutebrowser"
+        else
+          setsid -f qutebrowser
+        fi ;;
+      "pcmanfm") echo -e "[+]" ; setsid -f pcmanfm ;;
+    esac ;;
+  2) echo -e "[+]" ; notify-send "💬 Action module" "\- Open useful programs.
+- Left click give program options.
+- Middle click shows this box.
+- Right click plays a playlist" ;;
+  3) echo -e "[+]" ; play_music ;;
+  *) echo -e "[+]" ;;
+esac

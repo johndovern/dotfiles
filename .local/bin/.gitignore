@@ -1,6 +1,7 @@
-### Updated on Wed Feb  9 11:41:47 PM PST 2022 ###
+### Updated on Wed Feb 16 07:41:43 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !bookmark
 !booksplit
@@ -41,6 +42,7 @@
 !qndl
 !qt-cookies
 !queueandnotify
+!qutebrowser
 !remaps
 !rotdir
 !rssadd

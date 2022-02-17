@@ -7,7 +7,7 @@
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
 *.font:  monospace:size=13:antialias=true:autohint=true
-*.font1: JoyPixels:pixelsize=12:antialias=true:autohint=true
+*.font1: Joypixels:pixelsize=14:antialias=true:autohint=true
 *.font2: M+ 1c:pixelsize=20:antialias=true:autohint=true
 /* *.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true */
 
@@ -17,9 +17,9 @@ Xft.dpi: 120
 /* DWM resources */
 *.borderpx: 2	! border pixel of windows
 *.gappih: 20	! horiz inner gap between windows
-*.gappiv: 15	! vert inner gap between windows
+*.gappiv: 20	! vert inner gap between windows
 *.gappoh: 20	! horiz outer gap between windows and screen edge
-*.gappov: 20	! vert outer gap between windows and screen edge
+*.gappov: 25	! vert outer gap between windows and screen edge
 *.snap: 5	! snap pixel
 /* *.showbar: 			! 0 means no bar */
 /* *.topbar: 			! 0 means bottom bar */

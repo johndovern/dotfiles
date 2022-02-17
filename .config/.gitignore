@@ -1,7 +1,7 @@
-### Updated on Wed Feb  9 11:40:07 PM PST 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Wed Feb 16 07:39:52 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 #autostart
 #baloofileinformationrc
@@ -16,8 +16,10 @@
 !dunst
 #Electron
 !fontconfig
+#fontforge
 #GIMP
 #goa-1.0
+#gsmartcontrol
 !gtk-2.0
 !gtk-3.0
 #hakuneko-desktop
@@ -30,6 +32,8 @@
 !kmonad
 !lf
 #libfm
+!libreoffice
+!libvirt
 #light
 !lutris
 #menus

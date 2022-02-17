@@ -6,7 +6,7 @@ map J   $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*/
 map gh
 map gg  top
 map dd  cut
-map D   %trash-put $fx
+map D   trash
 map E   extract
 map C   copyto
 map M   moveto
@@ -16,9 +16,10 @@ map <c-s> set hidden!
 map <enter> shell
 map x   $$f
 map X   !$f
-map o   $mimeopen $f
-map O   $mimeopen --ask $f
+map o   $setsid -f st -e mimeopen --ask $f
+map O   $setsid -f st -e mimeopen $f
 map q   lf_close
+map t   file_type
 
 map A   rename # at the very end
 map c   push A<c-u> # new rename
@@ -38,6 +39,20 @@ map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 # cmds/functions
 
+cmd trash ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "Move to trash, or delete? [y/d/N]"
+	read ans
+  case "$ans" in
+    y|t) trash-put $fx ;;
+    d) rm -r $fx ;;
+    *) ;;
+  esac
+  lf -remote "send reload"
+}}
+
 cmd lf_close ${{
   if xprop -id $(xdotool getactivewindow) WM_CLASS | grep -q "lf_run" ; then
     lf -remote "send $id quit"
@@ -45,6 +60,10 @@ cmd lf_close ${{
     setsid -f tmux run-shell "sleep 0.02 && tmux select-layout main-vertical" &
     lf -remote "send $id quit"
   fi
+}}
+
+cmd file_type %{{
+  echo $(file --mime-type "$(readlink -f $fx)" -bL)
 }}
 
 cmd open ${{
@@ -57,6 +76,7 @@ cmd open ${{
     image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | setsid -f nsxiv -aio 2>/dev/null | lf-select & ;;
     audio/*) mpv $f >/dev/null 2>&1 ;;
     video/*) mpv $f -quiet >/dev/null 2>&1 ;;
+    application/vnd.openxmlformats*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
     application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR $fx ;;
     application/x-7z-compressed) zathura $fx >/dev/null 2>&1 ;;

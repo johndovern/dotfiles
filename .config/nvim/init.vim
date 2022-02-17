@@ -78,6 +78,13 @@ set expandtab
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
+" Better movement
+  noremap <expr> j v:count ? 'j' : 'gj'
+  noremap <expr> k v:count ? 'k' : 'gk'
+
+" Better highlighting
+  hi Visual ctermfg=Black ctermbg=Grey
+
 " Replace ex mode with gq
 	map Q gq
 

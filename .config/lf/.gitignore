@@ -1,7 +1,7 @@
-### Updated on Sun Feb 13 12:43:12 AM PST 2022 ###
-### < !shortcutrc > deleted since last update ###
+### Updated on Wed Feb 16 07:40:33 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !cleaner
 !lf-gadgets
