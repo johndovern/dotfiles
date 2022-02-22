@@ -46,7 +46,7 @@ config.bind('.wh',
 config.bind('.wn',
     'spawn --detach wsg2mpv {url}')
 config.bind('.dwsg',
-    'spawn --detach --output-messages wsg2ytdlp-qute {url}')
+    'spawn --detach wsg2ytdlp-qute {url}')
 
 # Custom dot commands
 config.unbind('.')
