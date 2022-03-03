@@ -6,13 +6,13 @@
 /* To see avaliable fonts on your system run */
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
-*.font:  monospace:size=13:antialias=true:autohint=true
+*.font:  monospace:size=12:antialias=true:autohint=true
 *.font1: Joypixels:pixelsize=14:antialias=true:autohint=true
 *.font2: M+ 1c:pixelsize=20:antialias=true:autohint=true
 /* *.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true */
 
 /* hiDPI setting */
-Xft.dpi: 120
+Xft.dpi: 96
 
 /* DWM resources */
 *.borderpx: 2	! border pixel of windows

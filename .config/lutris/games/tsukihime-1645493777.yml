@@ -1,0 +1,7 @@
+game:
+  arch: win32
+  exe: /home/anon/games/Tsukihime/tsukihime.exe
+  prefix: ~/.local/share/wineprefixes/32bit
+system: {}
+wine:
+  esync: false

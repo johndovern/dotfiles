@@ -16,16 +16,16 @@ map <c-s> set hidden!
 map <enter> shell
 map x   $$f
 map X   !$f
-map o   $setsid -f st -e mimeopen --ask $f
-map O   $setsid -f st -e mimeopen $f
+map o   $setsid -f st -e mimeopen $f
+map O   $setsid -f st -e mimeopen --ask $f
 map q   lf_close
 map t   file_type
 
 map A   rename # at the very end
 map c   push A<c-u> # new rename
 map I   push A<c-a> # at the very beginning
-map i   push A<a-b><a-b><a-f> # before extention
-map a   push A<a-b> # after extention
+map i   push A<a-b><a-b><a-f> # before extension
+map a   push A<a-b> # after extension
 map B   bulkrename
 map b   $setbg $f
 map U   unselect
@@ -50,7 +50,7 @@ cmd trash ${{
     d) rm -r $fx ;;
     *) ;;
   esac
-  lf -remote "send reload"
+  # lf -remote "send reload"
 }}
 
 cmd lf_close ${{

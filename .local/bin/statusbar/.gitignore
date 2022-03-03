@@ -1,6 +1,8 @@
-### Updated on Thu Feb 17 12:24:45 AM PST 2022 ###
+### Updated on Wed Mar  2 11:58:05 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
+#.gitignore-very-old
 !sb-actions
 !sb-battery
 !sb-clock

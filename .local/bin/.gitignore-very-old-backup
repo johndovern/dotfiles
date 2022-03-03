@@ -1,8 +1,8 @@
-### Updated on Thu Mar  3 01:00:05 AM PST 2022 ###
+### Updated on Tue Feb 22 10:13:36 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
-!.gitignore-very-old-backup
 !bookmark
 !booksplit
 !cht.sh
@@ -31,7 +31,6 @@
 !linkhandler
 !maimpick
 !mkhome
-!monitor_setup.sh
 !mousewiggle
 !noisereduce
 !open_url_in_instance.sh

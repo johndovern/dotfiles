@@ -1,6 +1,8 @@
-### Updated on Wed Feb 16 07:40:58 PM PST 2022 ###
+### Updated on Wed Mar  2 11:57:36 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
+#.gitignore-very-old
 !main.lua
 !sponsorblock.py
 #sponsorblock.txt

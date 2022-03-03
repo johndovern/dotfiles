@@ -1,22 +1,28 @@
 # Bindings for normal mode
 
+# archive binds
+config.bind('.ar',
+    'spawn --detach archive-ortho {url} {title}')
+
 # mpv binds
+config.bind('.dh',
+    'hint links spawn --detach dmenuhandler {hint-url}')
 config.bind('.mh',
-    'hint links spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {hint-url}')
+    'hint links spawn --detach mpv --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.mn',
-    'spawn --detach mullvad-exclude mpv --loop-playlist=no --keep-open=no {url}')
+    'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
 config.bind('.mps',
-    'hint links spawn --detach mullvad-exclude mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
+    'hint links spawn --detach mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.mf',
-    'hint links spawn --detach mullvad-exclude mpv --x11-name=fmpv --loop-playlist=no --keep-open=no {hint-url}')
+    'hint links spawn --detach mpv --x11-name=fmpv --loop-playlist=no --keep-open=no {hint-url}')
 
 # umpv binds
 config.bind('.uh',
-    'hint links spawn --detach mullvad-exclude umpv {hint-url}')
+    'hint links spawn --detach umpv {hint-url}')
 config.bind('.un',
-    'spawn --detach mullvad-exclude umpv {url}')
+    'spawn --detach umpv {url}')
 config.bind('.ur',
-    'hint --rapid links spawn --detach mullvad-exclude umpv {hint-url}')
+    'hint --rapid links spawn --detach umpv {hint-url}')
 
 # yt-dlp binds
 config.bind('.dyah',
@@ -206,6 +212,7 @@ c.content.cookies.store = False
 
 # Do not save histroy
 c.completion.web_history.max_items = 0
+c.completion.cmd_history_max_items = 0
 
 # Disable Javascript
 config.bind('.tsh', 'config-cycle -p -t -u *://{url:host}/* content.javascript.enabled ;; reload')

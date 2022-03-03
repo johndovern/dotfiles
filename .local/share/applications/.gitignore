@@ -1,7 +1,7 @@
-### Updated on Wed Feb 16 07:42:05 PM PST 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Wed Mar  2 11:58:13 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !file.desktop
 !img.desktop
@@ -13,7 +13,13 @@
 !text.desktop
 !torrent.desktop
 !video.desktop
+#wine
+#wine-extension-application.desktop
+#wine-extension-appref-ms.desktop
 #wine-extension-chm.desktop
+#wine-extension-compositefont.desktop
+#wine-extension-crd.desktop
+#wine-extension-crds.desktop
 #wine-extension-gif.desktop
 #wine-extension-hlp.desktop
 #wine-extension-htm.desktop
@@ -24,8 +30,12 @@
 #wine-extension-pdf.desktop
 #wine-extension-png.desktop
 #wine-extension-rtf.desktop
+#wine-extension-sct.desktop
 #wine-extension-txt.desktop
 #wine-extension-url.desktop
 #wine-extension-vbs.desktop
 #wine-extension-wri.desktop
+#wine-extension-wsc.desktop
+#wine-extension-xaml.desktop
+#wine-extension-xbap.desktop
 #wine-extension-xml.desktop

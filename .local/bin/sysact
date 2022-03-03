@@ -16,15 +16,3 @@ case "$(printf "Lock\nLeave-dwm\nRenew-dwm\nHibernate\nSleep\nReboot\nShutdown\n
 	'Display off') xset dpms force off ;;
 	*) exit 1 ;;
 esac
-
-# case "$(printf "🔒 lock\n🚪 leave dwm\n♻️  renew dwm\n🐻 hibernate\n💤 sleep\n🔃 reboot\n🔌 shutdown\n📺 display off" | dmenu -i -p 'Action: ')" in
-# 	'🔒 lock') slock ;;
-# 	'🚪 leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
-# 	'♻️  renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
-# 	'🐻 hibernate') slock $ctl hibernate ;;
-# 	'💤 sleep') slock $ctl suspend ;;
-# 	'🔃 reboot') st -e key-zip 1 ;;
-# 	'🔌 shutdown') st -e key-zip 0 ;;
-# 	'📺 display off') xset dpms force off ;;
-# 	*) exit 1 ;;
-# esac

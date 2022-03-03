@@ -1,6 +1,7 @@
-### Updated on Wed Feb 16 07:41:55 PM PST 2022 ###
+### Updated on Wed Mar  2 11:58:10 PM PST 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !applications
 #baloo
@@ -24,6 +25,7 @@
 #lyrics
 #mime
 #nvim
+#onlyoffice
 #qutebrowser
 #RecentDocuments
 #recently-used.xbel

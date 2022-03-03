@@ -1,5 +1,92 @@
+ctrl + alt + shift + 4
+  st -e pulsemixer; kill -44 $(pidof dwmblocks)
+
+ctrl + alt + shift + q
+  mpv-options quit
+
+ctrl + alt + shift + w
+  st -n aniwiki -e nvim -c VimwikiIndex -c "VimwikiGoto anime/watch\ list"
+
+ctrl + alt + shift + super + w
+  mullvad-exclude qutebrowser
+
+ctrl + alt + shift + e
+  mpv-options focus
+
+ctrl + alt + shift + r
+  dautoupdate
+
+ctrl + alt + shift + t
+  st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
+
+ctrl + alt + shift + y
+  transmission-gtk
+
+ctrl + alt + shift + u
+  librewolf
+
 ctrl + alt + shift + i
   mullvad-exclude brave
 
+ctrl + alt + shift + o
+  mpv $HOME/.config/mpv/playlists/groovy.m3u
+
+ctrl + alt + shift + p
+  mpv-play-pause
+
+ctrl + alt + shift + a
+  st -n anime_lf -e lfrun ~/videos/anime/
+
+ctrl + alt + shift + s
+  maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300
+
+ctrl + alt + shift + super + s
+  mpv-options sticky
+
+ctrl + alt + shift + d
+  sleep 0.2 && mpv-options float
+
+ctrl + alt + shift + f
+  mpv-options full
+
+ctrl + alt + shift + g
+  mpv $HOME/.config/mpv/playlists/groove.m3u
+
+ctrl + alt + shift + j
+  xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
+
+ctrl + alt + shift + l
+  killall keepassxc
+
 ctrl + alt + shift + z
   key-zip
+
+ctrl + alt + shift + x
+  remaps
+
+ctrl + alt + shift + c
+  dmenubluetooth reconnect
+
+ctrl + alt + shift + super + c
+  dmenubluetooth turn-on
+
+ctrl + alt + shift + b
+  dmenubluetooth disconnect
+
+ctrl + alt + shift + super + b
+  dmenubluetooth opts
+
+ctrl + alt + shift + space
+  touchpadtoggle
+
+ctrl + alt + shift + m
+  st -n manga_lf -e lfrun ~/documents/manga/
+
+ctrl + alt + shift + comma
+  mpv-prev-song
+
+ctrl + alt + shift + period
+  mpv-next-song
+
+ctrl + alt + shift + Sys_Req
+  maim pic-full-$(date '+%y%m%d-%H%M-%S').png

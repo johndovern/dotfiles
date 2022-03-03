@@ -1,4 +1,4 @@
-### Updated on Wed Feb 16 07:39:52 PM PST 2022 ###
+### Updated on Wed Mar  2 11:57:19 PM PST 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -35,6 +35,7 @@
 !libreoffice
 !libvirt
 #light
+!llpp.conf
 !lutris
 #menus
 !mimeapps.list
@@ -47,6 +48,7 @@
 !nnn
 !nsxiv
 !nvim
+#onlyoffice
 #pavucontrol.ini
 #pcmanfm
 !pinentry
