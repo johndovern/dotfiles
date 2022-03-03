@@ -14,7 +14,7 @@ ctrl + alt + shift + e
   mpv-options focus
 
 ctrl + alt + shift + r
-  dautoupdate
+  st -e dautoupdate
 
 ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
