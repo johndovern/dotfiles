@@ -141,7 +141,7 @@ set expandtab
 " Recompile dwmblocks on config edit.
 	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 " Restart sxhkd after editing
-  autocmd BufWritePost sxhkdrc !pkill sxhkd ; setsid -f sxhkd &
+  autocmd BufWritePost sxhkdrc !pkill sxhkd ; xdotool key super+d sleep 0.2 key s x h k d enter
 
 " Autocenter screen when entering insert mode
   autocmd InsertEnter * norm zz

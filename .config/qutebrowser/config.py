@@ -202,7 +202,7 @@ c.content.blocking.adblock.lists = [
             ]
 
 # Set default zoom
-c.zoom.default = '150%'
+c.zoom.default = '125%'
 
 # Set spellcheck language
 c.spellcheck.languages = ['en-US']
