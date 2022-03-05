@@ -23,7 +23,7 @@ tmux new-session -s server -d &
 # Create mpvSockets tmp dir
 [ ! -d /tmp/mpvSockets ] && mkdir /tmp/mpvSockets &
 
-autostart="mpd remaps xcompmgr dunst unclutter /usr/lib/xdg-desktop-portal-kde sxhkd"
+autostart="mpd remaps xcompmgr dunst unclutter /usr/lib/xdg-desktop-portal-kde"
 
 for program in $autostart; do
 	pidof -s "$program" || setsid -f "$program"

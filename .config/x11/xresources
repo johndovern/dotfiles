@@ -6,10 +6,9 @@
 /* To see avaliable fonts on your system run */
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
-*.font:  monospace:size=12:antialias=true:autohint=true
+*.font:  monospace:size=12
 *.font1: Joypixels:pixelsize=14:antialias=true:autohint=true
-*.font2: M+ 1c:pixelsize=20:antialias=true:autohint=true
-/* *.dfont: FantasqueSansMono Nerd Font Mono:size=1:antialias=true:autohint=true */
+*.font2: M+ 1c:pixelsize=18:antialias=true:autohint=true
 
 /* hiDPI setting */
 Xft.dpi: 96
@@ -30,9 +29,12 @@ Xft.dpi: 96
 
 /* DWM & DMENU color settings */
 *.colornbg:      #0c0d0e
-*.colornbord:    #ffffff
+/* *.colornbord:    #ffffff */
+*.colornbord:    #969896
 *.colornfg:      #ffffff
+/* *.colornfg:      #009ddc */
 *.colorselbg:    #ffffff
+/* *.colorselbg:    #009ddc */
 *.colorselbord:  #ff361e
 *.colorselfg:    #0c0d0e
 

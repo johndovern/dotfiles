@@ -3,7 +3,7 @@
 if [[ -n "${1+x}" ]]; then dir="${1%/*}" ;fi
 if pwd | grep -x "$HOME" >/dev/null 2>&1; then dir=$(find "$HOME" -type d -printf '%P\n' | dmenu -i -p "Which directory do you want to track? "); else dir=$(pwd); fi
 if [[ -z ${dir} ]]; then notify-send "no directory set, exiting"; exit 1 ; fi
-if [[ -n ${dir+x} ]]; then cd $dir || (notify-send -u critical "failed to cd into $dir" && exit 1); fi
+if [[ -n ${dir+x} ]]; then cd "$dir" || (notify-send -u critical "failed to cd into $dir" && exit 1); fi
 g="$(pwd)/.gitignore"
 og="$(pwd)/.gitignore-old"
 tmp="$(pwd)/.$(echo $RANDOM | md5sum | head -c 20)"
@@ -17,7 +17,7 @@ done
 if [[ -e "$og" ]]; then mv "$og" "$(pwd)/.gitignore-very-old"; fi
 mv "$g" "$og"
 echo -e "### Updated on $(date) ###" > "$g"
-while read -r t; do t1=${t:1}; in=$(echo "#$t1"); b=0; l=0
+while read -r t; do t1=${t:1}; in="#$t1"; l=0
   while read -r o; do i=${o:1}; k=$(wc -l < "$og"); l=$((l+1))
     if [[ "$o" == "*" ]]; then continue; fi
     if [[ "$t1" == "$i" ]]; then echo "$o" >> "$g"; l=$((l-1)); continue; fi
@@ -39,7 +39,7 @@ done < "$og"
 while read -r i; do
   if [[ "$i" == "*" ]]; then s=1; break; fi
 done < "$g"
-rmog=$(<"$og")
+rmog=$(cat "$og")
 if [[ "$rmog" == "###" ]]; then rm "$og"; fi
 if [[ -z ${s+x} ]]; then sed -i "1 a *" "$g"; fi
 if [[ -z ${nn+x} ]]; then rm "$og"; fi

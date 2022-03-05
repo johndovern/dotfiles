@@ -12,7 +12,7 @@ config.bind('.mh',
 config.bind('.mn',
     'spawn --detach mpv --loop-playlist=no --keep-open=no {url}')
 config.bind('.mps',
-    'hint links spawn --detach mpv --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
+    'hint links spawn --detach mpv --force-window=no --no-video --shuffle --loop-playlist=no --keep-open=no {hint-url}')
 config.bind('.mf',
     'hint links spawn --detach mpv --x11-name=fmpv --loop-playlist=no --keep-open=no {hint-url}')
 
@@ -71,15 +71,15 @@ config.bind('.zz',
 config.bind('.ab',
     'adblock-update')
 config.bind('.cc',
-    'spawn --detach quit-qute')
+    'spawn --detach qute-options q')
 config.bind('.pp',
     'spawn --detach mullvad-exclude brave {url}')
 config.bind('.kk',
-    'spawn --detach qute-accept')
+    'spawn --detach qute-options a')
 
 # Binds for opening websites
-config.bind('chg',
-    'open -t https://4chan.org/g')
+# config.bind('chg',
+#     'open -t https://4chan.org/g')
 config.bind('wsg',
     'open -t https://4chan.org/wsg')
 config.bind('wap',
@@ -114,6 +114,10 @@ config.unbind('gm')
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
 # bind_chained('.cc', 'history-clear', 'spawn --output-messages qt-cookies')
+bind_chained('chg',
+    'open -t https://4chan.org/g',
+    'spawn --detach qute-options 4'
+    )
 
 # Set editor
 c.editor.command = ["st", "-e", "nvim", "'{}'"]
@@ -185,21 +189,21 @@ c.statusbar.show = 'in-mode'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.start_pages = 'https://serx.cf/'
+c.url.start_pages = 'https://duckduckgo.com/'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'https://serx.cf/'
+c.url.default_page = 'https://duckduckgo.com/'
 
 # Adblocking lists
 c.content.blocking.adblock.lists = [
-            "https://easylist.to/easylist/easylist.txt",
-            "https://easylist.to/easylist/easyprivacy.txt",
-            "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
-            "https://easylist.to/easylist/fanboy-social.txt",
-            "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
-            "https://raw.githubusercontent.com/notracking/hosts-blocklists/master/adblock/adblock.txt",
-            ]
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://easylist.to/easylist/fanboy-social.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://raw.githubusercontent.com/notracking/hosts-blocklists/master/adblock/adblock.txt",
+    ]
 
 # Set default zoom
 c.zoom.default = '125%'
@@ -299,7 +303,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
+# config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
