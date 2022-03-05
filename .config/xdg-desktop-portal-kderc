@@ -1,8 +1,10 @@
 [FileDialogSize]
+HDMI3 LVDS1 HDMI2 Height 1920x1080=630
+HDMI3 LVDS1 HDMI2 Width 1920x1080=956
 LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
 Recent Files[$e]=file:$HOME/videos/webms/webms-to-post/[Exiled-Destiny]_Ranma_½_TV_Ep030_(675A2DB8).gif,file:$HOME/pic-full-220216-1624-10.png,file:$HOME/downloads/archlinux-2022.02.01-x86_64.iso,file:$HOME/videos/webms/webms-to-post/[Exiled-Destiny]_Ranma_½_TV_Ep027_(4E639B01).webm,file:$HOME/videos/webms/webms-to-post/[Exiled-Destiny]_Ranma_½_TV_Ep017_(DCDB417F).webm,file:$HOME/videos/webms/webms-to-post/[Exiled-Destiny]_Ranma_½_TV_Ep005_(F67212D4).webm,file:$HOME/videos/webms/webms-to-post/[Exiled-Destiny]_Ranma_½_TV_Ep003_(786E6B0F).webm,file:$HOME/videos/webms/webms-to-post/[DB]A Silent Voice_-_(Dual Audio_10bit_BD1080p_x265)-[03.12.108-03.14.111].webm,file:$HOME/videos/webms/webms-to-post/[BakaWolf-m.3.3.w] Itazura na Kiss 01 (H.264) [1A141A3E]-[15.47.363-15.50.492].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - Mira-Hen (Movie2) [BD 1920x1080 x265 10Bit AC3]-[35.52.279-35.56.451].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - Mira-Hen (Movie2) [BD 1920x1080 x265 10Bit AC3]-[35.12.699-35.15.868].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - 11 [BD 1920x1080 x265 10Bit AC3]-[09.56.101-09.56.851].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - 08 [BD 1920x1080 x265 10Bit AC3]-[16.58.522-16.59.732].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - 08 [BD 1920x1080 x265 10Bit AC3]-[09.27.655-09.29.741].webm,file:$HOME/videos/webms/webms-to-post/[AkihitoSubs] Kyoukai no Kanta - 03 [BD 1920x1080 x265 10Bit AC3]-[18.27.570-18.28.361].webm
 Recent URLs[$e]=file:$HOME/,file:$HOME/pictures/,file:///home/,file:$HOME/documents/tmaster/browser-backup-files/,file:$HOME/documents/,file:$HOME/videos/webms/webms-to-post/,file:$HOME/downloads/
-detailViewIconSize=128
+detailViewIconSize=70

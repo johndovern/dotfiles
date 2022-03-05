@@ -6,7 +6,7 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 case "$(printf "Lock\nLeave-dwm\nRenew-dwm\nHibernate\nSleep\nReboot\nShutdown\nDisplay off" | dmenu -i -p 'Action: ')" in
-	'Lock') slock ;;
+	'Lock') xset dpms force off ; slock ;;
 	'Leave-dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
 	'Renew-dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
 	'Hibernate') slock $ctl hibernate ;;

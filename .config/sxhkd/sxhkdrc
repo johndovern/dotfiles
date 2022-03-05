@@ -38,7 +38,7 @@ ctrl + alt + shift + a
   st -n anime_lf -e lfrun ~/videos/anime/
 
 ctrl + alt + shift + s
-  maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 1400
+  maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300
 
 ctrl + alt + shift + super + s
   mpv-options sticky
@@ -53,9 +53,12 @@ ctrl + alt + shift + g
   mpv $HOME/.config/mpv/playlists/groove.m3u
 
 ctrl + alt + shift + j
-  xdotool mousemove --sync 50 1400 && xdotool mousemove --sync 0 1400
+  xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
 
-ctrl + alt + shift + l
+ctrl + alt + shift + k
+  xdotool mousemove --sync 3000 300
+
+ctrl + alt + shift + super + l
   killall keepassxc
 
 ctrl + alt + shift + z

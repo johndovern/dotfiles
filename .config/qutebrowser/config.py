@@ -315,7 +315,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0')
 
 # Load images automatically in web pages.
 # Type: Bool
@@ -498,7 +498,7 @@ c.colors.tabs.pinned.selected.even.bg = '#0c0d0e'
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = '"Hack"'
+c.fonts.default_family = '"Noto Sans Mono"'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
@@ -509,11 +509,11 @@ c.fonts.default_size = '11pt'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '11pt "Hack"'
+c.fonts.completion.entry = '11pt "Noto Sans Mono"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '11pt "Hack"'
+c.fonts.debug_console = '11pt "Noto Sans Mono"'
 
 # Font used for prompts.
 # Type: Font
@@ -521,11 +521,11 @@ c.fonts.prompts = 'default_size sans-serif'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '11pt "Hack"'
+c.fonts.statusbar = '11pt "Noto Sans Mono"'
 
 # Font used for hints
 # Type: Font
-c.fonts.hints = '12pt "Hack"'
+c.fonts.hints = '12pt "Noto Sans Mono"'
 
 # Padding around text for tabs
 c.tabs.padding = ({"bottom": 3, "left": 5, "right": 5, "top": 3})
