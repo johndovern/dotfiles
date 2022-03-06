@@ -2,7 +2,7 @@ ctrl + alt + shift + 4
   st -e pulsemixer; kill -44 $(pidof dwmblocks)
 
 ctrl + alt + shift + q
-  mpv-options quit
+  mpv-quit-pick
 
 ctrl + alt + shift + w
   st -n aniwiki -e nvim -c VimwikiIndex -c "VimwikiGoto anime/watch\ list"
@@ -29,10 +29,25 @@ ctrl + alt + shift + i
   mullvad-exclude brave
 
 ctrl + alt + shift + o
-  mpv $HOME/.config/mpv/playlists/groovy.m3u
+  mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle
 
 ctrl + alt + shift + p
   mpv-play-pause
+
+ctrl + alt + shift + bracketleft
+  mpv-seek -10
+
+ctrl + alt + shift + super + bracketleft
+  mpv-seek -60
+
+ctrl + alt + shift + bracketright
+  mpv-seek 10
+
+ctrl + alt + shift + super + bracketleft
+  mpv-seek 60
+
+ctrl + alt + shift + backslash
+  mpv-options shuffle
 
 ctrl + alt + shift + a
   st -n anime_lf -e lfrun ~/videos/anime/
@@ -50,7 +65,7 @@ ctrl + alt + shift + f
   mpv-options full
 
 ctrl + alt + shift + g
-  mpv $HOME/.config/mpv/playlists/groove.m3u
+  mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
