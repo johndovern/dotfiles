@@ -74,7 +74,7 @@ ctrl + alt + shift + k
   xdotool mousemove --sync 3000 300
 
 ctrl + alt + shift + l
-  keepasshide
+  sleep 0.5 && xdotool key super+d sleep 0.2 key k e e p a s s h i d e enter
 
 ctrl + alt + shift + super + l
   killall keepassxc
