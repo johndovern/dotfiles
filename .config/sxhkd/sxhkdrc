@@ -14,7 +14,7 @@ ctrl + alt + shift + e
   mpv-options focus
 
 ctrl + alt + shift + r
-  st -e dautoupdate
+  dautoupdate
 
 ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
@@ -74,7 +74,8 @@ ctrl + alt + shift + k
   xdotool mousemove --sync 3000 300
 
 ctrl + alt + shift + l
-  sleep 0.5 && xdotool key super+d sleep 0.2 key k e e p a s s h i d e enter
+  keepasshide
+  /* sleep 0.5 && xdotool key super+d sleep 0.2 key k e e p a s s h i d e enter */
 
 ctrl + alt + shift + super + l
   killall keepassxc

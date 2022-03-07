@@ -25,6 +25,10 @@ config.bind('.ur',
     'hint --rapid links spawn --detach umpv {hint-url}')
 
 # yt-dlp binds
+config.bind('.dyoh',
+    'hint links spawn --detach yt-options {hint-url}')
+config.bind('.dyon',
+    'spawn --detach yt-options {url}')
 config.bind('.dyah',
     'hint links spawn --output-messages yt-dlp --config-location ~/.config/yt-dlp/audio.conf {hint-url}')
 config.bind('.dyan',
