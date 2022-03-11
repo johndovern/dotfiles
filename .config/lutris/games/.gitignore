@@ -1,6 +1,7 @@
-### Updated on Wed Mar  2 11:57:30 PM PST 2022 ###
+### Updated on Fri Mar 11 01:17:56 AM PST 2022 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
+#.gitignore-very-old
 !fate-1636442230.yml
 !tsukihime-1645493777.yml

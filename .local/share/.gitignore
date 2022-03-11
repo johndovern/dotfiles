@@ -1,4 +1,4 @@
-### Updated on Wed Mar  2 11:58:10 PM PST 2022 ###
+### Updated on Fri Mar 11 01:18:19 AM PST 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -10,6 +10,7 @@
 #cargo
 #desktop-directories
 #dolphin
+#flatpak
 #gegl-0.4
 #gnupg
 #go
@@ -29,11 +30,13 @@
 #qutebrowser
 #RecentDocuments
 #recently-used.xbel
+#remoteview
 #stalefiles
 #Steam
 #syncthing
 #Tachidesk
 #Trash
+!tridactyl
 #user-places.xbel
 #user-places.xbel.bak
 #user-places.xbel.tbcache
@@ -43,5 +46,6 @@
 #webkitgtk
 !wineprefixes
 #xorg
+!Yotsuba-drop.png
 !yotsuba.png
 #zathura

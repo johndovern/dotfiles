@@ -1,41 +1,43 @@
 # lf settings
 
 # Bindings
+map a    push A<a-b> # after extension
+map A    rename # at the very end
+map b    $setbg $f
+map B    bulkrename
+map c    push A<c-u> # new rename
+map C    copyto
+map dd   cut
+map D    trash
+map E    extract
+map gg   top
+map J    $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
+map i    push A<a-b><a-b><a-f> # before extension
+map I    push A<c-a> # at the very beginning
+map L    $nvim -M $fx
+map M    moveto
+map o    $setsid -f st -e mimeopen $f
+map O    $setsid -f st -e mimeopen --ask $f
+map q    lf_close
+map t    file_type
+map u    clear
+map U    unselect
+map V    push :!nvim<space>
+map W    $setsid -f $TERMINAL >/dev/null 2>&1
+map x    $$f
+map X    !$f
+
+map <c-e> down
 map <c-f> $lf -remote "send $id select '$(fzf)'"
-map J   $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
-map gh
-map gg  top
-map dd  cut
-map D   trash
-map E   extract
-map C   copyto
-map M   moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-s> set hidden!
-map <enter> shell
-map x   $$f
-map X   !$f
-map o   $setsid -f st -e mimeopen $f
-map O   $setsid -f st -e mimeopen --ask $f
-map q   lf_close
-map t   file_type
-
-map A   rename # at the very end
-map c   push A<c-u> # new rename
-map I   push A<c-a> # at the very beginning
-map i   push A<a-b><a-b><a-f> # before extension
-map a   push A<a-b> # after extension
-map B   bulkrename
-map b   $setbg $f
-map U   unselect
-map u   clear
-
-map <c-e> down
 map <c-y> up
-map V   push :!nvim<space>
 
-map W $setsid -f $TERMINAL >/dev/null 2>&1
+map <enter> shell
+
+map d
+map gh
 
 # cmds/functions
 
@@ -57,7 +59,7 @@ cmd lf_close ${{
   if xprop -id $(xdotool getactivewindow) WM_CLASS | grep -q "lf_run" ; then
     lf -remote "send $id quit"
   else
-    setsid -f tmux run-shell "sleep 0.02 && tmux select-layout main-vertical" &
+    setsid -f tmux run-shell "sleep 0.02 && xdotool key "Ctrl+b" "Ctrl+o" " &
     lf -remote "send $id quit"
   fi
 }}
@@ -128,15 +130,6 @@ cmd copyto ${{
 
 cmd setbg "$1"
 cmd bulkrename $vidir
-
-cmd track ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "%s\n\t" "$fx"
-	printf "Track? [y/N] "
-	read ans
-	[ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
-}}
 
 # Basic vars
 set shell bash

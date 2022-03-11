@@ -65,7 +65,7 @@ config.bind('.zc',
 config.bind('.bb',
     'config-cycle statusbar.show always in-mode')
 config.bind('.tt',
-    'config-cycle tabs.show always switching')
+    'config-cycle tabs.show always multiple')
 config.bind('.xx',
     'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always switching')
 config.bind('.ce',
@@ -82,8 +82,8 @@ config.bind('.kk',
     'spawn --detach qute-options a')
 
 # Binds for opening websites
-# config.bind('chg',
-#     'open -t https://4chan.org/g')
+config.bind('chg',
+    'open -t https://4chan.org/g')
 config.bind('wsg',
     'open -t https://4chan.org/wsg')
 config.bind('wap',
@@ -118,10 +118,10 @@ config.unbind('gm')
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
 # bind_chained('.cc', 'history-clear', 'spawn --output-messages qt-cookies')
-bind_chained('chg',
-    'open -t https://4chan.org/g',
-    'spawn --detach qute-options 4'
-    )
+# bind_chained('chg',
+    # 'open -t https://4chan.org/g',
+    # 'spawn --detach qute-options 4'
+    # )
 
 # Set editor
 c.editor.command = ["st", "-e", "nvim", "'{}'"]
@@ -180,7 +180,7 @@ config.set('content.autoplay', False)
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'switching'
+c.tabs.show = 'multiple'
 c.tabs.show_switching_delay = 2500
 
 # When to show the status bar.

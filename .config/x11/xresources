@@ -1,5 +1,5 @@
 /* Transparency (0-1): */
-*.alpha: 0.80
+*.alpha: 0.90
 /* *.alphaOffset: 0.0 */
 
 /* Set a default font and font size below */
@@ -19,7 +19,7 @@ Xft.dpi: 96
 *.gappiv: 20	! vert inner gap between windows
 *.gappoh: 20	! horiz outer gap between windows and screen edge
 *.gappov: 25	! vert outer gap between windows and screen edge
-*.snap: 5	! snap pixel
+*.snap: 6	! snap pixel
 /* *.showbar: 			! 0 means no bar */
 /* *.topbar: 			! 0 means bottom bar */
 /* *.nmaster: 			! number of clients in master area */
@@ -28,26 +28,32 @@ Xft.dpi: 96
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
-*.colornbg:      #0c0d0e
-/* *.colornbord:    #ffffff */
+/* *.colornfg:      #ffffff */
+*.colornfg:      #009688
+/* *.colornbg:      #0c0d0e */
+*.colornbg:      #262425
+/* *.colornbg:      #212121 */
+/* *.colorselfg:    #0c0d0e */
+*.colorselfg:    #262425
+/* *.colorselfg:    #009688 */
+/* *.colorselbg:    #ffffff */
+*.colorselbg:    #009688
 *.colornbord:    #969896
-*.colornfg:      #ffffff
-/* *.colornfg:      #009ddc */
-*.colorselbg:    #ffffff
-/* *.colorselbg:    #009ddc */
-*.colorselbord:  #ff361e
-*.colorselfg:    #0c0d0e
+/* *.colornbord:    #0c0d0e */
+/* *.colorselbord:  #ff361e */
+*.colorselbord:  #009688
 
 /* Color settings for St */
 
 /* ! special */
 *.foreground:   #d9d8d8
-*.background:   #0c0d0e
+*.background:   #262425
 *.cursorColor:  #d9d8d8
 *.rcursorColor: #db2d20
 
 /* d - black */
-*.color0:       #0c0d0e
+*.color0:       #262425
+/* *.color0:       #0c0d0e */
 /* *.color0:       #1d1f21 */
 /* *.color0:       #2e3436 */
 /* *.color0:       #303030 */
@@ -137,6 +143,7 @@ Xft.dpi: 96
 /* *.color6:       #2aa7e7 */
 
 /* l - cyan */
+/* *.color14:      #009688 */
 *.color14:      #b5e4f4
 /* *.color14:      #3971ed */
 /* *.color14:      #80b1d3 */
@@ -159,4 +166,4 @@ Xft.dpi: 96
 
 /* Slock settings */
 *.message: henlo
-*.sfont: -adobe-new century schoolbook-medium-i-normal--34-240-100-100-p-182-iso8859-1
+*.sfont: -misc-roboto-medium-i-normal--34-240-100-100-p-182-iso8859-1

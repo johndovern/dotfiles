@@ -20,6 +20,7 @@ Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
+Plug 'tridactyl/vim-tridactyl'
 call plug#end()
 
 set title

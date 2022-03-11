@@ -32,4 +32,4 @@ elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
 	grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="-W " || wifiicon="!W "
 fi
 
-printf "%s%s%s%s\n" "[$wifiicon" "$(sed "s/down/-E/;s/up/+E/" /sys/class/net/e*/operstate 2>/dev/null)" "$(mullvad status | grep -q "Connected" && echo " +V" 2>/dev/null || echo " -V" 2>/dev/null)" "]"
+printf "%s%s%s%s%s\n" "[" "$wifiicon" "$(sed "s/down/-E/;s/up/+E/" /sys/class/net/enp0s25/operstate 2>/dev/null)" "$(mullvad status | grep -q "Connected" && echo " +V" 2>/dev/null || echo " -V" 2>/dev/null)" "]"

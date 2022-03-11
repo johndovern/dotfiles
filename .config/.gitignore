@@ -1,4 +1,4 @@
-### Updated on Wed Mar  2 11:57:19 PM PST 2022 ###
+### Updated on Fri Mar 11 01:17:38 AM PST 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -29,7 +29,10 @@
 #kdenliverc
 #kde.org
 #keepassxc
+#kiorc
 !kmonad
+#knfsshare
+#kservicemenurc
 !lf
 #libfm
 !libreoffice
@@ -67,6 +70,7 @@
 !tmux
 !transmission
 #trashrc
+!tridactyl
 !user-dirs.dirs
 #VeraCrypt
 #Vieb

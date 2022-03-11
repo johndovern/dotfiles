@@ -65,5 +65,5 @@ autoupdater() { \
   done < <(printf '%s\n' "$gitignorefiles")
 }
 
-autoupdater
+autoupdater && notify-send "Files updated"
 exit

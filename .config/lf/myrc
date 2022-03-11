@@ -1,29 +1,43 @@
-# Binding
-map .ch  chmod
-map .cx  chmodx
-map .ce  cred
-map .gi  %dmenugitignore $f
-map .nf  mknf
-map .l   $lfrun
-map .r   reload
-map .mm  mangamove
-map .mb  $manga-bulk
-map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
+# Bindings
 map .am  animove
+map .bs  bscript
+map .ce  cred
+map .ch  chmod
 map .cs  push $curl<space>-LJO<space>
+map .cx  chmodx
+map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
+map .gi  %dmenugitignore $f
+map .l   $lfrun
+map .mb  $manga-bulk
+map .mm  mangamove
+map .nf  mknf
+map .t   untar
+map .T   track
 
-map L    $nvim -M $fx
-map S    bscript
-map T    track
-map <esc> candr
 map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 
-map d
+map <esc> candr
 
 # cmd/functions
-cmd candr ${{
-  lf -remote 'send clear'
-  lf -remote 'send reload'
+cmd animove ${{
+  [ ! -e folder ] && mkdir folder
+  mv "$fx" $(pwd)/folder/ && lf -remote 'send reload'
+}}
+
+cmd bscript ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "script name: "
+	read ans
+	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans && nvim $ans
+}}
+
+cmd cred ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "file name: "
+	read ans
+	[ ! -e $ans ] && nvim $ans
 }}
 
 cmd chmod ${{
@@ -45,20 +59,9 @@ cmd chmodx ${{
 	lf -remote 'send reload'
 }}
 
-cmd bscript ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "script name: "
-	read ans
-	[ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans && nvim $ans
-}}
-
-cmd cred ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "file name: "
-	read ans
-	[ ! -e $ans ] && nvim $ans
+cmd mangamove ${{
+  [ ! -e read ] && mkdir read
+  mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
 }}
 
 cmd mknf ${{
@@ -66,12 +69,25 @@ cmd mknf ${{
 	lf -remote 'send reload'
 }}
 
-cmd mangamove ${{
-  [ ! -e read ] && mkdir read
-  mv "$fx" $(pwd)/read/ && lf -remote 'send reload'
+cmd candr ${{
+  lf -remote 'send clear'
+  lf -remote 'send reload'
 }}
 
-cmd animove ${{
-  [ ! -e folder ] && mkdir folder
-  mv "$fx" $(pwd)/folder/ && lf -remote 'send reload'
+cmd untar ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "Untar? [y/N] "
+	read ans
+	[ $ans = "y" ] && tar xvzf "$fx"
+}}
+
+cmd track ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "Track? [y/N] "
+	read ans
+	[ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
 }}

@@ -1,20 +1,20 @@
 #!/bin/sh
 
 filter() {
-  song="[$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;/\\[paused\\].*/d;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' - | cut -b -22 | sed 's/\s*.$/.../')]"
   if mpc | grep -q "\[paused\]" ; then
     song=
-    paused="[Paused]"
+    paused="Paused"
   elif mpc | grep -q "volume: n/a   r" ; then
     song=
-    paused="[Music]"
+    paused="Music"
   else
+    song="$(mpc | head -n1 | cut -b -22 | sed 's/\s*.$/.../')"
     paused=
   fi
-  printf '%s%s\n' "$song" "$paused"
+  printf '%s%s%s%s\n' "[" "$song" "$paused" "]"
 }
 
-unfilter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' - ;}
+unfilter() { mpc | head -n1;}
 
 pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
