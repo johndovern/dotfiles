@@ -28,16 +28,16 @@ Xft.dpi: 96
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
-/* *.colornfg:      #ffffff */
-*.colornfg:      #009688
+*.colornfg:      #ffffff
+/* *.colornfg:      #009688 */
 /* *.colornbg:      #0c0d0e */
 *.colornbg:      #262425
 /* *.colornbg:      #212121 */
 /* *.colorselfg:    #0c0d0e */
 *.colorselfg:    #262425
 /* *.colorselfg:    #009688 */
-/* *.colorselbg:    #ffffff */
-*.colorselbg:    #009688
+*.colorselbg:    #ffffff
+/* *.colorselbg:    #009688 */
 *.colornbord:    #969896
 /* *.colornbord:    #0c0d0e */
 /* *.colorselbord:  #ff361e */

@@ -26,7 +26,7 @@ ctrl + alt + shift + u
   librewolf
 
 ctrl + alt + shift + i
-  mullvad-exclude brave
+  mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
   mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle
