@@ -32,13 +32,18 @@ unbind <C-b>
 unbind W
 unbind w
 
+" Open urls
+bind ,iv tabopen -b https://vid.puffyan.us/feed/popular
+bind ,wsg tabopen -b https://4chan.org/wsg/
+bind ,chg tabopen -b https://4chan.org/g/
+
 " Search urls
 set searchurls.aw https://wiki.archlinux.org/index.php?search=
 set searchurls.yt https://www.youtube.com/results?search_query=
 set searchurls.iv https://yewtu.be/search?q=
 set searchurls.ny https://nyaa.si/?q=
 set searchurls.yi https://yandex.com/images/search?text=
-set searchurls.an https://anon.sx/search?q=
+set searchurls.an https://amazon.com/s?k=
 
 " Costom binds
 " Gallery-dl

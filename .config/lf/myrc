@@ -1,22 +1,24 @@
 # Bindings
-map .am  animove
-map .bs  bscript
-map .ce  cred
-map .ch  chmod
-map .cs  push $curl<space>-LJO<space>
-map .cx  chmodx
-map .fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
-map .gi  %dmenugitignore $f
-map .l   $lfrun
-map .mb  $manga-bulk
-map .mm  mangamove
-map .nf  mknf
-map .t   untar
-map .T   track
+map ,am  animove
+map ,bs  bscript
+map ,ce  cred
+map ,ch  chmod
+map ,cs  push $curl<space>-LJO<space>
+map ,cx  chmodx
+map ,fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
+map ,gi  %dmenugitignore $f
+map ,l   $lfrun
+map ,mb  $manga-bulk
+map ,mm  mangamove
+map ,nf  mknf
+map ,t   untar
+map ,T   track
 
 map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 
 map <esc> candr
+
+map ,
 
 # cmd/functions
 cmd animove ${{
