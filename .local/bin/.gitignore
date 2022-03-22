@@ -1,6 +1,7 @@
-### Updated on Fri Mar 11 01:18:04 AM PST 2022 ###
+### Updated on Sat Mar 19 07:56:23 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !.gitignore-very-old-backup
 !bookmark
@@ -34,6 +35,11 @@
 !monitor_setup.sh
 !mousewiggle
 !noisereduce
+!nsxiv-opts
+!nsxiv-pipe
+!nsxiv-rifle
+!nsxiv-url
+!nsxiv-urllery
 !open_url_in_instance.sh
 !opout
 !pauseallmpv

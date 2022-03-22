@@ -22,8 +22,7 @@ xset r rate 300 50 &
 tmux new-session -s server -d &
 # Create mpvSockets tmp dir
 [ ! -d /tmp/mpvSockets ] && mkdir /tmp/mpvSockets &
-
-(sleep 10 && sxhkd &) &
+Daytime: 6500K, night: 4500K
 
 autostart="mpd remaps xcompmgr dunst unclutter /usr/lib/xdg-desktop-portal-kde"
 

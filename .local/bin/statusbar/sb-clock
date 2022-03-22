@@ -2,32 +2,32 @@
 
 clock=$(date '+%H')
 
-case "$clock" in
-	"00") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"01") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"02") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"03") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"04") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"05") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"06") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"07") redshift -x >/dev/null 2>&1 ;;
-	"08") redshift -x >/dev/null 2>&1 ;;
-	"09") redshift -x >/dev/null 2>&1 ;;
-	"10") redshift -x >/dev/null 2>&1 ;;
-	"11") redshift -x >/dev/null 2>&1 ;;
-	"12") redshift -x >/dev/null 2>&1 ;;
-	"13") redshift -x >/dev/null 2>&1 ;;
-	"14") redshift -x >/dev/null 2>&1 ;;
-	"15") redshift -x >/dev/null 2>&1 ;;
-	"16") redshift -x >/dev/null 2>&1 ;;
-	"17") redshift -x >/dev/null 2>&1 ;;
-	"18") redshift -x >/dev/null 2>&1 ;;
-	"19") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"20") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"21") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"22") redshift -P -O 3500 >/dev/null 2>&1 ;;
-	"23") redshift -P -O 3500 >/dev/null 2>&1 ;;
-esac
+# case "$clock" in
+# 	"00") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"01") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"02") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"03") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"04") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"05") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"06") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"07") redshift -x >/dev/null 2>&1 ;;
+# 	"08") redshift -x >/dev/null 2>&1 ;;
+# 	"09") redshift -x >/dev/null 2>&1 ;;
+# 	"10") redshift -x >/dev/null 2>&1 ;;
+# 	"11") redshift -x >/dev/null 2>&1 ;;
+# 	"12") redshift -x >/dev/null 2>&1 ;;
+# 	"13") redshift -x >/dev/null 2>&1 ;;
+# 	"14") redshift -x >/dev/null 2>&1 ;;
+# 	"15") redshift -x >/dev/null 2>&1 ;;
+# 	"16") redshift -x >/dev/null 2>&1 ;;
+# 	"17") redshift -x >/dev/null 2>&1 ;;
+# 	"18") redshift -x >/dev/null 2>&1 ;;
+# 	"19") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"20") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"21") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"22") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# 	"23") redshift -P -O 3500 >/dev/null 2>&1 ;;
+# esac
 
 case $BLOCK_BUTTON in
 	1) notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -d3)" ;;
