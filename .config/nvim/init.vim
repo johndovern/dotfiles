@@ -155,7 +155,7 @@ set expandtab
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
-	map <C-i> <C-w>l
+	map <C-l> <C-w>l
 
 " Better movement
   noremap <expr> j v:count ? 'j' : 'gj'
