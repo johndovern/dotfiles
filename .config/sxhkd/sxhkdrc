@@ -34,6 +34,9 @@ ctrl + alt + shift + o
 ctrl + alt + shift + p
   mpv-play-pause
 
+ctrl + alt + shift + super + p
+  mullvad-exclude mumble
+
 ctrl + alt + shift + bracketleft
   mpv-seek -10
 
@@ -63,6 +66,9 @@ ctrl + alt + shift + d
 
 ctrl + alt + shift + f
   mpv-options full
+
+ctrl + alt + shift + super + f
+  mullvad-exclude steam
 
 ctrl + alt + shift + g
   mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle
@@ -103,6 +109,9 @@ ctrl + alt + shift + space
 
 ctrl + alt + shift + m
   st -n manga_lf -e lfrun ~/documents/manga/
+
+ctrl + alt + shift + super + m
+  umpv
 
 ctrl + alt + shift + comma
   mpv-prev-song

@@ -25,7 +25,7 @@ Xft.rgba: rgb
 *.gappoh: 20	! horiz outer gap between windows and screen edge
 *.gappov: 25	! vert outer gap between windows and screen edge
 *.snap: 6	! snap pixel
-*.showbar: 0			! 0 means no bar
+/* *.showbar: 0			! 0 means no bar */
 /* *.topbar: 			! 0 means bottom bar */
 /* *.nmaster: 			! number of clients in master area */
 /* *.resizehints:			! 1 means respect size hints in tiled resizals */

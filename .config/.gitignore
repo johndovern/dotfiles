@@ -1,4 +1,4 @@
-### Updated on Sat Mar 19 07:55:44 PM PDT 2022 ###
+### Updated on Tue Mar 29 04:41:25 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -14,6 +14,7 @@
 #dconf
 !dolphinrc
 !dunst
+!easyeffects
 #Electron
 !fontconfig
 #fontforge
@@ -22,8 +23,10 @@
 #gsmartcontrol
 !gtk-2.0
 !gtk-3.0
+!gtk-4.0
 #hakuneko-desktop
 #htop
+#jellyfin-mpv-shim
 !kdeglobals
 #kdenlive-layoutsrc
 #kdenliverc
@@ -42,10 +45,12 @@
 !lutris
 #menus
 !mimeapps.list
+#monero-project
 !mpd
 !mpv
 #mpv-backup
 #Mullvad VPN
+#Mumble
 !ncmpcpp
 #neofetch
 !nnn
@@ -66,6 +71,7 @@
 !sxhkd
 !sxiv
 #syncthing
+#syncthing-backup
 #syncthing-gtk
 !systemd
 !tmux
