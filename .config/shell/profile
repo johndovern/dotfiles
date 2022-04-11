@@ -6,7 +6,9 @@
 # to clean up.
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -not \( -path ~/.local/bin/scripts/.git -prune \) -not \( -path ~/.local/bin/scripts/scripts/.git -prune \) -not \( -path ~/.local/bin/scripts/Arch-FDE/.git -prune \) -printf %p:)%%:}"
+# export PATH="$PATH:${$(find ~/.local/bin -type d -not \( -path ~/.local/bin/scripts/.git -prune \) -not \( -path ~/.local/bin/scripts/scripts/.git -prune \) -not \( -path ~/.local/bin/scripts/Arch-FDE/.git -prune \) -printf %p:)%%:}"
+# export PATH="$PATH:${$(find ~/.local/bin -type d -not \( -path ~/\*\.git -prune \) -printf %p:)%%:}"
+export PATH="$PATH:${$(find ~/.local/bin -type d -not \( -path ~/\*\.git -prune \) -printf %p:)%%:}:${$(find ~/programs -type d -not \( -path ~/\*\.git -prune \) -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 

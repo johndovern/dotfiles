@@ -1,5 +1,4 @@
 # lf settings
-
 # Bindings
 map a    push A<a-b> # after extension
 map A    rename # at the very end
@@ -45,11 +44,21 @@ cmd trash ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "Move to trash, or delete? [y/d/N]"
+	printf "Move to trash, or delete? [y/d/f/N]"
 	read ans
   case "$ans" in
     y|t) trash-put $fx ;;
     d) rm -r $fx ;;
+    f)
+      tput bold
+	    set -f
+      printf '\t%s' "Are you sure? [y/N]"
+      read ans2
+      case "$ans2" in
+        y|d|f)  rm -rf $fx ;;
+        *) ;;
+      esac
+      ;;
     *) ;;
   esac
   # lf -remote "send reload"

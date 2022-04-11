@@ -4,6 +4,8 @@ set statusbar-v-padding 0
 set page-padding 1
 set selection-clipboard clipboard
 set font "monospace regular 11"
+set vertical-center true
+set guioptions ""
 map u scroll up
 map d scroll down
 map D toggle_page_mode
