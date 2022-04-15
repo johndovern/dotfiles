@@ -20,5 +20,5 @@ x-scheme-handler/https=librewolf.desktop
 
 [Added Associations]
 video/webm=mpv.desktop;librewolf.desktop
-application/x-shellscript=nvim.desktop;
+application/x-shellscript=text.desktop;file.desktop;nvim.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;

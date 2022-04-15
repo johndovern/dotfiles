@@ -2,7 +2,7 @@
 
 umpvsocket="/tmp/mpvSockets/umpv_socket"
 if [ -S "$umpvsocket" ]; then
-  mpv-communicate "$umpvsocket" '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && notify-send "$1 added to mpv"
+  mpv-communicate "$umpvsocket" '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && notify-send "Video Added" "$1"
     if mpv-communicate "$umpvsocket" '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
       mpv-communicate "$umpvsocket" '{ "command": ["playlist-next"] }'
       sleep 2

@@ -1,4 +1,6 @@
 [FileDialogSize]
+DisplayPort-0 HDMI-A-0 Height 1920x1080=699
+DisplayPort-0 HDMI-A-0 Width 1920x1080=836
 HDMI3 LVDS1 HDMI2 Height 1080x1920=630
 HDMI3 LVDS1 HDMI2 Height 1920x1080=630
 HDMI3 LVDS1 HDMI2 Width 1080x1920=956
@@ -7,8 +9,8 @@ LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/downloads/archlinux-2022.02.01-x86_64.iso,file:$HOME/pic-full-220310-2358-43.png,file:$HOME/pic-full-220310-2014-24.png,file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/shared/phone/to-sort/1639783526428.png,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1646819259855.json
-Recent URLs[$e]=file:$HOME/,file:$HOME/pictures/,file:///home/,file:$HOME/documents/tmaster/browser-backup-files/,file:$HOME/documents/,file:$HOME/videos/webms/webms-to-post/,file:$HOME/downloads/,file:$HOME/documents/tmaster/,file:$HOME/videos/webms/youtube/playlist/C_Programming_Caleb_Curry/failed/,file:$HOME/pictures/shared/phone/to-sort/
+Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/shared/phone/g/C.jpg,file:///usr/lib/librewolf/browser/chrome/icons/default/default128.png,file:///usr/bin/pcmanfm,file:///sbin/keepassxc,file:///usr/bin/keepassxc,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1649894373700.json,file:$HOME/downloads/[wsg].png,file:$HOME/downloads/mpv.png,file:$HOME/pictures/shared/phone/to-sort/1639783526428.png,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1646819259855.json
+Recent URLs[$e]=file:$HOME/videos/webms/webms-to-post/,file:$HOME/downloads/,file:$HOME/documents/tmaster/,file:$HOME/pictures/shared/phone/to-sort/,file:$HOME/pictures/shared/reaction-images/reaction-non-anime/,file:///sbin/,file:///usr/bin/,file:///,file:///usr/,file:///usr/lib/librewolf/browser/chrome/icons/default/,file:$HOME/pictures/shared/phone/g/
 detailViewIconSize=70
 
 [KPropertiesDialog]

@@ -5,7 +5,7 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-case "$(printf "Lock\nLeave-dwm\nRenew-dwm\nHibernate\nSleep\nReboot\nShutdown\nDisplay off" | dmenu -i -p 'Action: ')" in
+case "$(printf "Sleep\nLeave-dwm\nRenew-dwm\nHibernate\nLock\nReboot\nShutdown\nDisplay off" | dmenu -i -p 'Action: ')" in
 	'Lock') xset dpms force off ; slock ;;
 	'Leave-dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
 	'Renew-dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;

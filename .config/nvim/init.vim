@@ -37,84 +37,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" " Map Colemak keys in alphabetical order.
-" nnoremap f e
-" nnoremap p r
-" nnoremap b t
-" nnoremap j y
-" nnoremap jj yy
-" nnoremap l u
-" nnoremap l u
-" nnoremap u i
-" nnoremap y o
-" nnoremap yy o
-" nnoremap ; p
-" nnoremap s d
-" nnoremap ss dd
-" nnoremap t f
-" nnoremap t f
-" nnoremap m h
-" nnoremap n j
-" nnoremap e k
-" nnoremap i l
-" nnoremap o ;
-" nnoremap d v
-" nnoremap v b
-" nnoremap k n
-" nnoremap h m
-" nnoremap F E
-" nnoremap P R
-" nnoremap B T
-" nnoremap J Y
-" nnoremap L U
-" nnoremap U I
-" nnoremap Y O
-" nnoremap : P
-" nnoremap S D
-" nnoremap T F
-" nnoremap M H
-" nnoremap N J
-" nnoremap E K
-" nnoremap I L
-" nnoremap O :
-" nnoremap D V
-" nnoremap V B
-" nnoremap K N
-" nnoremap H M
-" noremap d v
-" noremap e k
-" noremap f e
-" noremap i l
-" noremap j y
-" noremap k h
-" noremap m n
-" noremap l u
-" noremap n j
-" noremap ; p
-" noremap o ;
-" noremap p r
-" noremap r s
-" noremap s d
-" noremap t f
-" noremap u i
-" noremap D V
-" noremap E K
-" noremap F E
-" noremap G T
-" noremap I L
-" noremap J Y
-" noremap K N
-" noremap L U
-" noremap N J
-" noremap O :
-" noremap P R
-" noremap R S
-" noremap S D
-" noremap T F
-" noremap U I
-" noremap Y O
-" noremap y o
-
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
@@ -221,7 +143,7 @@ set expandtab
 " Recompile dwmblocks on config edit.
 	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 " Restart sxhkd after editing
-  autocmd BufWritePost sxhkdrc !sleep 1 ; xdotool key super+c
+  autocmd BufWritePost sxhkdrc !kill -SIGUSR1 "$(pidof sxhkd)"
 
 " Autocenter screen when entering insert mode
   autocmd InsertEnter * norm zz
