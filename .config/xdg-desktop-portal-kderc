@@ -9,8 +9,8 @@ LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/shared/phone/g/C.jpg,file:///usr/lib/librewolf/browser/chrome/icons/default/default128.png,file:///usr/bin/pcmanfm,file:///sbin/keepassxc,file:///usr/bin/keepassxc,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1649894373700.json,file:$HOME/downloads/[wsg].png,file:$HOME/downloads/mpv.png,file:$HOME/pictures/shared/phone/to-sort/1639783526428.png,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1646819259855.json
-Recent URLs[$e]=file:$HOME/videos/webms/webms-to-post/,file:$HOME/downloads/,file:$HOME/documents/tmaster/,file:$HOME/pictures/shared/phone/to-sort/,file:$HOME/pictures/shared/reaction-images/reaction-non-anime/,file:///sbin/,file:///usr/bin/,file:///,file:///usr/,file:///usr/lib/librewolf/browser/chrome/icons/default/,file:$HOME/pictures/shared/phone/g/
+Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/.local/share/Yotsuba-drop.png,file:$HOME/pictures/shared/phone/pol/1629741359286.png,file:$HOME/pictures/shared/phone/g/C.jpg,file:///usr/lib/librewolf/browser/chrome/icons/default/default128.png,file:///usr/bin/pcmanfm,file:///sbin/keepassxc,file:///usr/bin/keepassxc,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1649894373700.json,file:$HOME/downloads/[wsg].png,file:$HOME/downloads/mpv.png,file:$HOME/pictures/shared/phone/to-sort/1639783526428.png,file:$HOME/documents/tmaster/browser-backup-files/4chan X v1.14.21.7-1646819259855.json
+Recent URLs[$e]=file:$HOME/documents/tmaster/,file:$HOME/pictures/shared/phone/to-sort/,file:$HOME/pictures/shared/reaction-images/reaction-non-anime/,file:///sbin/,file:///usr/bin/,file:///,file:///usr/,file:///usr/lib/librewolf/browser/chrome/icons/default/,file:$HOME/pictures/shared/phone/g/,file:$HOME/pictures/shared/phone/pol/,file:$HOME/.local/share/
 detailViewIconSize=70
 
 [KPropertiesDialog]
