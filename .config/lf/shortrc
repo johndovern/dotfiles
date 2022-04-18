@@ -1,4 +1,4 @@
-# Config files
+# ~/.config
 map gc.  cd ~/.config
 map gcd  cd ~/.config/systemd
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
@@ -16,6 +16,56 @@ map gcv  cd ~/.config/nvim
 map gcx  cd ~/.config/x11
 map gcy  cd ~/.config/yt-dlp
 map gcz  cd ~/.config/zsh
+
+# ~/.local
+map gl.  cd ~/.local
+map glb  cd ~/.local/bin
+map gld  cd ~/.local/src/dwm
+map glm  cd ~/.local/src/dmenu
+map glp  cd ~/.local/bin/scripts
+map glr  cd ~/.local/src
+map gls  cd ~/.local/src/st
+
+# ~/documents
+map gd.  cd ~/documents
+map gda  cd ~/documents/Archives
+map gdt  cd ~/documents/tmaster
+
+# ~/manga
+map gma cd ~/documents/manga
+map gms cd ~/mnt/drives/tmaster/backup/syncthing/Tachiyomi-manga
+
+# ~/mnt
+map gn.  cd ~/mnt
+map gnb  cd ~/mnt/backup
+map gnd. cd ~/mnt/drives
+map gnh  cd ~/mnt/drives/toshext
+map gnm  cd ~/mnt/drives/tmaster
+map gnn  cd ~/mnt/drives/sandisk
+map gns  cd ~/mnt/drives/samhdd
+map gnt  cd ~/mnt/tmp
+map gnu. cd ~/mnt/usb
+map gnu1 cd ~/mnt/usb/1
+map gnu2 cd ~/mnt/usb/2
+map gnu3 cd ~/mnt/usb/3
+map gn2  cd ~/mnt/drives/wd2t
+map gn5  cd ~/mnt/drives/wd5t
+
+# ~/music
+map gmu  cd ~/music
+map gmy  cd ~/music/tmaster/youtube
+map gmw  cd ~/music/tmaster/wsg-worthy
+map gmn  cd ~/music/tmaster/newpipe
+
+# ~/pictures
+map gp.  cd ~/pictures
+map gp4  cd ~/pictures/shared/4chan-banners
+map gpa  cd ~/pictures/shared/anime-related
+map gw.  cd ~/pictures/shared/walls
+
+# ~/programs
+map gp.  cd ~/programs
+map gpc  cd ~/programs/C
 
 # ~/repos
 map gr.  cd ~/repos
@@ -35,51 +85,5 @@ map gvW  cd ~/videos/webms/webms-to-sort
 map gvy  cd ~/videos/webms/youtube
 map gv4  cd ~/videos/webms/4chan-banners
 
-# ~/pictures
-map gp.  cd ~/pictures
-map gp4  cd ~/pictures/shared/4chan-banners
-map gpa  cd ~/pictures/shared/anime-related
-map gw.  cd ~/pictures/shared/walls
-
-# music
-map gmu  cd ~/music
-map gmy  cd ~/music/tmaster/youtube
-map gmw  cd ~/music/tmaster/wsg-worthy
-map gmn  cd ~/music/tmaster/newpipe
-
-# documents
-map gd.  cd ~/documents
-map gda  cd ~/documents/Archives
-map gdt  cd ~/documents/tmaster
-
-# manga
-map gma cd ~/documents/manga
-map gms cd ~/mnt/drives/tmaster/backup/syncthing/Tachiyomi-manga
-
-# local
-map gl.  cd ~/.local
-map glb  cd ~/.local/bin
-map gld  cd ~/.local/src/dwm
-map glm  cd ~/.local/src/dmenu
-map glp  cd ~/.local/bin/scripts
-map glr  cd ~/.local/src
-map gls  cd ~/.local/src/st
-
 # home
 map gh   cd ~/
-
-# drives
-map gn.  cd ~/mnt
-map gnb  cd ~/mnt/backup
-map gnd. cd ~/mnt/drives
-map gnh  cd ~/mnt/drives/toshext
-map gnm  cd ~/mnt/drives/tmaster
-map gnn  cd ~/mnt/drives/sandisk
-map gns  cd ~/mnt/drives/samhdd
-map gnt  cd ~/mnt/tmp
-map gnu. cd ~/mnt/usb
-map gnu1 cd ~/mnt/usb/1
-map gnu2 cd ~/mnt/usb/2
-map gnu3 cd ~/mnt/usb/3
-map gn2  cd ~/mnt/drives/wd2t
-map gn5  cd ~/mnt/drives/wd5t

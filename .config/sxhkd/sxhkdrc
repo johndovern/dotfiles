@@ -23,7 +23,7 @@ super + shift + q
   sysact
 
 super + w
-  $BROWSER
+  GTK_USE_PORTAL=1 $BROWSER
 
 super + shift + w
   st -e sudo nmtui
@@ -169,11 +169,8 @@ ctrl + alt + shift + t
 ctrl + alt + shift + y
   transmission-gtk
 
-ctrl + alt + shift + u
-  librewolf
-
 ctrl + alt + shift + i
-  mullvad-exclude librewolf -P posting "4chan.org/g/"
+  GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
   mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle

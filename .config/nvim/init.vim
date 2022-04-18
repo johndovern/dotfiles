@@ -21,6 +21,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
 Plug 'tridactyl/vim-tridactyl'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 call plug#end()
 
 set title
@@ -36,6 +39,8 @@ set noshowcmd
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set exrc
+set secure
 
 " Some basics:
 	nnoremap c "_c
@@ -56,6 +61,16 @@ set expandtab
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
+" Disable coq emojis
+  let g:coq_settings = { 'display.icons.mode': 'none' }
+" Autostart COQ
+  let g:coq_settings = { 'auto_start': 'shut-up' }
+  ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+  ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
+  ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
+  ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
+  ino <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  ino <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<BS>"
 
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>

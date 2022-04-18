@@ -1,11 +1,12 @@
 #!/bin/sh
 
 play_music() { \
-  if ! mpc current | grep -q ".*" ; then
-   mpc clear && mpc load mish-mash >/dev/null 2>&1 && mpc random off >/dev/null 2>&1 && mpc repeat on >/dev/null 2>&1 && mpc play >/dev/null 2>&1 && mpc random on >/dev/null 2>&1
-  else
-    mpc toggle >/dev/null 2>&1
-  fi
+  playlist=$(printf "mish-mash\\nKanon OST\\nSpotify Rip\\nJapanese Disco Edits\\nnon-vaporwave\\nvaporwave" | dmenu -i -p "Playlist:")
+  # if ! mpc current | grep -q ".*" ; then
+   mpc clear && mpc load "$playlist" >/dev/null 2>&1 && mpc random off >/dev/null 2>&1 && mpc repeat on >/dev/null 2>&1 && mpc play >/dev/null 2>&1 && mpc random on >/dev/null 2>&1
+  # else
+    # mpc toggle >/dev/null 2>&1
+  # fi
 }
 
 case $BLOCK_BUTTON in
