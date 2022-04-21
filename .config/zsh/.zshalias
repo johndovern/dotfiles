@@ -3,12 +3,12 @@
 alias lf="lfrun"
 alias suckclean="sudo make uninstall && sudo make clean install && renew-dwm"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias conf-up='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .'
+alias conf-add='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .'
 alias conf-stat='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
-alias conf-commit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update"'
-alias conf-push='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin master'
-alias conf-update='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update" && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin master'
-alias conf-add='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add . && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update" && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin master'
+alias conf-commit='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update $(date '+%D-%T')"'
+alias conf-push='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin desktop'
+alias conf-update='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update $(date '+%D-%T')" && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin desktop'
+alias conf-add='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add . && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "update" && /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push -u origin desktop'
 alias rsync2='rsync --info=progress2 --partial -auvzs'
 alias debsync='rsync -avP'
 alias test-txt='nvim test.txt'
