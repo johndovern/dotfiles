@@ -9,5 +9,5 @@ if [ -S "$umpvsocket" ]; then
       mpv-communicate "$umpvsocket" 'cycle pause'
     fi
 else
-  mpv --idle=yes --no-terminal --x11-name=umpv --force-window --loop-playlist=no --keep-open=yes --input-ipc-server="$umpvsocket" "$1" >/dev/null 2>&1
+  mpv --idle=yes --no-terminal --x11-name=umpv --script-opts=umpv-setting=yes --force-window --loop-playlist=no --keep-open=yes --input-ipc-server="$umpvsocket" "$1" >/dev/null 2>&1
 fi

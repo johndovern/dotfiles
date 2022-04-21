@@ -1,14 +1,18 @@
-### Updated on Sat Mar 19 07:56:50 PM PDT 2022 ###
+### Updated on Wed Apr 20 11:03:23 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
+#Counter-Strike Global Offensive.desktop
 !file.desktop
 !img.desktop
 !mail.desktop
 #mimeinfo.cache
+#monero-gui.desktop
 #Muv-Luv.desktop
 !pdf.desktop
 !rss.desktop
+#Sid Meier's Civilization V.desktop
 !text.desktop
 !torrent.desktop
 !video.desktop

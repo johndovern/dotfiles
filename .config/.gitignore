@@ -1,4 +1,4 @@
-### Updated on Tue Mar 29 04:41:25 PM PDT 2022 ###
+### Updated on Wed Apr 20 11:01:43 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -8,6 +8,7 @@
 #BraveSoftware
 !calcurse
 #cef_user_data
+#coc
 #configstore
 #coreapps
 #cubocore
@@ -59,6 +60,7 @@
 #onlyoffice
 #pavucontrol.ini
 #pcmanfm
+!pcmanfm-qt
 !pinentry
 #protonvpn
 !pulse
@@ -78,6 +80,8 @@
 !transmission
 #trashrc
 !tridactyl
+#tuta_integration
+#tutanota-desktop
 !user-dirs.dirs
 #VeraCrypt
 #Vieb
@@ -86,6 +90,7 @@
 !wal
 !wget
 !x11
+#xarchiver
 !xdg-desktop-portal-kderc
 #yay
 !yt-dlp

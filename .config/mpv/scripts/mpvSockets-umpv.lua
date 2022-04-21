@@ -31,24 +31,37 @@ ppid = utils.getpid()
 
 function socket_later()
     -- if os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv") then
-    local umpv = os.execute("xprop WM_CLASS -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
-    if umpv == 0 then
-        --nothing to do if true, as umpv has already created the socket
-	      --comment out next line if you don't want confirmation
-        mp.osd_message("umpv detected " .. umpv)
+    if mp.get_opt("umpv-setting") == "yes" then
+        mp.osd_message("umpv detected")
+        return
+    elseif mp.get_opt("mpv-music") == "yes" then
+        return
     else
         os.execute("mkdir " .. join_paths(tempDir, "mpvSockets") .. " 2>/dev/null")
         mp.set_property("options/input-ipc-server", join_paths(tempDir, "mpvSockets", ppid))
     end
+    -- local umpv = os.execute("xprop WM_CLASS -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
+    --if umpv == 0 then
+    --    --nothing to do if true, as umpv has already created the socket
+	      ----comment out next line if you don't want confirmation
+    --    mp.osd_message("umpv detected " .. umpv)
+    --else
+    --    os.execute("mkdir " .. join_paths(tempDir, "mpvSockets") .. " 2>/dev/null")
+    --    mp.set_property("options/input-ipc-server", join_paths(tempDir, "mpvSockets", ppid))
+    --end
 end
 
 mp.register_event("file-loaded", socket_later)
 
 function shutdown_handler()
     -- if os.execute("xprop -id $(xdotool search -pid " .. ppid .. ") | grep umpv") then
-    local umpv = os.execute("xprop WM_CLASS -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
-    if umpv == 0 then
+    -- local umpv = os.execute("xprop WM_CLASS -id $(xdotool search -pid " .. ppid .. ") | grep umpv")
+    if mp.get_opt("umpv-setting") == "yes" then
         os.remove(join_paths(tempDir, "mpvSockets/umpv_socket"))
+        -- return 0
+    elseif mp.get_opt("mpv-music") == "yes" then
+    -- if umpv == 0 then
+        os.remove(join_paths(tempDir, "mpvSockets/mpv_music"))
     else
         os.remove(join_paths(tempDir, "mpvSockets", ppid))
     end

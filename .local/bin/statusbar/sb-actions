@@ -1,12 +1,15 @@
 #!/bin/sh
 
 play_music() { \
-  playlist=$(printf "mish-mash\\nKanon OST\\nSpotify Rip\\nJapanese Disco Edits\\nnon-vaporwave\\nvaporwave" | dmenu -i -p "Playlist:")
-  # if ! mpc current | grep -q ".*" ; then
-   mpc clear && mpc load "$playlist" >/dev/null 2>&1 && mpc random off >/dev/null 2>&1 && mpc repeat on >/dev/null 2>&1 && mpc play >/dev/null 2>&1 && mpc random on >/dev/null 2>&1
-  # else
-    # mpc toggle >/dev/null 2>&1
-  # fi
+  # while read -r list; do
+  #   playlist+=("${list%%.m3u}")
+  # done <<<$(find $XDG_CONFIG_HOME/mpd/playlists -type f -printf '%P\n')
+  # play=$(printf '%s\n' "${playlist[@]}" | dmenu -i -p "Playlist:")
+  play=$(find $XDG_CONFIG_HOME/mpd/playlists -type f -printf '%P\n' | sed 's/\.m3u//g' | dmenu -i -p "Playlist:")
+  case "${play}" in
+    "") ;;
+    *) mpc clear && mpc load "$play" >/dev/null 2>&1 && mpc random off >/dev/null 2>&1 && mpc repeat on >/dev/null 2>&1 && mpc play >/dev/null 2>&1 && mpc random on >/dev/null 2>&1 ;;
+  esac
 }
 
 case $BLOCK_BUTTON in
@@ -27,10 +30,14 @@ case $BLOCK_BUTTON in
       *) ;;
     esac ;;
   2) notify-send "Action module" "\- Open useful programs.
-- Left click give program options.
+- Left click to pick options
 - Middle click shows this box.
-- Right click plays a playlist" ;;
-  3) dmenuwindows ;;
+- Right click to pick a playlist
+- Scroll up to manipulate windows
+- Scroll down for system control" ;;
+  3) play_music ;;
+  4) dmenuwindows ;;
+  5) setsid -f sysact ;;
   *) ;;
 esac
 

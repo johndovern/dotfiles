@@ -1,0 +1,15 @@
+#!/bin/sh
+
+mpvsocket="/tmp/mpvSockets/mpv_music"
+if [ -S "$mpvsocket" ]; then
+  mpv-communicate "$mpvsocket" '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && notify-send "Songs Added" "$1"
+    if mpv-communicate "$mpvsocket" '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
+      mpv-communicate "$mpvsocket" '{ "command": ["playlist-next"] }'
+      sleep 2
+      mpv-communicate "$mpvsocket" 'cycle pause'
+    fi
+else
+  mpv --idle=yes --no-terminal --script-opts=mpv-music=yes --force-window=no --video=no --loop-playlist=yes --keep-open=yes --input-ipc-server="$mpvsocket" "$1" >/dev/null 2>&1
+fi
+
+kill -55 $(pidof dwmblocks)

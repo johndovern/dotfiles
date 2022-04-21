@@ -1,0 +1,32 @@
+#!/bin/sh
+
+socket="/tmp/mpvSockets/mpv_music"
+
+mpv_display() {
+  if [ -S "$socket" ] ; then
+    if mpv-currently-playing --music >/dev/null 2>&1; then
+      song=$(mpv-get-property "$socket" "playlist/$(mpv-get-property $socket 'playlist-pos')/title" | cut -b -22 | sed 's/\s*.$/.../')
+      paused=''
+    else
+      song=''
+      paused="mpv"
+    fi
+    printf '%s\n' "[$song$paused]"
+  fi
+}
+
+case $BLOCK_BUTTON in
+  1) mpv-communicate "$socket" "cycle pause" ; mpv_display ;;
+  2) mpv-communicate "$socket" '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' ; mpv_display ;;
+  3) notify-send "$(mpv_display)" ;;
+  # 3) mpc status | filter ; notify-send "Music module" "\- Shows mpd song playing.
+# - [Paused] when paused.
+# - Left click pauses.
+# - Middle click opens ncmpcpp.
+# - Right click displays this message
+# - Scroll changes track.";;  # right click, pause/unpause
+  4) mpv-prev-song ; mpv_display ;;
+  5) mpv-next-song ; mpv_display ;;
+  6) yt-options "$(mpv-get-property "$socket" "playlist/$(mpv-get-property $socket 'playlist-pos')/filename")" "Audio" ; mpv_display ;;
+  *) mpv_display ;;
+esac

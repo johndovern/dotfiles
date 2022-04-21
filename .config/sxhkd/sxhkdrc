@@ -44,7 +44,7 @@ super + p
   mpc toggle
 
 super + shift + p
-  mpc pause ; pauseallmpv
+  mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks)
 
 super + bracketleft
   mpc seek -10
@@ -146,7 +146,7 @@ ctrl + alt + shift + BackSpace
   groff -mom /home/anon/.local/src/dwm/keys.mom -Tpdf | zathura -
 
 ctrl + alt + shift + q
-  mpv-quit-pick
+  mpv-quit-pick ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + super + q
   st -n keepass -e keepasshide ; sleep 1.5 ; st -e total-shutdown
@@ -173,28 +173,28 @@ ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle
+  mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + p
-  mpv-play-pause
+  mpv-play-pause ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + super + p
   mullvad-exclude mumble
 
 ctrl + alt + shift + bracketleft
-  mpv-seek -10
+  mpv-seek -10 ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + super + bracketleft
-  mpv-seek -60
+  mpv-seek -60 ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + bracketright
-  mpv-seek 10
+  mpv-seek 10 ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + super + bracketleft
-  mpv-seek 60
+  mpv-seek 60 ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + backslash
-  mpv-options shuffle
+  mpv-options shuffle ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + a
   st -n anime_lf -e lfrun ~/videos/anime/
@@ -215,7 +215,7 @@ ctrl + alt + shift + super + f
   mullvad-exclude steam
 
 ctrl + alt + shift + g
-  mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle
+  mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
@@ -258,10 +258,10 @@ ctrl + alt + shift + super + m
   umpv
 
 ctrl + alt + shift + comma
-  mpv-prev-song
+  mpv-prev-song ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + period
-  mpv-next-song
+  mpv-next-song ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + Sys_Req
   maim pic-full-$(date '+%y%m%d-%H%M-%S').png

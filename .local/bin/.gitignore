@@ -1,4 +1,4 @@
-### Updated on Sat Mar 19 07:56:23 PM PDT 2022 ###
+### Updated on Wed Apr 20 11:02:52 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -34,6 +34,7 @@
 !mkhome
 !monitor_setup.sh
 !mousewiggle
+!mpv-music
 !noisereduce
 !nsxiv-opts
 !nsxiv-pipe
@@ -41,6 +42,7 @@
 !nsxiv-url
 !nsxiv-urllery
 !open_url_in_instance.sh
+!open_with_linux.py
 !opout
 !pauseallmpv
 !peertubetorrent
@@ -51,6 +53,7 @@
 !queueandnotify
 !qutebrowser
 !remaps
+!restart-redshift
 !rotdir
 !rssadd
 !samedir

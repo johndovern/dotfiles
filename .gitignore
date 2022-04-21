@@ -4,6 +4,7 @@
 !.gitignore
 !.gitmodules
 !.local
+!.bashrc
 !.xprofile
 !.zprofile
 !README.md

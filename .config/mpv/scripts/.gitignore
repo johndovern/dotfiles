@@ -1,11 +1,13 @@
-### Updated on Sat Mar 19 07:56:03 PM PDT 2022 ###
+### Updated on Wed Apr 20 11:02:20 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !autocrop.lua
 !auto-profiles.lua
 !betterchapters.lua
 !coverart.lua
+!dwmblocks.lua
 !file-browser.lua
 !mpvSockets-umpv.lua
 !ontop-playback.lua
@@ -13,7 +15,7 @@
 !persist-properties.lua
 !playlistmanager.lua
 !quack.lua
-!reload.lua
+!save_playlist.lua
 !seek-to.lua
 !segment-linking.lua
 !sponsorblock.lua

@@ -17,13 +17,13 @@
     timeout = 3
 
 [urgency_normal]
-    foreground = "#ffffff"
-    background = "#262425"
+    foreground = "#ebdbb2"
+    background = "#1d2021"
     frame_color = "#009688"
     timeout = 5
 
 [urgency_critical]
-    foreground = "#ffffff"
-    background = "#262425"
-    frame_color = "#ff361e"
+    foreground = "#ebdbb2"
+    background = "#1d2021"
+    frame_color = "#cc241d"
     timeout = 60
