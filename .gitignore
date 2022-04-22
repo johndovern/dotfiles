@@ -4,6 +4,7 @@
 !.gitignore
 !.gitmodules
 !.local
+!.vsnip
 !.bashrc
 !.xprofile
 !.zprofile

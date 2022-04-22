@@ -1,0 +1,52 @@
+{
+  "dev/null": {
+    "prefix": [">/dev/n", ">void"],
+    "body": [
+      ">/dev/null 2>&1"
+    ]
+  },
+  "send_prog": {
+    "prefix": ["send()"],
+    "body": [
+      "send_prog() {",
+      "  case \"\\$1\" in",
+      "    -e) b=\"\\${r}\" ;;",
+      "    -p) b=\"\\${g}\" ;;",
+      "    *) echo \"NO OPTION\" ; return 1 ;;",
+      "  esac",
+      "",
+      "  echo -e \"\\${b}\\${2}\\${e}\"",
+      "}"
+    ]
+  },
+  "Bash Colors": {
+    "prefix": ["excolors", "bcolor"],
+    "body": [
+      "export r=\"\\e[0;31m\"",
+      "export g=\"\\e[0;32m\"",
+      "export e=\"\\e[0m\""
+    ]
+  },
+  "get_opts": {
+    "prefix": ["get_opts()"],
+    "body": [
+      "get_opts() {",
+      "  while :; do",
+      "    if [[ \\$# -ge 1 ]]; then",
+      "      case \"\\$1\" in",
+      "        ${1}) ",
+      "          ${2}",
+      "          ;;",
+      "        *)",
+      "          printf 'Unknown option passed: %s\\n' \"\\$1\" >&2",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "    else",
+      "      break",
+      "    fi",
+      "  done",
+      "}"
+    ]
+  }
+}

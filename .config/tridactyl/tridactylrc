@@ -83,4 +83,4 @@ command wsg_mpv js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.excl
 command umpv_open js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f umpv ' + url))
 
 " YT-DLP
-command yt_options js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f yt-options ' + url))
+command yt_options js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f yt-opts ' + url))
