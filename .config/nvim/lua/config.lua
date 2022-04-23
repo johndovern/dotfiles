@@ -9,9 +9,6 @@ configs.setup {
   }
 }
 
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
   local opts = {}
@@ -50,15 +47,6 @@ nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 
 vim.g.colors_name = 'gruvbox'
 
--- local has_words_before = function()
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
---   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
--- end
-
--- local feedkey = function(key, mode)
---   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
--- end
-
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
@@ -66,10 +54,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
@@ -77,40 +62,19 @@ cmp.setup({
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif vim.fn["vsnip#available"](1) == 1 then
-    --     feedkey("<Plug>(vsnip-expand-or-jump)", "")
-    --   elseif has_words_before() then
-    --     cmp.complete()
-    --   else
-    --     fallback() -- The fallback function sends a already mapped key. In this
-    --                -- case, it's probably `<Tab>`.
-    --   end
-    -- end, { "i", "s" }),
-    -- ["<S-Tab>"] = cmp.mapping(function()
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-    --     feedkey("<Plug>(vsnip-jump-prev)", "")
-    --   end
-    -- end, { "i", "s" }),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }),
   }),
   sources = cmp.config.sources({
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'snippy' }, -- For snippy users.
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip', keyword_length = 3 },
     { name = 'nvim_lsp' },
-    -- { name = 'ultisnips' },
     { name = 'path' },
-  }, {
-    { name = 'buffer' },
+    { name = 'buffer', keyword_length = 3 },
   }),
   experimental = {
     ghost_text = true,
@@ -121,7 +85,6 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
     { name = 'buffer' },
   })
 })
@@ -130,7 +93,8 @@ cmp.setup.filetype('gitcommit', {
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
+    { name = 'path' },
+    { name = 'buffer' },
   }
 })
 
@@ -138,9 +102,8 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
+    { name = 'path' },
+    { name = 'cmdline' },
   })
 })
 
@@ -150,3 +113,73 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require('lspconfig')['ccls'].setup {
   capabilities = capabilities
 }
+
+require('Comment').setup({
+    ---Add a space b/w comment and the line
+    ---@type boolean|fun():boolean
+    padding = true,
+
+    ---Whether the cursor should stay at its position
+    ---NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
+    ---@type boolean
+    sticky = true,
+
+    ---Lines to be ignored while comment/uncomment.
+    ---Could be a regex string or a function that returns a regex string.
+    ---Example: Use '^$' to ignore empty lines
+    ---@type string|fun():string
+    ignore = nil,
+
+    ---LHS of toggle mappings in NORMAL + VISUAL mode
+    ---@type table
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbc',
+    },
+
+    ---LHS of operator-pending mappings in NORMAL + VISUAL mode
+    ---@type table
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+    },
+
+    ---LHS of extra mappings
+    ---@type table
+    extra = {
+        ---Add comment on the line above
+        above = 'gcO',
+        ---Add comment on the line below
+        below = 'gco',
+        ---Add comment at the end of line
+        eol = 'gcA',
+    },
+
+    ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
+    ---NOTE: If `mappings = false` then the plugin won't create any mappings
+    ---@type boolean|table
+    mappings = {
+        ---Operator-pending mapping
+        ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+        ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+        basic = true,
+        ---Extra mapping
+        ---Includes `gco`, `gcO`, `gcA`
+        extra = true,
+        ---Extended mapping
+        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+        extended = false,
+    },
+
+    ---Pre-hook, called before commenting the line
+    ---@type fun(ctx: Ctx):string
+    pre_hook = nil,
+
+    ---Post-hook, called after commenting is done
+    ---@type fun(ctx: Ctx)
+    post_hook = nil,
+})

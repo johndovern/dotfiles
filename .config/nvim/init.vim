@@ -15,16 +15,14 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
   Plug 'lukesmithxyz/vimling'
   Plug 'vimwiki/vimwiki'
   Plug 'vim-airline/vim-airline'
-  Plug 'tpope/vim-commentary'
+  " Plug 'tpope/vim-commentary'
+  Plug 'numToStr/Comment.nvim'
   Plug 'ap/vim-css-color'
   Plug 'jiangmiao/auto-pairs'
   Plug 'easymotion/vim-easymotion'
   Plug 'tpope/vim-repeat'
   Plug 'tridactyl/vim-tridactyl'
   Plug 'morhetz/gruvbox'
-  " Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-  " Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-  " Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
   " Lsp, treesitter, and lsp installer
   Plug 'neovim/nvim-lspconfig'
@@ -43,12 +41,8 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
   Plug 'hrsh7th/vim-vsnip'
   Plug 'rafamadriz/friendly-snippets'
 
-  " For ultisnips users.
-  " Plug 'SirVer/ultisnips'
-  " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-  " Plug 'honza/vim-snippets'
-
 call plug#end()
+
 lua require('config')
 
 set title
@@ -67,23 +61,22 @@ set exrc
 set secure
 set background=dark
 
-" let g:UltiSnipsExpandTrigger="<C-n>"
-" let g:UltiSnipsJumpForwardTrigger="<C-i>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-s>"
-
 " Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+  imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+  smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
 " Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+  imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+  smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
 " Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+  imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+  smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+  imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+  smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Set snippet dir to ~/.config
+  let g:vsnip_snippet_dir = get(g:, 'vsnip_snippet_dir', expand('~/.config/vsnip'))
 
 " Some basics:
   nnoremap c "_c
@@ -104,16 +97,6 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
   map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
   set splitbelow splitright
-" Disable coq emojis
-  " let g:coq_settings = { 'display.icons.mode': 'none' }
-" Autostart COQ
-  " let g:coq_settings = { 'auto_start': 'shut-up' }
-  " ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
-  " ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
-  " ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
-  " ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
-  " ino <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-  " ino <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<BS>"
 
 " Nerd tree
   map <leader>n :NERDTreeToggle<CR>
@@ -143,7 +126,7 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
   noremap <expr> k v:count ? 'k' : 'gk'
 
 " Better highlighting
-  " hi Visual ctermfg=Black ctermbg=Grey
+  hi Visual ctermfg=Grey ctermbg=Black
 
 " Replace ex mode with gq
   map Q gq
@@ -199,9 +182,8 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 " Run xrdb whenever Xdefaults or Xresources are updated.
   autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
   autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
-" Recompile dwmblocks on config edit.
-  " autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
-" Restart sxhkd after editing
+" Restart sxhkd after saving
+" Weird bug need a second line with a comment
   autocmd BufWritePost sxhkdrc !kill -SIGUSR1 "$(pidof sxhkd)"
 
 " Autocenter screen when entering insert mode

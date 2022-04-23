@@ -1,4 +1,4 @@
-### Updated on Wed Apr 20 11:01:43 PM PDT 2022 ###
+### Updated on Thu Apr 21 08:33:24 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -87,6 +87,7 @@
 #Vieb
 #VirtualBox
 #vlc
+!vsnip
 !wal
 !wget
 !x11

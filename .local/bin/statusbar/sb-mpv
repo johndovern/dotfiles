@@ -7,10 +7,10 @@ mpv_display() {
     if mpv-currently-playing --music >/dev/null 2>&1; then
       case "$1" in
         -u)
-          song=$(mpv-get-property "$socket" "playlist/$(mpv-get-property $socket 'playlist-pos')/title")
+          song=$(mpv-get-property "$socket" "media-title")
           ;;
         *)
-          song=$(mpv-get-property "$socket" "playlist/$(mpv-get-property $socket 'playlist-pos')/title" | cut -b -22 | sed 's/\s*.$/.../')
+          song=$(mpv-get-property "$socket" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
           paused=''
           ;;
       esac

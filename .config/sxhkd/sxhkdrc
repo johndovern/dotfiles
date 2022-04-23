@@ -158,7 +158,7 @@ ctrl + alt + shift + super + w
   mullvad-exclude qutebrowser
 
 ctrl + alt + shift + e
-  mpv-options focus
+  mpv-opts --focus
 
 ctrl + alt + shift + r
   dautoupdate
@@ -173,7 +173,7 @@ ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle ; kill -55 $(pidof dwmblocks)
+  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 0.4 ; mpv-opts --shuffle "now" ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + p
   mpv-play-pause ; kill -55 $(pidof dwmblocks)
@@ -194,7 +194,7 @@ ctrl + alt + shift + super + bracketleft
   mpv-seek 60 ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + backslash
-  mpv-options shuffle ; kill -55 $(pidof dwmblocks)
+  mpv-opts --shuffle ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + a
   st -n anime_lf -e lfrun ~/videos/anime/
@@ -203,19 +203,19 @@ ctrl + alt + shift + s
   maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300
 
 ctrl + alt + shift + super + s
-  mpv-options sticky
+  mpv-opts --sticky
 
 ctrl + alt + shift + d
-  sleep 0.2 && mpv-options float
+  sleep 0.2 && mpv-opts --float
 
 ctrl + alt + shift + f
-  mpv-options full
+  mpv-opts --full-screen
 
 ctrl + alt + shift + super + f
   mullvad-exclude steam
 
 ctrl + alt + shift + g
-  mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle ; kill -55 $(pidof dwmblocks)
+  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 0.4 ; mpv-opts --shuffle "now" ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300

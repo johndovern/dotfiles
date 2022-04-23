@@ -79,9 +79,9 @@ map grr  cd ~/repos/reverse-gitignore
 map gv.  cd ~/videos
 map gva  cd ~/videos/anime
 map gvA  cd ~/videos/webms/anime-webms
-map gvs  cd ~/videos/webms
-map gvw  cd ~/videos/webms/webms
-map gvW  cd ~/videos/webms/webms-to-sort
+map gve  cd ~/videos/webms/webms
+map gvs  cd ~/videos/webms/webms-to-sort
+map gvw  cd ~/videos/webms
 map gvy  cd ~/videos/webms/youtube
 map gv4  cd ~/videos/webms/4chan-banners
 
