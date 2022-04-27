@@ -115,3 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# mpv socket settings
+export MPV_SOCKET_DIR="/tmp/mpvSockets"
+export MPV_MUSIC_SOCKET="${MPV_SOCKET_DIR}/music_socket"
+export MPV_UMPV_SOCKET="${MPV_SOCKET_DIR}/umpv_socket"

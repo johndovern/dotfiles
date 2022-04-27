@@ -32,7 +32,7 @@
     "body": [
       "get_opts() {",
       "  while :; do",
-      "    if [[ \\$# -ge 1 ]]; then",
+      "    if [[ \\$# -gt 0 ]]; then",
       "      case \"\\$1\" in",
       "        ${1}) ",
       "          ${2}",
@@ -47,6 +47,13 @@
       "    fi",
       "  done",
       "}"
+    ]
+  },
+  "If-then": {
+    "prefix": ["ifthen"],
+    "body": [
+      "if [[ ${1} ]]; then",
+      "fi"
     ]
   }
 }

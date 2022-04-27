@@ -173,10 +173,10 @@ ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 0.4 ; mpv-opts --shuffle "now" ; kill -55 $(pidof dwmblocks)
+  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 0.4 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + p
-  mpv-play-pause ; kill -55 $(pidof dwmblocks)
+  mpv-toggle ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + super + p
   mullvad-exclude mumble
@@ -215,7 +215,7 @@ ctrl + alt + shift + super + f
   mullvad-exclude steam
 
 ctrl + alt + shift + g
-  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 0.4 ; mpv-opts --shuffle "now" ; kill -55 $(pidof dwmblocks)
+  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 0.4 ; mpv-opts --shuffle --now ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
@@ -258,10 +258,10 @@ ctrl + alt + shift + super + m
   umpv
 
 ctrl + alt + shift + comma
-  mpv-prev-song ; kill -55 $(pidof dwmblocks)
+  mpv-prev ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + period
-  mpv-next-song ; kill -55 $(pidof dwmblocks)
+  mpv-next ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + Sys_Req
   maim pic-full-$(date '+%y%m%d-%H%M-%S').png

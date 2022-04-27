@@ -1,36 +1,54 @@
 #!/bin/sh
 
-socket="/tmp/mpvSockets/mpv_music"
+SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+if [ ! -S "${SOCKET}" ] ; then
+  exit
+fi
 
 mpv_display() {
-  if [ -S "$socket" ] ; then
-    if mpv-currently-playing --music >/dev/null 2>&1; then
-      case "$1" in
-        -u)
-          song=$(mpv-get-property "$socket" "media-title")
-          ;;
-        *)
-          song=$(mpv-get-property "$socket" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
-          paused=''
-          ;;
-      esac
-    else
-      song=''
-      paused="mpv"
-    fi
+  if mpv-currently-playing --music >/dev/null 2>&1; then
+    case "$1" in
+      -u)
+        SONG=$(mpv-get-property "${SOCKET}" "media-title")
+        ;;
+      *)
+        SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
+        PAUSED=''
+        ;;
+    esac
   else
-    song="/"
-    paused=''
+    SONG=''
+    PAUSED="mpv"
   fi
-  printf '%s\n' "[$song$paused]"
+  printf '%s\n' "[${SONG}${PAUSED}]"
 }
 
 case $BLOCK_BUTTON in
-  1) mpv-communicate "$socket" "cycle pause" ;; # mpv_display ;;
-  2) mpv-communicate "$socket" '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' ;;
-  3) notify-send "$(mpv_display -u)" ;;
-  4) mpv-prev-song ;;
-  5) mpv-next-song ;;
-  6) yt-opts -a "$(mpv-get-property "$socket" "playlist/$(mpv-get-property $socket 'playlist-pos')/filename")" ;;
-  *) mpv_display ;;
+  1)
+    mpv-toggle --music
+    mpv_display
+    ;;
+  2)
+    mpv-opts --quit --music
+    mpv_display
+    ;;
+  3)
+    notify-send "$(mpv_display -u)"
+    mpv_display
+    ;;
+  4)
+    mpv-prev --music
+    mpv_display
+    ;;
+  5)
+    mpv-next --music
+    mpv_display
+    ;;
+  6)
+    yt-opts "$(mpv-get-property --music "path")"
+    mpv_display
+    ;;
+  *)
+    mpv_display
+    ;;
 esac

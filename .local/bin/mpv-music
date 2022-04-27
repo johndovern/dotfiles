@@ -1,15 +1,69 @@
 #!/bin/sh
 
-mpvsocket="/tmp/mpvSockets/mpv_music"
-if [ -S "$mpvsocket" ]; then
-  mpv-communicate "$mpvsocket" '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && notify-send "Songs Added" "$1"
-    if mpv-communicate "$mpvsocket" '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
-      mpv-communicate "$mpvsocket" '{ "command": ["playlist-next"] }'
-      sleep 2
-      mpv-communicate "$mpvsocket" 'cycle pause'
-    fi
-else
-  mpv --idle=yes --no-terminal --script-opts=mpv-music=yes --force-window=no --video=no --loop-playlist=yes --keep-open=yes --input-ipc-server="$mpvsocket" "$1" >/dev/null 2>&1
-fi
+SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 
-kill -55 $(pidof dwmblocks)
+while :; do
+  if [[ $# -gt 0 ]]; then
+    case "$1" in
+      *)
+        if [ -S "${SOCKET}" ]; then
+          mpv-communicate --music \
+            '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && \
+            notify-send "Songs Added" "$1"
+            if mpv-communicate --music \
+              '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
+              mpv-communicate --music '{ "command": ["playlist-next"] }'
+              sleep 0.5
+              mpv-toggle --music
+              sleep 5
+            fi
+          shift
+        else
+          mpv --idle=yes \
+            --no-terminal \
+            --script-opts=mpvSockets-music=yes \
+            --force-window=no \
+            --video=no \
+            --loop-playlist=yes \
+            --keep-open=yes "$1" >/dev/null 2>&1
+          shift
+          if [[ $# -gt 0 ]]; then
+            sleep 20
+          fi
+        fi
+        kill -55 $(pidof dwmblocks)
+        ;;
+    esac
+  else
+    break
+  fi
+done
+exit
+
+# if [ -S "${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}" ]; then
+#   # mpv-communicate "${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}" \
+#   #   '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && \
+#   mpv-communicate --music \
+#     '{ "command": ["loadfile", "'$1'", "append-play"] }' >/dev/null 2>&1 && \
+#     notify-send "Songs Added" "$1"
+#     # if mpv-communicate "${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}" \
+#     #   '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
+#     #   mpv-communicate "${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}" '{ "command": ["playlist-next"] }'
+#     if mpv-communicate --music \
+#       '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
+#       mpv-communicate --music '{ "command": ["playlist-next"] }'
+#       sleep 2
+#       mpv-toggle --music
+#     fi
+# else
+#   mpv --idle=yes \
+#     --no-terminal \
+#     --script-opts=mpvSockets-music=yes \
+#     --force-window=no \
+#     --video=no \
+#     --loop-playlist=yes \
+#     --keep-open=yes "$@" >/dev/null 2>&1
+#     # --input-ipc-server="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}" "$1" >/dev/null 2>&1
+# fi
+#
+# kill -55 $(pidof dwmblocks)

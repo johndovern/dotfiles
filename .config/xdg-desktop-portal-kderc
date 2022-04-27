@@ -9,8 +9,8 @@ LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/downloads/icons/yt-dlp.png,file:///usr/lib/librewolf/browser/chrome/icons/default/default128.png,file:$HOME/downloads/icons/yt-dlp.svg,file:$HOME/pictures/shared/phone/g/3x.gif,file:$HOME/README.md,file:///bin/transmission-gtk,file:///mnt/backup/syncthing/PC-misc/librewolf-bookmarks-2022-04-16.json
-Recent URLs[$e]=file:$HOME/pictures/shared/phone/pol/,file:$HOME/.local/share/,file:$HOME/downloads/,file:$HOME/,file:$HOME/documents/,file:///mnt/backup/syncthing/PC-misc/,file:///bin/,file:$HOME/pictures/shared/phone/,file:$HOME/downloads/icons/,file:///usr/lib/librewolf/browser/chrome/icons/default/,file:$HOME/pictures/
+Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/tmaster/4chan-banners/all/all/200.gif,file:$HOME/pictures/tmaster/4chan-banners/all/all/129.gif,file:$HOME/downloads/icons/yt-dlp.png,file:///usr/lib/librewolf/browser/chrome/icons/default/default128.png,file:$HOME/downloads/icons/yt-dlp.svg,file:$HOME/pictures/shared/phone/g/3x.gif,file:$HOME/README.md,file:///bin/transmission-gtk,file:///mnt/backup/syncthing/PC-misc/librewolf-bookmarks-2022-04-16.json
+Recent URLs[$e]=file:$HOME/downloads/,file:$HOME/,file:$HOME/documents/,file:///mnt/backup/syncthing/PC-misc/,file:///bin/,file:$HOME/pictures/shared/phone/,file:$HOME/downloads/icons/,file:///usr/lib/librewolf/browser/chrome/icons/default/,file:$HOME/pictures/,file:$HOME/pictures/tmaster/4chan-banners/all/all/
 detailViewIconSize=70
 
 [KPropertiesDialog]

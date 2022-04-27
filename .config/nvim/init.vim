@@ -60,14 +60,15 @@ set expandtab
 set exrc
 set secure
 set background=dark
+nnoremap <leader><leader>r :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 " Expand
-  imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-  smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+  " imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+  " smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
 " Expand or jump
-  imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-  smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+  " imap <expr> <C-e>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-e>'
+  " smap <expr> <C-e>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-e>'
 
 " Jump forward or backward
   imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
@@ -92,7 +93,7 @@ set background=dark
 " Perform dot commands over visual blocks:
   vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
-  map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+  map <leader>f :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
   map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
@@ -194,7 +195,7 @@ set background=dark
   vmap < <gv
 
 " s{char}{char} to move to {char}{char}
-  nmap s <Plug>(easymotion-overwin-f2)
+  nmap s <Plug>(easymotion-overwin-f)
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
