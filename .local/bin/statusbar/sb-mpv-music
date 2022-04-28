@@ -5,14 +5,27 @@ if [ ! -S "${SOCKET}" ] ; then
   exit
 fi
 
+add_spaces() {
+  while IFS= read -r -d "" -n 1 CHAR; do
+    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
+      printf '%s ' "${CHAR}"
+    else
+      printf '%s' "${CHAR}"
+    fi
+  done < <(printf '%s' "${SONG}")
+}
+
 mpv_display() {
   if mpv-currently-playing --music --socket >/dev/null 2>&1; then
     case "$1" in
       -u)
-        SONG=$(mpv-currently-playing -m --music)
+        SONG=$(mpv-currently-playing -M --music)
         ;;
       *)
-        SONG=$(mpv-currently-playing -m --music | cut -b -22 | sed 's/\s*.$/.../')
+        SONG=$(mpv-currently-playing -M --music | cut -b -22 | sed 's/\s$//;s/.*/&.../')
+        if [[ "${SONG}" = *[![:ascii:]]* ]]; then
+          SONG="$(add_spaces)"
+        fi
         PAUSED=''
         ;;
     esac

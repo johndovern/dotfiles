@@ -21,7 +21,7 @@ while :; do
         else
           mpv --idle=yes \
             --no-terminal \
-            --script-opts=mpvSockets-music=yes \
+            --script-opts=mpvSockets-music=yes,dwmblocks-music=yes \
             --force-window=no \
             --video=no \
             --loop-playlist=yes \

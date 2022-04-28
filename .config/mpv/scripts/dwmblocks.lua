@@ -6,11 +6,12 @@ local utils = require 'mp.utils'
 
 local o = {
   enabled = "yes",
+  music = "no",
 }
 options.read_options(o, "dwmblocks")
 
 function update_dwmblocks()
-    if mp.get_opt("mpvSockets-music") == "yes" then
+    if o.music == "yes" then
         os.execute("kill -55 $(pidof dwmblocks)")
     else
         os.execute("kill -56 $(pidof dwmblocks)")

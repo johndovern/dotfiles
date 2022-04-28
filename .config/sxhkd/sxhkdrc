@@ -44,7 +44,7 @@ super + p
   mpc toggle
 
 super + shift + p
-  mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks)
+  mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
 
 super + bracketleft
   mpc seek -10
@@ -176,25 +176,25 @@ ctrl + alt + shift + o
   setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 0.4 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + p
-  mpv-toggle ; kill -55 $(pidof dwmblocks)
+  mpv-toggle
 
 ctrl + alt + shift + super + p
   mullvad-exclude mumble
 
 ctrl + alt + shift + bracketleft
-  mpv-seek -10 ; kill -55 $(pidof dwmblocks)
+  mpv-seek -10
 
 ctrl + alt + shift + super + bracketleft
-  mpv-seek -60 ; kill -55 $(pidof dwmblocks)
+  mpv-seek -60
 
 ctrl + alt + shift + bracketright
-  mpv-seek 10 ; kill -55 $(pidof dwmblocks)
+  mpv-seek 10
 
 ctrl + alt + shift + super + bracketleft
-  mpv-seek 60 ; kill -55 $(pidof dwmblocks)
+  mpv-seek 60
 
 ctrl + alt + shift + backslash
-  mpv-opts --shuffle ; kill -55 $(pidof dwmblocks)
+  mpv-opts --shuffle
 
 ctrl + alt + shift + a
   st -n anime_lf -e lfrun ~/videos/anime/
@@ -258,10 +258,10 @@ ctrl + alt + shift + super + m
   umpv
 
 ctrl + alt + shift + comma
-  mpv-prev ; kill -55 $(pidof dwmblocks)
+  mpv-prev --socket "$(mpv-pick --umpv)"
 
 ctrl + alt + shift + period
-  mpv-next ; kill -55 $(pidof dwmblocks)
+  mpv-next --socket "$(mpv-pick --umpv)"
 
 ctrl + alt + shift + Sys_Req
   maim pic-full-$(date '+%y%m%d-%H%M-%S').png

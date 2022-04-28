@@ -12,6 +12,16 @@ set_socket() {
   fi
 }
 
+add_spaces() {
+  while IFS= read -r -d "" -n 1 CHAR; do
+    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
+      printf '%s ' "${CHAR}"
+    else
+      printf '%s' "${CHAR}"
+    fi
+  done < <(printf '%s' "${SONG}")
+}
+
 mpv_display() {
   case "${SOCKET:-NOT_PLAYING}" in
     NOT_PLAYING)
@@ -24,7 +34,10 @@ mpv_display() {
           SONG=$(mpv-get-property "${SOCKET}" "media-title")
           ;;
         *)
-          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
+          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s$//;s/.*/&.../')
+          if [[ "${SONG}" = *[![:ascii:]]* ]]; then
+            SONG="$(add_spaces)"
+          fi
           PAUSED=''
           ;;
       esac

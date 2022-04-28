@@ -29,15 +29,28 @@ mpc_status() {
   fi
 }
 
+add_spaces() {
+  while IFS= read -r -d "" -n 1 CHAR; do
+    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
+      printf '%s ' "${CHAR}"
+    else
+      printf '%s' "${CHAR}"
+    fi
+  done < <(printf '%s' "${SONG}")
+}
+
 filter() {
   if mpc | grep -q "\[paused\]" ; then
     SONG=
     PAUSED="Paused"
   elif mpc | grep -q "volume: n/a   r" ; then
     SONG=
-    PAUSED="Music"
+    PAUSED="MPD"
   else
-    SONG="$(mpc | head -n1 | cut -b -22 | sed 's/\s*.$/.../')"
+    SONG="$(mpc | head -n1 | cut -b -22 | sed 's/\s$//;s/.*/&.../')"
+    # if [[ "${SONG}" = *[![:ascii:]]* ]]; then
+    #   SONG="$(add_spaces)"
+    # fi
     PAUSED=
   fi
   printf '%s\n' "[${SONG}${PAUSED}]"
