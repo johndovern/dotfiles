@@ -1,54 +1,71 @@
 #!/bin/sh
 
-SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
-if [ ! -S "${SOCKET}" ] ; then
-  exit
+if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
+  exit 1
 fi
 
-mpv_display() {
-  if mpv-currently-playing --music >/dev/null 2>&1; then
-    case "$1" in
-      -u)
-        SONG=$(mpv-get-property "${SOCKET}" "media-title")
-        ;;
-      *)
-        SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
-        PAUSED=''
-        ;;
-    esac
-  else
-    SONG=''
-    PAUSED="mpv"
+set_socket() {
+  if mpv-currently-playing --umpv --socket >/dev/null 2>&1 ; then
+    SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+  elif mpv-currently-playing --unique --socket >/dev/null 2>&1 ; then
+    SOCKET="$(mpv-currently-playing --unique --socket | head -n1)"
   fi
+}
+
+mpv_display() {
+  case "${SOCKET:-NOT_PLAYING}" in
+    NOT_PLAYING)
+      SONG=''
+      PAUSED="MPV"
+      ;;
+    *)
+      case "$1" in
+        -u)
+          SONG=$(mpv-get-property "${SOCKET}" "media-title")
+          ;;
+        *)
+          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s*.$/.../')
+          PAUSED=''
+          ;;
+      esac
+      ;;
+  esac
   printf '%s\n' "[${SONG}${PAUSED}]"
 }
 
 case $BLOCK_BUTTON in
   1)
-    mpv-toggle --music
+    set_socket
+    mpv-toggle --socket "${SOCKET}" || mpv-toggle
     mpv_display
     ;;
   2)
-    mpv-opts --quit --music
+    set_socket
+    mpv-opts --quit --socket "${SOCKET}"
+    set_socket
     mpv_display
     ;;
   3)
+    set_socket
     notify-send "$(mpv_display -u)"
     mpv_display
     ;;
   4)
-    mpv-prev --music
+    set_socket
+    mpv-prev --socket "${SOCKET}"
     mpv_display
     ;;
   5)
-    mpv-next --music
+    set_socket
+    mpv-next --socket "${SOCKET}"
     mpv_display
     ;;
-  6)
-    yt-opts "$(mpv-get-property --music "path")"
-    mpv_display
-    ;;
+  # 6)
+  #   yt-opts "$(mpv-get-property --music "path")"
+  #   mpv_display
+  #   ;;
   *)
+    set_socket
     mpv_display
     ;;
 esac

@@ -110,9 +110,19 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['ccls'].setup {
-  capabilities = capabilities
+local nvim_lsp = require("lspconfig")
+
+nvim_lsp.clangd.setup {
+  filetypes = { "c" },
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--header-insertion=never",
+    "--completion-style=detailed",
+  }
 }
+
+vim.g.c_syntax_for_h = true
 
 require('Comment').setup({
     ---Add a space b/w comment and the line

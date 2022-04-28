@@ -1,0 +1,11 @@
+#!/bin/sh
+export STATUS
+
+case $BLOCK_BUTTON in
+  *)
+    if pgrep "yt-opts" >/dev/null 2>&1; then
+      STATUS=$(sed '/video/!d' ~/documents/yt-opts.log | tail -n1)
+      printf '%s\n' "[Downloading ${STATUS#*ing }]"
+    fi
+    ;;
+esac
