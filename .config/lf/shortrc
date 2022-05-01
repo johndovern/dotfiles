@@ -22,6 +22,7 @@ map gl.  cd ~/.local
 map glb  cd ~/.local/bin
 map gld  cd ~/.local/src/dwm
 map glm  cd ~/.local/src/dmenu
+map gln  cd ~/.local/share/nvim/swap
 map glp  cd ~/.local/bin/scripts
 map glr  cd ~/.local/src
 map gls  cd ~/.local/src/st

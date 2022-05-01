@@ -1,6 +1,7 @@
-### Updated on Wed Apr 20 11:03:06 PM PDT 2022 ###
+### Updated on Sat Apr 30 08:44:12 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 !checkup
 !crontog
 !newsup

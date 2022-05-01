@@ -1,0 +1,16 @@
+### Updated on Sat Apr 30 08:44:32 PM PDT 2022 ###
+*
+!.gitignore
+!mpv-active-sockets
+!mpv-communicate
+!mpv-currently-playing
+!mpv-get-property
+!mpv-next
+!mpv-opts
+!mpv-pick
+!mpv-prev
+!mpv-quit-latest
+!mpv-quit-pick
+!mpv-rename
+!mpv-seek
+!mpv-toggle

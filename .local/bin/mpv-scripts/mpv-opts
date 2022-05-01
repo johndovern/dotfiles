@@ -1,0 +1,194 @@
+#!/bin/bash
+export OPTION=
+export OPTION_2=
+export FIRST=
+export SECOND=
+export CHOSEN=
+export CHOSEN=
+export CHOSEN_WID=
+export CHOSEN_SOCKET=
+export SHUFFLE=
+export NOW=
+declare -a SOCKETS
+declare -a SOCKET_FILE
+
+function get_opts() {
+  while :; do
+    if [[ $# -gt 0 ]]; then
+      case "$1" in
+        -d|--float)
+          OPTION="FLOAT"
+          OPTION_2="--music"
+          shift
+          break
+          ;;
+        -F|--focus)
+          OPTION="FOCUS"
+          shift
+          break
+          ;;
+        -f|--full-screen)
+          OPTION="FULL"
+          shift
+          break
+          ;;
+        -q|--quit)
+          OPTION="QUIT"
+          shift
+          case "${1:-NO_OPTION}" in
+            NO_OPTION)
+              ;;
+            --music)
+              OPTION_2="${1}"
+              shift
+              ;;
+            --socket)
+              OPTION_2="${1}"
+              shift
+              OPTION_3="${1}"
+              ;;
+          esac
+          break
+          ;;
+        -s|--sticky)
+          OPTION="STICKY"
+          shift
+          break
+          ;;
+        -u|--shuffle)
+          OPTION="SHUFFLE"
+          if [[ "$2" == "--now" ]]; then
+            NOW=1
+            shift
+          fi
+          shift
+          break
+          ;;
+        *)
+          OPTION=$(printf "FLOAT\\nFOCUS\\nFULL\\nQUIT\\nSTICKY\\nEXIT" | dmenu -i -p "Action:")
+          shift
+          break
+          ;;
+      esac
+    else
+      break
+    fi
+  done
+}
+
+function get_mpv() {
+  if [[ $(mpv-active-sockets "${OPTION_2}" | wc -l) -gt 1 ]]; then
+    CHOSEN="$(printf '%q\n' "$(mpv-pick --full --music)")"
+    case "${CHOSEN:-NO_SELECTION}" in
+      NO_SELECTION)
+        return 1
+        ;;
+      *)
+        CHOSEN_WID=$(xdotool search --name -- "${CHOSEN#*:} - mpv")
+        return 0
+        ;;
+    esac
+  else
+    CHOSEN="$(printf '%q\n' "$(mpv-get-property "$(mpv-active-sockets "${OPTION_2}")" 'media-title')")"
+    CHOSEN_WID=$(xdotool search --name -- "${CHOSEN} - mpv")
+  fi
+}
+
+function get_first() {
+  FIRST=$(dwmc focusstack 0 && xdotool getwindowfocus)
+  SECOND=$(wmctrl -ia "${CHOSEN_WID}" && xdotool getwindowfocus)
+}
+
+function mpv_float() {
+  get_first || return 1
+  if [[ "${FIRST}" != "${SECOND}" ]]; then
+    dwmc zoom
+    sleep 0.03
+  fi
+  xdotool mousemove --window "${CHOSEN_WID}" 0 0 ; sleep 0.03
+  xdotool keydown super mousedown 1
+  xdotool mousemove 1272 756
+  xdotool mouseup 1 keyup super ; sleep 0.03
+  xdotool keydown super mousedown 3 ; sleep 0.03
+  xdotool mousemove 1781 1059
+  xdotool mouseup 3 keyup super
+  get_first || return 1
+  if [[ "${FIRST}" == "${SECOND}" ]]; then
+    dwmc pushstack -1
+    # xdotool key super+K
+  fi
+  dwmc focusstack 0
+  xdotool mousemove 0 300
+  return 0
+}
+
+function mpv_shuffle() {
+  if [[ "${NOW:-0}" -eq 0 ]]; then
+    ACTIVE=$(mpv-active-sockets --umpv | wc -l)
+    if [[ "${ACTIVE}" -gt 1 ]]; then
+      SHUFFLE="$(mpv-pick --full --umpv)"
+      case "${SHUFFLE:-NO_SOCKET}" in
+        NO_SOCKET)
+          return 1
+          ;;
+        *)
+          mpv-communicate "${SHUFFLE%%:*}" \
+            '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
+          ;;
+      esac
+    elif [[ "${ACTIVE}" -eq 1 ]]; then
+      mpv-communicate "$(mpv-active-sockets --umpv )" \
+        '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
+    fi
+  else
+    mpv-communicate "$(mpv-active-sockets --unique | tail -n1)" \
+      '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
+  fi
+}
+
+function main() {
+  get_opts "$@" || return 1
+
+  killall wmctrl >/dev/null 2>&1
+
+  case "${OPTION}" in
+    FLOAT)
+      get_mpv || return 1
+      sleep 0.2
+      mpv_float
+      ;;
+    FOCUS)
+      get_mpv || return 1
+      sleep 0.2
+      wmctrl -ia "${CHOSEN_WID}"
+      ;;
+    FULL)
+      get_mpv || return 1
+      sleep 0.2
+      xdotool key --window "${CHOSEN_WID}" f && wmctrl -ia "${CHOSEN_WID}"
+      ;;
+    QUIT)
+      mpv-quit-pick "${OPTION_2}" "${OPTION_3}"
+      ;;
+    STICKY)
+      get_mpv || return 1
+      sleep 0.2
+      wmctrl -ia "${CHOSEN_WID}" && xdotool key super+s super+f
+      ;;
+    SHUFFLE)
+      mpv_shuffle || return 1
+      ;;
+    *)
+      notify-send -u critical "Error" "Invalid option: ${OPTION}"
+      return 1
+      ;;
+  esac
+
+  return 0
+}
+
+main "$@" || notify-send -u critical "Error" "mpv-opts failed \
+CHOSEN: ${CHOSEN}
+CHOSEN_WID: ${CHOSEN_WID}"
+
+exit

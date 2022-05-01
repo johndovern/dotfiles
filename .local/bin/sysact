@@ -1,18 +1,38 @@
 #!/bin/sh
 # A dmenu wrapper script for system functions.
 case "$(readlink -f /sbin/init)" in
-	*systemd*) ctl='systemctl' ;;
-	*) ctl='loginctl' ;;
+  *systemd*) ctl='systemctl' ;;
+  *) ctl='loginctl' ;;
 esac
 
-case "$(printf "Sleep\nLeave-dwm\nReboot\nHibernate\nLock\nRenew-dwm\nShutdown\nDisplay off" | dmenu -i -p 'Action: ')" in
-	'Lock') xset dpms force off ; slock ;;
-	'Leave-dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
-	'Renew-dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
-	'Hibernate') slock $ctl hibernate ;;
-	'Sleep') slock $ctl suspend ;;
-	'Reboot') st -e key-zip 1 ;;
-	'Shutdown') st -e key-zip 0 ;;
-	'Display off') xset dpms force off ;;
-	*) exit 1 ;;
+case "$(printf "Sleep\nLeave-dwm\nReboot\nHibernate\nLock\nRenew-dwm\nShutdown\nDisplay off" | dmenu -i -p 'Action:')" in
+  'Lock')
+    xset dpms force off
+    slock
+    ;;
+  'Leave-dwm')
+    kill -TERM "$(pgrep -u "$USER" "\bdwm$")"
+    ;;
+  'Renew-dwm')
+    kill -HUP "$(pgrep -u "$USER" "\bdwm$")"
+    if xdotool search --name -- "Passwords - KeePassXC" >/dev/null 2>&1 ; then
+      sleep 1 && keepasshide
+    fi
+    ;;
+  'Hibernate')
+    slock $ctl hibernate
+    ;;
+  'Sleep')
+    slock $ctl suspend
+    ;;
+  'Reboot')
+    st -e key-zip 1
+    ;;
+  'Shutdown')
+    st -e key-zip 0
+    ;;
+  'Display off')
+    xset dpms force off
+    ;;
+  *) exit 1 ;;
 esac

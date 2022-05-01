@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Sends commands to an mpv socket using socat
+# First argument: mpv socket
+# all other arguments are sent to the socket using socat
+
+case "$1" in
+  -u|--umpv)
+    SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+    ;;
+  -m|--music)
+    SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+    ;;
+  *)
+    SOCKET="${1:?Must provide socket as first argument}"
+    ;;
+esac
+
+if [[ -e "${SOCKET}" ]]; then
+  if [[ ! -S "${SOCKET}" ]]; then
+    echo "Path is not a socket: ${SOCKET}" >&2
+    exit 2
+  fi
+else
+  echo "Path doesn't exist: ${SOCKET}" >&2
+  exit 2
+fi
+readonly SOCKET
+shift # remove socket path
+
+[[ -z "$1" ]] && {
+  echo "Must provide command to pass to socat. See https://github.com/seanbreckenridge/mpv-sockets for examples" >&2
+  exit 2
+}
+
+exec socat - "$SOCKET" <<<"$@"

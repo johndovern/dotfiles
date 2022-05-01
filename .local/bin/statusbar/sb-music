@@ -45,7 +45,7 @@ filter() {
     PAUSED="Paused"
   elif mpc | grep -q "volume: n/a   r" ; then
     SONG=
-    PAUSED="MPD"
+    PAUSED="mpc"
   else
     SONG="$(mpc | head -n1 | cut -b -22 | sed 's/\s$//;s/.*/&.../')"
     # if [[ "${SONG}" = *[![:ascii:]]* ]]; then

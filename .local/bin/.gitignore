@@ -1,4 +1,4 @@
-### Updated on Wed Apr 20 11:02:52 PM PDT 2022 ###
+### Updated on Sat Apr 30 08:44:00 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-old
@@ -12,6 +12,7 @@
 !displayselect
 !dmenugitignore
 !dmenugitignore-auto
+#dmenugitignore-auto-backup
 !dmenuhandler
 !dmenumount
 !dmenumountcifs
@@ -35,6 +36,7 @@
 !monitor_setup.sh
 !mousewiggle
 !mpv-music
+!mpv-scripts
 !noisereduce
 !nsxiv-opts
 !nsxiv-pipe

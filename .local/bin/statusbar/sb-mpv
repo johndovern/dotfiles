@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
   exit 1
@@ -15,7 +15,13 @@ set_socket() {
 add_spaces() {
   while IFS= read -r -d "" -n 1 CHAR; do
     if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
-      printf '%s ' "${CHAR}"
+      if [[ "${CHAR}" =~ "【" ]] || [[ "${CHAR}" =~ "「" ]] ; then
+        printf '%s' "["
+      elif [[ "${CHAR}" =~ "】" ]] || [[ "${CHAR}" =~ "」" ]] ; then
+        printf '%s' "]"
+      else
+        printf '%s ' "${CHAR}"
+      fi
     else
       printf '%s' "${CHAR}"
     fi
@@ -26,7 +32,7 @@ mpv_display() {
   case "${SOCKET:-NOT_PLAYING}" in
     NOT_PLAYING)
       SONG=''
-      PAUSED="MPV"
+      PAUSED="mpv"
       ;;
     *)
       case "$1" in
@@ -34,7 +40,7 @@ mpv_display() {
           SONG=$(mpv-get-property "${SOCKET}" "media-title")
           ;;
         *)
-          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\s$//;s/.*/&.../')
+          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\.\.\.$//;s/\s$//;s/.*/&.../')
           if [[ "${SONG}" = *[![:ascii:]]* ]]; then
             SONG="$(add_spaces)"
           fi
@@ -49,7 +55,7 @@ mpv_display() {
 case $BLOCK_BUTTON in
   1)
     set_socket
-    mpv-toggle --socket "${SOCKET}" || mpv-toggle
+    mpv-toggle --socket "${SOCKET}" || mpv-toggle --umpv || mpv-toggle --socket "$(mpv-active-sockets --unique | head -n1)"
     mpv_display
     ;;
   2)

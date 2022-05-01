@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 if [ ! -S "${SOCKET}" ] ; then
@@ -8,7 +8,13 @@ fi
 add_spaces() {
   while IFS= read -r -d "" -n 1 CHAR; do
     if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
-      printf '%s ' "${CHAR}"
+      if [[ "${CHAR}" =~ "【" ]] || [[ "${CHAR}" =~ "「" ]] ; then
+        printf '%s' "["
+      elif [[ "${CHAR}" =~ "】" ]] || [[ "${CHAR}" =~ "」" ]] ; then
+        printf '%s' "]"
+      else
+        printf '%s ' "${CHAR}"
+      fi
     else
       printf '%s' "${CHAR}"
     fi
@@ -31,7 +37,7 @@ mpv_display() {
     esac
   else
     SONG=''
-    PAUSED="MPV-MUSIC"
+    PAUSED="mpv-music"
   fi
   printf '%s\n' "[${SONG}${PAUSED}]"
 }

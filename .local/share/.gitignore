@@ -1,7 +1,7 @@
-### Updated on Wed Apr 20 11:03:11 PM PDT 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Sat Apr 30 08:44:13 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !applications
 #Aspyr

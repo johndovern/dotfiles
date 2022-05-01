@@ -167,7 +167,7 @@ ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
 
 ctrl + alt + shift + y
-  transmission-gtk
+  transmission-qt
 
 ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
