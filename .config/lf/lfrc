@@ -79,7 +79,7 @@ cmd file_type %{{
 
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*) $EDITOR $fx;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
@@ -88,9 +88,10 @@ cmd open ${{
     audio/*) mpv $f >/dev/null 2>&1 ;;
     video/*) mpv $f -quiet >/dev/null 2>&1 ;;
     application/vnd.openxmlformats*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
-    application/pdf|application/vnd*|application/epub*) zathura $fx >/dev/null 2>&1 ;;
+    application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR $fx ;;
-    application/x-7z-compressed) zathura $fx >/dev/null 2>&1 ;;
+    application/x-7z-compressed) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    application/x-executable) setsid -f $fx >/dev/null 2>&1 ;;
     *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
   esac
 }}

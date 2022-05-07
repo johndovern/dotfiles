@@ -74,6 +74,7 @@ map gra  cd ~/.local/bin/scripts/Arch-FDE
 map grb  cd ~/repos/basic-arch
 map grn  cd ~/repos/NARDS
 map grm  cd ~/repos/mpvSockets-umpv
+map grM  cd ~/repos/manga-man
 map grr  cd ~/repos/reverse-gitignore
 map grs  cd ~/repos/mpv-sockets
 

@@ -252,7 +252,7 @@ ctrl + alt + shift + space
   touchpadtoggle
 
 ctrl + alt + shift + m
-  st -n manga_lf -e lfrun ~/documents/manga/
+  dmenumanga
 
 ctrl + alt + shift + super + m
   umpv

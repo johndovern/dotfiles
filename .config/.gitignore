@@ -1,7 +1,7 @@
-### Updated on Sat Apr 30 08:43:33 PM PDT 2022 ###
+### Updated on Thu May  5 04:44:20 PM PDT 2022 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 #autostart
 #baloofileinformationrc
@@ -26,6 +26,7 @@
 !gtk-3.0
 !gtk-4.0
 #hakuneko-desktop
+#Houdoku
 #htop
 #jellyfin-mpv-shim
 !kdeglobals
@@ -44,6 +45,7 @@
 #light
 !llpp.conf
 !lutris
+!manga-man
 #menus
 !mimeapps.list
 #monero-project
@@ -67,6 +69,7 @@
 !qt5ct
 #QtProject.conf
 !qutebrowser
+#ranger
 !redshift
 #session
 !shell

@@ -10,21 +10,22 @@
     "body": [
       "send_prog() {",
       "  case \"\\$1\" in",
-      "    -e) b=\"\\${r}\" ;;",
-      "    -p) b=\"\\${g}\" ;;",
+      "    -e) B=\"\\${R}\" ; shift ;;",
+      "    -p) B=\"\\${G}\" ; shift ;;",
       "    *) echo \"NO OPTION\" ; return 1 ;;",
       "  esac",
       "",
-      "  echo -e \"\\${b}\\${2}\\${e}\"",
+      "  echo -e \"\\${B}\\${*}\\${E}\"",
       "}"
     ]
   },
   "Bash Colors": {
     "prefix": ["excolors", "bcolor"],
     "body": [
-      "export r=\"\\e[0;31m\"",
-      "export g=\"\\e[0;32m\"",
-      "export e=\"\\e[0m\""
+      "export R=\"\\e[0;31m\"",
+      "export G=\"\\e[0;32m\"",
+      "export E=\"\\e[0m\"",
+      "${0}"
     ]
   },
   "get_opts": {
@@ -53,7 +54,18 @@
     "prefix": ["ifthen"],
     "body": [
       "if [[ ${1} ]]; then",
+      "${0}",
       "fi"
+    ]
+  },
+  "Main": {
+    "prefix": ["main()"],
+    "body": [
+      "main() {",
+      "  ${0}",
+      "}",
+      "",
+      "main \"\\${@}\" && exit 0 || exit 1"
     ]
   }
 }
