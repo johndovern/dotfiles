@@ -23,6 +23,7 @@ case "$(printf "Sleep\nLeave-dwm\nReboot\nHibernate\nLock\nRenew-dwm\nShutdown\n
     slock $ctl hibernate
     ;;
   'Sleep')
+    [[ "$(pgrep "transmission")" ]] && pkill transmission && pkill transmission
     slock $ctl suspend
     ;;
   'Reboot')

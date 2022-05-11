@@ -167,7 +167,7 @@ ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
 
 ctrl + alt + shift + y
-  transmission-qt
+  transmission-gtk
 
 ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
@@ -197,7 +197,10 @@ ctrl + alt + shift + backslash
   mpv-opts --shuffle
 
 ctrl + alt + shift + a
-  st -n anime_lf -e lfrun ~/videos/anime/
+  ani-man -l
+
+ctrl + alt + shift + super + a
+  ani-man -w
 
 ctrl + alt + shift + s
   maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300

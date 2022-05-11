@@ -5,8 +5,8 @@
       ">/dev/null 2>&1"
     ]
   },
-  "send_prog": {
-    "prefix": ["send()"],
+  "send_prog lite": {
+    "prefix": ["send_lite()"],
     "body": [
       "send_prog() {",
       "  case \"\\$1\" in",
@@ -16,6 +16,48 @@
       "  esac",
       "",
       "  echo -e \"\\${B}\\${*}\\${E}\"",
+      "}"
+    ]
+  },
+  "send_prog full": {
+    "prefix": ["send_full()"],
+    "body": [
+      "send_prog() {",
+      "  case \"\\${DEBUG}\" in",
+      "    1)",
+      "      case \"\\$1\" in",
+      "        -e)",
+      "          B=\"\\${R}\"",
+      "          shift",
+      "          ;;",
+      "        -p)",
+      "          B=\"\\${G}\"",
+      "          shift",
+      "          ;;",
+      "        *)",
+      "          echo \"NO OPTION\"",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "      echo -e \"\\${B}\\${*}\\${E}\"",
+      "      ;;",
+      "    *)",
+      "      case \"\\$1\" in",
+      "        -e)",
+      "          shift",
+      "          notify-send -u critical \"\\$1\" \"\\$2\"",
+      "          ;;",
+      "        -p)",
+      "          shift",
+      "          notify-send \"\\$1\" \"\\$2\"",
+      "          ;;",
+      "        *)",
+      "          notify-send -u critical \"Error\" \"No option given\"",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "      ;;",
+      "  esac",
       "}"
     ]
   },
@@ -66,6 +108,12 @@
       "}",
       "",
       "main \"\\${@}\" && exit 0 || exit 1"
+    ]
+  },
+  "Or Exit": {
+    "prefix": ["or_exit()"],
+    "body": [
+      "|| { send_prog -e \"Error:\" \"${1}\" &&${2: usage && }return 1 ; }"
     ]
   }
 }
