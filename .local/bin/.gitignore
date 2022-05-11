@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 ### Updated on Wed May 11 02:43:45 PM PDT 2022 ###
-=======
-### Updated on Thu May  5 04:44:39 PM PDT 2022 ###
-### < #dmenugitignore-auto-backup > deleted since last update ###
->>>>>>> desktop
 *
 !.gitignore
 #.gitignore-old
