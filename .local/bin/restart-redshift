@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(killall redshift && redshift -rx && sleep 3 && redshift -rc $HOME/.config/redshift/redshiftrc) || redshift -c $HOME/.config/redshift/redshiftrc

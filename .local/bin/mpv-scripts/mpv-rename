@@ -1,0 +1,86 @@
+#!/bin/bash
+
+get_opts() {
+  while :; do
+    case "$1" in
+      -m)
+        export MANUAL=1
+        break
+        ;;
+      -a)
+        export MANUAL=0
+        break
+        ;;
+      *)
+        printf 'Unknown option passed: %s\n' "$1" >&2
+        return 1
+        ;;
+    esac
+  done
+}
+
+manual_rename() {
+  NEW_NAME=$(printf '%s\n' "$TITLE" | dmenu -i -w "$WINDOW_ID" -p "New name:")
+  case "${NEW_NAME:-NO_NAME}" in
+    NO_NAME)
+      notify-send "Abort" "Renaming aborted"
+      return 1
+      ;;
+    *)
+      NEW_NAME="${NEW_NAME//\// }"
+      if mv "${TARGET}" "${FILE_PATH}/${NEW_NAME// /_}${EXTENSION}"; then
+        notify-send "Success!" "Original: ${FILE_NAME}\nNew name: ${NEW_NAME// /_}${EXTENSION}"
+      else
+        notify-send -u critical "Error Renaming" "Failed to rename\nFile: ${FILE_NAME}\nNew name: ${NEW_NAME//\// }"
+      fi
+      ;;
+  esac
+}
+
+mpv_rename() {
+  if [[ "$MANUAL" -eq 0 ]]; then
+    if [[ "$FILE_NAME" == "$TITLE" ]]; then
+      manual_rename
+    else
+      if [[ -e "${FILE_PATH}/${TITLE// /_}${EXTENSION}" ]]; then
+        notify-send "File found" "Renaming to ${TITLE// /_}-$(date '+%s')${EXTENSION}"
+        if mv "${TARGET}" "${FILE_PATH}/${TITLE// /_}-$(date '+%s')${EXTENSION}"; then
+          notify-send "Success!" "Original: ${FILE_NAME}\nNew name: ${TITLE// /_}-$(date '+%s')${EXTENSION}"
+        else
+          notify-send -u critical "Error Renaming" "Failed to rename\nFile: ${FILE_NAME}\nNew name: ${TITLE// /_}"
+        fi
+      else
+        if mv "${TARGET}" "${FILE_PATH}/${TITLE// /_}${EXTENSION}"; then
+          notify-send "Success!" "Original: ${FILE_NAME}\nNew name: ${TITLE// /_}${EXTENSION}"
+        else
+          notify-send -u critical "Error Renaming" "Failed to rename\nFile: ${FILE_NAME}\nNew name: ${TITLE// /_}"
+        fi
+      fi
+    fi
+  else
+    manual_rename
+  fi
+}
+
+main() {
+  if [[ "$#" -lt 4 ]]; then
+    notify-send -u critical "Error Renaming" "Not enough variables"
+    return 1
+  fi
+
+  get_opts "${1}" || return 1
+  export FILE_NAME="${2}"
+  export EXTENSION=".${2##*.}"
+  export TARGET="${3}"
+  export FILE_PATH="${3%/"${2}"}"
+  export MPV_PID="${4}"
+  if [[ -n "${5}" ]]; then
+    export TITLE="${5//\// }"
+  fi
+  export WINDOW_ID=$(xdotool search -pid "${4}")
+
+  mpv_rename
+}
+
+main "$@"
+exit

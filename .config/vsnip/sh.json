@@ -1,0 +1,122 @@
+{
+  "dev/null": {
+    "prefix": [">/dev/n", ">void"],
+    "body": [
+      ">/dev/null 2>&1"
+    ]
+  },
+  "send_prog lite": {
+    "prefix": ["send_lite()"],
+    "body": [
+      "send_prog() {",
+      "  case \"\\$1\" in",
+      "    -e) B=\"\\${R}\" ; shift ;;",
+      "    -p) B=\"\\${G}\" ; shift ;;",
+      "    *) echo \"NO OPTION\" ; return 1 ;;",
+      "  esac",
+      "  FIRST=\"\\${1}\"",
+      "  shift",
+      "  printf \"\\${B}%s\\n%s\\${E}\\n\" \"\\${FIRST}\" \"\\${*}\"",
+      "}"
+    ]
+  },
+  "send_prog full": {
+    "prefix": ["send_full()"],
+    "body": [
+      "send_prog() {",
+      "  case \"\\${DEBUG}\" in",
+      "    1)",
+      "      case \"\\$1\" in",
+      "        -e)",
+      "          B=\"\\${R}\"",
+      "          shift",
+      "          ;;",
+      "        -p)",
+      "          B=\"\\${G}\"",
+      "          shift",
+      "          ;;",
+      "        *)",
+      "          echo \"NO OPTION\"",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "      FIRST=\"\\${1}\"",
+      "      shift",
+      "      printf \"\\${B}%s\\n%s\\${E}\\n\" \"\\${FIRST}\" \"\\${*}\"",
+      "      ;;",
+      "    *)",
+      "      case \"\\$1\" in",
+      "        -e)",
+      "          shift",
+      "          notify-send -u critical \"\\$1\" \"\\$2\"",
+      "          ;;",
+      "        -p)",
+      "          shift",
+      "          notify-send \"\\$1\" \"\\$2\"",
+      "          ;;",
+      "        *)",
+      "          notify-send -u critical \"Error\" \"No option given\"",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "      ;;",
+      "  esac",
+      "}"
+    ]
+  },
+  "Bash Colors": {
+    "prefix": ["excolors", "bcolor"],
+    "body": [
+      "export R=\"\\e[0;31m\"",
+      "export G=\"\\e[0;32m\"",
+      "export E=\"\\e[0m\"",
+      "${0}"
+    ]
+  },
+  "get_opts": {
+    "prefix": ["get_opts()"],
+    "body": [
+      "get_opts() {",
+      "  while :; do",
+      "    if [[ \\$# -gt 0 ]]; then",
+      "      case \"\\$1\" in",
+      "        ${1}) ",
+      "          ${2}",
+      "          ;;",
+      "        *)",
+      "          printf 'Unknown option passed: %s\\n' \"\\$1\" >&2",
+      "          return 1",
+      "          ;;",
+      "      esac",
+      "    else",
+      "      break",
+      "    fi",
+      "  done",
+      "}"
+    ]
+  },
+  "If-then": {
+    "prefix": ["ifthen"],
+    "body": [
+      "if [[ ${1} ]]; then",
+      "${0}",
+      "fi"
+    ]
+  },
+  "Main": {
+    "prefix": ["main()"],
+    "body": [
+      "main() {",
+      "  ${0}",
+      "}",
+      "",
+      "main \"\\${@}\" && exit 0 || exit 1"
+    ]
+  },
+  "Or Exit": {
+    "prefix": ["or_exit()"],
+    "body": [
+      "|| { send_prog -e \"Error:\" \"${1}\" &&${2: usage && }return 1 ; }"
+    ]
+  }
+}

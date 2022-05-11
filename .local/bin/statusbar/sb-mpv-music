@@ -1,0 +1,73 @@
+#!/bin/bash
+
+SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+if [ ! -S "${SOCKET}" ] ; then
+  exit
+fi
+
+add_spaces() {
+  while IFS= read -r -d "" -n 1 CHAR; do
+    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
+      if [[ "${CHAR}" =~ "【" ]] || [[ "${CHAR}" =~ "「" ]] ; then
+        printf '%s' "["
+      elif [[ "${CHAR}" =~ "】" ]] || [[ "${CHAR}" =~ "」" ]] ; then
+        printf '%s' "]"
+      else
+        printf '%s ' "${CHAR}"
+      fi
+    else
+      printf '%s' "${CHAR}"
+    fi
+  done < <(printf '%s' "${SONG}")
+}
+
+mpv_display() {
+  if mpv-currently-playing --music --socket >/dev/null 2>&1; then
+    case "$1" in
+      -u)
+        SONG=$(mpv-currently-playing -M --music)
+        ;;
+      *)
+        SONG=$(mpv-currently-playing -M --music | cut -b -22 | sed 's/\s$//;s/.*/&.../')
+        if [[ "${SONG}" = *[![:ascii:]]* ]]; then
+          SONG="$(add_spaces)"
+        fi
+        PAUSED=''
+        ;;
+    esac
+  else
+    SONG=''
+    PAUSED="mpv-music"
+  fi
+  printf '%s\n' "[${SONG}${PAUSED}]"
+}
+
+case $BLOCK_BUTTON in
+  1)
+    mpv-toggle --music
+    mpv_display
+    ;;
+  2)
+    mpv-opts --quit --music
+    mpv_display
+    ;;
+  3)
+    notify-send "$(mpv_display -u)"
+    mpv_display
+    ;;
+  4)
+    mpv-prev --music
+    mpv_display
+    ;;
+  5)
+    mpv-next --music
+    mpv_display
+    ;;
+  6)
+    yt-opts "$(mpv-get-property --music "path")"
+    mpv_display
+    ;;
+  *)
+    mpv_display
+    ;;
+esac
