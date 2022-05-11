@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ### Updated on Wed May 11 02:43:45 PM PDT 2022 ###
+=======
+### Updated on Thu May  5 04:44:39 PM PDT 2022 ###
+### < #dmenugitignore-auto-backup > deleted since last update ###
+>>>>>>> desktop
 *
 !.gitignore
 #.gitignore-old
@@ -34,6 +39,8 @@
 !mkhome
 !monitor_setup.sh
 !mousewiggle
+!mpv-music
+!mpv-scripts
 !noisereduce
 !nsxiv-opts
 !nsxiv-pipe
@@ -41,6 +48,7 @@
 !nsxiv-url
 !nsxiv-urllery
 !open_url_in_instance.sh
+!open_with_linux.py
 !opout
 !pauseallmpv
 !peertubetorrent
@@ -51,6 +59,7 @@
 !queueandnotify
 !qutebrowser
 !remaps
+!restart-redshift
 !rotdir
 !rssadd
 !samedir

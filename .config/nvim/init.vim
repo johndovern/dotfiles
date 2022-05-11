@@ -1,30 +1,51 @@
 let mapleader =","
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+  echo "Downloading junegunn/vim-plug to manage plugins..."
+  silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'jreybert/vimagit'
-Plug 'lukesmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-commentary'
-Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-repeat'
-Plug 'tridactyl/vim-tridactyl'
+  Plug 'tpope/vim-surround'
+  Plug 'preservim/nerdtree'
+  Plug 'junegunn/goyo.vim'
+  Plug 'jreybert/vimagit'
+  Plug 'lukesmithxyz/vimling'
+  Plug 'vimwiki/vimwiki'
+  Plug 'vim-airline/vim-airline'
+  " Plug 'tpope/vim-commentary'
+  Plug 'numToStr/Comment.nvim'
+  Plug 'ap/vim-css-color'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'tpope/vim-repeat'
+  Plug 'tridactyl/vim-tridactyl'
+  Plug 'morhetz/gruvbox'
+
+  " Lsp, treesitter, and lsp installer
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'williamboman/nvim-lsp-installer'
+
+  " Auto completion
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+
+  " For vsnip users.
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'rafamadriz/friendly-snippets'
+
 call plug#end()
 
+lua require('config')
+
 set title
-set bg=light
 set go=a
 set mouse=a
 set nohlsearch
@@ -36,108 +57,51 @@ set noshowcmd
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set exrc
+set secure
+set background=dark
+nnoremap <leader><leader>r :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
-" " Map Colemak keys in alphabetical order.
-" nnoremap f e
-" nnoremap p r
-" nnoremap b t
-" nnoremap j y
-" nnoremap jj yy
-" nnoremap l u
-" nnoremap l u
-" nnoremap u i
-" nnoremap y o
-" nnoremap yy o
-" nnoremap ; p
-" nnoremap s d
-" nnoremap ss dd
-" nnoremap t f
-" nnoremap t f
-" nnoremap m h
-" nnoremap n j
-" nnoremap e k
-" nnoremap i l
-" nnoremap o ;
-" nnoremap d v
-" nnoremap v b
-" nnoremap k n
-" nnoremap h m
-" nnoremap F E
-" nnoremap P R
-" nnoremap B T
-" nnoremap J Y
-" nnoremap L U
-" nnoremap U I
-" nnoremap Y O
-" nnoremap : P
-" nnoremap S D
-" nnoremap T F
-" nnoremap M H
-" nnoremap N J
-" nnoremap E K
-" nnoremap I L
-" nnoremap O :
-" nnoremap D V
-" nnoremap V B
-" nnoremap K N
-" nnoremap H M
-" noremap d v
-" noremap e k
-" noremap f e
-" noremap i l
-" noremap j y
-" noremap k h
-" noremap m n
-" noremap l u
-" noremap n j
-" noremap ; p
-" noremap o ;
-" noremap p r
-" noremap r s
-" noremap s d
-" noremap t f
-" noremap u i
-" noremap D V
-" noremap E K
-" noremap F E
-" noremap G T
-" noremap I L
-" noremap J Y
-" noremap K N
-" noremap L U
-" noremap N J
-" noremap O :
-" noremap P R
-" noremap R S
-" noremap S D
-" noremap T F
-" noremap U I
-" noremap Y O
-" noremap y o
+" Expand
+  " imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+  " smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+  " imap <expr> <C-e>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-e>'
+  " smap <expr> <C-e>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-e>'
+
+" Jump forward or backward
+  imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+  smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+  imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+  smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Set snippet dir to ~/.config
+  let g:vsnip_snippet_dir = get(g:, 'vsnip_snippet_dir', expand('~/.config/vsnip'))
 
 " Some basics:
-	nnoremap c "_c
-	set nocompatible
-	filetype plugin on
-	syntax on
-	set encoding=utf-8
-	set number relativenumber
+  nnoremap c "_c
+  set nocompatible
+  filetype plugin on
+  syntax on
+  set encoding=utf-8
+  set number relativenumber
 " Enable autocompletion:
-	set wildmode=longest,list,full
+  set wildmode=longest,list,full
 " Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Perform dot commands over visual blocks:
-	vnoremap . :normal .<CR>
+  vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+  map <leader>f :Goyo \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+  map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitbelow splitright
+  set splitbelow splitright
 
 " Nerd tree
-	map <leader>n :NERDTreeToggle<CR>
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  map <leader>n :NERDTreeToggle<CR>
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     if has('nvim')
         let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
     else
@@ -145,82 +109,87 @@ set expandtab
     endif
 
 " vimling:
-	nm <leader><leader>d :call ToggleDeadKeys()<CR>
-	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader><leader>i :call ToggleIPA()<CR>
-	imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader><leader>q :call ToggleProse()<CR>
+  nm <leader><leader>d :call ToggleDeadKeys()<CR>
+  imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
+  nm <leader><leader>i :call ToggleIPA()<CR>
+  imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
+  nm <leader><leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+  map <C-n> <C-w>=
 
 " Better movement
   noremap <expr> j v:count ? 'j' : 'gj'
   noremap <expr> k v:count ? 'k' : 'gk'
 
 " Better highlighting
-  hi Visual ctermfg=Black ctermbg=Grey
+  hi Visual ctermfg=Grey ctermbg=Black
 
 " Replace ex mode with gq
-	map Q gq
+  map Q gq
 
 " Check file in shellcheck:
-	map <leader>s :!clear && shellcheck -x %<CR>
+  map <leader>s :!clear && shellcheck -x %<CR>
 
 " Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
+  map <leader>b :vsp<space>$BIB<CR>
+  map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
-	nnoremap S :%s//g<Left><Left>
+  nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+  map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+  map <leader>p :!opout <c-r>%<CR><CR>
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
-	autocmd VimLeave *.tex !texclear %
+  autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	map <leader>v :VimwikiIndex<CR>
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-	" map <leader>v :VimwikiIndex
-	" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-	autocmd BufRead,BufNewFile *.tex set filetype=tex
+  let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+  map <leader>v :VimwikiIndex<CR>
+  let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+  " map <leader>v :VimwikiIndex
+  " let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+  autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+  autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+  autocmd BufRead,BufNewFile *.tex set filetype=tex
+  autocmd BufRead,BufNewFile *.kbd set filetype=lisp
+
+" Add folding to bash scripts
+  autocmd FileType sh set foldmethod=indent
+  autocmd FileType sh nnoremap ; zA
 
 " Save file as sudo on files that require root permission
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+  cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Enable Goyo by default for mutt writing
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
+  autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+  autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+  autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
+  autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save. & reset cursor position
   autocmd BufWritePre * let currPos = getpos(".")
-	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritePre * %s/\n\+\%$//e
-	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+  autocmd BufWritePre * %s/\s\+$//e
+  autocmd BufWritePre * %s/\n\+\%$//e
+  autocmd BufWritePre *.[ch] %s/\%$/\r/e
   autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-	autocmd BufWritePost bm-files,bm-dirs !shortcuts
+  autocmd BufWritePost bm-files,bm-dirs !shortcuts
 " Run xrdb whenever Xdefaults or Xresources are updated.
-	autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
-	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
-" Recompile dwmblocks on config edit.
-	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
-" Restart sxhkd after editing
-  autocmd BufWritePost sxhkdrc !sleep 1 ; xdotool key super+c
+  autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
+  autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+" Restart sxhkd after saving
+" Weird bug need a second line with a comment
+  autocmd BufWritePost sxhkdrc !kill -SIGUSR1 "$(pidof sxhkd)"
 
 " Autocenter screen when entering insert mode
   autocmd InsertEnter * norm zz
@@ -230,7 +199,7 @@ set expandtab
   vmap < <gv
 
 " s{char}{char} to move to {char}{char}
-  nmap s <Plug>(easymotion-overwin-f2)
+  nmap s <Plug>(easymotion-overwin-f)
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff

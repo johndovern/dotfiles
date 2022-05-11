@@ -1,8 +1,155 @@
-ctrl + alt + shift + 4
+super + grave
+  dmenuunicode
+
+super + minus
+  pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)
+
+super + shift + minus
+  pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)
+
+super + equal
+  pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)
+
+super + shift + equal
+  pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)
+
+super + BackSpace
+  sysact
+
+super + shift + BackSpace
+  sysact
+
+super + shift + q
+  sysact
+
+super + w
+  GTK_USE_PORTAL=1 $BROWSER
+
+super + shift + w
+  st -e sudo nmtui
+
+super + e
+  st -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook
+
+super + shift + e
+  st -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook
+
+super + r
+  st -n lf_run -e lfrun
+
+super + shift + r
+  st -e htop
+
+super + p
+  mpc toggle
+
+super + shift + p
+  mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
+
+super + bracketleft
+  mpc seek -10
+
+super + shift + bracketleft
+  mpc seek -60
+
+super + bracketright
+  mpc seek +10
+
+super + shift + bracketright
+  mpc seek +60
+
+super + d
+  dmenu_run
+
+super + shift + d
+  passmenu
+
+super + n
+  st -e nvim -c VimwikiIndex
+
+super + shift + n
+  st -e newsboat; pkill -RTMIN+6 dwmblocks
+
+super + m
+  st -e ncmpcpp
+
+super + shift + m
+  pamixer -t; kill -44 $(pidof dwmblocks)
+
+super + comma
+  mpc prev
+
+super + shift + comma
+  mpc seek 0%
+
+super + period
+  mpc next
+
+super + shift + period
+  mpc repeat
+
+super + Insert
+  xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)
+
+super + F1
+  groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -
+
+super + F2
+  tutorialvids
+
+super + F3
+  displayselect
+
+super + F4
   st -e pulsemixer; kill -44 $(pidof dwmblocks)
 
+super + F6
+  torwrap
+
+super + F7
+  td-toggle
+
+super + F8
+  mw -Y
+
+super + F9
+  dmenumount
+
+super + F10
+  dmenuumount
+
+super + F11
+  mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)
+
+super + F12
+  remaps & notify-send \\"⌨️ Keyboard remapping...\\" \\"Re-running keyboard defaults for any newly plugged-in keyboards.\\"
+
+Print
+  maim pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send "Screenshot of desktop taken"
+
+shift + Print
+  maimpick
+
+super + Print
+  dmenurecord
+
+super + shift + Print
+  dmenurecord kill
+
+super + Delete
+  dmenurecord kill
+
+super + Scroll_Lock
+  killall screenkey || screenkey &
+
+ctrl + alt + shift + BackSpace
+  groff -mom /home/anon/.local/src/dwm/keys.mom -Tpdf | zathura -
+
 ctrl + alt + shift + q
-  mpv-quit-pick
+  mpv-quit-pick ; kill -55 $(pidof dwmblocks)
+
+ctrl + alt + shift + super + q
+  st -n keepass -e keepasshide ; sleep 1.5 ; st -e total-shutdown
 
 ctrl + alt + shift + w
   st -n aniwiki -e nvim -c VimwikiIndex -c "VimwikiGoto anime/watch\ list"
@@ -11,7 +158,7 @@ ctrl + alt + shift + super + w
   mullvad-exclude qutebrowser
 
 ctrl + alt + shift + e
-  mpv-options focus
+  mpv-opts --focus
 
 ctrl + alt + shift + r
   dautoupdate
@@ -22,17 +169,17 @@ ctrl + alt + shift + t
 ctrl + alt + shift + y
   transmission-gtk
 
-ctrl + alt + shift + u
-  librewolf
-
 ctrl + alt + shift + i
-  mullvad-exclude librewolf -P posting "4chan.org/g/"
+  GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  mpv "$HOME/.config/mpv/playlists/groovy.m3u" & mpv-options shuffle
+  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 0.4 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + p
-  mpv-play-pause
+  mpv-toggle
+
+ctrl + alt + shift + super + p
+  mullvad-exclude mumble
 
 ctrl + alt + shift + bracketleft
   mpv-seek -10
@@ -47,25 +194,31 @@ ctrl + alt + shift + super + bracketleft
   mpv-seek 60
 
 ctrl + alt + shift + backslash
-  mpv-options shuffle
+  mpv-opts --shuffle
 
 ctrl + alt + shift + a
-  st -n anime_lf -e lfrun ~/videos/anime/
+  ani-man -l
+
+ctrl + alt + shift + super + a
+  ani-man -w
 
 ctrl + alt + shift + s
   maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300
 
 ctrl + alt + shift + super + s
-  mpv-options sticky
+  mpv-opts --sticky
 
 ctrl + alt + shift + d
-  sleep 0.2 && mpv-options float
+  sleep 0.2 && mpv-opts --float
 
 ctrl + alt + shift + f
-  mpv-options full
+  mpv-opts --full-screen
+
+ctrl + alt + shift + super + f
+  mullvad-exclude steam
 
 ctrl + alt + shift + g
-  mpv "$HOME/.config/mpv/playlists/groove.m3u" & mpv-options shuffle
+  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 0.4 ; mpv-opts --shuffle --now ; kill -55 $(pidof dwmblocks)
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
@@ -102,13 +255,16 @@ ctrl + alt + shift + space
   touchpadtoggle
 
 ctrl + alt + shift + m
-  st -n manga_lf -e lfrun ~/documents/manga/
+  dmenumanga
+
+ctrl + alt + shift + super + m
+  umpv
 
 ctrl + alt + shift + comma
-  mpv-prev-song
+  mpv-prev --socket "$(mpv-pick --umpv)"
 
 ctrl + alt + shift + period
-  mpv-next-song
+  mpv-next --socket "$(mpv-pick --umpv)"
 
 ctrl + alt + shift + Sys_Req
   maim pic-full-$(date '+%y%m%d-%H%M-%S').png

@@ -1,17 +1,77 @@
 #!/bin/sh
+# Music module- Shows mpd SONG playing.
+# - [Paused] when paused.
+# - [Music] when mpc is stopped.
+# - Left click pauses, or if stopped gives
+#   dmenu list of playlists to play shuffled.
+#   If no playlists exist then ncmpcpp will open.
+#   Playlists are found for in ~/.config/mpd/playlists
+# - Middle click opens ncmpcpp.
+# - Right click displays the full sond name.
+# - Scroll changes track.
+export STATUS
+export SONG
+export PAUSED
+export PLAY
+export PLAYLIST
+export PLAYLIST_DIR="$XDG_CONFIG_HOME/mpd/playlists"
+
+mpc_status() {
+  if mpc | grep -q "volume: n/a   r" ; then
+    STATUS="STOPPED"
+  else
+    STATUS="PLAYING"
+  fi
+  if [[ "$(find "$PLAYLIST_DIR" -type f -name *.m3u -printf '%P\n' | wc -l)" -lt 1 ]] ; then
+    PLAYLIST="NONE"
+  else
+    PLAYLIST="FOUND"
+  fi
+}
+
+add_spaces() {
+  while IFS= read -r -d "" -n 1 CHAR; do
+    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
+      printf '%s ' "${CHAR}"
+    else
+      printf '%s' "${CHAR}"
+    fi
+  done < <(printf '%s' "${SONG}")
+}
 
 filter() {
   if mpc | grep -q "\[paused\]" ; then
-    song=
-    paused="Paused"
+    SONG=
+    PAUSED="Paused"
   elif mpc | grep -q "volume: n/a   r" ; then
-    song=
-    paused="Music"
+    SONG=
+    PAUSED="mpc"
   else
-    song="$(mpc | head -n1 | cut -b -22 | sed 's/\s*.$/.../')"
-    paused=
+    SONG="$(mpc | head -n1 | cut -b -22 | sed 's/\s$//;s/.*/&.../')"
+    # if [[ "${SONG}" = *[![:ascii:]]* ]]; then
+    #   SONG="$(add_spaces)"
+    # fi
+    PAUSED=
   fi
-  printf '%s%s%s%s\n' "[" "$song" "$paused" "]"
+  printf '%s\n' "[${SONG}${PAUSED}]"
+}
+
+play_music() {
+  PLAY=$(find $XDG_CONFIG_HOME/mpd/playlists -type f -printf '%P\n' | sed 's/\.m3u//g' | dmenu -i -p "Playlist:")
+  case "${PLAY:-NO_SELECTION}" in
+    NO_SELECTION)
+      return 0
+      ;;
+    *)
+      mpc clear && \
+        mpc load "$PLAY" >/dev/null 2>&1 && \
+        mpc random off >/dev/null 2>&1 && \
+        mpc repeat on >/dev/null 2>&1 && \
+        mpc play >/dev/null 2>&1 && \
+        mpc random on >/dev/null 2>&1
+      return 0
+      ;;
+  esac
 }
 
 unfilter() { mpc | head -n1;}
@@ -19,17 +79,53 @@ unfilter() { mpc | head -n1;}
 pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
 case $BLOCK_BUTTON in
-	1) mpc toggle | filter ;;  # right click, pause/unpause
-	2) mpc status | filter ; setsid -f "$TERMINAL" -e ncmpcpp ;;  # right click, pause/unpause
-  3) mpc status | filter ; notify-send "$(mpc status | unfilter)" ;;
-	# 3) mpc status | filter ; notify-send "Music module" "\- Shows mpd song playing.
-# - [Paused] when paused.
-# - Left click pauses.
-# - Middle click opens ncmpcpp.
-# - Right click displays this message
-# - Scroll changes track.";;  # right click, pause/unpause
-	4) mpc prev   | filter ;;  # scroll up, previous
-	5) mpc next   | filter ;;  # scroll down, next
-	6) mpc status | filter ; "$TERMINAL" -e "$EDITOR" "$0" ;;
-	*) mpc status | filter ;;
+	1)
+    mpc_status >/dev/null 2>&1
+    case "$STATUS" in
+      STOPPED)
+        case "$PLAYLIST" in
+          NONE)
+            setsid -f "$TERMINAL" -e ncmpcpp
+            ;;
+          FOUND)
+            play_music >/dev/null 2>&1
+            filter
+            ;;
+          *)
+            exit
+            ;;
+        esac
+        ;;
+      PLAYING)
+        mpc toggle >/dev/null 2>&1
+        filter
+        ;;
+      *)
+        exit
+        ;;
+    esac
+    ;;
+	2)
+    filter
+    setsid -f "$TERMINAL" -e ncmpcpp
+    ;;
+  3)
+    filter
+    notify-send "$(mpc status | unfilter)"
+    ;;
+	4)
+    mpc prev >/dev/null 2>&1
+    filter
+    ;;
+	5)
+    mpc next >/dev/null 2>&1
+    filter
+    ;;
+	6)
+    mpc stop >/dev/null 2>&1
+    filter
+    ;;
+	*)
+    filter
+    ;;
 esac

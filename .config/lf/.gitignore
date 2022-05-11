@@ -1,15 +1,9 @@
-### Updated on Sat Mar 19 07:56:00 PM PDT 2022 ###
+### Updated on Thu May  5 04:44:35 PM PDT 2022 ###
 *
 !.gitignore
 #.gitignore-very-old
 !cleaner
-!lf-gadgets
-!lf-holding
-!lfimg
 !lfrc
-!Luke
 !myrc
 !preview
-!scope
 !shortrc
-!working-lf-with-previews

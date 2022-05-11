@@ -1,5 +1,5 @@
 /* Transparency (0-1): */
-*.alpha: 0.90
+*.alpha: 1
 /* *.alphaOffset: 0.0 */
 
 /* Set a default font and font size below */
@@ -8,7 +8,9 @@
 /* and search for your desired font name in that file */
 *.font:  monospace:size=12
 *.font1: Joypixels:pixelsize=14:antialias=true:autohint=true
-*.font2: M+ 1c:pixelsize=18:antialias=true:autohint=true
+*.font2: IPAGothic:pixelsize=18:antialias=true:autohint=true
+*.font3: Source Han Sans JP:pixelsize=18:antialias=true:autohint=true
+*.font4: M+ 1c:pixelsize=18:antialias=true:autohint=true
 
 /* hiDPI setting */
 Xft.dpi: 120
@@ -25,7 +27,7 @@ Xft.rgba: rgb
 *.gappoh: 20	! horiz outer gap between windows and screen edge
 *.gappov: 25	! vert outer gap between windows and screen edge
 *.snap: 6	! snap pixel
-*.showbar: 0			! 0 means no bar
+/* *.showbar: 0			! 0 means no bar */
 /* *.topbar: 			! 0 means bottom bar */
 /* *.nmaster: 			! number of clients in master area */
 /* *.resizehints:			! 1 means respect size hints in tiled resizals */
@@ -33,17 +35,22 @@ Xft.rgba: rgb
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
-*.colornfg:      #ffffff
+/* *.colornfg:      #ffffff */
+*.colornfg:      #ebdbb2
 /* *.colornfg:      #009688 */
 /* *.colornbg:      #0c0d0e */
-*.colornbg:      #262425
+/* *.colornbg:      #262425 */
+*.colornbg:      #1d2021
 /* *.colornbg:      #212121 */
 /* *.colorselfg:    #0c0d0e */
-*.colorselfg:    #262425
+/* *.colorselfg:    #262425 */
+*.colorselfg:    #1d2021
 /* *.colorselfg:    #009688 */
-*.colorselbg:    #ffffff
+/* *.colorselbg:    #ffffff */
+*.colorselbg:    #ebdbb2
 /* *.colorselbg:    #009688 */
-*.colornbord:    #969896
+/* *.colornbord:    #969896 */
+*.colornbord:    #928374
 /* *.colornbord:    #0c0d0e */
 /* *.colorselbord:  #ff361e */
 *.colorselbord:  #009688
@@ -51,124 +58,153 @@ Xft.rgba: rgb
 /* Color settings for St */
 
 /* ! special */
-*.foreground:   #d9d8d8
-*.background:   #262425
+/* *.foreground:   #d9d8d8 */
+/* *.background:   #262425 */
+*.foreground:   #ebdbb2
+*.background:   #1d2021
 *.cursorColor:  #d9d8d8
 *.rcursorColor: #db2d20
 
-/* d - black */
-*.color0:       #262425
-/* *.color0:       #0c0d0e */
-/* *.color0:       #1d1f21 */
-/* *.color0:       #2e3436 */
-/* *.color0:       #303030 */
-
-/* l - black */
-/* *.color8:       #737171 */
-*.color8:       #969896
-/* *.color8:       #737475 */
-/* *.color8:       #555753 */
-/* *.color8:       #5d5d5d */
-
-/* d - red */
-*.color1:       #db2d20
-/* *.color1:       #cc342b */
-/* *.color1:       #e31a1c */
-/* *.color1:       #cc0000 */
-/* *.color1:       #e1321a */
-
-/* l - red */
-/* *.color9:       #db2d20 */
-/* *.color9:       #cc342b */
-/* *.color9:       #e31a1c */
-/* *.color9:       #ef2929 */
-*.color9:       #ff361e
-
-/* d - green */
-/* *.color2:       #31a354 */
-*.color2:       #01a252
-/* *.color2:       #198844 */
-/* *.color2:       #31a354 */
-/* *.color2:       #4e9a06 */
-/* *.color2:       #6ab017 */
-
-/* l - green */
-/* *.color10:      #01a252 */
-*.color10:      #a5c261
-/* *.color10:      #198844 */
-/* *.color10:      #31a354 */
-/* *.color10:      #8ae234 */
-/* *.color10:      #7bc91f */
-
-/* d - yellow */
-/* *.color3:       #fded02 */
-*.color3:       #fba922
-/* *.color3:       #dca060 */
-/* *.color3:       #c4a000 */
-/* *.color3:       #ffc005 */
-
-/* l - yellow */
-*.color11:      #fded02
-/* *.color11:      #fba922 */
-/* *.color11:      #dca060 */
-/* *.color11:      #fce94f */
-/* *.color11:      #ffd00a */
-
-/* d - blue */
-/* *.color4:       #009ddc */
-/* *.color4:       #3971ed */
-*.color4:       #3182bd
-/* *.color4:       #3465a4 */
-/* *.color4:       #004f9e */
-
-/* l - blue */
-*.color12:      #009ddc
-/* *.color12:      #3971ed */
-/* *.color12:      #3182bd */
-/* *.color12:      #729fcf */
-/* *.color12:      #0071ff */
-
-/* d - magenta */
-*.color5:       #a16a94
-/* *.color5:       #a36ac7 */
-/* *.color5:       #756bb1 */
-/* *.color5:       #75507b */
-
-/* l - magenta */
-/* *.color13:      #a16a94 */
-/* *.color13:      #a36ac7 */
-/* *.color13:      #756bb1 */
-*.color13:      #ad7fa8
-
-/* d - cyan */
-/* *.color6:       #b5e4f4 */
-/* *.color6:       #3971ed */
-*.color6:       #80b1d3
-/* *.color6:       #06989a */
-/* *.color6:       #2aa7e7 */
-
-/* l - cyan */
-/* *.color14:      #009688 */
-*.color14:      #b5e4f4
-/* *.color14:      #3971ed */
-/* *.color14:      #80b1d3 */
-/* *.color14:      #34e2e2 */
-/* *.color14:      #4bb8fd */
-
-/* d - white */
-*.color7:       #d9d8d8
-/* *.color7:       #f2f2f2 */
-/* *.color7:       #c5c8c6 */
-/* *.color7:       #b7b8b9 */
-/* *.color7:       #d3d7cf */
-
-/* l - white */
-/* *.color15:      #fcfdfe */
-/* *.color15:      #a020f0 */
-*.color15:      #ffffff
-/* *.color15:      #fcfdfe */
-/* *.color15:      #eeeeec */
+*background: #282828
+/* soft contrast: *background: #32302f */
+! Black + DarkGrey
+*.color0:  #282828
+*.color8:  #928374
+! DarkRed + Red
+*.color1:  #cc241d
+*.color9:  #fb4934
+! DarkGreen + Green
+*.color2:  #98971a
+*.color10: #b8bb26
+! DarkYellow + Yellow
+*.color3:  #d79921
+*.color11: #fabd2f
+! DarkBlue + Blue
+*.color4:  #458588
+*.color12: #83a598
+! DarkMagenta + Magenta
+*.color5:  #b16286
+*.color13: #d3869b
+! DarkCyan + Cyan
+*.color6:  #689d6a
+*.color14: #8ec07c
+! LightGrey + White
+*.color7:  #a89984
+*.color15: #ebdbb2
 
 /* Slock settings */
 *.message: henlo
 *.sfont: -misc-roboto-medium-i-normal--34-240-100-100-p-182-iso8859-1
+
+/* /1* d - black *1/ */
+/* *.color0:       #262425 */
+/* /1* *.color0:       #0c0d0e *1/ */
+/* /1* *.color0:       #1d1f21 *1/ */
+/* /1* *.color0:       #2e3436 *1/ */
+/* /1* *.color0:       #303030 *1/ */
+
+/* /1* l - black *1/ */
+/* *.color8:       #969896 */
+/* /1* *.color8:       #737171 *1/ */
+/* /1* *.color8:       #737475 *1/ */
+/* /1* *.color8:       #555753 *1/ */
+/* /1* *.color8:       #5d5d5d *1/ */
+
+/* /1* d - red *1/ */
+/* *.color1:       #db2d20 */
+/* /1* *.color1:       #cc342b *1/ */
+/* /1* *.color1:       #e31a1c *1/ */
+/* /1* *.color1:       #cc0000 *1/ */
+/* /1* *.color1:       #e1321a *1/ */
+
+/* /1* l - red *1/ */
+/* *.color9:       #ff361e */
+/* /1* *.color9:       #db2d20 *1/ */
+/* /1* *.color9:       #cc342b *1/ */
+/* /1* *.color9:       #e31a1c *1/ */
+/* /1* *.color9:       #ef2929 *1/ */
+
+/* /1* d - green *1/ */
+/* *.color2:       #01a252 */
+/* /1* *.color2:       #31a354 *1/ */
+/* /1* *.color2:       #198844 *1/ */
+/* /1* *.color2:       #31a354 *1/ */
+/* /1* *.color2:       #4e9a06 *1/ */
+/* /1* *.color2:       #6ab017 *1/ */
+
+/* /1* l - green *1/ */
+/* *.color10:      #a5c261 */
+/* /1* *.color10:      #01a252 *1/ */
+/* /1* *.color10:      #198844 *1/ */
+/* /1* *.color10:      #31a354 *1/ */
+/* /1* *.color10:      #8ae234 *1/ */
+/* /1* *.color10:      #7bc91f *1/ */
+
+/* /1* d - yellow *1/ */
+/* *.color3:       #fba922 */
+/* /1* *.color3:       #fded02 *1/ */
+/* /1* *.color3:       #dca060 *1/ */
+/* /1* *.color3:       #c4a000 *1/ */
+/* /1* *.color3:       #ffc005 *1/ */
+
+/* /1* l - yellow *1/ */
+/* *.color11:      #fded02 */
+/* /1* *.color11:      #fba922 *1/ */
+/* /1* *.color11:      #dca060 *1/ */
+/* /1* *.color11:      #fce94f *1/ */
+/* /1* *.color11:      #ffd00a *1/ */
+
+/* /1* d - blue *1/ */
+/* *.color4:       #3182bd */
+/* /1* *.color4:       #009ddc *1/ */
+/* /1* *.color4:       #3971ed *1/ */
+/* /1* *.color4:       #3465a4 *1/ */
+/* /1* *.color4:       #004f9e *1/ */
+
+/* /1* l - blue *1/ */
+/* *.color12:      #009ddc */
+/* /1* *.color12:      #3971ed *1/ */
+/* /1* *.color12:      #3182bd *1/ */
+/* /1* *.color12:      #729fcf *1/ */
+/* /1* *.color12:      #0071ff *1/ */
+
+/* /1* d - magenta *1/ */
+/* *.color5:       #a16a94 */
+/* /1* *.color5:       #a36ac7 *1/ */
+/* /1* *.color5:       #756bb1 *1/ */
+/* /1* *.color5:       #75507b *1/ */
+
+/* /1* l - magenta *1/ */
+/* *.color13:      #ad7fa8 */
+/* /1* *.color13:      #a16a94 *1/ */
+/* /1* *.color13:      #a36ac7 *1/ */
+/* /1* *.color13:      #756bb1 *1/ */
+
+/* /1* d - cyan *1/ */
+/* /1* *.color6:       #b5e4f4 *1/ */
+/* /1* *.color6:       #3971ed *1/ */
+/* *.color6:       #80b1d3 */
+/* /1* *.color6:       #06989a *1/ */
+/* /1* *.color6:       #2aa7e7 *1/ */
+
+/* /1* l - cyan *1/ */
+/* /1* *.color14:      #009688 *1/ */
+/* *.color14:      #b5e4f4 */
+/* /1* *.color14:      #3971ed *1/ */
+/* /1* *.color14:      #80b1d3 *1/ */
+/* /1* *.color14:      #34e2e2 *1/ */
+/* /1* *.color14:      #4bb8fd *1/ */
+
+/* /1* d - white *1/ */
+/* *.color7:       #d9d8d8 */
+/* /1* *.color7:       #f2f2f2 *1/ */
+/* /1* *.color7:       #c5c8c6 *1/ */
+/* /1* *.color7:       #b7b8b9 *1/ */
+/* /1* *.color7:       #d3d7cf *1/ */
+
+/* /1* l - white *1/ */
+/* *.color15:      #ffffff */
+/* /1* *.color15:      #fcfdfe *1/ */
+/* /1* *.color15:      #a020f0 *1/ */
+/* /1* *.color15:      #fcfdfe *1/ */
+/* /1* *.color15:      #eeeeec *1/ */
