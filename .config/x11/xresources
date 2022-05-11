@@ -11,7 +11,7 @@
 *.font2: M+ 1c:pixelsize=18:antialias=true:autohint=true
 
 /* hiDPI setting */
-Xft.dpi: 96
+Xft.dpi: 120
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.autohint: false
