@@ -1,5 +1,6 @@
 # ~/.config
 map gc.  cd ~/.config
+map gca  cd ~/.config/ani-man
 map gcd  cd ~/.config/systemd
 map gcEl $$EDITOR "/home/anon/.config/lf/lfrc"
 map gcEm $$EDITOR "/home/anon/.config/lf/myrc"

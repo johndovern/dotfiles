@@ -164,6 +164,7 @@ nnoremap <leader><leader>r :source $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 " Add folding to bash scripts
   autocmd FileType sh set foldmethod=indent
+  autocmd FileType sh nnoremap ; zA
 
 " Save file as sudo on files that require root permission
   cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
