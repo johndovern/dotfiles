@@ -5,29 +5,29 @@ export BRANCH
 
 usage() {
   cat <<EOF
-Usage:  dmenugitignore-auto [options]
+  Usage:  dmenugitignore-auto [OPTIONS]
 
-Options:
-  -b, --branch        update the files tracked in a certain branch.
-                      useful if you maintian mutliple branches on one system.
-                      default is master.
+  Options:
+    -b, --branch        update the files tracked in a certain branch.
+                        useful if you maintian mutliple branches on one system.
+                        default is master.
 
-  -d, --dir           path to the git dir whose .gitignore files you want to update.
-                      must be a valid git dir. default is \$HOME/.cfg
-                      e.g.  --git-dir=\$HOME/.cfg
-                      NOTE the lack of trailing "/"
+    -d, --dir           path to the git dir whose .gitignore files you want to update.
+                        must be a valid git dir. default is \$HOME/.cfg
+                        e.g.  --git-dir=\$HOME/.cfg
+                        NOTE the lack of trailing "/"
 
-  -t, --tree          working tree for the git repo, default is \$HOME
-                      e.g.  --work-tree=/path/to/working/tree
-                      NOTE the lack of trailing "/"
+    -t, --tree          working tree for the git repo, default is \$HOME
+                        e.g.  --work-tree=/path/to/working/tree
+                        NOTE the lack of trailing "/"
 
-  -h, --help          Show this help message and exit.
+    -h, --help          Show this help message and exit.
 
-Descrition:
-  dmenugitignoreauto finds all the .gitignore files in the given repo that
-  presently exist. the default use case is for dotfiles that are maintained as
-  a bare git repo. use options -b, -d, and -t as needed to update the proper
-  repo and branch
+  Descrition:
+    dmenugitignoreauto finds all the .gitignore files in the given repo that
+    presently exist. the default use case is for dotfiles that are maintained as
+    a bare git repo. use options -b, -d, and -t as needed to update the proper
+    repo and branch
 EOF
 }
 
@@ -54,6 +54,7 @@ check_ops() {
   while :; do
     case "$1" in
       --*)
+        usage
         return 1
         ;;
       *)
@@ -68,13 +69,13 @@ get_opts() {
     case "${1:-NO_OPTION}" in
       -b|--branch)
         shift
-        check_ops "$@" || { usage && return 1 ; }
+        check_ops "${@}" || return 1
         BRANCH="$1"
         shift
         ;;
       -d|--dir)
         shift
-        check_ops "$@" || { usage && return 1 ; }
+        check_ops "${@}" || return 1
         GITREPODIR="${2%/}"
         shift
         ;;
@@ -84,7 +85,7 @@ get_opts() {
         ;;
       -t|--tree )
         shift
-        check_ops "$@" || { usage && return 1 ; }
+        check_ops "${@}" || return 1
         GITREPOTREE="${2%/}"
         shift
         ;;
@@ -106,7 +107,7 @@ set_defaults() {
   [[ -z "$BRANCH" ]] && BRANCH="master"
 }
 
-autoupdater() { \
+autoupdater() {
   cd / || return 1
   while read -r FILES; do
     TO_UPDATE="${GITREPOTREE}/${FILES%/.gitignore}"
@@ -121,6 +122,7 @@ main() {
   export R="\e[0;31m"
   export G="\e[0;32m"
   export E="\e[0m"
+
   get_opts "$@" || return 1
   set_defaults
   { autoupdater && notify-send "Success" "dmenugitignore-auto completed successfully." ; } || { send_prog -e "Error updating." && return 1 ; }

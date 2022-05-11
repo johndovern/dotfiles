@@ -1,8 +1,8 @@
-### Updated on Sun May  8 07:19:47 PM PDT 2022 ###
+### Updated on Wed May 11 12:27:02 PM PDT 2022 ###
+### < #.gitignore-very-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
-#.gitignore-very-old
+#.gitignore.bak
 !ani-man
 #autostart
 #baloofileinformationrc
