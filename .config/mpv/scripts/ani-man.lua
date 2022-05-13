@@ -9,24 +9,18 @@ local o = {
 }
 options.read_options(o, "ani-man")
 
-function join_paths(...)
-    local arg={...}
-    path = ""
-    for i,v in ipairs(arg) do
-        path = utils.join_path(path, tostring(v))
-    end
-    return path;
-end
-
 function set_vars()
-    trackPath = mp.get_property_native("path")
+  trackPath = mp.get_property_native("path")
 end
 
-function update_library()
+function ani_scan()
+  if os.execute("ani-man -s \"" .. trackPath .. "\"") then
     os.execute("ani-man -t \"" .. trackPath .. "\"")
+  end
 end
 
 if o.enabled == "yes" then
-    mp.register_event("file-loaded", set_vars)
-    mp.register_event("shutdown", update_library)
+  mp.register_event("file-loaded", set_vars)
+  mp.register_event("file-loaded", ani_scan)
+  mp.register_event("shutdown", ani_scan)
 end

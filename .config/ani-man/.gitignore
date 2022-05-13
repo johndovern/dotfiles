@@ -1,8 +1,12 @@
-### Updated on Wed May 11 12:31:00 PM PDT 2022 ###
+### Updated on Wed May 11 06:14:27 PM PDT 2022 ###
+### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
 .gitignore-old
+.gitignore-very-old
 !ani-man.conf
+#ani-man.conf.bak
+!ani-man.filters
 #ani-man.log
 !anime.txt
 #anime.txt.bak.backup

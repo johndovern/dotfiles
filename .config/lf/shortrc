@@ -71,7 +71,8 @@ map gpc  cd ~/programs/C
 
 # ~/repos
 map gr.  cd ~/repos
-map gra  cd ~/.local/bin/scripts/Arch-FDE
+map gra  cd ~/repos/ani-man
+map grA  cd ~/.local/bin/scripts/Arch-FDE
 map grb  cd ~/repos/basic-arch
 map grn  cd ~/repos/NARDS
 map grm  cd ~/repos/mpvSockets-umpv
