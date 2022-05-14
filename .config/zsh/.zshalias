@@ -36,3 +36,5 @@ alias ets='nvim ~/.local/bin/scripts/tscript'
 alias se='sudoedit'
 alias ll='ls -Al'
 alias sf='grep -R'
+alias pf="printf '%s\n'"
+alias km='kill -56 $(pidof dwmblocks)'
