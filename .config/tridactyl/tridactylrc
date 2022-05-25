@@ -62,8 +62,8 @@ bind ,un composite url2args | umpv_open
 bind ,ur hint -qW umpv_open
 
 " YT-DLP
-bind ,dyoh hint -W yt_options
-bind ,dyon composite url2args | yt_options
+bind ,yh hint -W yt_options
+bind ,yn composite url2args | yt_options
 
 " WSG
 bind ,wh hint -W wsg_mpv

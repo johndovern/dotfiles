@@ -5,16 +5,19 @@ map ,ce  cred
 map ,ch  chmod
 map ,cs  push $curl<space>-LJO<space>
 map ,cx  chmodx
-map ,fm  $setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && xdotool key --clearmodifiers super+K super+f
+map ,fm  fmpv
 map ,gi  %dmenugitignore
+map ,gI  get_info
 map ,l   $lfrun
 map ,mb  $manga-bulk
 map ,mm  mangamove
+map ,nc  push $nvim<space>.c<left><left>
 map ,nf  mknf
 map ,T   track
 map ,ts  $cd ~/.local/bin/scripts ; nvim tscript
 map ,ut  untar
-map ,gI  get_info
+map ,yp  yank-path
+map ,yd  yank-dirname
 
 map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 
@@ -72,6 +75,11 @@ cmd chmodx ${{
   lf -remote 'send reload'
 }}
 
+cmd fmpv ${{
+  setsid -f mpv $f --x11-name=fmpv -quiet >/dev/null 2>&1 & sleep 0.2 && \
+    xdotool key --clearmodifiers super+K super+f
+}}
+
 cmd get_info ${{
   # trap 'rm -f "${TMP_DIR}/"*' EXIT
   TMP_DIR="/tmp/manga_lf"
@@ -122,3 +130,7 @@ cmd track ${{
   read ans
   [ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
 }}
+
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard

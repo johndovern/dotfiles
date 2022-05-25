@@ -61,7 +61,6 @@ cmd trash ${{
       ;;
     *) ;;
   esac
-  # lf -remote "send reload"
 }}
 
 cmd lf_close ${{

@@ -4,17 +4,17 @@
         "slang": "forced"
     },
     {
-        "alang": "j[ap]n?",
-        "slang": ["eng?", "und", "jpn?"],
-        "blacklist": [ "Sings/Songs", "signs", "songs", "sign", "song"]
+        "alang": [ "j[ap]n?" ],
+        "slang": [ "eng?", "und", "jpn?" ],
+        "blacklist": [ "Sings/Songs", "signs", "songs", "sign", "song", "english %(translation only%)" ]
     },
     {
         "alang": "eng?",
         "slang": "eng?",
-        "whitelist": [ "sign", "song"]
+        "whitelist": [ "sign", "song" ]
     },
     {
-        "alang": ["eng?", "no"],
+        "alang": [ "eng?", "no" ],
         "slang": "no"
     },
     {

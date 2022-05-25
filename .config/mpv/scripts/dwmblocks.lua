@@ -2,7 +2,6 @@
 
 local mp = require 'mp'
 local options = require 'mp.options'
-local utils = require 'mp.utils'
 
 local o = {
   enabled = "yes",
@@ -10,7 +9,7 @@ local o = {
 }
 options.read_options(o, "dwmblocks")
 
-function update_dwmblocks()
+local function update_dwmblocks()
     if o.music == "yes" then
         os.execute("kill -55 $(pidof dwmblocks)")
     else

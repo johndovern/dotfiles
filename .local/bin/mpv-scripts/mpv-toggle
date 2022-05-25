@@ -14,22 +14,15 @@ export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/musi
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
 declare -a CURRENTLY_PLAYING ALL_SOCKETS
 
-toggle() {
-  mpv-communicate "$1" 'cycle pause'
-  mpv-communicate "$1" '{ "command": ["script-binding", "dwmblocks/update-dwmblocks"] }'
-  return $?
-}
-
 get_opts() {
   while :; do
     if [[ "$#" -gt 0 ]]; then
       case "${1}" in
+        -f|--fzf)
+          FZF="--fzf"
+          ;;
         -m|--music)
           MANUAL_SOCKET+=("${MUSIC_SOCKET}")
-          shift
-          ;;
-        -u|--umpv)
-          MANUAL_SOCKET+=("${UMPV_SOCKET}")
           shift
           ;;
         -s|--socket)
@@ -48,6 +41,10 @@ get_opts() {
               break
               ;;
           esac
+          ;;
+        -u|--umpv)
+          MANUAL_SOCKET+=("${UMPV_SOCKET}")
+          shift
           ;;
         *)
           ;;
@@ -83,7 +80,7 @@ smart_toggle() {
       echo "Last paused socket no longer exists, checking for active instance..." >&2
       if mpv-active-sockets >/dev/null 2>&1 ; then
         echo "Starting mpv instance of choice..."
-        if toggle "$(mpv-pick)" ; then
+        if toggle "$(mpv-pick ${FZF})" ; then
           echo 'Success!'
         else
           echo "Failed..." >&2
@@ -95,6 +92,12 @@ smart_toggle() {
       fi
     fi
   fi
+}
+
+toggle() {
+  mpv-communicate "$1" 'cycle pause'
+  mpv-communicate "$1" '{ "command": ["script-binding", "dwmblocks/update-dwmblocks"] }'
+  return $?
 }
 
 main() {

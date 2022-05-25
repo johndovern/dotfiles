@@ -12,7 +12,7 @@ export NOW=
 declare -a SOCKETS
 declare -a SOCKET_FILE
 
-function get_opts() {
+get_opts() {
   while :; do
     if [[ $# -gt 0 ]]; then
       case "$1" in
@@ -46,6 +46,7 @@ function get_opts() {
               OPTION_2="${1}"
               shift
               OPTION_3="${1}"
+              shift
               ;;
           esac
           break
@@ -76,35 +77,20 @@ function get_opts() {
   done
 }
 
-function get_mpv() {
+get_mpv() {
   if [[ $(mpv-active-sockets "${OPTION_2}" | wc -l) -gt 1 ]]; then
-    CHOSEN="$(printf '%q\n' "$(mpv-pick --full --music)")"
-    case "${CHOSEN:-NO_SELECTION}" in
-      NO_SELECTION)
-        return 1
-        ;;
-      *)
-        CHOSEN_WID=$(xdotool search --name -- "${CHOSEN#*:} - mpv")
-        return 0
-        ;;
-    esac
+    CHOSEN="$(mpv-pick --pid --full --music)"
+    [[ -z "${CHOSEN}" ]] && return 1
+    CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")
+    return 0
   else
-    CHOSEN="$(printf '%q\n' "$(mpv-get-property "$(mpv-active-sockets "${OPTION_2}")" 'media-title')")"
-    CHOSEN_WID=$(xdotool search --name -- "${CHOSEN} - mpv")
+    CHOSEN="$(mpv-pick --pid)"
+    CHOSEN_WID=$(xdotool search --pid "${CHOSEN} - mpv")
   fi
 }
 
-function get_first() {
-  FIRST=$(dwmc focusstack 0 && xdotool getwindowfocus)
-  SECOND=$(wmctrl -ia "${CHOSEN_WID}" && xdotool getwindowfocus)
-}
-
-function mpv_float() {
-  get_first || return 1
-  if [[ "${FIRST}" != "${SECOND}" ]]; then
-    dwmc zoom
-    sleep 0.03
-  fi
+mpv_float() {
+  dwmc pushstack 0
   xdotool mousemove --window "${CHOSEN_WID}" 0 0 ; sleep 0.03
   xdotool keydown super mousedown 1
   xdotool mousemove 1272 756
@@ -112,20 +98,15 @@ function mpv_float() {
   xdotool keydown super mousedown 3 ; sleep 0.03
   xdotool mousemove 1781 1059
   xdotool mouseup 3 keyup super
-  get_first || return 1
-  if [[ "${FIRST}" == "${SECOND}" ]]; then
-    dwmc pushstack -1
-    # xdotool key super+K
-  fi
+  dwmc pushstack -1
   dwmc focusstack 0
   xdotool mousemove 0 300
   return 0
 }
 
-function mpv_shuffle() {
+mpv_shuffle() {
   if [[ "${NOW:-0}" -eq 0 ]]; then
-    ACTIVE=$(mpv-active-sockets --umpv | wc -l)
-    if [[ "${ACTIVE}" -gt 1 ]]; then
+    if [[ "$(mpv-active-sockets --umpv | wc -l)" -gt 1 ]]; then
       SHUFFLE="$(mpv-pick --full --umpv)"
       case "${SHUFFLE:-NO_SOCKET}" in
         NO_SOCKET)
@@ -146,11 +127,8 @@ function mpv_shuffle() {
   fi
 }
 
-function main() {
-  get_opts "$@" || return 1
-
+opts_handler() {
   killall wmctrl >/dev/null 2>&1
-
   case "${OPTION}" in
     FLOAT)
       get_mpv || return 1
@@ -168,7 +146,7 @@ function main() {
       xdotool key --window "${CHOSEN_WID}" f && wmctrl -ia "${CHOSEN_WID}"
       ;;
     QUIT)
-      mpv-quit-pick "${OPTION_2}" "${OPTION_3}"
+      mpv-quit "${OPTION_2}" "${OPTION_3}"
       ;;
     STICKY)
       get_mpv || return 1
@@ -183,12 +161,13 @@ function main() {
       return 1
       ;;
   esac
-
-  return 0
 }
 
-main "$@" || notify-send -u critical "Error" "mpv-opts failed \
-CHOSEN: ${CHOSEN}
-CHOSEN_WID: ${CHOSEN_WID}"
+main() {
+  get_opts "$@" || return 1
+  opts_handler && return 0 || return 1
+}
 
-exit
+main "$@" && exit 1 || { notify-send -u critical "Error" "mpv-opts failed \
+CHOSEN: ${CHOSEN}
+CHOSEN_WID: ${CHOSEN_WID}" && exit 1 ; }

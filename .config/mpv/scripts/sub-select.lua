@@ -59,7 +59,12 @@ local sub_tracks = {}
 --returns the node for the predicted track
 --this whole function can be skipped if the user decides to load the subtitles asynchronously instead,
 --or if `--aid` is not set to `auto`
-local function find_default_audio()
+local function predict_audio()
+    --if the option is not set to auto then it is easy
+    local opt = mp.get_property("options/aid", "auto")
+    if opt == "no" then return {}
+    elseif opt ~= "auto" then return audio_tracks[tonumber(opt)] end
+
     local num_tracks = #audio_tracks
     if num_tracks == 1 then return audio_tracks[1]
     elseif num_tracks == 0 then return {} end
@@ -94,6 +99,7 @@ local function find_default_audio()
         end
     end
 
+    msg.verbose("predicted audio track is "..tostring(highest_priority.id))
     return highest_priority
 end
 
@@ -122,9 +128,13 @@ end
 
 --checks if the given sub matches the given track preference
 local function is_valid_sub(sub, slang, pref)
-    if slang == "default" and not sub.default then return false
-    elseif slang == "forced" and not sub.forced then return false
-    elseif not sub.lang:find(slang) and sub.lang ~= "*" then return false end
+    if slang == "default" then
+        if not sub.default then return false end
+    elseif slang == "forced" then
+        if not sub.forced then return false end
+    else
+        if not sub.lang:find(slang) and sub.lang ~= "*" then return false end
+    end
 
     local title = sub.title
 
@@ -196,26 +206,18 @@ end
 
 --select subtitles asynchronously after playback start
 local function async_load()
-    process_audio( find_current_audio() )
+    local current = find_current_audio()
+    process_audio(current)
+    if o.observe_audio_switches then latest_audio = current end
 end
 
 --select subtitles synchronously during the on_preloaded hook
 local function preload()
-    local opt = mp.get_property("options/aid", "auto")
-
-    if opt == "no" then
-        process_audio( {} )
-        return
-    elseif opt ~= "auto" then
-        process_audio( audio_tracks[tonumber(opt)] )
-        return
-    end
-
-    local audio = find_default_audio()
-    msg.verbose("predicted audio track is "..tostring(audio.id))
+    local audio = predict_audio()
 
     if o.force_prediction and next(audio) then set_track("aid", audio.id) end
     process_audio(audio)
+    if o.observe_audio_switches then latest_audio = audio end
 end
 
 local track_auto_selection = true
@@ -265,7 +267,6 @@ if o.preload then
     mp.add_hook('on_preloaded', 30, function()
         if not continue_script() then return end
         preload()
-        if o.observe_audio_switches then latest_audio = find_default_audio() end
     end)
 
     --double check if the predicted subtitle was correct
@@ -276,7 +277,6 @@ else
     mp.register_event("file-loaded", function()
         if not continue_script() then return end
         async_load()
-        if o.observe_audio_switches then latest_audio = find_current_audio() end
     end)
 end
 
@@ -300,6 +300,5 @@ mp.register_script_message("sub-select", function(arg)
 
     if not continue_script() then return end
     async_load()
-    if o.observe_audio_switches then latest_audio = find_current_audio() end
 end)
 

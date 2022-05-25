@@ -6,55 +6,59 @@ export SOCKET_DIR="${MPV_SOCKET_DIR:-/tmp/mpvSockets}"
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 
-usage() {
-  cat <<- EOF
-Usage:  mpv-active-sockets [options]
+find_active_sockets() {
+  while read -r SOCKET; do
+    if is_ignored "${SOCKET}" ; then
+      continue
+    fi
+    if is_active_socket "${SOCKET}"; then
+      ACTIVE_SOCKETS+=("${SOCKET}")
+    fi
+  done < <(find "${SOCKET_DIR}" -type s -printf '%p\n')
 
-Options:
-  -u, --unique        List only unique instances of mpv.
-                      no umpv or music sockets.
-  -U, --umpv          List all sockets but umpv's socket.
-                      umpv socket is set by \${MPV_UMPV_SOCKET}
-                      if set or
-                      /tmp/mpvSockets/umpv_socket
-                      if unset.
-  -m, --music         List all sockets but mpv-music's socket.
-                      mpv-music's socket is set by \${MPV_MUSIC_SOCKET}
-                      if set or
-                      /tmp/mpvSockets/music_socket
-                      if unset.
-  -h, --help          Show this help message and exit.
-EOF
+  if [[ "${#ACTIVE_SOCKETS[@]}" -eq 0 ]]; then
+    return 1
+  fi
+
+  printf '%s\n' "${ACTIVE_SOCKETS[@]}" | sort -n
 }
 
 get_opts() {
   while :; do
     if [[ $# -gt 0 ]]; then
       case "${1:-NO_OPTION}" in
-        NO_OPTION)
-          break
-          ;;
-        -u|--unique)
-          NO_CUSTOM=1
-          break
-          ;;
-        -U|--umpv)
-          NO_UMPV=1
-          break
-          ;;
-        -m|--music)
-          NO_MUSIC=1
-          break
-          ;;
         -h|--help)
           usage
           return 1
           break
           ;;
+        -m|--music)
+          NO_MUSIC=1
+          shift
+          break
+          ;;
         -s|--socket)
           shift
           case "${1:-NO_SOCKET}" in
+            NO_SOCKET)
+              usage >&2
+              exit 1
+              ;;
+            *)
+              CHECK="${1}"
+              shift
+              ;;
           esac
+          break
+          ;;
+        -u|--umpv)
+          NO_UMPV=1
+          shift
+          break
+          ;;
+        -U|--unique)
+          NO_CUSTOM=1
+          shift
           break
           ;;
         *)
@@ -69,11 +73,12 @@ get_opts() {
 }
 
 is_active_socket() {
-	if socat - "$1" <<<'{ "command": ["get_property", "path"] }' >/dev/null 2>&1; then
-		return 0
-	else
-		return 1
-	fi
+  if socat - "${1}" <<<'{ "command": ["get_property", "path"] }' >/dev/null 2>&1; then
+    return 0
+  else
+    rm "${1}" >&2
+    return 1
+  fi
 }
 
 is_ignored() {
@@ -109,25 +114,37 @@ is_ignored() {
   fi
 }
 
-find_active_sockets() {
-  while read -r SOCKET; do
-    if is_ignored "${SOCKET}" ; then
-      continue
-    fi
-    if is_active_socket "${SOCKET}"; then
-      ACTIVE_SOCKETS+=("${SOCKET}")
-    fi
-  done < <(find "${SOCKET_DIR}" -type s -printf '%p\n')
+test_given_socket() {
+  [[ ! -S "${CHECK}" ]] && return 1
+  is_active_socket "${CHECK}" && return 0 || return 1
+}
 
-  if [[ "${#ACTIVE_SOCKETS[@]}" -eq 0 ]]; then
-    return 1
-  fi
+usage() {
+  cat <<- EOF
+  Usage:  mpv-active-sockets [options]
 
-  printf '%s\n' "${ACTIVE_SOCKETS[@]}" | sort -n
+  Options:
+    -h, --help            Show this help message and exit.
+    -m, --music           List all sockets but mpv-music's socket.
+                          mpv-music's socket is set by \${MPV_MUSIC_SOCKET}
+                          if set or
+                          /tmp/mpvSockets/music_socket
+                          if unset.
+    -s, --socket [PATH]   Test if the given PATH is an active socket. Return
+                          0 if true and 1 if not a socket or active.
+    -u, --unique          List only unique instances of mpv.
+                          no umpv or music sockets.
+    -U, --umpv            List all sockets but umpv's socket.
+                          umpv socket is set by \${MPV_UMPV_SOCKET}
+                          if set or
+                          /tmp/mpvSockets/umpv_socket
+                          if unset.
+EOF
 }
 
 main() {
   get_opts "$@" || return 1
+  [[ -n "${CHECK}" ]] && { test_given_socket && return 0 || return 1 ;}
   ACTIVE_SOCKETS=()
   find_active_sockets || return 1
 }
