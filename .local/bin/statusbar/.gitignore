@@ -1,8 +1,7 @@
-### Updated on Thu May  5 04:44:42 PM PDT 2022 ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Wed May 25 09:57:29 PM PDT 2022 ###
 *
 !.gitignore
-#.gitignore-very-old
+.gitignore-very-old
 !sb-actions
 !sb-battery
 !sb-clock

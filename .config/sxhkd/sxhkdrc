@@ -1,6 +1,9 @@
 super + grave
   dmenuunicode
 
+# super + {1..0} bound in dwm
+# super + shift + {1..0} bound in dwm
+
 super + minus
   pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)
 
@@ -18,6 +21,12 @@ super + BackSpace
 
 super + shift + BackSpace
   sysact
+
+# super + Tab bound in dwm
+
+# not bound super + shift + Tab
+
+# super + q bound in dwm
 
 super + shift + q
   sysact
@@ -40,6 +49,21 @@ super + r
 super + shift + r
   st -e htop
 
+# super + t bound in dwm
+# super + shift + t bound in dwm
+
+# super + y bound in dwm
+# super + shift + y bound in dwm
+
+# super + u bound in dwm
+# super + shift + u bound in dwm
+
+# super + i bound in dwm
+# super + shift + i bound in dwm
+
+# super + o bound in dwm
+# super + shift + o bound in dwm
+
 super + p
   pamixer --allow-boost --set-volume 20 ; kill -44 $(pidof dwmblocks) ; mpc toggle
 
@@ -58,11 +82,67 @@ super + bracketright
 super + shift + bracketright
   mpc seek +60
 
+# super + backslash bound in dwm
+
+# not bound super + shift + backslash
+
+# super + a bound in dwm
+# super + shift + a bound in dwm
+
+# super + s bound in dwm
+
+# not bound super + shift + s
+
 super + d
   dmenu_run
 
 super + shift + d
   passmenu
+
+# super + f bound in dwm
+# super + shift + f bound in dwm
+
+# super + g bound in dwm
+# super + shift + g bound in dwm
+
+# super + h bound in dwm
+# super + shift + h bound in dwm
+
+# super + j bound in dwm
+# super + shift + j bound in dwm
+
+# super + k bound in dwm
+# super + shift + k bound in dwm
+
+# super + l bound in dwm
+# super + shift + l bound in dwm
+
+# super + ; bound in dwm
+
+# not bound super + shift + ;
+
+# super + ' bound in dwm
+# super + shift + ' bound in dwm
+
+# super + <CR> bound in dwm
+# super + shift + <CR> bound in dwm
+
+# super + z bound in dwm
+# not bound super + shift + z
+
+# super + x bound in dwm
+# not bound super + shift + x
+
+# not bound super + c
+# not bound super + shift + c
+
+# super + v bound in dwm
+
+# not bound super + shift + v
+
+# super + b bound in dwm
+
+# not bound super + shift + b
 
 super + n
   st -e nvim -c VimwikiIndex
@@ -87,6 +167,21 @@ super + period
 
 super + shift + period
   mpc repeat
+
+# not bound super + /
+# not bound super + shift + /
+
+# super + left bound in dwm
+# super + shift + left bound in dwm
+
+# not bound super + down
+# not bound super + shift + down
+
+# not bound super + up
+# not bound super + shift + up
+
+# super + right bound in dwm
+# super + shift + right bound in dwm
 
 super + Insert
   xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)
@@ -142,8 +237,13 @@ super + Delete
 super + Scroll_Lock
   killall screenkey || screenkey &
 
+# meh
+
 ctrl + alt + shift + BackSpace
   groff -mom /home/anon/.local/src/dwm/keys.mom -Tpdf | zathura -
+
+ctrl + alt + shift + Tab
+  st -e ani-man -u -d
 
 ctrl + alt + shift + q
   mpv-quit ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
@@ -167,13 +267,13 @@ ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
 
 ctrl + alt + shift + y
-  transmission-gtk
+  mullvad relay set location US SEA ; transmission-gtk
 
 ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 1 ; mpv-opts --shuffle --now
+  setsid -f mpv "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + p
   mpv-toggle
@@ -218,7 +318,7 @@ ctrl + alt + shift + super + f
   mullvad-exclude steam
 
 ctrl + alt + shift + g
-  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 1 ; mpv-opts --shuffle --now ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
+  setsid -f mpv "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300

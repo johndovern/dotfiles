@@ -38,3 +38,4 @@ alias ll='ls -Al'
 alias sf='grep -R'
 alias pf="printf '%s\n'"
 alias km='kill -56 $(pidof dwmblocks)'
+alias ani-up='ani-man -u -d'
