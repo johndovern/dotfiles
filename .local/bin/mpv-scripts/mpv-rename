@@ -31,7 +31,7 @@ manual_rename() {
       if mv "${TARGET}" "${FILE_PATH}/${NEW_NAME// /_}${EXTENSION}"; then
         notify-send "Success!" "Original: ${FILE_NAME}\nNew name: ${NEW_NAME// /_}${EXTENSION}"
       else
-        notify-send -u critical "Error Renaming" "Failed to rename\nFile: ${FILE_NAME}\nNew name: ${NEW_NAME//\// }"
+        notify-send -u critical "Failed to rename" "File: ${FILE_NAME}\nNew name: ${NEW_NAME//\// }"
       fi
       ;;
   esac

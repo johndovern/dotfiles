@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
-  exit 1
-fi
-
 set_socket() {
   if mpv-currently-playing --umpv --socket >/dev/null 2>&1 ; then
     SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
@@ -12,19 +8,12 @@ set_socket() {
   fi
 }
 
-add_spaces() {
+cut_song() {
+  L=0
   while IFS= read -r -d "" -n 1 CHAR; do
-    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
-      if [[ "${CHAR}" =~ "【" ]] || [[ "${CHAR}" =~ "「" ]] ; then
-        printf '%s' "["
-      elif [[ "${CHAR}" =~ "】" ]] || [[ "${CHAR}" =~ "」" ]] ; then
-        printf '%s' "]"
-      else
-        printf '%s ' "${CHAR}"
-      fi
-    else
-      printf '%s' "${CHAR}"
-    fi
+    [[ "${L}" -eq 15 ]] && break
+    printf '%s' "${CHAR}"
+    L=$((L+1))
   done < <(printf '%s' "${SONG}")
 }
 
@@ -40,10 +29,8 @@ mpv_display() {
           SONG=$(mpv-get-property "${SOCKET}" "media-title")
           ;;
         *)
-          SONG=$(mpv-get-property "${SOCKET}" "media-title" | cut -b -22 | sed 's/\.\.\.$//;s/\s$//;s/.*/&.../')
-          if [[ "${SONG}" = *[![:ascii:]]* ]]; then
-            SONG="$(add_spaces)"
-          fi
+          SONG="$(mpv-get-property "${SOCKET}" "media-title")"
+          SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
           PAUSED=''
           ;;
       esac
@@ -51,6 +38,10 @@ mpv_display() {
   esac
   printf '%s\n' "[${SONG}${PAUSED}]"
 }
+
+if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
+  exit 0
+fi
 
 case $BLOCK_BUTTON in
   1)
@@ -79,10 +70,6 @@ case $BLOCK_BUTTON in
     mpv-next --socket "${SOCKET}"
     mpv_display
     ;;
-  # 6)
-  #   yt-opts "$(mpv-get-property --music "path")"
-  #   mpv_display
-  #   ;;
   *)
     set_socket
     mpv_display

@@ -1,23 +1,16 @@
 #!/bin/bash
 
 SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
-if [ ! -S "${SOCKET}" ] ; then
-  exit
+if [[ ! -S "${SOCKET}" ]] ; then
+  exit 0
 fi
 
-add_spaces() {
+cut_song() {
+  L=0
   while IFS= read -r -d "" -n 1 CHAR; do
-    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
-      if [[ "${CHAR}" =~ "【" ]] || [[ "${CHAR}" =~ "「" ]] ; then
-        printf '%s' "["
-      elif [[ "${CHAR}" =~ "】" ]] || [[ "${CHAR}" =~ "」" ]] ; then
-        printf '%s' "]"
-      else
-        printf '%s ' "${CHAR}"
-      fi
-    else
-      printf '%s' "${CHAR}"
-    fi
+    [[ "${L}" -eq 15 ]] && break
+    printf '%s' "${CHAR}"
+    L=$((L+1))
   done < <(printf '%s' "${SONG}")
 }
 
@@ -28,10 +21,8 @@ mpv_display() {
         SONG=$(mpv-currently-playing -M --music)
         ;;
       *)
-        SONG=$(mpv-currently-playing -M --music | cut -b -22 | sed 's/\s$//;s/.*/&.../')
-        if [[ "${SONG}" = *[![:ascii:]]* ]]; then
-          SONG="$(add_spaces)"
-        fi
+        SONG="$(mpv-currently-playing -M --music)" # | cut -b -22 | sed 's/\s$//;s/.*/&.../'
+        SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
         PAUSED=''
         ;;
     esac

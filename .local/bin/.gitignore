@@ -1,7 +1,7 @@
-### Updated on Wed May 25 09:57:29 PM PDT 2022 ###
-### < !umpv > deleted since last update ###
-### < !mpv-music > deleted since last update ###
-### < #.gitignore-old > deleted since last update ###
+### Updated on Wed Jun  8 11:27:39 PM PDT 2022 ###
+### < !mplug > deleted since last update ###
+### < .gitignore-very-old > deleted since last update ###
+### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
 .gitignore-very-old

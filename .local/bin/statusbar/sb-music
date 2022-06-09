@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Music module- Shows mpd SONG playing.
 # - [Paused] when paused.
 # - [Music] when mpc is stopped.
@@ -17,25 +17,18 @@ export PLAYLIST
 export PLAYLIST_DIR="$XDG_CONFIG_HOME/mpd/playlists"
 
 mpc_status() {
-  if mpc | grep -q "volume: n/a   r" ; then
-    STATUS="STOPPED"
-  else
-    STATUS="PLAYING"
-  fi
-  if [[ "$(find "$PLAYLIST_DIR" -type f -name *.m3u -printf '%P\n' | wc -l)" -lt 1 ]] ; then
-    PLAYLIST="NONE"
-  else
+  mpc | grep -q "volume: n/a   r" && STATUS="STOPPED" || STATUS="PLAYING"
+  [[ "$(find "$PLAYLIST_DIR" -type f -name *.m3u -printf '%P\n' | wc -l)" -lt 1 ]] && \
+    PLAYLIST="NONE" || \
     PLAYLIST="FOUND"
-  fi
 }
 
-add_spaces() {
+cut_song() {
+  L=0
   while IFS= read -r -d "" -n 1 CHAR; do
-    if [[ "${CHAR}" = *[![:ascii:]]* ]]; then
-      printf '%s ' "${CHAR}"
-    else
-      printf '%s' "${CHAR}"
-    fi
+    [[ "${L}" -eq 10 ]] && break
+    printf '%s' "${CHAR}"
+    L=$((L+1))
   done < <(printf '%s' "${SONG}")
 }
 
@@ -47,10 +40,8 @@ filter() {
     SONG=
     PAUSED="mpc"
   else
-    SONG="$(mpc | head -n1 | cut -b -22 | sed 's/\s$//;s/.*/&.../')"
-    # if [[ "${SONG}" = *[![:ascii:]]* ]]; then
-    #   SONG="$(add_spaces)"
-    # fi
+    SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"
+    SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
     PAUSED=
   fi
   printf '%s\n' "[${SONG}${PAUSED}]"
@@ -64,7 +55,7 @@ play_music() {
       ;;
     *)
       mpc clear && \
-        mpc load "$PLAY" >/dev/null 2>&1 && \
+        mpc load "${PLAY}" >/dev/null 2>&1 && \
         mpc random off >/dev/null 2>&1 && \
         mpc repeat on >/dev/null 2>&1 && \
         mpc play >/dev/null 2>&1 && \

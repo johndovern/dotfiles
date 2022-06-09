@@ -9,7 +9,7 @@ for dir in backup documents downloads games mnt music pictures programs public r
   [ $dir = "downloads" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/downloads "/home/$1/$dir/tmaster"
   [ $dir = "games" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/games "/home/$1/$dir/tmaster"
   [ $dir = "music" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/music "/home/$1/$dir/tmaster"
-  [ $dir = "pictures" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/pictures/shared "/home/$1/$dir/shared"
+  [ $dir = "pictures" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/syncthing/pictures-shared "/home/$1/$dir/shared"
   [ $dir = "pictures" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/pictures "/home/$1/$dir/tmaster"
   [ $dir = "videos" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/media/Animu "/home/$1/$dir/anime"
   [ $dir = "videos" ] && sudo -u "$1" ln -s /mnt/drives/tmaster/backup/videos "/home/$1/$dir/webms"

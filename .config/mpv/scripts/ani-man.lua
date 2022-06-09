@@ -12,6 +12,7 @@ local function ani_scan()
   local trackPath = mp.get_property_native("path")
   if os.execute("ani-man -s \"" .. trackPath .. "\"") then
     os.execute("ani-man -t \"" .. trackPath .. "\"")
+    mp.osd_message("Library updated")
   end
 end
 
