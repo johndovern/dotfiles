@@ -26,7 +26,7 @@ mpc_status() {
 cut_song() {
   L=0
   while IFS= read -r -d "" -n 1 CHAR; do
-    [[ "${L}" -eq 10 ]] && break
+    [[ "${L}" -eq 15 ]] && break
     printf '%s' "${CHAR}"
     L=$((L+1))
   done < <(printf '%s' "${SONG}")

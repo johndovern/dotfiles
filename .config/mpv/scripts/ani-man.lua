@@ -1,5 +1,3 @@
--- dwmblocks.lua update dwmblocks based on mpv activity
-
 local mp = require 'mp'
 local options = require 'mp.options'
 
@@ -10,7 +8,7 @@ options.read_options(o, "ani-man")
 
 local function ani_scan()
   local trackPath = mp.get_property_native("path")
-  if os.execute("ani-man -s \"" .. trackPath .. "\"") then
+  if os.execute("ani-man -s \"" .. trackPath .. "\"") == 0 then
     os.execute("ani-man -t \"" .. trackPath .. "\"")
     mp.osd_message("Library updated")
   end

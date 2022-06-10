@@ -168,7 +168,8 @@ super + period
 super + shift + period
   mpc repeat
 
-# not bound super + /
+super + slash
+  meo
 # not bound super + shift + /
 
 # super + left bound in dwm
@@ -243,7 +244,7 @@ ctrl + alt + shift + BackSpace
   groff -mom /home/anon/.local/src/dwm/keys.mom -Tpdf | zathura -
 
 ctrl + alt + shift + Tab
-  st -e ani-man -u -d
+  st -e ani-man -d -u
 
 ctrl + alt + shift + q
   mpv-quit ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
