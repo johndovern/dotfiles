@@ -30,13 +30,25 @@ mpv_display() {
           ;;
         *)
           SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-          SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
+          # SONG="$(cut_song | sed 's/\s\+$//g')"
+          # SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
           PAUSED=''
           ;;
       esac
       ;;
   esac
-  printf '%s\n' "[${SONG}${PAUSED}]"
+  # if [[ -z "${SONG}" ]]; then
+    printf '%s\n' "[${SONG}${PAUSED}]"
+  # else
+  #   LENGTH="${#SONG}"
+  #   L=0
+  #   while :; do
+  #     [[ "${LENGTH}" -gt $((LENGTH-15)) ]] && L=0
+  #     clear
+  #     printf '%s' "${SONG:${L}:15}"
+  #     L=$((L+1))
+  #   done
+  # fi
 }
 
 if ! pgrep -x "mpv" >/dev/null 2>&1 ; then

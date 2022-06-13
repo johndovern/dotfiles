@@ -1,19 +1,4 @@
 #!/bin/bash
-# Music module- Shows mpd SONG playing.
-# - [Paused] when paused.
-# - [Music] when mpc is stopped.
-# - Left click pauses, or if stopped gives
-#   dmenu list of playlists to play shuffled.
-#   If no playlists exist then ncmpcpp will open.
-#   Playlists are found for in ~/.config/mpd/playlists
-# - Middle click opens ncmpcpp.
-# - Right click displays the full sond name.
-# - Scroll changes track.
-export STATUS
-export SONG
-export PAUSED
-export PLAY
-export PLAYLIST
 export PLAYLIST_DIR="$XDG_CONFIG_HOME/mpd/playlists"
 
 mpc_status() {
@@ -34,17 +19,14 @@ cut_song() {
 
 filter() {
   if mpc | grep -q "\[paused\]" ; then
-    SONG=
-    PAUSED="Paused"
+    printf '%s' "[Paused]"
   elif mpc | grep -q "volume: n/a   r" ; then
-    SONG=
-    PAUSED="mpc"
+    printf '%s' "[mpc]"
   else
     SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"
-    SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
-    PAUSED=
+    SONG="$(cut_song | sed 's/^\(.*\)\s\+$/\1.../g')"
+    printf '%s' "[${SONG}]"
   fi
-  printf '%s\n' "[${SONG}${PAUSED}]"
 }
 
 play_music() {

@@ -65,7 +65,7 @@ super + shift + r
 # super + shift + o bound in dwm
 
 super + p
-  pamixer --allow-boost --set-volume 20 ; kill -44 $(pidof dwmblocks) ; mpc toggle
+  mpc-toggle
 
 super + shift + p
   mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
