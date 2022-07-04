@@ -30,7 +30,7 @@ mpv_display() {
           ;;
         *)
           SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-          # SONG="$(cut_song | sed 's/\s\+$//g')"
+          SONG="$(cut_song | sed 's/\s\+$//g')"
           # SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
           PAUSED=''
           ;;

@@ -78,7 +78,7 @@ get_opts() {
 }
 
 get_mpv() {
-  if [[ $(mpv-active-sockets "${OPTION_2}" | wc -l) -gt 1 ]]; then
+  if [[ $(mpv-active-sockets ${OPTION_2} | wc -l) -gt 1 ]]; then
     CHOSEN="$(mpv-pick --pid --full --music)"
     [[ -z "${CHOSEN}" ]] && return 1
     CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")

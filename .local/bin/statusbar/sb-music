@@ -1,9 +1,9 @@
 #!/bin/bash
-export PLAYLIST_DIR="$XDG_CONFIG_HOME/mpd/playlists"
+PLAYLIST_DIR="$XDG_CONFIG_HOME/mpd/playlists"
 
 mpc_status() {
   mpc | grep -q "volume: n/a   r" && STATUS="STOPPED" || STATUS="PLAYING"
-  [[ "$(find "$PLAYLIST_DIR" -type f -name *.m3u -printf '%P\n' | wc -l)" -lt 1 ]] && \
+  [[ "$(find "$PLAYLIST_DIR" -type f -name "*.m3u" -printf '%P\n' | wc -l)" -lt 1 ]] && \
     PLAYLIST="NONE" || \
     PLAYLIST="FOUND"
 }
@@ -19,18 +19,18 @@ cut_song() {
 
 filter() {
   if mpc | grep -q "\[paused\]" ; then
-    printf '%s' "[Paused]"
+    SONG="Paused"
   elif mpc | grep -q "volume: n/a   r" ; then
-    printf '%s' "[mpc]"
+    SONG="mpc"
   else
     SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"
     SONG="$(cut_song | sed 's/^\(.*\)\s\+$/\1.../g')"
-    printf '%s' "[${SONG}]"
   fi
+  printf '%s' "[${SONG}]"
 }
 
 play_music() {
-  PLAY=$(find $XDG_CONFIG_HOME/mpd/playlists -type f -printf '%P\n' | sed 's/\.m3u//g' | dmenu -i -p "Playlist:")
+  PLAY=$(find "$XDG_CONFIG_HOME"/mpd/playlists -type f -printf '%P\n' | sed 's/\.m3u//g' | dmenu -i -p "Playlist:")
   case "${PLAY:-NO_SELECTION}" in
     NO_SELECTION)
       return 0
@@ -49,10 +49,10 @@ play_music() {
 
 unfilter() { mpc | head -n1;}
 
-pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+pidof -x sb-mpdup >/dev/null 2>&1 || setsid -f sb-mpdup >/dev/null 2>&1
 
 case $BLOCK_BUTTON in
-	1)
+    1)
     mpc_status >/dev/null 2>&1
     case "$STATUS" in
       STOPPED)
@@ -78,27 +78,27 @@ case $BLOCK_BUTTON in
         ;;
     esac
     ;;
-	2)
+    2)
     filter
     setsid -f "$TERMINAL" -e ncmpcpp
     ;;
-  3)
+    3)
     filter
     notify-send "$(mpc status | unfilter)"
     ;;
-	4)
+    4)
     mpc prev >/dev/null 2>&1
     filter
     ;;
-	5)
+    5)
     mpc next >/dev/null 2>&1
     filter
     ;;
-	6)
+    6)
     mpc stop >/dev/null 2>&1
     filter
     ;;
-	*)
+    *)
     filter
     ;;
 esac

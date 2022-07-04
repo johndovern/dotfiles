@@ -68,6 +68,7 @@ map gw.  cd ~/pictures/shared/walls
 # ~/programs
 map gp.  cd ~/programs
 map gpc  cd ~/programs/C
+map gpp  cd ~/programs/python
 
 # ~/repos
 map gr.  cd ~/repos

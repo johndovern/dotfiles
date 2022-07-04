@@ -13,6 +13,7 @@ map ,mb  $manga-bulk
 map ,mm  mangamove
 map ,nc  push $nvim<space>.c<left><left>
 map ,nf  mknf
+map ,ps  py_script
 map ,T   track
 map ,ts  $cd ~/.local/bin/scripts ; nvim tscript
 map ,ut  untar
@@ -40,7 +41,7 @@ cmd bscript ${{
   set -f
   printf "script name: "
   read ans
-  [ ! -e $ans ] && echo "#!/bin/bash" >> $ans && chmod +x $ans && nvim $ans
+  [ ! -e "$ans" ] && echo "#!/bin/bash" >> "$ans" && chmod +x "$ans" && nvim "$ans"
 }}
 
 cmd candr ${{
@@ -111,6 +112,14 @@ cmd mangamove ${{
 cmd mknf ${{
   mkdir folder
   lf -remote 'send reload'
+}}
+
+cmd py_script ${{
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "Script name: "
+  read ans
+  [ ! -e $ans ] && echo "#!/usr/bin/env python3" > "$ans" && chmod +x "$ans" && nvim "$ans"
 }}
 
 cmd untar ${{
