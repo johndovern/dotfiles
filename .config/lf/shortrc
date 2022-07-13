@@ -14,6 +14,7 @@ map gcq  cd ~/.config/qutebrowser
 map gcs  cd ~/.config/shell
 map gct  cd ~/.config/tmux
 map gcv  cd ~/.config/nvim
+map gcV  cd ~/.config/vmt
 map gcx  cd ~/.config/x11
 map gcy  cd ~/.config/yt-dlp
 map gcz  cd ~/.config/zsh
@@ -70,6 +71,9 @@ map gp.  cd ~/programs
 map gpc  cd ~/programs/C
 map gpp  cd ~/programs/python
 
+# ~/qmk_firmware
+map gqb  cd ~/qmk_firmware/keyboards/handwired/dactyl_manuform/5x7/keymaps/johndovern
+
 # ~/repos
 map gr.  cd ~/repos
 map gra  cd ~/repos/ani-man
@@ -93,3 +97,6 @@ map gv4  cd ~/videos/webms/4chan-banners
 
 # home
 map gh   cd ~/
+
+# python packages
+map gP   cd /usr/lib/python3.10/site-packages

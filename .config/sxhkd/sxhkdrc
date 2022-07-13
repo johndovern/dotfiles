@@ -244,7 +244,7 @@ ctrl + alt + shift + BackSpace
   groff -mom /home/anon/.local/src/dwm/keys.mom -Tpdf | zathura -
 
 ctrl + alt + shift + Tab
-  st -e ani-man -d -u
+  st -e vmt -u
 
 ctrl + alt + shift + q
   mpv-quit ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
@@ -274,7 +274,7 @@ ctrl + alt + shift + i
   GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
-  setsid -f mpv --script-opts=ani-man-enabled=no "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
+  setsid -f mpv --script-opts=vmt-enabled=no "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + p
   mpv-toggle
@@ -298,10 +298,10 @@ ctrl + alt + shift + backslash
   mpv-opts --shuffle
 
 ctrl + alt + shift + a
-  ani-man -l
+  vmt -l
 
 ctrl + alt + shift + super + a
-  ani-man -w
+  vmt -w
 
 ctrl + alt + shift + s
   maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300
@@ -319,7 +319,7 @@ ctrl + alt + shift + super + f
   mullvad-exclude steam
 
 ctrl + alt + shift + g
-  setsid -f mpv --script-opts=ani-man-enabled=no "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
+  setsid -f mpv --script-opts=vmt-enabled=no "$HOME/.config/mpv/playlists/groove.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
 
 ctrl + alt + shift + j
   xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
@@ -353,7 +353,7 @@ ctrl + alt + shift + super + b
   dmenubluetooth opts
 
 ctrl + alt + shift + space
-  ani-man -B
+  vmt -B
 
 ctrl + alt + shift + m
   dmenumanga

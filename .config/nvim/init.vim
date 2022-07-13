@@ -60,7 +60,7 @@ lua require('config')
     set expandtab
     set shiftwidth=4
     set autoindent
-    set cc=80
+    " set cc=80
     filetype plugin indent on
     filetype plugin on
     set cursorline
@@ -211,7 +211,7 @@ lua require('config')
     vmap < <gv
 
 " s{char}{char} to move to {char}{char}
-    nmap s <Plug>(easymotion-overwin-f)
+    nmap s <Plug>(easymotion-overwin-f2)
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
