@@ -264,6 +264,9 @@ ctrl + alt + shift + e
 ctrl + alt + shift + r
   dautoupdate
 
+ctrl + alt + shift + super + r
+    dmenugitignore-auto
+
 ctrl + alt + shift + t
   st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
 

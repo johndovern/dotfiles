@@ -1,7 +1,8 @@
-### Updated on Wed Jun  8 11:26:24 PM PDT 2022 ###
+### Updated on Tue Jul 12 08:11:26 PM PDT 2022 ###
 ### < .gitignore-very-old > deleted since last update ###
 *
 !.gitignore
+.gitignore-old
 .gitignore-very-old
 !sb-actions
 !sb-battery
@@ -20,6 +21,7 @@
 !sb-moonphase
 !sb-mpdup
 !sb-mpv
+#sb-mpv.bak
 !sb-mpv-music
 !sb-music
 !sb-nettraf

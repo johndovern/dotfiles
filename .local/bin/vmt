@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import libvmt
+import sys
+
+
+if __name__ == "__main__":
+    sys.exit(libvmt.main())
