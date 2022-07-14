@@ -84,6 +84,7 @@ map grm  cd ~/repos/mpvSockets-umpv
 map grM  cd ~/repos/manga-man
 map grr  cd ~/repos/reverse-gitignore
 map grs  cd ~/repos/mpv-sockets
+map grv  cd ~/repos/vmt
 
 # ~/videos
 map gv.  cd ~/videos

@@ -113,6 +113,14 @@
             "[AOmundson] Steins;Gate Zero Video Commentary - 02.mkv"
         ]
     },
+    "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)": {
+        "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv",
+        "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)",
+        "episodes": [
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 01 (1080p) [3990D1FD].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv"
+        ]
+    },
     "[BlurayDesuYo] Amagi Brilliant Park - Batch (BD 1920x1080 10bit FLAC)": {
         "watching": "[BlurayDesuYo] Amagi Brilliant Park - 11 (BD 1920x1080 10bit FLAC) [8F322C49].mkv",
         "title": "Amagi Brilliant Park - Batch (BD 1920x1080 10bit FLAC)",
@@ -268,7 +276,7 @@
         ]
     },
     "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[Judas] Toaru Majutsu no Index - S1": {
-        "watching": null,
+        "watching": "[Judas] Toaru Majutsu no Index - S01E11.mkv",
         "title": "Toaru Majutsu no Index - Toaru Majutsu no Index - S1",
         "episodes": [
             "[Judas] Toaru Majutsu no Index - S01E01.mkv",
@@ -2086,6 +2094,43 @@
             "[Judas] Osamake - S01E10.mkv",
             "[Judas] Osamake - S01E11.mkv",
             "[Judas] Osamake - S01E12.mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Kanojo, Okarishimasu": {
+        "watching": null,
+        "title": "Seasonal Shows - Kanojo, Okarishimasu",
+        "episodes": [
+            "[SubsPlease] Kanojo, Okarishimasu - 13 (1080p) [733174A7].mkv",
+            "[SubsPlease] Kanojo, Okarishimasu - 14 (1080p) [539ACC96].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
+        "watching": null,
+        "title": "Seasonal Shows - Lycoris Recoil",
+        "episodes": [
+            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Mamahaha no Tsurego ga Motokano datta": {
+        "watching": "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv",
+        "title": "Seasonal Shows - Mamahaha no Tsurego ga Motokano datta",
+        "episodes": [
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 01 (1080p) [E67976B8].mkv",
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Yofukashi no Uta": {
+        "watching": "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv",
+        "title": "Seasonal Shows - Yofukashi no Uta",
+        "episodes": [
+            "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Soredemo Ayumu wa Yosetekuru": {
+        "watching": "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
+        "title": "Seasonal Shows - Soredemo Ayumu wa Yosetekuru",
+        "episodes": [
+            "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv"
         ]
     },
     "[KE] Grand Blue Dreaming [BD 1920x1080 x264 FLAC]": {
@@ -4510,7 +4555,7 @@
         ]
     },
     "[Judas] ID Invaded (Season 1) [1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]": {
-        "watching": "[Judas] ID Invaded - S01E12.mkv",
+        "watching": "[Judas] ID Invaded - S01E13.mkv",
         "title": "ID Invaded (Season 1)",
         "episodes": [
             "[Judas] ID Invaded - S01E01.mkv",

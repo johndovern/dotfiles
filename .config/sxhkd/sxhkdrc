@@ -32,7 +32,7 @@ super + shift + q
   sysact
 
 super + w
-  GTK_USE_PORTAL=1 $BROWSER
+  $BROWSER
 
 super + shift + w
   st -e sudo nmtui
@@ -274,7 +274,7 @@ ctrl + alt + shift + y
   mullvad relay set location US SEA & transmission-gtk
 
 ctrl + alt + shift + i
-  GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
+  mullvad-exclude librewolf -P posting "4chan.org/g/"
 
 ctrl + alt + shift + o
   setsid -f mpv --script-opts=vmt-enabled=no "$HOME/.config/mpv/playlists/groovy.m3u" ; sleep 1.5 ; mpv-opts --shuffle --now
