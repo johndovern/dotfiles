@@ -84,6 +84,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define ALT_O   ALT_T(KC_O)
 #define MEH_C   MEH_T(KC_C)
 #define MEH_COM MEH_T(KC_COMM)
+#define MEH_M   MEH_T(KC_M)
+#define MEH_G   MEH_T(KC_G)
 #define BUTT_Z  LT(_BUTTON, KC_Z)
 #define BUTT_SL LT(_BUTTON, KC_SLSH)
 
@@ -107,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_MINS,
         MH_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,   KC_B,   KC_BSLS,
-        LS_ESC,     ALT_A,   CTL_R,   GUI_S,  LS_T,   KC_G,   KC_VOLU,
+        LS_ESC,     ALT_A,   CTL_R,   GUI_S,  LS_T,   MEH_G,  KC_VOLU,
         KC_LCTL,    BUTT_Z,  KC_X,    MEH_C,  KC_D,   KC_V,
         TT(_SYMBL), MAC_ZZ,  TAB_L,   SYM_PER,
                                     KC_LALT, MOU_ESC,
@@ -116,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                           KC_DEL,  KC_6,    KC_7,    KC_8,     KC_9,     KC_0,     KC_BSPC,
                           KC_MINS, KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,  KC_EQL,
-                          KC_VOLD, KC_M,    LS_N,    GUI_E,    CTL_I,    ALT_O,    MH_ENT,
+                          KC_VOLD, MEH_M,   LS_N,    GUI_E,    CTL_I,    ALT_O,    MH_ENT,
                                    KC_K,    KC_H,    MEH_COM,  KC_DOT,   BUTT_SL,  LS_QOUT,
                                                      SH_LBRC,  SH_RBRC,  MAC_ZQ,   CTL_BSL,
              SYM_ENT, LS_RBRC,

@@ -10,7 +10,8 @@ map gci  cd ~/.config/tridactyl
 map gck  cd ~/.config/kmonad
 map gcl  cd ~/.config/lf
 map gcm  cd ~/.config/mpv
-map gcq  cd ~/.config/qutebrowser
+map gcq  cd ~/.config/qmk/maps
+map gcQ  cd ~/.config/qutebrowser
 map gcs  cd ~/.config/shell
 map gct  cd ~/.config/tmux
 map gcv  cd ~/.config/nvim

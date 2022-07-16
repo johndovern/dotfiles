@@ -255,15 +255,15 @@ end
 -- Set up clients
 
 -- C
-lspconfig.clangd.setup {
-  filetypes = { "c" },
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--header-insertion=never",
-    "--completion-style=detailed",
-  }
-}
+-- lspconfig.clangd.setup {
+--   filetypes = { "c" },
+--   cmd = {
+--     "clangd",
+--     "--background-index",
+--     "--header-insertion=never",
+--     "--completion-style=detailed",
+--   }
+-- }
 
 -- python
 lspconfig.pyright.setup({
