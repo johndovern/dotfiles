@@ -2096,6 +2096,13 @@
             "[Judas] Osamake - S01E12.mkv"
         ]
     },
+    "[SubsPlease] Seasonal Shows/Hataraku Maou-sama S2": {
+        "watching": null,
+        "title": "Seasonal Shows - Hataraku Maou-sama S2",
+        "episodes": [
+            "[SubsPlease] Hataraku Maou-sama S2 - 01 (1080p) [9A121B15].mkv"
+        ]
+    },
     "[SubsPlease] Seasonal Shows/Kanojo, Okarishimasu": {
         "watching": null,
         "title": "Seasonal Shows - Kanojo, Okarishimasu",
@@ -2105,7 +2112,7 @@
         ]
     },
     "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
-        "watching": null,
+        "watching": "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
         "title": "Seasonal Shows - Lycoris Recoil",
         "episodes": [
             "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv"
@@ -2130,7 +2137,8 @@
         "watching": "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
         "title": "Seasonal Shows - Soredemo Ayumu wa Yosetekuru",
         "episodes": [
-            "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv"
+            "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
+            "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 02 (1080p) [B9A8A31B].mkv"
         ]
     },
     "[KE] Grand Blue Dreaming [BD 1920x1080 x264 FLAC]": {
@@ -4013,6 +4021,26 @@
         "title": "K-On! - S2 - URA-ON!!",
         "episodes": [
             "URA-ON!!.mkv"
+        ]
+    },
+    "[Underwater] Panty and Stocking with Garterbelt - 01-13 + OVA (BD 720p) [Batch] [v2]": {
+        "watching": null,
+        "title": "Panty and Stocking with Garterbelt - 01-13 + OVA (BD 720p)",
+        "episodes": [
+            "[Underwater] Panty and Stocking with Garterbelt 01v2 - Excretion Without Honor and Humanity - Death Race 2010 (BD 720p) [32949214].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 02v2 - The Turmoil of the Beehive - Sex and the Daten City (BD 720p) [CB194F3A].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 03v2 - Catfight Club - Pulp Addiction (BD 720p) [225D5685].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 04v2 - The Diet Syndrome - High School Nudical (BD 720p) [FBA52FE6].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 05v2 - Raiders of the Nasal Dark - Vomiting Point (BD 720p) [11DF17B3].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 06v2 - Les Diaboliques (BD 720p) [B8C59CC9].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 07v2 - Trans-homers - The Stripping (BD 720p) [6D81AD1A].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 08v2 - ...Of the Dead - One Angry Ghost (BD 720p) [6663BC72].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 09v2 - If the Angels Wore Swimsuits - Ghost The Phantom of Daten City (BD 720p) [968A94B6].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 10v2 - InnerBrief - Chuck to the Future Part 1-3 - Help We Are Angels (BD 720p) [A7EC2CC1].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 11v2 - Once Upon a Time in Garterbelt - Nothing to Room (BD 720p) [5BCD3FD6].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 12v2 - D.C. Confidential - Panty and Brief (BD 720p) [7FC569E2].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt 13v2 - Bitch Girls - Bitch Girls 2 Bitch (BD 720p) [37F68B5C].mkv",
+            "[Underwater] Panty and Stocking with Garterbelt OVAv2 - In Sanitarybox (BD 720p) [C597EC82].mkv"
         ]
     },
     "Angel Beats! [2010] [kuchikirukia] [philosophy-raws]": {
