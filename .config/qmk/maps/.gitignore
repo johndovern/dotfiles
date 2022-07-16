@@ -1,0 +1,6 @@
+### Updated on Fri Jul 15 06:46:42 PM PDT 2022 ###
+*
+!.gitignore
+!config.h
+!keymap.c
+#keymap.c.bak
