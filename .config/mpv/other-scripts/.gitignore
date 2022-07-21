@@ -1,6 +1,0 @@
-### Updated on Tue Jul 12 08:11:25 PM PDT 2022 ###
-### < .gitignore-very-old > deleted since last update ###
-*
-!.gitignore
-.gitignore-very-old
-!reload.lua

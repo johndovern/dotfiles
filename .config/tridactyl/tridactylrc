@@ -46,6 +46,9 @@ set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
 
 " Costom binds
+" Hint search text
+bind ,nh composite hint -p | nyaa_search
+
 " Gallery-dl
 bind ,gh hint -W gal_dl
 bind ,gn composite url2args | gal_dl
@@ -70,6 +73,9 @@ bind ,wh hint -W wsg_mpv
 bind ,wn composite url2args | wsg_mpv
 
 " Custom commands
+" Nyaa search
+command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&o=desc&q=" + JS_ARG)
+
 " Gallery-dl
 command gal_dl js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f gallery-dl -f "/O" -d "$HOME/gallery-dl" ' + url))
 

@@ -114,15 +114,16 @@
         ]
     },
     "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)": {
-        "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv",
+        "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 03 (1080p) [BC5379B5].mkv",
         "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)",
         "episodes": [
             "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 01 (1080p) [3990D1FD].mkv",
-            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv"
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 03 (1080p) [BC5379B5].mkv"
         ]
     },
     "[BlurayDesuYo] Amagi Brilliant Park - Batch (BD 1920x1080 10bit FLAC)": {
-        "watching": "[BlurayDesuYo] Amagi Brilliant Park - 11 (BD 1920x1080 10bit FLAC) [8F322C49].mkv",
+        "watching": "[BlurayDesuYo] Amagi Brilliant Park - 13 (BD 1920x1080 10bit FLAC) [0B0B1ADB].mkv",
         "title": "Amagi Brilliant Park - Batch (BD 1920x1080 10bit FLAC)",
         "episodes": [
             "[BlurayDesuYo] Amagi Brilliant Park - 01 (BD 1920x1080 10bit FLAC) [D05201C3].mkv",
@@ -154,7 +155,7 @@
         ]
     },
     "[Cerberus] Kakumeiki Valvrave [BD 1080p HEVC 10-bit AAC]": {
-        "watching": null,
+        "watching": "Kakumeiki Valvrave 1x03.mkv",
         "title": "Kakumeiki Valvrave",
         "episodes": [
             "Kakumeiki Valvrave 1x01.mkv",
@@ -338,7 +339,7 @@
         ]
     },
     "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[YURI] A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio) [BD 1080p x264 10bit FLAC]": {
-        "watching": "[YURI] A Certain Magical Index  S01E16 [BD 1080p x264 10bit FLAC].mkv",
+        "watching": "[YURI] A Certain Magical Index  S01E18 [BD 1080p x264 10bit FLAC].mkv",
         "title": "Toaru Majutsu no Index - A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio)",
         "episodes": [
             "[YURI] A Certain Magical Index  S01E01 [BD 1080p x264 10bit FLAC].mkv",
@@ -788,6 +789,99 @@
             "[Judas] Eizouken ni wa Te wo Dasu na! - S01E12.mkv"
         ]
     },
+    "Bakuman/Bakuman S3 [1080p 10bit HEVC BDRip]": {
+        "watching": null,
+        "title": "Bakuman - Bakuman S3",
+        "episodes": [
+            "Bakuman III - 01 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 02 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 03 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 04 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 05 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 06 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 07 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 08 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 09 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 10 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 11 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 12 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 13 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 14 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 15 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 16 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 17 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 18 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 19 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 20 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 21 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 22 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 23 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 24 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman III - 25 (BD 1920x1080 x265 FLAC).mkv"
+        ]
+    },
+    "Bakuman/Bakuman S2 [1080p 10bit HEVC BDRip]": {
+        "watching": null,
+        "title": "Bakuman - Bakuman S2",
+        "episodes": [
+            "Bakuman II - 01 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 02 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 03 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 04 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 05 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 06 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 07 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 08 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 09 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 10 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 11 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 12 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 13 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 14 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 15 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 16 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 17 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 18 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 19 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 20 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 21 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 22 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 23 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 24 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman II - 25 (BD 1920x1080 x265 FLAC).mkv"
+        ]
+    },
+    "Bakuman/Bakuman S1 [1080p 10bit HEVC BDRip]": {
+        "watching": null,
+        "title": "Bakuman - Bakuman S1",
+        "episodes": [
+            "Bakuman - 01 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 02 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 03 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 04 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 05 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 06 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 07 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 08 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 09 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 10 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 11 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 12 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 13 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 14 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 15 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 16 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 17 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 18 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 19 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 20 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 21 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 22 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 23 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 24 (BD 1920x1080 x265 FLAC).mkv",
+            "Bakuman - 25 (BD 1920x1080 x265 FLAC).mkv"
+        ]
+    },
     "[Reaktor] GTO - Great Teacher Onizuka Complete [576p][x265][10-bit]": {
         "watching": null,
         "title": "GTO - Great Teacher Onizuka Complete",
@@ -868,6 +962,24 @@
             "[Cleo]Higurashi_no_Naku_Koro_ni_-_24_(Dual Audio_10bit_BD720p_x265).mkv",
             "[Cleo]Higurashi_no_Naku_Koro_ni_-_25_(Dual Audio_10bit_BD720p_x265).mkv",
             "[Cleo]Higurashi_no_Naku_Koro_ni_-_26_(Dual Audio_10bit_BD720p_x265).mkv"
+        ]
+    },
+    "Handa-kun [1080]": {
+        "watching": null,
+        "title": "Handa-kun",
+        "episodes": [
+            "[Cleo]Handa-kun_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_03_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_04_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_06_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_07_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_08_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_09_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_11_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Handa-kun_-_12_(Dual Audio_10bit_BD1080p_x265).mkv"
         ]
     },
     "Chobits [1080p;H265] [2002]": {
@@ -1059,6 +1171,34 @@
             "[Judas] Full Metal Panic S4 - 12.mkv",
             "[Judas] Full Metal Panic S4 - Special 01.mkv",
             "[Judas] Full Metal Panic S4 - Special 02.mkv"
+        ]
+    },
+    "[Judas] Psycho-Pass (Season 1) [BD 1080p][HEVC x265 10bit][Dual-Audio][Eng-Sub]": {
+        "watching": null,
+        "title": "Psycho-Pass (Season 1)",
+        "episodes": [
+            "[Judas] Psycho-Pass S1 - 01.mkv",
+            "[Judas] Psycho-Pass S1 - 02.mkv",
+            "[Judas] Psycho-Pass S1 - 03.mkv",
+            "[Judas] Psycho-Pass S1 - 04.mkv",
+            "[Judas] Psycho-Pass S1 - 05.mkv",
+            "[Judas] Psycho-Pass S1 - 06.mkv",
+            "[Judas] Psycho-Pass S1 - 07.mkv",
+            "[Judas] Psycho-Pass S1 - 08.mkv",
+            "[Judas] Psycho-Pass S1 - 09.mkv",
+            "[Judas] Psycho-Pass S1 - 10.mkv",
+            "[Judas] Psycho-Pass S1 - 11.mkv",
+            "[Judas] Psycho-Pass S1 - 12.mkv",
+            "[Judas] Psycho-Pass S1 - 13.mkv",
+            "[Judas] Psycho-Pass S1 - 14.mkv",
+            "[Judas] Psycho-Pass S1 - 15.mkv",
+            "[Judas] Psycho-Pass S1 - 16.mkv",
+            "[Judas] Psycho-Pass S1 - 17.mkv",
+            "[Judas] Psycho-Pass S1 - 18.mkv",
+            "[Judas] Psycho-Pass S1 - 19.mkv",
+            "[Judas] Psycho-Pass S1 - 20.mkv",
+            "[Judas] Psycho-Pass S1 - 21.mkv",
+            "[Judas] Psycho-Pass S1 - 22.mkv"
         ]
     },
     "Medaka Box [1080p]": {
@@ -1430,7 +1570,7 @@
         ]
     },
     "The Irregular at Magic High School All Seasons/2014 The Irregular at Magic High School S01": {
-        "watching": null,
+        "watching": "The Irregular at Magic High School - S01E26v3  [BDRip 1920x1080 HEVC AAC-FLAC] [Dual-Audio].mkv",
         "title": "The Irregular at Magic High School All Seasons - 2014 The Irregular at Magic High School S01",
         "episodes": [
             "The Irregular at Magic High School - S01E01v3  [BDRip 1920x1080 HEVC AAC-FLAC] [Dual-Audio].mkv",
@@ -1462,7 +1602,7 @@
         ]
     },
     "The Irregular at Magic High School All Seasons/2017 The Irregular at Magic High School The Movie": {
-        "watching": null,
+        "watching": "The Irregular at Magic High School - The Girl Who Summons The Stars [BDRip 1920x1080 HEVC FLAC].mkv",
         "title": "The Irregular at Magic High School All Seasons - 2017 The Irregular at Magic High School The Movie",
         "episodes": [
             "The Irregular at Magic High School - The Girl Who Summons The Stars [BDRip 1920x1080 HEVC FLAC].mkv"
@@ -1488,7 +1628,7 @@
         ]
     },
     "The Irregular at Magic High School All Seasons/2020 The Irregular at Magic High School S02": {
-        "watching": null,
+        "watching": "The Irregular at Magic High School - S02E11v3 [BDRip 1920x1080 HEVC FLAC] [Dual-Audio].mkv",
         "title": "The Irregular at Magic High School All Seasons - 2020 The Irregular at Magic High School S02",
         "episodes": [
             "The Irregular at Magic High School - S02E01v3 [BDRip 1920x1080 HEVC FLAC] [Dual-Audio].mkv",
@@ -2046,6 +2186,104 @@
             "S01E13-Let It Be.mkv"
         ]
     },
+    "Barakamon [1080]": {
+        "watching": null,
+        "title": "Barakamon",
+        "episodes": [
+            "[Cleo]Barakamon_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_03_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_04_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_06_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_07_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_08_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_09_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_11_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_12_(Dual Audio_10bit_BD1080p_x265).mkv"
+        ]
+    },
+    "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER/Log Horizon S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER": {
+        "watching": null,
+        "title": "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER - Log Horizon S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S03E01-Rayneshia's Marriage [9326C736].mkv",
+            "S03E02-The Duke of Akiba [8CF4AA3F].mkv",
+            "S03E03-The Round Table Fractures [4F8BCFD9].mkv",
+            "S03E04-Akiba General Election [FA3B0248].mkv",
+            "S03E05-Blessings [CAE698A2].mkv",
+            "S03E06-Immortal in Ethereal Utopia [E4079526].mkv",
+            "S03E07-Not A Curse [77A9DA66].mkv",
+            "S03E08-The Oldest Ancients [00D48454].mkv",
+            "S03E09-Adoration [82F4DC43].mkv",
+            "S03E10-Labyrinth in Akiba [CF776F9F].mkv",
+            "S03E11-Despair Genius [61FF6525].mkv",
+            "S03E12-Song of the Nightingales [12050CA7].mkv"
+        ]
+    },
+    "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER/Log Horizon S02 1080p Dual Audio BDRip 10 bits DD x265-EMBER": {
+        "watching": null,
+        "title": "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER - Log Horizon S02 1080p Dual Audio BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S02E01-Shiroe of the Northern Lands [422F927A].mkv",
+            "S02E02-The Outlaw and Mithril Eyes [5EABBD95].mkv",
+            "S02E03-The Abyssal Shaft [6BA9D9A3].mkv",
+            "S02E04-Shattered Wings [23273002].mkv",
+            "S02E05-Christmas Eve [306907EE].mkv",
+            "S02E06-A Lost Child at Dawn [7B971F6A].mkv",
+            "S02E07-The Maidens of Watermaple [65205BAB].mkv",
+            "S02E08-Akihabara Raid [2A3722B9].mkv",
+            "S02E09-The Changing Battlefield [D6E6C322].mkv",
+            "S02E10-Guild Master [0B022189].mkv",
+            "S02E11-Retry [38284E31].mkv",
+            "S02E12-The Gold of the Kunie [6C0BD912].mkv",
+            "S02E13-2.14 a Sweet Trap [8BF54CFC].mkv",
+            "S02E14-Kanami, Go East! [BA7BA626].mkv",
+            "S02E15-A New Journey [3D4CAB9F].mkv",
+            "S02E16-The Midday Vampire [DA246707].mkv",
+            "S02E17-Odyssey Knights [83D3FB76].mkv",
+            "S02E18-When the Concert Ends [601B3018].mkv",
+            "S02E19-The Red Night [51E81EF9].mkv",
+            "S02E20-Birthday Song [FA1B3E86].mkv",
+            "S02E21-The Skylarks Take Flight [57D43571].mkv",
+            "S02E22-Stranger [C116DD9D].mkv",
+            "S02E23-Isaac and Iselus [114BAF5C].mkv",
+            "S02E24-Sleep of the Eternal Moth [0F92A357].mkv",
+            "S02E25-The Pioneers [12D946DE].mkv"
+        ]
+    },
+    "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER/Log Horizon S01 1080p Dual Audio BDRip 10 bits DD x265-EMBER": {
+        "watching": null,
+        "title": "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER - Log Horizon S01 1080p Dual Audio BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S01E01-The Apocalypse [0E093C90].mkv",
+            "S01E02-The Battle of Loka [775556DB].mkv",
+            "S01E03-The Depths of Palm [4BEDBA73].mkv",
+            "S01E04-Escape [6CC0E7EE].mkv",
+            "S01E05-Return to Akihabara [AA0CF667].mkv",
+            "S01E06-Resolve [7E8D8020].mkv",
+            "S01E07-Crescent Moon [8E5E52ED].mkv",
+            "S01E08-Villain in Glasses [0A8D33C7].mkv",
+            "S01E09-Round Table Conference [26E63DE2].mkv",
+            "S01E10-Grab It in Your Hand [D9BAA83D].mkv",
+            "S01E11-An Invitation from Eastal [C1363D23].mkv",
+            "S01E12-The Forest of Lagranda [B92D9855].mkv",
+            "S01E13-Shield and Freedom [70734FBC].mkv",
+            "S01E14-World Fraction [FABC6139].mkv",
+            "S01E15-Attack [E69E43D6].mkv",
+            "S01E16-Return of the Goblin King [94B7296A].mkv",
+            "S01E17-A Lazy, Cowardly Princess [324EAB0D].mkv",
+            "S01E18-Expeditionary Force [357B903C].mkv",
+            "S01E19-Chasing After Them [06459D79].mkv",
+            "S01E20-Contract [FE135186].mkv",
+            "S01E21-The Two of Us Shall Waltz [0F9B50C2].mkv",
+            "S01E22-Swallow and Young Starling [44CC097C].mkv",
+            "S01E23-Student of the Mage [14E5E140].mkv",
+            "S01E24-Chaos [4764D767].mkv",
+            "S01E25-The Scale Festival [635F4978].mkv"
+        ]
+    },
     "Itazura.na.Kiss[2008]720p.H264[BakaWolf-m.3.3.w]": {
         "watching": "[BakaWolf-m.3.3.w] Itazura na Kiss 16 (H.264) [78E5D77E].mkv",
         "title": "Itazura.na.Kiss720p.H264",
@@ -2078,6 +2316,26 @@
             "[m.3.3.w] Itazura na Kiss 25 - Final (H.264) [D362D101].mkv"
         ]
     },
+    "[bonkai77] Katanagatari  [BD-1080p] [x265] [HEVC] [AAC] [10bit]": {
+        "watching": null,
+        "title": "Katanagatari ",
+        "episodes": [
+            "[bonkai77] Katanagatari  [BD-1080p] [x265] [HEVC] [AAC] [10bit].md5",
+            "[bonkai77].Katanagatari.Episode.01.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.02.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.03.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.04.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.05.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.06.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.07.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.08.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.09.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.10.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.11.[BD.1080p.x265.HEVC.10bit].mkv",
+            "[bonkai77].Katanagatari.Episode.12.[BD.1080p.x265.HEVC.10bit].mkv",
+            "torrent.info.nfo"
+        ]
+    },
     "[Judas] Osananajimi ga Zettai ni Makenai Love Comedy (Season 1) [1080p][HEVC x265 10bit][Multi-Subs]": {
         "watching": null,
         "title": "Osananajimi ga Zettai ni Makenai Love Comedy (Season 1)",
@@ -2097,48 +2355,52 @@
         ]
     },
     "[SubsPlease] Seasonal Shows/Hataraku Maou-sama S2": {
-        "watching": null,
+        "watching": "[SubsPlease] Hataraku Maou-sama S2 - 01 (1080p) [9A121B15].mkv",
         "title": "Seasonal Shows - Hataraku Maou-sama S2",
         "episodes": [
             "[SubsPlease] Hataraku Maou-sama S2 - 01 (1080p) [9A121B15].mkv"
         ]
     },
-    "[SubsPlease] Seasonal Shows/Kanojo, Okarishimasu": {
-        "watching": null,
-        "title": "Seasonal Shows - Kanojo, Okarishimasu",
-        "episodes": [
-            "[SubsPlease] Kanojo, Okarishimasu - 13 (1080p) [733174A7].mkv",
-            "[SubsPlease] Kanojo, Okarishimasu - 14 (1080p) [539ACC96].mkv"
-        ]
-    },
     "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
-        "watching": "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
+        "watching": "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
         "title": "Seasonal Shows - Lycoris Recoil",
         "episodes": [
-            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv"
+            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
+            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
+            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv"
         ]
     },
     "[SubsPlease] Seasonal Shows/Mamahaha no Tsurego ga Motokano datta": {
-        "watching": "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv",
+        "watching": "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 03 (1080p) [86D5FF7B].mkv",
         "title": "Seasonal Shows - Mamahaha no Tsurego ga Motokano datta",
         "episodes": [
             "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 01 (1080p) [E67976B8].mkv",
-            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv"
-        ]
-    },
-    "[SubsPlease] Seasonal Shows/Yofukashi no Uta": {
-        "watching": "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv",
-        "title": "Seasonal Shows - Yofukashi no Uta",
-        "episodes": [
-            "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv"
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv",
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 03 (1080p) [86D5FF7B].mkv"
         ]
     },
     "[SubsPlease] Seasonal Shows/Soredemo Ayumu wa Yosetekuru": {
-        "watching": "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
+        "watching": "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 02 (1080p) [B9A8A31B].mkv",
         "title": "Seasonal Shows - Soredemo Ayumu wa Yosetekuru",
         "episodes": [
             "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
             "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 02 (1080p) [B9A8A31B].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Engage Kiss": {
+        "watching": "[SubsPlease] Engage Kiss - 03 (1080p) [14257E5F].mkv",
+        "title": "Seasonal Shows - Engage Kiss",
+        "episodes": [
+            "[SubsPlease] Engage Kiss - 01 (1080p) [F856BCF1].mkv",
+            "[SubsPlease] Engage Kiss - 02 (1080p) [62E2539D].mkv",
+            "[SubsPlease] Engage Kiss - 03 (1080p) [14257E5F].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Kinsou no Vermeil": {
+        "watching": null,
+        "title": "Seasonal Shows - Kinsou no Vermeil",
+        "episodes": [
+            "[SubsPlease] Kinsou no Vermeil - 01 (1080p) [20A7F3C1].mkv"
         ]
     },
     "[KE] Grand Blue Dreaming [BD 1920x1080 x264 FLAC]": {
@@ -2169,6 +2431,32 @@
             "FLCL.S01E04.Furi.Kiri.(Full.Swing).Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[ED096AB9].mkv",
             "FLCL.S01E05.Brittle.Bullet.Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[F753D515].mkv",
             "FLCL.S01E06.FLCLimax.Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[8A79B2C8].mkv"
+        ]
+    },
+    "[BlueLobster] Comical Psychosomatic Medicine (01-20) [1080p] (Batch)": {
+        "watching": null,
+        "title": "Comical Psychosomatic Medicine (01-20)(Batch)",
+        "episodes": [
+            "[BlueLobster] Comical Psychosomatic Medicine - 01 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 02 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 03 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 04 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 05 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 06 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 07 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 08 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 09 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 10 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 11 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 12 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 13 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 14 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 15 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 16 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 17 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 18 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 19 [1080p].mkv",
+            "[BlueLobster] Comical Psychosomatic Medicine - 20 [1080p].mkv"
         ]
     },
     "Urusei Yatsura [BDRip 960x720 x264 AAC]": {
@@ -2778,6 +3066,51 @@
             "Diary of Our Days at the Breakwater S01E12 From Now On....mkv"
         ]
     },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Kajitsu + Specials 2014 1080p BDRip 10 bits DD x265-EMBER": {
+        "watching": "S01E04 - Where You Aim the Silver Bullet.mkv",
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Grisaia no Kajitsu + Specials 2014 1080p BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S01E01 - Ordinary Academy Life.mkv",
+            "S01E02 - School Killer Sakaki.mkv",
+            "S01E03 - Sweet Diet.mkv",
+            "S01E04 - Where You Aim the Silver Bullet.mkv",
+            "S01E05 - VOX IN BOX.mkv",
+            "S01E06 - Raison d_\u00eatre.mkv",
+            "S01E07 - Letter of Happiness.mkv",
+            "S01E08 - Seed of the World Tree I.mkv",
+            "S01E09 - Seed of the World Tree II.mkv",
+            "S01E10 - Angelic Howl I.mkv",
+            "S01E11 - Angelic Howl II.mkv",
+            "S01E12 - Angelic Howl III.mkv",
+            "S01E13 - Field of Fire10 Centimetres.mkv"
+        ]
+    },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER": {
+        "watching": null,
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S02E01 - The Cocoon of Caprice I.mkv",
+            "S02E02 - The Cocoon of Caprice II.mkv",
+            "S02E03 - The Cocoon of Caprice III.mkv",
+            "S02E04 - The Cocoon of Caprice IV.mkv",
+            "S02E05 - The Seed of Blanc Aile I.mkv",
+            "S02E06 - The Seed of Blanc Aile II.mkv",
+            "S02E07 - The Seed of Blanc Aile III.mkv",
+            "S02E08 - The Seed of Blanc Aile IV.mkv",
+            "S02E09 - The Seed of Blanc Aile V.mkv",
+            "S02E10 - The Seed of Blanc Aile VI.mkv"
+        ]
+    },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Movies": {
+        "watching": null,
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Movies",
+        "episodes": [
+            "Grisaia Phantom Trigger The Animation - 01. SORD 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia Phantom Trigger The Animation - 02. Soul Speed 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia Phantom Trigger The Animation - 03. Stargazer 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia no Meikyuu Caprice no Mayu 0 1080p BDRip 10 bits DD x265-EMBER.mkv"
+        ]
+    },
     "[Exiled-Destiny]_Ranma": {
         "watching": "[Exiled-Destiny]_Ranma_\u00bd_TV_Ep046_(141BBB87).mkv",
         "title": "_Ranma",
@@ -2988,6 +3321,42 @@
             "[Muxer] Gabriel Dropout - OP (BDRip 1920x1080 x264 FLAC).mkv",
             "[Muxer] Gabriel Dropout - OVA1 (BDRip 1920x1080 x264 FLAC).mkv",
             "[Muxer] Gabriel Dropout - OVA2 (BDRip 1920x1080 x264 FLAC).mkv"
+        ]
+    },
+    "[Judas] JormunGand (Seasons 1-2) [BD 1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[Judas] JormunGand (Season 1) [BD 1080p]": {
+        "watching": null,
+        "title": "JormunGand (Seasons 1-2) - JormunGand (Season 1)",
+        "episodes": [
+            "[Judas] Jormungand S1 - 01.mkv",
+            "[Judas] Jormungand S1 - 02.mkv",
+            "[Judas] Jormungand S1 - 03.mkv",
+            "[Judas] Jormungand S1 - 04.mkv",
+            "[Judas] Jormungand S1 - 05.mkv",
+            "[Judas] Jormungand S1 - 06.mkv",
+            "[Judas] Jormungand S1 - 07.mkv",
+            "[Judas] Jormungand S1 - 08.mkv",
+            "[Judas] Jormungand S1 - 09.mkv",
+            "[Judas] Jormungand S1 - 10.mkv",
+            "[Judas] Jormungand S1 - 11.mkv",
+            "[Judas] Jormungand S1 - 12.mkv"
+        ]
+    },
+    "[Judas] JormunGand (Seasons 1-2) [BD 1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[Judas] JormunGand (Season 2 - Perfect Order) [BD 1080p]": {
+        "watching": null,
+        "title": "JormunGand (Seasons 1-2) - JormunGand (Season 2 - Perfect Order)",
+        "episodes": [
+            "[Judas] Jormungand S2 - 01.mkv",
+            "[Judas] Jormungand S2 - 02.mkv",
+            "[Judas] Jormungand S2 - 03.mkv",
+            "[Judas] Jormungand S2 - 04.mkv",
+            "[Judas] Jormungand S2 - 05.mkv",
+            "[Judas] Jormungand S2 - 06.mkv",
+            "[Judas] Jormungand S2 - 07.mkv",
+            "[Judas] Jormungand S2 - 08.mkv",
+            "[Judas] Jormungand S2 - 09.mkv",
+            "[Judas] Jormungand S2 - 10.mkv",
+            "[Judas] Jormungand S2 - 11.mkv",
+            "[Judas] Jormungand S2 - 12.mkv"
         ]
     },
     "[Moozzi2] Paniponi Dash! BD-BOX - TV + OVA": {
@@ -3492,6 +3861,36 @@
             "[CBM]_FLCL_Progressive_[x265_10bit].sfv"
         ]
     },
+    "[Judas] Heavy Object (Season 1) [BD 1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]": {
+        "watching": "[Judas] Heavy Object - S01E02.mkv",
+        "title": "Heavy Object (Season 1)",
+        "episodes": [
+            "[Judas] Heavy Object - S01E01.mkv",
+            "[Judas] Heavy Object - S01E02.mkv",
+            "[Judas] Heavy Object - S01E03.mkv",
+            "[Judas] Heavy Object - S01E04.mkv",
+            "[Judas] Heavy Object - S01E05.mkv",
+            "[Judas] Heavy Object - S01E06.mkv",
+            "[Judas] Heavy Object - S01E07.mkv",
+            "[Judas] Heavy Object - S01E08.mkv",
+            "[Judas] Heavy Object - S01E09.mkv",
+            "[Judas] Heavy Object - S01E10.mkv",
+            "[Judas] Heavy Object - S01E11.mkv",
+            "[Judas] Heavy Object - S01E12.mkv",
+            "[Judas] Heavy Object - S01E13.mkv",
+            "[Judas] Heavy Object - S01E14.mkv",
+            "[Judas] Heavy Object - S01E15.mkv",
+            "[Judas] Heavy Object - S01E16.mkv",
+            "[Judas] Heavy Object - S01E17.mkv",
+            "[Judas] Heavy Object - S01E18.mkv",
+            "[Judas] Heavy Object - S01E19.mkv",
+            "[Judas] Heavy Object - S01E20.mkv",
+            "[Judas] Heavy Object - S01E21.mkv",
+            "[Judas] Heavy Object - S01E22.mkv",
+            "[Judas] Heavy Object - S01E23.mkv",
+            "[Judas] Heavy Object - S01E24.mkv"
+        ]
+    },
     "[Commie] Ore, Twintail ni Narimasu. [BD 1080p AAC]": {
         "watching": null,
         "title": "Ore, Twintail ni Narimasu.",
@@ -3709,6 +4108,32 @@
             "Tonari no Seki-kun - OVA 2 (DVDRip 852x480).mkv"
         ]
     },
+    "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER/OVA": {
+        "watching": null,
+        "title": "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER - OVA",
+        "episodes": [
+            "S01OVA01-After the ending, the heroine's clothes are a little unusual [7F2FA40A].mkv",
+            "S01OVA02-Weird skill names, usually have unknown origins [7808D078].mkv"
+        ]
+    },
+    "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER/Season 1": {
+        "watching": "S01E06-When I start a game inside a game, it doesn't really stop [075D9D0D].mkv",
+        "title": "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER - Season 1",
+        "episodes": [
+            "S01E01-After All Famous Games are Generally Interesting [875EA806].mkv",
+            "S01E02-It feels really good when the level goes up in a row in one battle [7A6128D5].mkv",
+            "S01E03-If the first companion is a girl you can feel the adventure of a date for a while [B76C84A2].mkv",
+            "S01E04-Sometimes you conquer a dungeon only to find a strong boss back in your village [23EDC43A].mkv",
+            "S01E05-Characters who become friends after conquering difficult events usually have high attributes [D8A76616].mkv",
+            "S01E06-When I start a game inside a game, it doesn't really stop [075D9D0D].mkv",
+            "S01E07-When the master character becomes a boss, it is strong enough to get stuck [CFB2DFC9].mkv",
+            "S01E08-There are some problems that cannot be solved only by low-level characters [9D97916F].mkv",
+            "S01E09-When you return to the first town with all your friends, new events will occur [ED75E34B].mkv",
+            "S01E10-Multiplayer has the advantages of multiplayer [427890DF].mkv",
+            "S01E11-Sometimes just one option can change everything [76656C98].mkv",
+            "S01E12-Equipment for girls has special effects [CE0E2BD1].mkv"
+        ]
+    },
     "[WBDP] Rosario + Vampire [BD][720p]": {
         "watching": "[WBDP] S1 - 04 - Farewell + Vampire [BD][720p] [073FF3D8].mkv",
         "title": "Rosario + Vampire",
@@ -3765,7 +4190,6 @@
             "Lamune - NCED [MDC][DVDrip][x264 AC3][704x528][62864416].mkv",
             "Lamune - NCOP [MDC][DVDrip][x264 AC3][704x528][36E1C540].mkv",
             "Lamune - OP [MDC][DVDrip][x264 AC3][704x528][CC22CB21].mkv",
-            "Lamune Chapters and Tags.zip",
             "README FIRST!.txt"
         ]
     },
@@ -4268,6 +4692,49 @@
             "[Judas] Black Lagoon - S02E10.mkv",
             "[Judas] Black Lagoon - S02E11.mkv",
             "[Judas] Black Lagoon - S02E12.mkv"
+        ]
+    },
+    "Kareshi Kanojo no Jijou": {
+        "watching": "[Judgment] Kareshi Kanojo no Jijou - 06 [DC68AA36].mkv",
+        "title": "Kareshi Kanojo no Jijou",
+        "episodes": [
+            "[Judgment] Kareshi Kanojo no Jijou - 01 [3B58B4A7].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 02 [42963F1D].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 03 [AF1355D1].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 04 [99259B5A].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 05 [F862B578].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 06 [DC68AA36].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 07 [B7D48DFC].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 08 [116BDAC9].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 09 [CEFB877C].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 10 [076D595E].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 11 [BEEBE415].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 12 [A6020B71].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 13 [DB9764E7].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 14 [EC094534].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 15 [A7CD1EEF].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 16 [1E3660A1].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 17 [8DB24A54].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 18 [95F6696E].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 19 [236F7D8C].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 20 [299BD5CB].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 21 [D5A4347F].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 22 [401D3EED].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 23 [0402E775].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 24 [E486B2B2].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 25 [0E7B0A5F].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - 26 [3D89CAB0].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED13.0 [DD16277F].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED16.0 [BE641981].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED18.0 [78CD3CB7].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED19.0 [6C5BD6E2].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED24.0 [99D5139D].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED26.0 [490F2E62].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED4.0 [90B3720F].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED6.0 [1E6CE51E].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED7.0 [C4A97E9A].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCED8.0 [F2724A31].mkv",
+            "[Judgment] Kareshi Kanojo no Jijou - NCOP [12BDF26A].mkv"
         ]
     },
     "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! [BD 1280x720]": {

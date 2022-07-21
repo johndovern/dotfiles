@@ -1,12 +1,8 @@
 [
     {
-        "alang": "*",
-        "slang": "forced"
-    },
-    {
         "alang": [ "j[ap]n?" ],
         "slang": [ "eng?", "und", "jpn?" ],
-        "blacklist": [ "Sings/Songs", "signs", "songs", "sign", "song", "english %(translation only%)" ]
+        "blacklist": [ "sings/songs", "signs", "songs", "sign", "song", "english %(translation only%)", "signs & songs" ]
     },
     {
         "alang": "eng?",
@@ -24,5 +20,9 @@
     {
         "alang": "*",
         "slang": "und"
+    },
+    {
+        "alang": "*",
+        "slang": "forced"
     }
 ]

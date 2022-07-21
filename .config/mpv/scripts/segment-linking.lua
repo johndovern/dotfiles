@@ -9,12 +9,34 @@
 local mp = require "mp"
 local msg = require "mp.msg"
 local utils = require "mp.utils"
+local opts = require "mp.options"
 
+package.path = mp.command_native({"expand-path", "~~/script-modules/?.lua;"}) .. package.path
+local RF_LOADED, rf = pcall(function() return require "read-file" end)
+
+local o = {
+    --loads segment information from the given segment metafile instead of scanning for it
+    metafile = "",
+
+    --if the current file cannot be read, then fallback to the default metafile
+    fallback_to_metafile = true,
+
+    --the default segment metafile file, the script will search for a file with this name inside
+    --the directory of the current file
+    default_metafile = ".segment-linking"
+}
+
+opts.read_options(o, "segment_linking", function() end)
+
+local SEGMENT_CHAPTER = "__mkv_segment"
 local FLAG_CHAPTER_FIX
 
 local ORDERED_CHAPTERS_ENABLED
 local REFERENCES_ENABLED
 local MERGE_THRESHOLD
+
+--saves the working directory with forward slashes and a trailing slash
+local WORKING_DIRECTORY = mp.get_property("working-directory", ""):gsub("\\", "/"):gsub("/?$", "/")
 
 --file extensions that support segment linking
 local file_extensions = {
@@ -22,8 +44,46 @@ local file_extensions = {
     mka = true
 }
 
---returns the uid of the given file, along with the previous and next uids if they exist
-local function get_uids(file)
+--decodes a URL address
+--this piece of code was taken from: https://stackoverflow.com/questions/20405985/lua-decodeuri-luvit/20406960#20406960
+local decodeURI
+do
+    local char, gsub, tonumber = string.char, string.gsub, tonumber
+    local function _(hex) return char(tonumber(hex, 16)) end
+
+    function decodeURI(s)
+        s = gsub(s, '%%(%x%x)', _)
+        return s
+    end
+end
+
+--returns the protocol scheme of the given url, or nil if there is none
+function get_protocol(filename)
+    return string.lower(filename):match("^(%a[%w+-.]*)://")
+end
+
+--gets the directory section of the given path
+local function get_directory(path)
+    return path:match("^(.+[/\\])[^/\\]+[/\\]?$") or ""
+end
+
+--read contents of the given file
+--tries to use the read-file module to support network files
+local function open_file(file)
+    if not RF_LOADED then return io.open(file) end
+    return rf.get_file_handler(file)
+end
+
+--wrapper for utils.join_path to handle protocols
+local function join_path(working, relative)
+    return get_protocol(relative) and relative or utils.join_path(working, relative)
+end
+
+--returns the uid of the given file, along with the previous and next uids if they exist.
+--if fail_silent is true then do not print any error messages
+local function get_uids(file, fail_silently)
+    msg.debug("scanning UIDs for file", file)
+
     local cmd = mp.command_native({
         name = "subprocess",
         playback_only = false,
@@ -32,9 +92,11 @@ local function get_uids(file)
     })
 
     if cmd.status ~= 0 then
+        if not cmd.status then cmd.status = -1 end
+        if fail_silently then return nil, nil, nil, cmd.status end
         msg.error("could not read file", file)
         msg.error(cmd.stdout)
-        return
+        return nil, nil, nil, cmd.status
     end
 
     local output = cmd.stdout
@@ -43,32 +105,56 @@ local function get_uids(file)
             output:match("Next segment UID: ([^\n\r]+)")
 end
 
---creates a table of available UIDs for the current file
---scans either the current file's directory, or the ordered-chapters-files playlist.
---set ordered_chapters_files to an empty string to scan the current directory
-local function create_uid_table(path, ordered_chapters_files)
-    local files
+--creates a uid table from the custom mpv-segment-linking file
+local function get_segments_metafile(path, fail_silently)
+    local file, err = open_file(path)
+    if not file then return not fail_silently and msg.error(err) end
 
-    --grabs the directory portion of the original path
-    local directory = ordered_chapters_files ~= "" and ordered_chapters_files or path
-    directory = directory:match("^(.+[/\\])[^/\\]+[/\\]?$") or ""
+    local directory = get_directory(path)
+    local header = file:read("*l")
+    local contents = file:read("*a")
+    file:close()
 
-    --grabs either the contents of the current directory, or the contents of the `ordered-chapters-files` option
-    if ordered_chapters_files == "" then
-        local open_dir = directory ~= "" and directory or mp.get_property("working-directory", "")
-        files = utils.readdir(open_dir, "files")
-        if not files then return msg.error("Could not read directory '"..open_dir.."'") end
+    local version = header:match("^# mpv%-segment%-linking v([.%d]+)")
+    msg.verbose(("loading segment file v%s %q"):format(version, path))
 
-    else
-        local pl, err = io.open(ordered_chapters_files, "r")
-        if not pl then return msg.error(err) end
+    local uid_table = {}
+    local file_uids = {}
 
-        files = {}
-        for line in pl:lines() do
-            --remove the newline character at the end of each line
-            table.insert(files, line:match("[^\r\n]+"));
+    for line in contents:gmatch("[^\n\r]+") do
+        msg.trace(line)
+        if (not line:find("^#") ) then
+            local type, uid = line:match("^(%a+)=([%dxabcdef ]+)$")
+
+            --if the uid contained invalid characters then skip line and print warning
+            if type and not uid then
+                msg.warn("invalid UID string in '"..line.."'")
+
+            --if the line is a `UID|PREV|NEXT=<uid>` statement
+            elseif type == "UID" then
+                uid_table[uid] = file_uids
+            elseif type == "PREV" then
+                file_uids.prev = uid;
+            elseif type == "NEXT" then
+                file_uids.next = uid
+
+            --if the line is a `<filename>` statement
+            else
+                file_uids = {}
+                file_uids.file = join_path(directory, line):gsub("[/\\].[/\\]", "/")
+            end
         end
     end
+
+    return uid_table
+end
+
+--creates a table of available UIDs for the current file
+local function get_segments_filesystem(path)
+    local directory = get_directory(path)
+    local open_dir = directory ~= "" and directory or mp.get_property("working-directory", "")
+    local files = utils.readdir(open_dir, "files")
+    if not files then return msg.error("Could not read directory '"..open_dir.."'") end
 
     --go through the file list and populate the table
     local files_segments = {}
@@ -76,7 +162,7 @@ local function create_uid_table(path, ordered_chapters_files)
         local file_ext = file:match("%.(%w+)$")
 
         if file_extensions[file_ext] then
-            file = utils.join_path(directory,file)
+            file = utils.join_path(directory,file):gsub("[/\\].[/\\]", "/")
             local uid, prev, next = get_uids(file)
             if uid ~= nil then
                 files_segments[uid] = {
@@ -91,6 +177,24 @@ local function create_uid_table(path, ordered_chapters_files)
     return files_segments
 end
 
+--returns the uids for the specified path from the table
+local function get_uids_from_table(path, uids)
+    path = path:gsub("^./", "")
+    path = path:gsub("\\", "/"):gsub("/./", "/")
+    path = decodeURI(path)
+    local in_working = get_directory(path) == WORKING_DIRECTORY
+
+    if not uids then return nil end
+    for uid, t in pairs(uids) do
+        local file = decodeURI( t.file:gsub("\\", "/") )
+        if  file == path or
+            in_working and (WORKING_DIRECTORY..file) == path
+        then
+            return uid, t.prev, t.next
+        end
+    end
+end
+
 --builds a timeline of linked segments for the current file
 local function main()
     --we will respect these options just as ordered chapters do
@@ -99,12 +203,27 @@ local function main()
     local path = mp.get_property("stream-open-filename", "")
     local file_ext = path:match("%.(%w+)$")
 
-    --if not a file that can contain segments, or if the file isn't available locally, then return
+    --if not a file that can contain segments then return
     if not file_extensions[file_ext] then return end
-    if not utils.file_info(path) then return end
 
-    --read the uid info for the current file
-    local uid, prev, next = get_uids(path)
+    local uid, prev, next
+    local err, fallback, segments
+
+    if o.metafile == "" then
+        uid, prev, next, err = get_uids(path, true)
+    else
+        segments = get_segments_metafile(o.metafile)
+        uid, prev, next = get_uids_from_table(path, segments)
+        if not uid then msg.error("Could not find matching UID for current file in '"..o.metafile.."'") ; return end
+    end
+
+    --a status of 2 is an open file error
+    if o.fallback_to_metafile and err then
+        fallback = get_directory(path)..o.default_metafile
+        segments = get_segments_metafile(fallback, true)
+        uid, prev, next = get_uids_from_table(path, segments)
+    end
+
     if not uid then return end
     if not prev and not next then return end
 
@@ -114,16 +233,13 @@ local function main()
 
     msg.info("File uses linked segments, will build edit timeline.")
 
-    local ordered_chapters_files = mp.get_property("ordered-chapters-files", "")
-
-    if ordered_chapters_files == "" then
-        msg.info("Will scan other files in the same directory to find referenced sources.")
+    if      (fallback)           then msg.info("Could not access directory, loading segment info from '"..fallback.."'.")
+    elseif  (o.metafile ~= "")   then msg.info("Loading segment info from '"..o.metafile.."'.")
     else
-        msg.info("Loading references from '"..ordered_chapters_files.."'")
+        msg.info("Will scan other files in the same directory to find referenced sources.")
+        segments = get_segments_filesystem(path)
     end
 
-    --creates a table of available UIDs for the current file
-    local segments = create_uid_table(path, ordered_chapters_files)
     if not segments then return msg.error("Aborting segment link.") end
     local list = {path}
 
@@ -141,10 +257,8 @@ local function main()
     end
 
     --we'll use the mpv edl specification to merge the files into one seamless timeline
-    local edl_path = "edl://"
-    for _, segment in ipairs(list) do
-        edl_path = edl_path..segment..",title=__mkv_segment;"
-    end
+    local separator = ",title="..SEGMENT_CHAPTER..";"
+    local edl_path = "edl://"..table.concat(list, separator)..separator
 
     mp.set_property("stream-open-filename", edl_path)
     FLAG_CHAPTER_FIX = true
@@ -170,7 +284,7 @@ local function fix_chapters()
 
     --remove chapters added by this script
     for i=#chapters, 1, -1 do
-        if chapters[i].title == "__mkv_segment" then
+        if chapters[i].title == SEGMENT_CHAPTER then
             table.remove(chapters, i)
         end
     end
@@ -179,7 +293,7 @@ local function fix_chapters()
     --we want to do this pass separately to the threshold pass in case the end of a previous chapter falls
     --within the threshold of an actually new (named) chapter.
     for i = #chapters, 2, -1 do
-        if chapters[i].title == chapters[i-1].title then
+        if chapters[i].title == chapters[i-1].title and chapters[i].title ~= "" then
             table.remove(chapters, i)
         end
     end
