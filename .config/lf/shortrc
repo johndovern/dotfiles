@@ -44,7 +44,8 @@ map gnd. cd ~/mnt/drives
 map gnh  cd ~/mnt/drives/toshext
 map gnm  cd ~/mnt/drives/tmaster
 map gnn  cd ~/mnt/drives/sandisk
-map gns  cd ~/mnt/drives/samhdd
+map gns  cd ~/mnt/backup/syncthing
+map gnS  cd ~/mnt/drives/samhdd
 map gnt  cd ~/mnt/tmp
 map gnu. cd ~/mnt/usb
 map gnu1 cd ~/mnt/usb/1

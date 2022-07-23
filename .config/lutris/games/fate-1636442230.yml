@@ -5,3 +5,4 @@ system:
   game_path: /home/anon/games
 wine:
   esync: false
+  fsync: false
