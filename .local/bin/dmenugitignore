@@ -17,32 +17,33 @@ compare_files() {
     while read -r OLD; do
       [[ "${OLD}" == "*" ]] && continue
       if [[ "${TEMP}" == "${OLD:1}" ]]; then
-        printf '%s\n' "${OLD}" >> "${GITIGNORE}"
+        printf '%s\n' "${OLD}" >>"${GITIGNORE}"
         MATCH=1
         continue
       fi
       if [[ "${TEMP}" == ".gitignore-old" ]] || [[ "${TEMP}" == ".gitignore-very-old" ]]; then
-        printf '%s\n' "${TEMP}" >> "${GITIGNORE}"
+        printf '%s\n' "${TEMP}" >>"${GITIGNORE}"
         MATCH=1
         break
       fi
-    done < "${GITIGNORE_OLD}"
+    done <"${GITIGNORE_OLD}"
     if [[ "${MATCH}" -eq 0 ]]; then
       NEW_ITEM=1
       case "$(printf '%s\n' "Track" "Ignore" | dmenu -i -p "New item -- ${DIR}/${TEMP} :")" in
-      Track)
-        printf '%s\n' "!${TEMP}" >> "${GITIGNORE}"
-        continue
-        ;;
-      Ignore)
-        printf '%s\n' "#${TEMP}" >> "${GITIGNORE}"
-        continue
-        ;;
-      *)
-        printf '%s\n' "#${TEMP}" >> "${GITIGNORE}"
-        continue
-        ;;
-    esac; fi
+        Track)
+          printf '%s\n' "!${TEMP}" >>"${GITIGNORE}"
+          continue
+          ;;
+        Ignore)
+          printf '%s\n' "#${TEMP}" >>"${GITIGNORE}"
+          continue
+          ;;
+        *)
+          printf '%s\n' "#${TEMP}" >>"${GITIGNORE}"
+          continue
+          ;;
+      esac
+    fi
   done < <(printf '%s\n' "${ITEMS_TMP[@]}")
   while read -r OLD; do
     FOUND=0
@@ -60,7 +61,7 @@ compare_files() {
     if [[ "${FOUND}" -eq 0 ]] && [[ ! "${OLD}" =~ "###" ]]; then
       sed -i "1 a ### < ${OLD} > deleted since last update ###" "${GITIGNORE}"
     fi
-  done < "${GITIGNORE_OLD}"
+  done <"${GITIGNORE_OLD}"
 }
 
 get_dir() {
@@ -81,11 +82,11 @@ get_opts() {
   while :; do
     if [[ $# -gt 0 ]]; then
       case "${1}" in
-        -d|--debug)
+        -d | --debug)
           DEBUG=1
           shift
           ;;
-        -D|--directory)
+        -D | --directory)
           shift
           case "${1}" in
             /*)
@@ -97,13 +98,9 @@ get_opts() {
               DIR="${1}"
               shift
               ;;
-            -h|--help)
+            -h | --help)
               usage
               return 1
-              ;;
-            -H|--home)
-              USE_HOME=1
-              shift
               ;;
             *)
               send_prog -e "Error" "${1} is ethier a relative path or an invalid option"
@@ -111,6 +108,10 @@ get_opts() {
               return 1
               ;;
           esac
+          ;;
+        -H | --home)
+          USE_HOME=1
+          shift
           ;;
         *)
           printf 'Unknown option passed: %s\n' "$1" >&2
@@ -141,10 +142,10 @@ opts_handler() {
 }
 
 prep_dir() {
-  [[ ! -e "${GITIGNORE}" ]] && printf '%s\n' "###" > "${GITIGNORE}"
+  [[ ! -e "${GITIGNORE}" ]] && printf '%s\n' "###" >"${GITIGNORE}"
   for THING in .* *; do
     case "${THING}" in
-      \*|.|..)
+      \* | . | ..)
         continue
         ;;
       *)
@@ -154,7 +155,7 @@ prep_dir() {
   done
   [[ -e "${GITIGNORE_OLD}" ]] && mv "${GITIGNORE_OLD}" "${DIR}/.gitignore-very-old"
   mv "${GITIGNORE}" "${GITIGNORE_OLD}"
-  printf '%s\n' "### Updated on $(date) ###" > "${GITIGNORE}"
+  printf '%s\n' "### Updated on $(date) ###" >"${GITIGNORE}"
 }
 
 send_prog() {
@@ -204,7 +205,7 @@ set_vars() {
 }
 
 usage() {
-  cat << EOF
+  cat <<EOF
   Usage:  dmenugitignore [OPTIONS]
 
   Options:

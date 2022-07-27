@@ -24,3 +24,5 @@ application/x-shellscript=text.desktop;file.desktop;nvim.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
 application/vnd.comicbook+zip=org.pwmt.zathura-cb.desktop;
 audio/x-mpegurl=mpv.desktop;
+text/x-emacs-lisp=nvim.desktop;
+text/x-patch=text.desktop;

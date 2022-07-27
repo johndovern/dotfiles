@@ -1,0 +1,6 @@
+### Updated on Tue Jul 26 06:48:34 PM PDT 2022 ###
+*
+!.gitignore
+!config.el
+!init.el
+!packages.el
