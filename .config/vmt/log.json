@@ -1,6 +1,35 @@
 {
+    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
+        "watching": "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv",
+        "title": "Seasonal Shows - Lycoris Recoil",
+        "episodes": [
+            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
+            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
+            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
+            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
+            "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv"
+        ]
+    },
+    "Barakamon [1080]": {
+        "watching": "[Cleo]Barakamon_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+        "title": "Barakamon",
+        "episodes": [
+            "[Cleo]Barakamon_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_03_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_04_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_06_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_07_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_08_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_09_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_11_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Barakamon_-_12_(Dual Audio_10bit_BD1080p_x265).mkv"
+        ]
+    },
     "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! [BD 1280x720]": {
-        "watching": "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 05 (BD 1280x720).mp4",
+        "watching": "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 07 (BD 1280x720).mp4",
         "title": "Maji de Watashi ni Koi Shinasai!!",
         "episodes": [
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 01 (BD 1280x720).mp4",
@@ -15,6 +44,61 @@
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 10 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 11 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 12 (BD 1280x720).mp4"
+        ]
+    },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER": {
+        "watching": "S02E04 - The Cocoon of Caprice IV.mkv",
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S02E01 - The Cocoon of Caprice I.mkv",
+            "S02E02 - The Cocoon of Caprice II.mkv",
+            "S02E03 - The Cocoon of Caprice III.mkv",
+            "S02E04 - The Cocoon of Caprice IV.mkv",
+            "S02E05 - The Seed of Blanc Aile I.mkv",
+            "S02E06 - The Seed of Blanc Aile II.mkv",
+            "S02E07 - The Seed of Blanc Aile III.mkv",
+            "S02E08 - The Seed of Blanc Aile IV.mkv",
+            "S02E09 - The Seed of Blanc Aile V.mkv",
+            "S02E10 - The Seed of Blanc Aile VI.mkv"
+        ]
+    },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Movies": {
+        "watching": "Grisaia no Meikyuu Caprice no Mayu 0 1080p BDRip 10 bits DD x265-EMBER.mkv",
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Movies",
+        "episodes": [
+            "Grisaia Phantom Trigger The Animation - 01. SORD 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia Phantom Trigger The Animation - 02. Soul Speed 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia Phantom Trigger The Animation - 03. Stargazer 1080p BDRip 10 bits DD x265-EMBER.mkv",
+            "Grisaia no Meikyuu Caprice no Mayu 0 1080p BDRip 10 bits DD x265-EMBER.mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Hataraku Maou-sama S2": {
+        "watching": "[SubsPlease] Hataraku Maou-sama S2 - 03 (1080p) [4D12B3E9].mkv",
+        "title": "Seasonal Shows - Hataraku Maou-sama S2",
+        "episodes": [
+            "[SubsPlease] Hataraku Maou-sama S2 - 01 (1080p) [9A121B15].mkv",
+            "[SubsPlease] Hataraku Maou-sama S2 - 02 (1080p) [ED36FF21].mkv",
+            "[SubsPlease] Hataraku Maou-sama S2 - 03 (1080p) [4D12B3E9].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Yofukashi no Uta": {
+        "watching": "[SubsPlease] Yofukashi no Uta - 04 (1080p) [805375AB].mkv",
+        "title": "Seasonal Shows - Yofukashi no Uta",
+        "episodes": [
+            "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv",
+            "[SubsPlease] Yofukashi no Uta - 02 (1080p) [5647C219].mkv",
+            "[SubsPlease] Yofukashi no Uta - 03 (1080p) [1959489E].mkv",
+            "[SubsPlease] Yofukashi no Uta - 04 (1080p) [805375AB].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Mamahaha no Tsurego ga Motokano datta": {
+        "watching": "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 04 (1080p) [D53136BB].mkv",
+        "title": "Seasonal Shows - Mamahaha no Tsurego ga Motokano datta",
+        "episodes": [
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 01 (1080p) [E67976B8].mkv",
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv",
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 03 (1080p) [86D5FF7B].mkv",
+            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 04 (1080p) [D53136BB].mkv"
         ]
     },
     "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Kajitsu + Specials 2014 1080p BDRip 10 bits DD x265-EMBER": {
@@ -66,16 +150,6 @@
             "[Cleo]Tenjou_Tenge_-_24_(Dual Audio_10bit_BD1080p_x265).mkv"
         ]
     },
-    "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)": {
-        "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 04 (1080p) [6675A180].mkv",
-        "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 (1080p)",
-        "episodes": [
-            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 01 (1080p) [3990D1FD].mkv",
-            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv",
-            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 03 (1080p) [BC5379B5].mkv",
-            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 04 (1080p) [6675A180].mkv"
-        ]
-    },
     "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep01-13": {
         "watching": "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep13_(A9BDAC59).mkv",
         "title": "__They_Are_My_Noble_Masters_DVD_Ep01-13",
@@ -112,25 +186,6 @@
             "[SubsPlease] Engage Kiss - 04 (1080p) [493E7C49].mkv"
         ]
     },
-    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
-        "watching": "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
-        "title": "Seasonal Shows - Lycoris Recoil",
-        "episodes": [
-            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
-            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
-            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
-            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv"
-        ]
-    },
-    "[SubsPlease] Seasonal Shows/Yofukashi no Uta": {
-        "watching": "[SubsPlease] Yofukashi no Uta - 03 (1080p) [1959489E].mkv",
-        "title": "Seasonal Shows - Yofukashi no Uta",
-        "episodes": [
-            "[SubsPlease] Yofukashi no Uta - 01 (1080p) [AC4D9917].mkv",
-            "[SubsPlease] Yofukashi no Uta - 02 (1080p) [5647C219].mkv",
-            "[SubsPlease] Yofukashi no Uta - 03 (1080p) [1959489E].mkv"
-        ]
-    },
     "[SubsPlease] Seasonal Shows/Soredemo Ayumu wa Yosetekuru": {
         "watching": "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 03 (1080p) [7AC7AECA].mkv",
         "title": "Seasonal Shows - Soredemo Ayumu wa Yosetekuru",
@@ -138,37 +193,6 @@
             "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 01 (1080p) [467867F2].mkv",
             "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 02 (1080p) [B9A8A31B].mkv",
             "[SubsPlease] Soredemo Ayumu wa Yosetekuru - 03 (1080p) [7AC7AECA].mkv"
-        ]
-    },
-    "Bakuman/Bakuman S1 [1080p 10bit HEVC BDRip]": {
-        "watching": "Bakuman - 04 (BD 1920x1080 x265 FLAC).mkv",
-        "title": "Bakuman - Bakuman S1",
-        "episodes": [
-            "Bakuman - 01 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 02 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 03 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 04 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 05 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 06 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 07 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 08 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 09 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 10 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 11 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 12 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 13 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 14 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 15 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 16 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 17 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 18 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 19 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 20 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 21 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 22 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 23 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 24 (BD 1920x1080 x265 FLAC).mkv",
-            "Bakuman - 25 (BD 1920x1080 x265 FLAC).mkv"
         ]
     },
     "FLCL.S01.REPACK.Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].mkv": {
@@ -181,14 +205,6 @@
             "FLCL.S01E04.Furi.Kiri.(Full.Swing).Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[ED096AB9].mkv",
             "FLCL.S01E05.Brittle.Bullet.Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[F753D515].mkv",
             "FLCL.S01E06.FLCLimax.Bluray.1080p-Hi10p.x264.FLAC2.0.Dual.[SRLS].[8A79B2C8].mkv"
-        ]
-    },
-    "[SubsPlease] Seasonal Shows/Hataraku Maou-sama S2": {
-        "watching": "[SubsPlease] Hataraku Maou-sama S2 - 02 (1080p) [ED36FF21].mkv",
-        "title": "Seasonal Shows - Hataraku Maou-sama S2",
-        "episodes": [
-            "[SubsPlease] Hataraku Maou-sama S2 - 01 (1080p) [9A121B15].mkv",
-            "[SubsPlease] Hataraku Maou-sama S2 - 02 (1080p) [ED36FF21].mkv"
         ]
     },
     "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER/OVA": {
@@ -215,15 +231,6 @@
             "S01E10-Multiplayer has the advantages of multiplayer [427890DF].mkv",
             "S01E11-Sometimes just one option can change everything [76656C98].mkv",
             "S01E12-Equipment for girls has special effects [CE0E2BD1].mkv"
-        ]
-    },
-    "[SubsPlease] Seasonal Shows/Mamahaha no Tsurego ga Motokano datta": {
-        "watching": "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 03 (1080p) [86D5FF7B].mkv",
-        "title": "Seasonal Shows - Mamahaha no Tsurego ga Motokano datta",
-        "episodes": [
-            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 01 (1080p) [E67976B8].mkv",
-            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 02 (1080p) [EEF974B7].mkv",
-            "[SubsPlease] Mamahaha no Tsurego ga Motokano datta - 03 (1080p) [86D5FF7B].mkv"
         ]
     },
     "[BlurayDesuYo] Amagi Brilliant Park - Batch (BD 1920x1080 10bit FLAC)": {
@@ -702,135 +709,6 @@
             "[Reza] Oreimo - S02OVA01.mkv",
             "[Reza] Oreimo - S02OVA02.mkv",
             "[Reza] Oreimo - S02OVA03.mkv"
-        ]
-    },
-    "[Moozzi2] Paniponi Dash! BD-BOX - TV + OVA": {
-        "watching": "[Moozzi2] Paniponi Dash! - 01 (BD 1920x1080 x.264 FLACx2).mkv",
-        "title": "Paniponi Dash! BD-BOX - TV + OVA",
-        "episodes": [
-            "[Moozzi2] Paniponi Dash! - 01 (BD 1920x1080 x.264 FLACx2).mkv",
-            "[Moozzi2] Paniponi Dash! - 02 (BD 1920x1080 x.264 FLACx2).mkv",
-            "[Moozzi2] Paniponi Dash! - 03 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 04 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 05 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 06 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 07 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 08 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 09 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 10 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 11 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 12 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 13 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 14 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 15 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 16 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 17 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 18 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 19 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 20 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 21 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 22 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 23 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 24 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 25 (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 26 END (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! - 27 OVA (BD 1920x1080 x.264 Flac).mkv",
-            "[Moozzi2] Paniponi Dash! BD-BOX - TV + OVA.md5"
-        ]
-    },
-    "[Reza] Oreimo/Season 01": {
-        "watching": "[Reza] Oreimo - S01E01.mkv",
-        "title": "Oreimo - Season 01",
-        "episodes": [
-            "[Reza] Oreimo - S01E01.mkv",
-            "[Reza] Oreimo - S01E02.mkv",
-            "[Reza] Oreimo - S01E03.mkv",
-            "[Reza] Oreimo - S01E04.mkv",
-            "[Reza] Oreimo - S01E05.mkv",
-            "[Reza] Oreimo - S01E06.mkv",
-            "[Reza] Oreimo - S01E07.mkv",
-            "[Reza] Oreimo - S01E08.mkv",
-            "[Reza] Oreimo - S01E09.mkv",
-            "[Reza] Oreimo - S01E10.mkv",
-            "[Reza] Oreimo - S01E11.mkv",
-            "[Reza] Oreimo - S01E12.mkv",
-            "[Reza] Oreimo - S01OVA01.mkv",
-            "[Reza] Oreimo - S01OVA02.mkv",
-            "[Reza] Oreimo - S01OVA03.mkv",
-            "[Reza] Oreimo - S01OVA04.mkv"
-        ]
-    },
-    "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen [WEB][720p]": {
-        "watching": "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 02 [720p][01248A01].mkv",
-        "title": "Saiki Kusuo no Psi-nan - Shidou-hen",
-        "episodes": [
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 01 [720p][081F8619].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 02 [720p][01248A01].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 03 [720p][B51D7853].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 04 [720p][612E3C5B].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 05 [720p][BEF1F47A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 06 [720p][48581B6D].mkv"
-        ]
-    },
-    "[Davinci] Saiki Kusuo no Psi-nan 2 [BD 1080p 10bit qAAC]": {
-        "watching": "[Davinci] Saiki Kusuo no Psi-nan 2 - 24 [BD 1080p qAAC][893BC9AB].mkv",
-        "title": "Saiki Kusuo no Psi-nan 2",
-        "episodes": [
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 01 [BD 1080p qAAC][17F3C807].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 02 [BD 1080p qAAC][62D350F4].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 03 [BD 1080p qAAC][542D1379].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 04 [BD 1080p qAAC][DF8849F4].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 05 [BD 1080p qAAC][A670E98A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 06 [BD 1080p qAAC][DBB23F33].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 07 [BD 1080p qAAC][A3F1B7EA].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 08 [BD 1080p qAAC][AA926449].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 09 [BD 1080p qAAC][EA82A938].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 10 [BD 1080p qAAC][A200E6BF].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 11 [BD 1080p qAAC][5FF30A7C].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 12 [BD 1080p qAAC][3700DD5F].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 13 [BD 1080p qAAC][2C7A7A2B].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 14 [BD 1080p qAAC][E284C22C].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 15 [BD 1080p qAAC][4BE53DC7].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 16 [BD 1080p qAAC][A3E81556].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 17 [BD 1080p qAAC][26F4A011].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 18 [BD 1080p qAAC][56BB2F1F].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 19 [BD 1080p qAAC][2481D84D].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 20 [BD 1080p qAAC][95D4BA0A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 21 [BD 1080p qAAC][760A4038].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 22 [BD 1080p qAAC][ACC09C34].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 23 [BD 1080p qAAC][76ECCD38].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 24 [BD 1080p qAAC][893BC9AB].mkv"
-        ]
-    },
-    "KILL la KILL [BD 720p HEVC OPUS]": {
-        "watching": "KILL la KILL - 02 [BD 720p HEVC OPUS] [25D38561].mkv",
-        "title": "KILL la KILL",
-        "episodes": [
-            "KILL la KILL - 01 [BD 720p HEVC OPUS] [7F438EB2].mkv",
-            "KILL la KILL - 02 [BD 720p HEVC OPUS] [25D38561].mkv",
-            "KILL la KILL - 03 [BD 720p HEVC OPUS] [EC0C17AA].mkv",
-            "KILL la KILL - 04 [BD 720p HEVC OPUS] [929686D3].mkv",
-            "KILL la KILL - 05 [BD 720p HEVC OPUS] [2A7DA17E].mkv",
-            "KILL la KILL - 06 [BD 720p HEVC OPUS] [74252F4B].mkv",
-            "KILL la KILL - 07 [BD 720p HEVC OPUS] [AB7709F3].mkv",
-            "KILL la KILL - 08 [BD 720p HEVC OPUS] [58AD3268].mkv",
-            "KILL la KILL - 09 [BD 720p HEVC OPUS] [3CCD15F4].mkv",
-            "KILL la KILL - 10 [BD 720p HEVC OPUS] [762274E3].mkv",
-            "KILL la KILL - 11 [BD 720p HEVC OPUS] [64C7C350].mkv",
-            "KILL la KILL - 12 [BD 720p HEVC OPUS] [6839FE93].mkv",
-            "KILL la KILL - 13 [BD 720p HEVC OPUS] [D1D72501].mkv",
-            "KILL la KILL - 14 [BD 720p HEVC OPUS] [E96FBF48].mkv",
-            "KILL la KILL - 15 [BD 720p HEVC OPUS] [3FCE05C1].mkv",
-            "KILL la KILL - 16 [BD 720p HEVC OPUS] [A407ED6B].mkv",
-            "KILL la KILL - 17 [BD 720p HEVC OPUS] [E2F8F5B6].mkv",
-            "KILL la KILL - 18 [BD 720p HEVC OPUS] [7C1CAD80].mkv",
-            "KILL la KILL - 19 [BD 720p HEVC OPUS] [5E0D444F].mkv",
-            "KILL la KILL - 20 [BD 720p HEVC OPUS] [BD3CE9A9].mkv",
-            "KILL la KILL - 21 [BD 720p HEVC OPUS] [760961A7].mkv",
-            "KILL la KILL - 22 [BD 720p HEVC OPUS] [C268E660].mkv",
-            "KILL la KILL - 23 [BD 720p HEVC OPUS] [D46CDFCF].mkv",
-            "KILL la KILL - 24 [BD 720p HEVC OPUS] [9460CBBD].mkv",
-            "KILL la KILL - 25 [BD 720p HEVC OPUS] [06762103].mkv"
         ]
     }
 }

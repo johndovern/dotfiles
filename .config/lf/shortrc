@@ -21,8 +21,8 @@ map gcy  cd ~/.config/yt-dlp
 map gcz  cd ~/.config/zsh
 
 # ~/.emacs.d or ~/.doom.d
-map ge.  cd ~/.emacs.d
-map ged  cd ~/.doom.d
+map ge.  cd ~/.config/emacs
+map ged  cd ~/.config/doom
 
 # ~/.local
 map gl.  cd ~/.local

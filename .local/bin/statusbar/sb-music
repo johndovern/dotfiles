@@ -20,7 +20,7 @@ cut_song() {
 filter() {
   if mpc | grep -q "\[paused\]" ; then
     SONG="Paused"
-  elif mpc | grep -q "volume: n/a   r" ; then
+  elif mpc | grep -q "volume: n/a" ; then
     SONG="mpc"
   else
     SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"

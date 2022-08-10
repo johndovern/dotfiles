@@ -84,9 +84,9 @@ cmd open ${{
     text/*)
         pidof -q emacs || {
             setsid -f emacs --daemon >/dev/null 2>&1 &
-            sleep 2.7
+            sleep 0.6
         }
-        emacsclient -c -a "" -n $fx
+        emacsclient -c -a '' -n $fx
         ;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
