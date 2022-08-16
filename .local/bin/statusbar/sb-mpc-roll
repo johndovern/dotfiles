@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while [[ "$(pgrep -c sb-mpc-roll)" -gt 1 ]] ; do
+    kill $(pgrep -o sb-mpc-roll)
+done
+
+while :; do
+    kill -45 $(pidof dwmblocks)
+    sleep 1
+done

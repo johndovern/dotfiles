@@ -22,7 +22,7 @@ compare_files() {
         continue
       fi
       if [[ "${TEMP}" == ".gitignore-old" ]] || [[ "${TEMP}" == ".gitignore-very-old" ]]; then
-        printf '%s\n' "${TEMP}" >>"${GITIGNORE}"
+        printf '%s\n' "#${TEMP}" >>"${GITIGNORE}"
         MATCH=1
         break
       fi

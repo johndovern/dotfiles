@@ -1,16 +1,19 @@
-### Updated on Sat Apr 30 08:44:32 PM PDT 2022 ###
+### Updated on Tue Aug 16 04:07:50 PM PDT 2022 ###
+### < !mpv-quit-pick > deleted since last update ###
+### < !mpv-quit-latest > deleted since last update ###
 *
 !.gitignore
 !mpv-active-sockets
 !mpv-communicate
 !mpv-currently-playing
 !mpv-get-property
+!mpv-music
 !mpv-next
 !mpv-opts
 !mpv-pick
 !mpv-prev
-!mpv-quit-latest
-!mpv-quit-pick
+!mpv-quit
 !mpv-rename
 !mpv-seek
 !mpv-toggle
+!umpv

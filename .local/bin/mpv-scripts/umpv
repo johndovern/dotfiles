@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+
+if [ -S "${SOCKET}" ]; then
+  while :; do
+    if [ $# -gt 0 ]; then
+      mpv-communicate --umpv \
+        '{ "command": ["loadfile", "'"$1"'", "append-play"] }' >/dev/null 2>&1 && \
+        notify-send "Video Added" "$1"
+        if mpv-communicate --umpv '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
+          mpv-communicate --umpv '{ "command": ["playlist-next"] }'
+          sleep 0.5
+          mpv-toggle --umpv
+          sleep 5
+        fi
+      shift
+    else
+      break
+    fi
+  done
+else
+  mpv --idle=yes \
+    --script-opts=mpvSockets-umpv=yes \
+    --loop-playlist=no \
+    --keep-open=yes "$@" >/dev/null 2>&1 &
+fi
+exit
