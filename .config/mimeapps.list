@@ -31,3 +31,4 @@ text/x-python=text.desktop;
 text/x-chdr=nvim.desktop;
 text/x-log=nvim.desktop;
 text/org=text.desktop;
+text/markdown=text.desktop;

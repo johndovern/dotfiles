@@ -5,6 +5,7 @@ map ,ce  cred
 map ,ch  chmod
 map ,cs  push $curl<space>-LJO<space>
 map ,cx  chmodx
+map ,e   $dmacs "$PWD"
 map ,fm  fmpv
 map ,gi  %dmenugitignore
 map ,gI  get_info

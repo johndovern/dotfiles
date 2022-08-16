@@ -1,17 +1,84 @@
 {
-    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
-        "watching": "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv",
-        "title": "Seasonal Shows - Lycoris Recoil",
+    "Toaru Kagaku no Accelerator [BD]": {
+        "watching": "[Cleo]Toaru_Kagaku_no_Accelerator_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
+        "title": "Toaru Kagaku no Accelerator",
         "episodes": [
-            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
-            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
-            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
-            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
-            "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv"
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_03_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_04_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_06_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_07_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_08_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_09_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_11_(Dual Audio_10bit_BD1080p_x265).mkv",
+            "[Cleo]Toaru_Kagaku_no_Accelerator_-_12_(Dual Audio_10bit_BD1080p_x265).mkv"
+        ]
+    },
+    "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[YURI] A Certain Magical Index ll (Toaru Majutsu no Index ll) (Dual Audio) [BD 1080p x264 10bit FLAC]": {
+        "watching": "[YURI] A Certain Magical Index ll S02E01 [BD 1080p x264 10bit FLAC].mkv",
+        "title": "Toaru Majutsu no Index - A Certain Magical Index ll (Toaru Majutsu no Index ll) (Dual Audio)",
+        "episodes": [
+            "[YURI] A Certain Magical Index ll S02E01 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E02 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E03 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E04 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E05 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E06 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E07 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E08 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E09 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E10 [BD 1080p x264 10bit FLAC]v2.mkv",
+            "[YURI] A Certain Magical Index ll S02E11 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E12 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E13 [BD 1080p x264 10bit FLAC]v2.mkv",
+            "[YURI] A Certain Magical Index ll S02E14 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E15 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E16 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E17 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E18 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E19 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E20 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E21 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E22 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E23 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index ll S02E24 [BD 1080p x264 10bit FLAC].mkv"
+        ]
+    },
+    "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[YURI] A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio) [BD 1080p x264 10bit FLAC]": {
+        "watching": "[YURI] A Certain Magical Index  S01E24 [BD 1080p x264 10bit FLAC].mkv",
+        "title": "Toaru Majutsu no Index - A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio)",
+        "episodes": [
+            "[YURI] A Certain Magical Index  S01E01 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E02 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E03 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E04 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E05 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E06 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E07 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E08 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E09 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E10 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E11 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E12 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E13 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E14 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E15 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E16 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E17 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E18 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E19 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E20 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E21 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E22 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E23 [BD 1080p x264 10bit FLAC].mkv",
+            "[YURI] A Certain Magical Index  S01E24 [BD 1080p x264 10bit FLAC].mkv"
         ]
     },
     "Barakamon [1080]": {
-        "watching": "[Cleo]Barakamon_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
+        "watching": "[Cleo]Barakamon_-_12_(Dual Audio_10bit_BD1080p_x265).mkv",
         "title": "Barakamon",
         "episodes": [
             "[Cleo]Barakamon_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
@@ -29,7 +96,7 @@
         ]
     },
     "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! [BD 1280x720]": {
-        "watching": "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 07 (BD 1280x720).mp4",
+        "watching": "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 12 (BD 1280x720).mp4",
         "title": "Maji de Watashi ni Koi Shinasai!!",
         "episodes": [
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 01 (BD 1280x720).mp4",
@@ -44,6 +111,29 @@
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 10 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 11 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 12 (BD 1280x720).mp4"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2": {
+        "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 06 (1080p) [2FE6A8D7].mkv",
+        "title": "Seasonal Shows - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2",
+        "episodes": [
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 01 (1080p) [3990D1FD].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 02 (1080p) [D960F5E0].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 03 (1080p) [BC5379B5].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 04 (1080p) [6675A180].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 05 (1080p) [4C6F8674].mkv",
+            "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 06 (1080p) [2FE6A8D7].mkv"
+        ]
+    },
+    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
+        "watching": "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv",
+        "title": "Seasonal Shows - Lycoris Recoil",
+        "episodes": [
+            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
+            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
+            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
+            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
+            "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv"
         ]
     },
     "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER": {
@@ -425,36 +515,6 @@
             "The Irregular at Magic High School - S01E24v3  [BDRip 1920x1080 HEVC AAC-FLAC] [Dual-Audio].mkv",
             "The Irregular at Magic High School - S01E25v3  [BDRip 1920x1080 HEVC AAC-FLAC] [Dual-Audio].mkv",
             "The Irregular at Magic High School - S01E26v3  [BDRip 1920x1080 HEVC AAC-FLAC] [Dual-Audio].mkv"
-        ]
-    },
-    "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[YURI] A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio) [BD 1080p x264 10bit FLAC]": {
-        "watching": "[YURI] A Certain Magical Index  S01E18 [BD 1080p x264 10bit FLAC].mkv",
-        "title": "Toaru Majutsu no Index - A Certain Magical Index (Toaru Majutsu no Index) (Dual Audio)",
-        "episodes": [
-            "[YURI] A Certain Magical Index  S01E01 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E02 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E03 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E04 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E05 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E06 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E07 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E08 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E09 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E10 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E11 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E12 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E13 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E14 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E15 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E16 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E17 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E18 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E19 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E20 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E21 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E22 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E23 [BD 1080p x264 10bit FLAC].mkv",
-            "[YURI] A Certain Magical Index  S01E24 [BD 1080p x264 10bit FLAC].mkv"
         ]
     },
     "[Judas] Toaru Majutsu no Index [Seasons 1-3 + Movie + Specials] [BD1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[Judas] Toaru Majutsu no Index - S1": {

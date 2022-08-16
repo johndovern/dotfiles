@@ -17,6 +17,20 @@ cut_song() {
   done < <(printf '%s' "${SONG}")
 }
 
+roll_text() {
+  SONG="$(mpv-get-property "${SOCKET}" "media-title")"
+  TIME="$(awk '{print int($1)}' /proc/uptime)"
+  LENGTH=${#SONG}
+  TIME=$((TIME % LENGTH))
+  TIME_OUT=$((LENGTH - 15))
+  while [[ $TIME -gt $TIME_OUT ]]; do
+    TIME=$((TIME - TIME_OUT))
+  done
+  printf '[%s]\n' "${SONG:${TIME}:15}"
+
+  return 0
+}
+
 mpv_display() {
   case "${SOCKET:-NOT_PLAYING}" in
     NOT_PLAYING)
@@ -30,25 +44,16 @@ mpv_display() {
           ;;
         *)
           SONG="$(mpv-get-property "${SOCKET}" "media-title")"
+          [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll >/dev/null 2>&1 &
+          [[ ${#SONG} -gt 15 ]] && return 0
           SONG="$(cut_song | sed 's/\s\+$//g')"
-          # SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
           PAUSED=''
           ;;
       esac
       ;;
   esac
-  # if [[ -z "${SONG}" ]]; then
-    printf '%s\n' "[${SONG}${PAUSED}]"
-  # else
-  #   LENGTH="${#SONG}"
-  #   L=0
-  #   while :; do
-  #     [[ "${LENGTH}" -gt $((LENGTH-15)) ]] && L=0
-  #     clear
-  #     printf '%s' "${SONG:${L}:15}"
-  #     L=$((L+1))
-  #   done
-  # fi
+  kill $(pgrep sb-mpv-roll) >/dev/null 2>&1
+  printf '%s\n' "[${SONG}${PAUSED}]"
 }
 
 if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
@@ -84,6 +89,14 @@ case $BLOCK_BUTTON in
     ;;
   *)
     set_socket
-    mpv_display
+    pgrep sb-mpv-roll >/dev/null 2>&1 || {
+      mpv_display
+      exit
+    }
+    [[ -z "$SOCKET" ]] && {
+      mpv_display
+      exit
+    }
+    roll_text
     ;;
 esac

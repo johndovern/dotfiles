@@ -1,10 +1,9 @@
-### Updated on Tue Jul 12 08:11:25 PM PDT 2022 ###
+### Updated on Tue Aug 16 10:30:47 AM PDT 2022 ###
 ### < .gitignore-very-old > deleted since last update ###
 ### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
 #.gitignore.bak
-.gitignore-old
 .gitignore-very-old
 !ani-man
 #ani-man.~1~
@@ -21,10 +20,12 @@
 #cubocore
 #dconf
 !dolphinrc
+!doom
 !dunst
 !dwmblocks
 !easyeffects
 #Electron
+!emacs
 !fontconfig
 #fontforge
 #GIMP
@@ -46,6 +47,7 @@
 !kmonad
 #knfsshare
 #kservicemenurc
+#kwalletrc
 !lf
 #libfm
 !libreoffice
@@ -102,6 +104,7 @@
 #VirtualBox
 #vlc
 !vmt
+#vmt.~1~
 #VSCodium
 !vsnip
 !wal

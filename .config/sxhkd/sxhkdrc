@@ -67,7 +67,7 @@ super + shift + r
 # super + shift + o bound in dwm
 
 super + p
-  mpc-toggle
+  pkill sb-music ; pkill sb-mpc-roll ; mpc-toggle
 
 super + shift + p
   mpc pause ; pauseallmpv ; kill -55 $(pidof dwmblocks) ; kill -56 $(pidof dwmblocks)
@@ -159,13 +159,13 @@ super + shift + m
   pamixer -t; kill -44 $(pidof dwmblocks)
 
 super + comma
-  mpc prev
+  pkill sb-music ; pkill sb-mpc-roll ; mpc prev ;
 
 super + shift + comma
   mpc seek 0%
 
 super + period
-  mpc next
+  pkill sb-music ; pkill sb-mpc-roll ; mpc next
 
 super + shift + period
   mpc repeat

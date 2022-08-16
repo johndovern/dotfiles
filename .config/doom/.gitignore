@@ -1,0 +1,13 @@
+### Updated on Tue Aug 16 10:31:06 AM PDT 2022 ###
+*
+!.gitignore
+#backup
+!config.el
+#config.org
+!custom.el
+!doom-emacs-dash.png
+!eshell
+!init.el
+!packages.el
+!snippets
+#test
