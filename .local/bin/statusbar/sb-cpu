@@ -9,6 +9,6 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-cpu=$(sensors | awk '/Tctl/ {print $2}' | sed -e 's/+//')
+cpu=$(sensors | awk '/CPU/ {print $2}' | sed -e 's/+//')
 
 printf '%s\n' "[$cpu]"
