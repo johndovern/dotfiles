@@ -103,7 +103,7 @@
   :hook (after-init . global-emojify-mode))
 
 (setq doom-font (font-spec :size 18)
-      doom-variable-pitch-font (font-spec :size 18)
+      ;; doom-variable-pitch-font (font-spec :size 18)
       doom-big-font (font-spec :size 24))
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -136,14 +136,14 @@
 
 (setq display-line-numbers-type 'relative)
 
-(custom-set-faces
- '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
- '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
- '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.6))))
- '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.5))))
- '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.4))))
- '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.3))))
- '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.2)))))
+;; (custom-set-faces
+;;  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "Monospace"))))
+;;  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
+;;  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.6))))
+;;  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.5))))
+;;  '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.4))))
+;;  '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.3))))
+;;  '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.2)))))
 
 (set-face-attribute 'mode-line nil :font "Monospace")
 (setq doom-modeline-height 25     ;; sets modeline height
@@ -157,7 +157,7 @@
   (setq neo-smart-open t
         neo-window-fixed-size nil))
 (after! doom-themes
-(setq doom-neotree-enable-variable-pitch t))
+  (setq doom-neotree-enable-variable-pitch nil))
 (map! :leader
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
@@ -189,7 +189,7 @@
       :desc "Eshell" "e s" #'eshell
       :desc "Eshell popup toggle" "e t" #'+eshell/toggle
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
-      :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
+      :desc "Vterm popup toggle" "t t" #'+vterm/toggle)
 
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
@@ -209,7 +209,12 @@
 
 (+global-word-wrap-mode +1)
 
-(add-hook 'c-mode-hook (setq +format-on-save-enabled-modes nil))
+(defun my-c-hook-settings ()
+  (setq +format-on-save-enabled-modes nil)
+  #'lsp)
+
+(add-hook 'c-mode-hook #'my-c-hook-settings)
+
 (map! :after evil
       :map evil-normal-state-map
       "ZZ"      #'doom/save-and-kill-buffer
@@ -220,7 +225,27 @@
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
       :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode)
 
+(map! :leader
+      :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
+      :desc "Delete frame" "q q" #'delete-frame)
+
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
+
+(defun sxhkd-restart-on-save ()
+    "Restart sxhkd daemon"
+    ;; (when (eq major-mode 'conf-space-mode)
+      (if (string= buffer-file-name "/home/anon/.config/sxhkd/sxhkdrc")
+          (shell-command "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
+
+(defun sxhkd-hook ()
+  "Add hook for sxhkd file"
+  (add-hook 'after-save-hook #'sxhkd-restart-on-save))
+
+(add-hook 'conf-space-mode-hook #'sxhkd-hook)
+;; (add-hook 'after-save-hook #'sxhkd-restart-on-save)
+
+(setq company-minimum-prefix-length 2
+      company-idle-delay 0.0) ;; default is 0.2

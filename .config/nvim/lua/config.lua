@@ -295,3 +295,8 @@ lspconfig.bashls.setup({
     capabilities = cmp_capabilities,
     on_attach = custom_attach,
 })
+
+-- TESTING
+require('anon.settings')
+require('anon.keybinds')
+require('anon.autocmds')

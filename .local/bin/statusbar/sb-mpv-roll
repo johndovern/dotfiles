@@ -2,11 +2,19 @@
 
 while [[ "$(pgrep -c sb-mpv-roll)" -gt 1 ]] ; do
     kill $(pgrep -o sb-mpv-roll)
-    # pgrep -o sb-mpv-roll
 done
 
-while :; do
-    kill -56 $(pidof dwmblocks)
-    echo test
-    sleep 1
-done
+case "${1}" in
+    -m)
+        while :; do
+            kill -55 $(pidof dwmblocks)
+            sleep 1
+        done
+        ;;
+    *)
+        while :; do
+            kill -56 $(pidof dwmblocks)
+            sleep 1
+        done
+        ;;
+esac

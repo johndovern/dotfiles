@@ -32,3 +32,4 @@ text/x-chdr=nvim.desktop;
 text/x-log=nvim.desktop;
 text/org=text.desktop;
 text/markdown=text.desktop;
+text/x-lua=text.desktop;
