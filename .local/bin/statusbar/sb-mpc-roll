@@ -1,10 +1,13 @@
 #!/bin/bash
 
-while [[ "$(pgrep -c sb-mpc-roll)" -gt 1 ]] ; do
-    kill $(pgrep -o sb-mpc-roll)
-done
+[[ "$(pgrep -c sb-mpc-roll)" -gt 1 ]] && {
+    for pid in pgrep sb-mpc-roll ; do
+        [[ "$pid" == "$$" ]] && continue
+        kill "$pid"
+    done
+}
 
-while :; do
-    kill -45 $(pidof dwmblocks)
+while : ; do
+    kill -45 "$(pidof dwmblocks)"
     sleep 1
 done
