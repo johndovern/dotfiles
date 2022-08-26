@@ -2,8 +2,8 @@
 ### < .gitignore-very-old > deleted since last update ###
 *
 !.gitignore
-.gitignore-old
-.gitignore-very-old
+#.gitignore-old
+#.gitignore-very-old
 #autoload
 !init.vim
 !lua
