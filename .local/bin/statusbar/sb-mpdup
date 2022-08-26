@@ -4,7 +4,6 @@
 # music player's status. mpd must be running on X's start for this to work.
 
 refresh() {
-	pkill sb-music
 	pkill sb-mpc-roll
 	kill -45 "$(pidof "${STATUSBAR:-dwmblocks}")"
 }
