@@ -14,6 +14,20 @@ cut_song() {
   done < <(printf '%s' "${SONG}")
 }
 
+roll_text() {
+  SONG="$(mpv-get-property "${SOCKET}" "media-title")"
+  TIME="$(awk '{print int($1)}' /proc/uptime)"
+  LENGTH=${#SONG}
+  TIME=$((TIME % LENGTH))
+  TIME_OUT=$((LENGTH - 15))
+  while [[ $TIME -gt $TIME_OUT ]]; do
+    TIME=$((TIME - TIME_OUT))
+  done
+  printf '[%s]\n' "${SONG:${TIME}:15}"
+
+  return 0
+}
+
 mpv_display() {
   if mpv-currently-playing --music --socket >/dev/null 2>&1; then
     case "$1" in
@@ -22,6 +36,8 @@ mpv_display() {
         ;;
       *)
         SONG="$(mpv-currently-playing -M --music)" # | cut -b -22 | sed 's/\s$//;s/.*/&.../'
+        [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll -m >/dev/null 2>&1 &
+        [[ ${#SONG} -gt 15 ]] && return 0
         SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
         PAUSED=''
         ;;
@@ -59,6 +75,10 @@ case $BLOCK_BUTTON in
     mpv_display
     ;;
   *)
-    mpv_display
+    pgrep sb-mpv-roll >/dev/null 2>&1 || {
+      mpv_display
+      exit 0
+    }
+    roll_text
     ;;
 esac
