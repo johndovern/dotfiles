@@ -23,8 +23,9 @@ filter() {
         SONG="mpc"
     else
         SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"
-        [[ "${#SONG}" -gt 15 ]] && setsid -f sb-mpc-roll >/dev/null 2>&1 &
-        [[ "${#SONG}" -gt 15 ]] && return 0
+        # [[ "${#SONG}" -gt 15 ]] && setsid -f sb-mpc-roll >/dev/null 2>&1 &
+        [[ "${#SONG}" -gt 15 ]] && LONG_MPC=1 || LONG_MPC=0
+        [[ $LONG_MPC -eq 1 ]] && return 0
         SONG="$(cut_song | sed 's/^\(.*\)\s\+$/\1.../g')"
     fi
     while [[ "$(pgrep -c sb-mpc-roll)" -gt 0 ]] ; do
@@ -77,8 +78,6 @@ roll_text() {
         TIME=$((TIME - TIME_OUT))
     done
     printf '[%s]\n' "${SONG:${TIME}:15}"
-
-    exit
 }
 
 unfilter() { mpc | head -n1;}
@@ -118,13 +117,14 @@ case $BLOCK_BUTTON in
       exit
       ;;
     *)
-      pgrep sb-mpc-roll >/dev/null 2>&1 || {
-        filter
-        exit
-      }
+      # pgrep sb-mpc-roll >/dev/null 2>&1 || {
+      #   filter
+      #   exit
+      # }
       mpc_status >/dev/null 2>&1
-      [[ "$STATUS" == "PLAYING" ]] && roll_text
+      # [[ "$STATUS" == "PLAYING" ]] && roll_text
       filter
+      [[ $LONG_MPC -eq 1 ]] && roll_text
       exit
       ;;
 esac

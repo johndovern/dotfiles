@@ -1,9 +1,9 @@
 #!/bin/bash
 
 set_socket() {
-  if mpv-currently-playing --umpv --socket >/dev/null 2>&1 ; then
+  if mpv-currently-playing --umpv --socket >/dev/null 2>&1; then
     SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
-  elif mpv-currently-playing --unique --socket >/dev/null 2>&1 ; then
+  elif mpv-currently-playing --unique --socket >/dev/null 2>&1; then
     SOCKET="$(mpv-currently-playing --unique --socket | head -n1)"
   fi
 }
@@ -13,7 +13,7 @@ cut_song() {
   while IFS= read -r -d "" -n 1 CHAR; do
     [[ "${L}" -eq 15 ]] && break
     printf '%s' "${CHAR}"
-    L=$((L+1))
+    L=$((L + 1))
   done < <(printf '%s' "${SONG}")
 }
 
@@ -44,19 +44,20 @@ mpv_display() {
           ;;
         *)
           SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-          [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll >/dev/null 2>&1 &
-          [[ ${#SONG} -gt 15 ]] && return 0
+          # [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll >/dev/null 2>&1 &
+          [[ ${#SONG} -gt 15 ]] && LONG_MPV=1 || LONG_MPV=0
+          [[ $LONG_MPV -eq 1 ]] && return 0
           SONG="$(cut_song | sed 's/\s\+$//g')"
           PAUSED=''
           ;;
       esac
       ;;
   esac
-  kill $(pgrep sb-mpv-roll) >/dev/null 2>&1
+  kill "$(pgrep sb-mpv-roll)" >/dev/null 2>&1
   printf '%s\n' "[${SONG}${PAUSED}]"
 }
 
-if ! pgrep -x "mpv" >/dev/null 2>&1 ; then
+if ! pgrep -x "mpv" >/dev/null 2>&1; then
   exit 0
 fi
 
@@ -89,14 +90,15 @@ case $BLOCK_BUTTON in
     ;;
   *)
     set_socket
-    pgrep sb-mpv-roll >/dev/null 2>&1 || {
-      mpv_display
-      exit
-    }
+    # pgrep sb-mpv-roll >/dev/null 2>&1 || {
+    # mpv_display
+    # exit
+    # }
     [[ -z "$SOCKET" ]] && {
       mpv_display
       exit
     }
-    roll_text
+    mpv_display
+    [[ $LONG_MPV -eq 1 ]] && roll_text
     ;;
 esac

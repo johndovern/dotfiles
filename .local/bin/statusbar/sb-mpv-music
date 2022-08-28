@@ -36,8 +36,9 @@ mpv_display() {
         ;;
       *)
         SONG="$(mpv-currently-playing -M --music)" # | cut -b -22 | sed 's/\s$//;s/.*/&.../'
-        [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll -m >/dev/null 2>&1 &
-        [[ ${#SONG} -gt 15 ]] && return 0
+        # [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll -m >/dev/null 2>&1 &
+        [[ ${#SONG} -gt 15 ]] && LONG_MPV=1 || LONG_MPV=0
+        [[ $LONG_MPV -eq 1 ]] && return 0
         SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
         PAUSED=''
         ;;
@@ -75,10 +76,11 @@ case $BLOCK_BUTTON in
     mpv_display
     ;;
   *)
-    pgrep sb-mpv-roll >/dev/null 2>&1 || {
-      mpv_display
-      exit 0
-    }
-    roll_text
+    # pgrep sb-mpv-roll >/dev/null 2>&1 || {
+      # mpv_display
+      # exit 0
+    # }
+    mpv_display
+    [[ $LONG_MPV -eq 1 ]] && roll_text
     ;;
 esac
