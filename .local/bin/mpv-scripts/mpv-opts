@@ -84,7 +84,7 @@ get_mpv() {
     CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")
     return 0
   else
-    CHOSEN="$(mpv-pick ${OPTION_2} --pid)"
+    CHOSEN="$(mpv-pick --pid)"
     CHOSEN_WID=$(xdotool search --pid "${CHOSEN} - mpv")
   fi
 }
@@ -102,11 +102,6 @@ mpv_float() {
   dwmc focusstack 0
   xdotool mousemove 0 300
   return 0
-}
-
-mpv_sanity_check() {
-  pgrep -x mpv >/dev/null 2>&1
-  return $?
 }
 
 mpv_shuffle() {
@@ -170,13 +165,9 @@ opts_handler() {
 
 main() {
   get_opts "$@" || return 1
-  mpv_sanity_check || return 2
   opts_handler && return 0 || return 1
 }
 
-main "$@" && exit 0
-MPV_OPTS_STATUS=$?
-[[ "$MPV_OPTS_STATUS" -eq 1 ]] && { notify-send -u critical "Error" "mpv-opts failed \
+main "$@" && exit 1 || { notify-send -u critical "Error" "mpv-opts failed \
 CHOSEN: ${CHOSEN}
 CHOSEN_WID: ${CHOSEN_WID}" && exit 1 ; }
-[[ "$MPV_OPTS_STATUS" -eq 2 ]] && { notify-send "mpv-opts" "No mpv instance found" && exit 2 ; }
