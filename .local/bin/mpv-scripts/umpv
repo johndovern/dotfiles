@@ -2,27 +2,52 @@
 
 SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
 
-if [ -S "${SOCKET}" ]; then
-  while :; do
-    if [ $# -gt 0 ]; then
-      mpv-communicate --umpv \
-        '{ "command": ["loadfile", "'"$1"'", "append-play"] }' >/dev/null 2>&1 && \
-        notify-send "Video Added" "$1"
-        if mpv-communicate --umpv '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" >/dev/null 2>&1; then
-          mpv-communicate --umpv '{ "command": ["playlist-next"] }'
-          sleep 0.5
-          mpv-toggle --umpv
-          sleep 5
-        fi
-      shift
-    else
-      break
-    fi
+mpv_add() {
+  mpv-communicate --umpv '{ "command": ["loadfile", "'"$1"'", "append-play"] }' >/dev/null 2>&1 || return 1
+  notify-send "umpv" "Added $1"
+  mpv-communicate --umpv '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" || return 0
+  mpv-communicate --umpv '{ "command": ["playlist-next"] }'
+  sleep 0.5
+  mpv-toggle --umpv
+  sleep 5
+}
+
+mpv_loop() {
+  while [ $# -gt 0 ]; do
+    mpv_add "$1"
+    shift
   done
-else
+}
+
+mpv_start() {
   mpv --idle=yes \
     --script-opts=mpvSockets-umpv=yes \
     --loop-playlist=no \
     --keep-open=yes "$@" >/dev/null 2>&1 &
-fi
-exit
+  notify-send "umpv" "Started $*"
+}
+
+mpv_track() {
+  TRACK_SOCKET="/tmp/mpvSockets/mpv-last-used"
+  ACTUAL_SOCKET="$(readlink "$TRACK_SOCKET")"
+
+  [ "$1" = "$ACTUAL_SOCKET" ] && exit 0
+
+  test_socket() {
+      sleep 0.5
+      [ ! -S "$1" ] && exit 0
+      ln -s "$1" "$TRACK_SOCKET"
+  }
+
+  rm -f "$TRACK_SOCKET"
+  test_socket "$1" &
+}
+
+main() {
+  [ -S "$SOCKET" ] && mpv_loop "$@"
+  [ ! -S "$SOCKET" ] && mpv_start "$@"
+
+  mpv_track "$SOCKET"
+}
+
+main "$@"

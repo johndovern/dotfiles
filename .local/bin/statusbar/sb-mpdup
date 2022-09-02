@@ -2,12 +2,17 @@
 
 # This loop will update the mpd statusbar module whenever a command changes the
 # music player's status. mpd must be running on X's start for this to work.
+SONG_FILE="${MPC_TMP_FILE:-${MPC_TMP_DIR:-/tmp/mpc}/current-song.txt}"
+[ ! -f "$SONG_FILE" ] && printf '%s\n0\n' "$(mpc current)" >"$SONG_FILE"
 
 refresh() {
-	pkill sb-mpc-roll
+	[ ! "$(mpc current)" = "$(head -n1 "$SONG_FILE")" ] && {
+		printf '%s\n0\n' "$(mpc current)" >"$SONG_FILE"
+	}
 	kill -45 "$(pidof "${STATUSBAR:-dwmblocks}")"
+	return 0
 }
 
-while : ; do
+while :; do
 	mpc idle >/dev/null && refresh || break
 done

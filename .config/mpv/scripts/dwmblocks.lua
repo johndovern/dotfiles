@@ -11,7 +11,6 @@ options.read_options(o, "dwmblocks")
 
 local function update_dwmblocks()
     os.execute("pkill sb-mpv")
-    os.execute("pkill sb-mpv-roll")
     if o.music == "yes" then
         os.execute("kill -55 $(pidof dwmblocks)")
     else

@@ -18,82 +18,73 @@ cut_song() {
 }
 
 roll_text() {
-  SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-  TIME="$(awk '{print int($1)}' /proc/uptime)"
+  # SONG="$(mpv-currently-playing -c "$SOCKET" -M)"
+  # TIME="$(awk '{print int($1)}' /proc/uptime)"
+  # LENGTH=${#SONG}
+  # TIME=$((TIME % LENGTH))
+  # TIME_OUT=$((LENGTH - 15))
+  # while [[ $TIME -gt $TIME_OUT ]]; do
+  #   TIME=$((TIME - TIME_OUT))
+  # done
+  # printf '[%s]\n' "${SONG:$TIME:15}"
+  POSITION=$(tail -n1 "$SONG_FILE")
   LENGTH=${#SONG}
-  TIME=$((TIME % LENGTH))
-  TIME_OUT=$((LENGTH - 15))
-  while [[ $TIME -gt $TIME_OUT ]]; do
-    TIME=$((TIME - TIME_OUT))
-  done
-  printf '[%s]\n' "${SONG:${TIME}:15}"
+  PADDING=$((LENGTH - 15))
+  [[ "$POSITION" -gt "$PADDING" ]] && POSITION=0
+  printf '[%s]\n' "${SONG:$POSITION:15}"
+  POSITION=$((POSITION + 1))
+  sed -i "\$s/.*/$POSITION/" "$SONG_FILE" >/dev/null 2>&1
 
   return 0
 }
 
 mpv_display() {
-  case "${SOCKET:-NOT_PLAYING}" in
-    NOT_PLAYING)
-      SONG=''
-      PAUSED="mpv"
-      ;;
-    *)
-      case "$1" in
-        -u)
-          SONG=$(mpv-get-property "${SOCKET}" "media-title")
-          ;;
-        *)
-          SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-          # [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll >/dev/null 2>&1 &
-          [[ ${#SONG} -gt 15 ]] && LONG_MPV=1 || LONG_MPV=0
-          [[ $LONG_MPV -eq 1 ]] && return 0
-          SONG="$(cut_song | sed 's/\s\+$//g')"
-          PAUSED=''
-          ;;
-      esac
-      ;;
-  esac
-  kill "$(pgrep sb-mpv-roll)" >/dev/null 2>&1
-  printf '%s\n' "[${SONG}${PAUSED}]"
+  [[ -z "$SOCKET" ]] && {
+    printf '%s\n' "[mpv]"
+    return 0
+  }
+  SONG_FILE="$SOCKET.txt"
+  # SONG="$(mpv-currently-playing -c "$SOCKET" -M)"
+  SONG="$(head -n1 "$SONG_FILE")"
+  [[ "$1" == "-u" ]] && {
+    printf '[%s]\n' "$SONG"
+    return 0
+  }
+  [[ ${#SONG} -gt 15 ]] && LONG_MPV=1 || LONG_MPV=0
+  [[ $LONG_MPV -eq 1 ]] && return 0
+  SONG="$(cut_song | sed 's/\s\+$//g')"
+  printf '[%s]\n' "$SONG"
 }
 
 if ! pgrep -x "mpv" >/dev/null 2>&1; then
   exit 0
 fi
 
+set_socket
+
 case $BLOCK_BUTTON in
   1)
-    set_socket
     mpv-toggle --socket "${SOCKET}" || mpv-toggle --umpv || mpv-toggle --socket "$(mpv-active-sockets --unique | head -n1)"
     mpv_display
     ;;
   2)
-    set_socket
     mpv-opts --quit --socket "${SOCKET}"
     set_socket
     mpv_display
     ;;
   3)
-    set_socket
     notify-send "$(mpv_display -u)"
     mpv_display
     ;;
   4)
-    set_socket
     mpv-prev --socket "${SOCKET}"
     mpv_display
     ;;
   5)
-    set_socket
     mpv-next --socket "${SOCKET}"
     mpv_display
     ;;
   *)
-    set_socket
-    # pgrep sb-mpv-roll >/dev/null 2>&1 || {
-    # mpv_display
-    # exit
-    # }
     [[ -z "$SOCKET" ]] && {
       mpv_display
       exit

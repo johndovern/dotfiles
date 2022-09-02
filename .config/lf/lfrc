@@ -15,8 +15,8 @@ map i    push A<a-b><a-b><a-f> # before extension
 map I    push A<c-a> # at the very beginning
 map L    $nvim -M $fx
 map M    moveto
-map o    $setsid -f st -e mimeopen $f
-map O    $setsid -f st -e mimeopen --ask $f
+map o    $setsid -f mimeopen $f >/dev/null 2>&1
+map O    $setsid -f mimeopen --ask $f
 map q    lf_close
 map t    file_type
 map u    clear

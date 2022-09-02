@@ -315,6 +315,9 @@ ctrl + alt + shift + super + s
   mpv-opts --sticky
 
 ctrl + alt + shift + d
+  sleep 0.2 && mpv-opts --move
+
+ctrl + alt + shift + super + d
   sleep 0.2 && mpv-opts --float
 
 ctrl + alt + shift + f
