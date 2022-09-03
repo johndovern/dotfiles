@@ -32,6 +32,11 @@ get_opts() {
           shift
           break
           ;;
+        -m|--move)
+          OPTION="MOVE"
+          shift
+          break
+          ;;
         -q|--quit)
           OPTION="QUIT"
           shift
@@ -104,6 +109,11 @@ mpv_float() {
   return 0
 }
 
+mpv_move() {
+  wmctrl -ia "${CHOSEN_WID}"
+  dwmc tagmon 1
+}
+
 mpv_shuffle() {
   if [[ "${NOW:-0}" -eq 0 ]]; then
     if [[ "$(mpv-active-sockets --umpv | wc -l)" -gt 1 ]]; then
@@ -144,6 +154,11 @@ opts_handler() {
       get_mpv || return 1
       sleep 0.2
       xdotool key --window "${CHOSEN_WID}" f && wmctrl -ia "${CHOSEN_WID}"
+      ;;
+    MOVE)
+      get_mpv || return 1
+      sleep 0.2
+      mpv_move
       ;;
     QUIT)
       mpv-quit "${OPTION_2}" "${OPTION_3}"

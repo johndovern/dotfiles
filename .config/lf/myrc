@@ -5,7 +5,9 @@ map ,ce  cred
 map ,ch  chmod
 map ,cs  push $curl<space>-LJO<space>
 map ,cx  chmodx
+map ,e   $dmacs "$PWD"
 map ,fm  fmpv
+map ,gc  push $git<space>clone<space>
 map ,gi  %dmenugitignore
 map ,gI  get_info
 map ,l   $lfrun
@@ -14,6 +16,7 @@ map ,mm  mangamove
 map ,nc  push $nvim<space>.c<left><left>
 map ,nf  mknf
 map ,ps  py_script
+map ,rf  replace_files
 map ,T   track
 map ,ts  $cd ~/.local/bin/scripts ; nvim tscript
 map ,ut  untar
@@ -107,7 +110,6 @@ cmd mangamove ${{
   }
 
   lf -remote 'send reload'
-  setsid -f manga-next --end >/dev/null 2>&1 &
 }}
 
 cmd mknf ${{
@@ -123,13 +125,19 @@ cmd py_script ${{
   [ ! -e $ans ] && echo "#!/usr/bin/env python3" > "$ans" && chmod +x "$ans" && nvim "$ans"
 }}
 
-cmd untar ${{
+cmd replace_files ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
-  printf "%s\n\t" "$fx"
-  printf "Untar? [y/N] "
+  printf '%s' "Replace old files? [y/N] "
   read ans
-  [ $ans = "y" ] && tar xvzf "$fx"
+  [ $ans = "y" ] && {
+    set +f
+    for file in * ; do
+        [[ ! "$file" =~ \.~1~$ ]] && continue
+        mv "$file" "${file%\.*}"
+    done
+  }
+  exit 0
 }}
 
 cmd track ${{
@@ -139,6 +147,15 @@ cmd track ${{
   printf "Track? [y/N] "
   read ans
   [ $ans = "y" ] && echo "!${fx##*/}" >> .gitignore
+}}
+
+cmd untar ${{
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "%s\n\t" "$fx"
+  printf "Untar? [y/N] "
+  read ans
+  [ $ans = "y" ] && tar xvzf "$fx"
 }}
 
 cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard

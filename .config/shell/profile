@@ -21,6 +21,10 @@ export MPV_SOCKET_DIR="/tmp/mpvSockets"
 export MPV_MUSIC_SOCKET="${MPV_SOCKET_DIR}/music_socket"
 export MPV_UMPV_SOCKET="${MPV_SOCKET_DIR}/umpv_socket"
 
+# mpc tmp file
+export MPC_TMP_DIR="/tmp/mpc"
+export MPC_TMP_FILE="${MPC_TMP_DIR}/current-song.txt"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -52,7 +56,7 @@ export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-export LESS=-R
+export LESS="-R --mouse --wheel-lines=5"
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
 export LESS_TERMCAP_me="$(printf '%b' '[0m')"

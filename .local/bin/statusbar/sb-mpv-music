@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
-if [[ ! -S "${SOCKET}" ]] ; then
+if [[ ! -S "${SOCKET}" ]]; then
   exit 0
 fi
 
@@ -10,43 +10,46 @@ cut_song() {
   while IFS= read -r -d "" -n 1 CHAR; do
     [[ "${L}" -eq 15 ]] && break
     printf '%s' "${CHAR}"
-    L=$((L+1))
+    L=$((L + 1))
   done < <(printf '%s' "${SONG}")
 }
 
 roll_text() {
-  SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-  TIME="$(awk '{print int($1)}' /proc/uptime)"
+  # SONG="$(mpv-get-property "${SOCKET}" "media-title")"
+  # TIME="$(awk '{print int($1)}' /proc/uptime)"
+  # LENGTH=${#SONG}
+  # TIME=$((TIME % LENGTH))
+  # TIME_OUT=$((LENGTH - 15))
+  # while [[ $TIME -gt $TIME_OUT ]]; do
+  #   TIME=$((TIME - TIME_OUT))
+  # done
+  # printf '[%s]\n' "${SONG:${TIME}:15}"
+  POSITION=$(tail -n1 "$SONG_FILE")
   LENGTH=${#SONG}
-  TIME=$((TIME % LENGTH))
-  TIME_OUT=$((LENGTH - 15))
-  while [[ $TIME -gt $TIME_OUT ]]; do
-    TIME=$((TIME - TIME_OUT))
-  done
-  printf '[%s]\n' "${SONG:${TIME}:15}"
+  PADDING=$((LENGTH - 15))
+  [[ "$POSITION" -gt "$PADDING" ]] && POSITION=0
+  printf '[%s]\n' "${SONG:$POSITION:15}"
+  POSITION=$((POSITION + 1))
+  sed -i "\$s/.*/$POSITION/" "$SONG_FILE" >/dev/null 2>&1
 
   return 0
 }
 
 mpv_display() {
-  if mpv-currently-playing --music --socket >/dev/null 2>&1; then
-    case "$1" in
-      -u)
-        SONG=$(mpv-currently-playing -M --music)
-        ;;
-      *)
-        SONG="$(mpv-currently-playing -M --music)" # | cut -b -22 | sed 's/\s$//;s/.*/&.../'
-        [[ ${#SONG} -gt 15 ]] && setsid -f sb-mpv-roll -m >/dev/null 2>&1 &
-        [[ ${#SONG} -gt 15 ]] && return 0
-        SONG="$(cut_song | sed 's/\s\+\?$/.../g')"
-        PAUSED=''
-        ;;
-    esac
-  else
-    SONG=''
-    PAUSED="mpv-music"
-  fi
-  printf '%s\n' "[${SONG}${PAUSED}]"
+  mpv-currently-playing --music --quiet || {
+    printf '[%s]\n' "mpv-music"
+    return 0
+  }
+  SONG_FILE="$SOCKET.txt"
+  SONG="$(head -n1 "$SONG_FILE")"
+  [[ "$1" == "-u" ]] && {
+    printf '[%s]\n' "$SONG"
+    return 0
+  }
+  [[ ${#SONG} -gt 15 ]] && LONG_MPV=1 || LONG_MPV=0
+  [[ $LONG_MPV -eq 1 ]] && return 0
+  SONG="$(cut_song | sed 's/\s\+$//g')"
+  printf '[%s]\n' "$SONG"
 }
 
 case $BLOCK_BUTTON in
@@ -75,10 +78,7 @@ case $BLOCK_BUTTON in
     mpv_display
     ;;
   *)
-    pgrep sb-mpv-roll >/dev/null 2>&1 || {
-      mpv_display
-      exit 0
-    }
-    roll_text
+    mpv_display
+    [[ $LONG_MPV -eq 1 ]] && roll_text
     ;;
 esac
