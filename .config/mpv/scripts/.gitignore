@@ -1,9 +1,9 @@
-### Updated on Tue Jul 12 08:11:25 PM PDT 2022 ###
+### Updated on Fri Sep  2 08:14:35 PM PDT 2022 ###
 ### < .gitignore-very-old > deleted since last update ###
+### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
-.gitignore-old
-.gitignore-very-old
+#.gitignore-very-old
 !ani-man.lua
 !autocrop.lua
 !auto-profiles.lua
@@ -11,6 +11,7 @@
 !coverart.lua
 !dwmblocks.lua
 !file-browser.lua
+!filename.lua
 !mpvSockets.lua
 !ontop-playback.lua
 !open-file-dialog.lua
@@ -20,6 +21,7 @@
 !save_playlist.lua
 !seek-to.lua
 !segment-linking.lua
+!show-path.lua
 !sponsorblock.lua
 !sponsorblock_shared
 !stats.lua
