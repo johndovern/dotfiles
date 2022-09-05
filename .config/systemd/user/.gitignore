@@ -1,5 +1,7 @@
-### Updated on Tue Jul 12 08:11:26 PM PDT 2022 ###
+### Updated on Fri Sep  2 09:47:46 PM PDT 2022 ###
 *
 !.gitignore
 #default.target.wants
 !kmonad@.service
+#monerod.service
+!tmux.service
