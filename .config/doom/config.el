@@ -230,7 +230,7 @@
       :desc "Delete frame" "q q" #'delete-frame)
 
 (global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 
@@ -249,3 +249,5 @@
 
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
+
+(evil-global-set-key 'insert (kbd "M-v") 'evil-paste-after)

@@ -176,13 +176,40 @@ usage() {
 
   Options:
 
-    -d, --float
-    -F, --focus
-    -f, --full-screen
-    -m, --move
-    -q, --quit
-    -s, --sticky
-    -u, --shuffle
+    -d, --float         Float an instance of mpv to the bottom right of the monitor.
+    -F, --focus         Focus an instance of mpv.
+    -f, --full-screen   Full screen an instance of mpv.
+    -m, --move          Move an instance of mpv an full screen it on the secondary monitor.
+    -q, --quit          Quit an instance of mpv. This flag may be followed by two other flags.
+                        The --music flag when given after -q will quit the mpv-music instance.
+                        The --socket flag quits the given socket which is required.
+    -s, --sticky        Make an instance of mpv sticky.
+    -u, --shuffle       Shuffle an instance of mpv excluding the umpv instance. This flag will
+                        accept the --now flag to shuffle the most recent instance of mpv.
+
+  Details:
+
+  This script requires several things to be in place to work properly.
+
+    1.  You must be using dwm for the following flags:
+            --float, --move,  --sticky
+        See my patched version for any needed patches especially dwmc:
+            https://github.com/johndovern/dwm
+    2.  You need the following scripts installed and working on your system:
+          mpvSockets -- To create mpv sockets, and communicate with them
+            https://github.com/johndovern/mpvSockets-umpv
+          patched dwm -- See above
+          xdotool -- To manipulate windows and simulate key presses
+          wmctrl -- To get info about the current windows available
+          mpv-sockets -- A collection of bash scripts that allow for easy
+          interaction with mpv
+            https://github.com/johndovern/mpv-sockets
+          umpv and mpv-music (optional) -- Allow for unique instances of mpv
+          that can be filtered out or manipulated specifically.
+            https://github.com/johndovern/mpvSockets-umpv/tree/master/umpv
+            https://github.com/johndovern/mpvSockets-umpv/tree/master/mpv-music
+          playlist manager -- A lua script for managing a playlist of videos
+            https://github.com/jonniek/mpv-playlistmanager
 EOF
 }
 

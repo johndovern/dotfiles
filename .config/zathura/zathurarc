@@ -14,7 +14,6 @@ map R rotate
 map K zoom in
 map J zoom out
 map i recolor
-map p print
 map g goto top
 map j scroll half-down
 map k scroll half-up
@@ -22,5 +21,7 @@ map <Down> scroll half-down
 map <Up> scroll half-up
 map = zoom in
 map + zoom width
-map [ exec "manga-next"
-map <A-q> exec "killall zathura"
+map N exec "zadd -n $FILE"
+map P exec "zadd -p $FILE"
+map c exec "dmenumanga --track $FILE"
+map <C-q> exec "echo $FILE"

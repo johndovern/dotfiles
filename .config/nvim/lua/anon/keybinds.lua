@@ -1,8 +1,21 @@
-local function map(m, k, v)
+local function map(m, k, v, o)
     vim.keymap.set(m, k, v, o)
 end
 
 local d = { silent = true, noremap = true }
+local opt = { noremap = true }
+
+map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', opt)
+map('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', opt)
+map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', opt)
+map('n', 'gw', ':lua vim.lsp.buf.document_symbol()<cr>', opt)
+map('n', 'gw', ':lua vim.lsp.buf.workspace_symbol()<cr>', opt)
+map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', opt)
+map('n', 'gt', ':lua vim.lsp.buf.type_definition()<cr>', opt)
+map('n', 'K', ':lua vim.lsp.buf.hover()<cr>', opt)
+map('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<cr>', opt)
+map('n', '<leader>af', ':lua vim.lsp.buf.code_action()<cr>', opt)
+map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', opt)
 
 -- Fix n and N to keep cursor in center
 map('n', 'n', 'nzz', d)
