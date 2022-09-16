@@ -1,7 +1,7 @@
-;; Set lazy loading
-(setq package-enable-at-startup nil ; don't auto-initialize!
-      ;; don't add that `custom-set-variables' block to my init.el!
-      package--init-file-ensured t)
+;; ;; Set lazy loading
+;; (setq package-enable-at-startup nil ; don't auto-initialize!
+;;       ;; don't add that `custom-set-variables' block to my init.el!
+;;       package--init-file-ensured t)
 
 ;; Remap leader key
 (setq doom-leader-key ","
@@ -77,7 +77,7 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 ;; Get file icons in dired
-;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 ;; With dired-open plugin, you can launch external programs for certain extensions
 ;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
 (setq dired-open-extensions '(("gif" . "nsxiv")
@@ -103,7 +103,6 @@
   :hook (after-init . global-emojify-mode))
 
 (setq doom-font (font-spec :size 18)
-      ;; doom-variable-pitch-font (font-spec :size 18)
       doom-big-font (font-spec :size 24))
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -136,15 +135,6 @@
 
 (setq display-line-numbers-type 'relative)
 
-;; (custom-set-faces
-;;  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "Monospace"))))
-;;  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
-;;  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.6))))
-;;  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.5))))
-;;  '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.4))))
-;;  '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.3))))
-;;  '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.2)))))
-
 (set-face-attribute 'mode-line nil :font "Monospace")
 (setq doom-modeline-height 25     ;; sets modeline height
       doom-modeline-bar-width 5   ;; sets right bar width
@@ -152,15 +142,6 @@
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 
 (xterm-mouse-mode 1)
-
-(after! neotree
-  (setq neo-smart-open t
-        neo-window-fixed-size nil))
-(after! doom-themes
-  (setq doom-neotree-enable-variable-pitch nil))
-(map! :leader
-      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
-      :desc "Open directory in neotree" "d n" #'neotree-dir)
 
 (map! :leader
       (:prefix ("r" . "registers")
@@ -211,7 +192,7 @@
 
 (defun my-c-hook-settings ()
   (setq +format-on-save-enabled-modes nil)
-  #'lsp)
+  #'lsp!)
 
 (add-hook 'c-mode-hook #'my-c-hook-settings)
 
@@ -231,12 +212,12 @@
 
 (global-tree-sitter-mode)
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-(setq c-tab-always-indent nil)
-(evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
+(add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
+;; (setq c-tab-always-indent nil)
+;; (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 
 (defun sxhkd-restart-on-save ()
     "Restart sxhkd daemon"
-    ;; (when (eq major-mode 'conf-space-mode)
       (if (string= buffer-file-name "/home/anon/.config/sxhkd/sxhkdrc")
           (shell-command "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
 
@@ -245,9 +226,15 @@
   (add-hook 'after-save-hook #'sxhkd-restart-on-save))
 
 (add-hook 'conf-space-mode-hook #'sxhkd-hook)
-;; (add-hook 'after-save-hook #'sxhkd-restart-on-save)
 
+;; (setq lsp-completion-mode :none)
+;; (global-company-mode t)
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
-
-(evil-global-set-key 'insert (kbd "M-v") 'evil-paste-after)
+(setq +lsp-company-backends
+      '(company-files company-capf company-dabbrev-code company-dabbrev :with company-yasnippet))
+(evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
+(evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)
+(map! :after evil
+      :map evil-normal-state-map
+      "Q"       #'evil-fill-and-move)
