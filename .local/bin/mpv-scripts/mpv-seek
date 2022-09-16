@@ -4,52 +4,43 @@
 declare -a PLAYING
 
 choose_socket() {
-  USE_SOCKET="$(mpv-pick ${FZF})"
+  USE_SOCKET="$(mpv-pick $FZF)"
 }
 
 get_opts() {
-  while :; do
-    if [[ "$#" -gt 0 ]]; then
-      case "$1" in
-        -f|--fzf)
-          shift
-          FZF="--fzf"
-          ;;
-        -l|--latest)
-          shift
-
-          while read -r PLAY; do
-            PLAYING+=("$PLAY")
-          done < <(mpv-currently-playing --unique --socket)
-          if [[ ${#PLAYING[@]} -eq 0 ]] ; then
-            notify-send "No mpv instances which are currently playing media..." >&2
-            return 1
-          fi
-          USE_SOCKET="${PLAYING[-1]}"
-          ;;
-        -m|--music)
-          shift
-          USE_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
-          ;;
-        -u|--umpv)
-          shift
-          USE_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
-          ;;
-        -s|--socket)
-          shift
-          USE_SOCKET="${1}"
-          shift
-          ;;
-        *)
-          [[ "$1" =~ ^[0-9]+$ ]] && SEEK_SECONDS="$1"
-          shift
-          ;;
-      esac
-    else
-      [[ -z "${SEEK_SECONDS}" ]] && SEEK_SECONDS=5
-      break
-    fi
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -f | --fzf)
+        FZF="--fzf"
+        ;;
+      -l | --latest)
+        while read -r PLAY; do
+          PLAYING+=("$PLAY")
+        done < <(mpv-currently-playing --unique --socket)
+        if [[ ${#PLAYING[@]} -eq 0 ]]; then
+          notify-send "No mpv instances which are currently playing media..." >&2
+          return 1
+        fi
+        USE_SOCKET="${PLAYING[-1]}"
+        ;;
+      -m | --music)
+        USE_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+        ;;
+      -u | --umpv)
+        USE_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+        ;;
+      -s | --socket)
+        shift
+        USE_SOCKET="$1"
+        ;;
+      *)
+        [[ "$1" =~ ^-?[0-9]+$ ]] && SEEK_SECONDS="$1"
+        ;;
+    esac
+    shift
   done
+  [[ -z "$SEEK_SECONDS" ]] && SEEK_SECONDS=5
+  return 0
 }
 
 mpv_seek() {
