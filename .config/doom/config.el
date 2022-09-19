@@ -102,11 +102,18 @@
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
-(setq doom-font (font-spec :size 18)
-      doom-big-font (font-spec :size 24))
+(setq doom-font (font-spec :font "Monospace" :size 18)
+      doom-big-font (font-spec :font "Monospace" :size 36)
+      doom-variable-pitch-font (font-spec :font "Monospace" :size 18)
+      doom-unicode-font (font-spec :font "Monospace" :size 18)
+      doom-serif-font (font-spec :font "Monospace" :size 18))
 (after! doom-themes
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t))
+        doom-themes-enable-italic t
+        doom-themes-treemacs-enable-variable-pitch nil
+        doom-themes-treemacs-theme 'doom-gruvbox
+        doom-gruvbox-brighter-comments t))
+        ;; doom-gruvbox-dark-variant "medium"))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
 
@@ -204,7 +211,8 @@
 (map! :leader
       :desc "Previous workspace" "TAB h" #'+workspace/switch-left
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
-      :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode)
+      :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode
+      :desc "Toggle treemacs" "t e" #'+treemacs/toggle)
 
 (map! :leader
       :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
@@ -213,8 +221,8 @@
 (global-tree-sitter-mode)
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 (add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
-;; (setq c-tab-always-indent nil)
-;; (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
+(setq c-tab-always-indent nil)
+(evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 
 (defun sxhkd-restart-on-save ()
     "Restart sxhkd daemon"
@@ -232,9 +240,21 @@
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
 (setq +lsp-company-backends
-      '(company-files company-capf company-dabbrev-code company-dabbrev :with company-yasnippet))
+      '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
 (evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
 (evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)
 (map! :after evil
       :map evil-normal-state-map
       "Q"       #'evil-fill-and-move)
+(modify-syntax-entry ?_ "w")
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      truncate-string-ellipsis "…"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
+      ;; scroll-preserve-screen-position 'always     ; Don't have `point' jump around
+      scroll-margin 5)                            ; It's nice to maintain a little margin
+(setq evil-vsplit-window-right t
+      evil-split-window-below t)
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (consult-buffer))

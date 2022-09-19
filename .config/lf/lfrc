@@ -82,7 +82,7 @@ cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
     # image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
     image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) znp $fx ;;
-    text/*) emacsclient -c -a '' -n $fx >/dev/null 2>&1;;
+    text/*) setsid -f emacs $fx >/dev/null 2>&1;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
