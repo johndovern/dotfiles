@@ -5,7 +5,7 @@
 
 ;; Remap leader key
 (setq doom-leader-key ","
-      doom-localleader-key "\\")
+      doom-localleader-key "SPC")
 
 (map! :leader
       (:prefix ("b". "buffer")
@@ -148,6 +148,12 @@
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
+
 (xterm-mouse-mode 1)
 
 (map! :leader
@@ -212,11 +218,11 @@
       :desc "Previous workspace" "TAB h" #'+workspace/switch-left
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
       :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode
-      :desc "Toggle treemacs" "t e" #'+treemacs/toggle)
+      :desc "Toggle treemacs" "t e" #'treemacs)
 
 (map! :leader
       :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
-      :desc "Delete frame" "q q" #'delete-frame)
+      :desc "Delete frame" "q q" #'save-buffers-kill-emacs)
 
 (global-tree-sitter-mode)
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
@@ -235,23 +241,31 @@
 
 (add-hook 'conf-space-mode-hook #'sxhkd-hook)
 
+(map! :localleader
+      :map org-mode-map
+      (:prefix ("m" . "my maps")
+       (:prefix ("e" . "export")
+        :desc "Export to gfm" "g" #'org-pandoc-export-to-gfm
+        :desc "Export as gfm" "G" #'org-pandoc-export-as-gfm)))
+
 ;; (setq lsp-completion-mode :none)
 ;; (global-company-mode t)
+(setq company-statistics-mode t)
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
 (setq +lsp-company-backends
       '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
 (evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
 (evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)
+;; (add-hook 'evil-insert-state-entry-hook #'(evil-scroll-line-to-center 0))
 (map! :after evil
       :map evil-normal-state-map
       "Q"       #'evil-fill-and-move)
 (modify-syntax-entry ?_ "w")
 (setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
-      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
-      ;; scroll-preserve-screen-position 'always     ; Don't have `point' jump around
+      scroll-preserve-screen-position 'always     ; Don't have `point' jump around
       scroll-margin 5)                            ; It's nice to maintain a little margin
 (setq evil-vsplit-window-right t
       evil-split-window-below t)

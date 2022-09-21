@@ -7,6 +7,7 @@ esac
 
 case "$(printf "Lock\nLeave-dwm\nReboot\nHibernate\nSleep\nRenew-dwm\nShutdown\nDisplay off" | dmenu -i -p 'Action:')" in
   'Lock')
+    dmenubluetooth disconnect
     xset dpms force off
     slock
     ;;

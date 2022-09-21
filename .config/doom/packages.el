@@ -65,3 +65,4 @@
 (package! resize-window)
 ;; (package! rtags)
 (package! tldr)
+(package! company-statistics)
