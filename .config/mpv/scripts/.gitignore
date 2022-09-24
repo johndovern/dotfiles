@@ -1,8 +1,7 @@
-### Updated on Fri Sep  2 08:14:35 PM PDT 2022 ###
-### < .gitignore-very-old > deleted since last update ###
-### < .gitignore-old > deleted since last update ###
+### Updated on Fri Sep 23 09:33:41 PM PDT 2022 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !ani-man.lua
 !autocrop.lua

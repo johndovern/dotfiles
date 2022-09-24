@@ -1,7 +1,7 @@
-### Updated on Sun Sep  4 11:17:17 PM PDT 2022 ###
+### Updated on Fri Sep 23 09:33:41 PM PDT 2022 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 !ani-man.conf
 !auto_profiles.conf
