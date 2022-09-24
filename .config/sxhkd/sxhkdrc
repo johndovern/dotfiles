@@ -159,13 +159,10 @@ super + shift + m
   pamixer -t; kill -44 $(pidof dwmblocks)
 
 super + comma
-  pkill sb-music ; pkill sb-mpc-roll ; mpc prev ;
+    wkd
 
 super + shift + comma
   mpc seek 0%
-
-super + period
-  pkill sb-music ; pkill sb-mpc-roll ; mpc next
 
 super + shift + period
   mpc repeat
