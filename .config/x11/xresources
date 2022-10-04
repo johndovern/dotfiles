@@ -35,25 +35,38 @@ Xft.rgba: rgb
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
+*.colornfg:      #BFBA9F
+*.colornbg:      #2A3340
+*.colorselfg:    #2A3340
+*.colorselbg:    #BFBA9F
+*.colornbord:    #717B85
+// *.colorselbord:  #BFBA9F
+*.colorselbord:  #782E27
+// *.colornfg:      #B8CEF0
+// *.colornbg:      #333455
+// *.colorselfg:    #333455
+// *.colorselbg:    #B8CEF0
+// *.colornbord:    #928374
+// *.colorselbord:  #ACC5ED
+/* *.colornfg:      #ebdbb2 */
+/* *.colornbg:      #1d2021 */
+/* *.colorselfg:    #1d2021 */
+/* *.colorselbg:    #ebdbb2 */
+/* *.colornbord:    #928374 */
+/* *.colorselbord:  #009688 */
 /* *.colornfg:      #ffffff */
-*.colornfg:      #ebdbb2
 /* *.colornfg:      #009688 */
 /* *.colornbg:      #0c0d0e */
 /* *.colornbg:      #262425 */
-*.colornbg:      #1d2021
 /* *.colornbg:      #212121 */
 /* *.colorselfg:    #0c0d0e */
 /* *.colorselfg:    #262425 */
-*.colorselfg:    #1d2021
 /* *.colorselfg:    #009688 */
 /* *.colorselbg:    #ffffff */
-*.colorselbg:    #ebdbb2
 /* *.colorselbg:    #009688 */
 /* *.colornbord:    #969896 */
-*.colornbord:    #928374
 /* *.colornbord:    #0c0d0e */
 /* *.colorselbord:  #ff361e */
-*.colorselbord:  #009688
 
 /* Color settings for St */
 

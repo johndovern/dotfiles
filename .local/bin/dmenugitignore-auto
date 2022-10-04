@@ -23,8 +23,8 @@ usage() {
 
     -h, --help          Show this help message and exit.
 
-  Descrition:
-    dmenugitignoreauto finds all the .gitignore files in the given repo that
+  Description:
+    dmenugitignore-auto finds all the .gitignore files in the given repo that
     presently exist. the default use case is for dotfiles that are maintained as
     a bare git repo. use options -b, -d, and -t as needed to update the proper
     repo and branch
@@ -67,23 +67,23 @@ check_ops() {
 get_opts() {
   while :; do
     case "${1:-NO_OPTION}" in
-      -b|--branch)
+      -b | --branch)
         shift
         check_ops "${@}" || return 1
         BRANCH="$1"
         shift
         ;;
-      -d|--dir)
+      -d | --dir)
         shift
         check_ops "${@}" || return 1
         GITREPODIR="${2%/}"
         shift
         ;;
-      -h|--help )
+      -h | --help)
         usage
         return 1
         ;;
-      -t|--tree )
+      -t | --tree)
         shift
         check_ops "${@}" || return 1
         GITREPOTREE="${2%/}"
@@ -125,7 +125,7 @@ main() {
 
   get_opts "$@" || return 1
   set_defaults
-  { autoupdater && notify-send "Success" "dmenugitignore-auto completed successfully." ; } || { send_prog -e "Error updating." && return 1 ; }
+  { autoupdater && notify-send "Success" "dmenugitignore-auto completed successfully."; } || { send_prog -e "Error updating." && return 1; }
 }
 
 main "$@" && exit 0 || exit 1

@@ -21,7 +21,7 @@ actions=("Lock"
 
 case "$SYS_ACTION" in
   'Lock')
-    dmenubluetooth disconnect
+    dmenubluetooth -d
     xset dpms force off
     slock
     ;;

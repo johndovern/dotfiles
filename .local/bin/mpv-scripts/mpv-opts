@@ -27,6 +27,8 @@ get_opts() {
       -m | --move)
         OPTION="MOVE"
         shift
+        [[ "$#" -eq 1 ]] && MOVE_MON="$1" || MOVE_MON=1
+        shift
         break
         ;;
       -q | --quit)
@@ -74,11 +76,15 @@ get_mpv() {
   # shellcheck disable=SC2086
   [[ $(mpv-active-sockets $OPTION_2 | wc -l) -eq 1 ]] && {
     CHOSEN="$(mpv-pick --pid)"
+    MPV_PATH="$(mpv-pick)"
+    FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"
     CHOSEN_WID=$(xdotool search --pid "$CHOSEN - mpv")
     return 0
   }
   CHOSEN="$(mpv-pick --pid --full --music)"
   [[ -z "$CHOSEN" ]] && return 1
+  MPV_PATH="$(mpv-active-sockets --pid "${CHOSEN%%:*}")"
+  FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"
   CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")
 }
 
@@ -102,10 +108,10 @@ mpv_float() {
 
 mpv_move() {
   wmctrl -ia "$CHOSEN_WID"
-  dwmc tagmon 1
+  dwmc tagnmon "$1"
   wmctrl -ia "$CHOSEN_WID"
-  xdotool key f
-  dwmc focusmon 0
+  [[ "$FULLSCREEN" == "false" ]] && xdotool key f
+  dwmc focusnmon 0
 }
 
 mpv_shuffle() {
@@ -143,12 +149,12 @@ opts_handler() {
     FULL)
       get_mpv || return 1
       sleep 0.2
-      xdotool key --window "$CHOSEN_WID" f && wmctrl -ia "$CHOSEN_WID"
+      xdotool key --window "$CHOSEN_WID" f # && wmctrl -ia "$CHOSEN_WID"
       ;;
     MOVE)
       get_mpv || return 1
       sleep 0.2
-      mpv_move
+      mpv_move "$MOVE_MON"
       ;;
     QUIT)
       mpv-quit "$OPTION_2" "$OPTION_3"

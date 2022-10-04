@@ -32,7 +32,8 @@
         (dashboard-modify-heading-icons '((recents . "file-text")
                                           (bookmarks . "book"))))
 (setq doom-fallback-buffer-name "*dashboard*")
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+;; Usefull if running emacs as a daemon
+;; (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "d" #'dired
@@ -167,14 +168,13 @@
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
 (map! :leader
       (:prefix ("w" . "window")
-       :desc "Next window" "j" #'evil-window-next
-       :desc "Prev window" "k" #'evil-window-prev
        :desc "Winner redo" "<right>" #'winner-redo
        :desc "Winner undo" "<left>" #'winner-undo))
 (map! :leader
       :desc "Zap to char" "z" #'zap-to-char
       :desc "Zap up to char" "Z" #'zap-up-to-char)
 (+global-word-wrap-mode +1)
+(setq +word-wrap-extra-indent nil)
 (defun my-c-hook-settings ()
   (setq +format-on-save-enabled-modes nil)
   #'lsp!)
@@ -195,14 +195,17 @@
 (add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
-(defun sxhkd-restart-on-save ()
-    "Restart sxhkd daemon"
-      (if (string= buffer-file-name "/home/anon/.config/sxhkd/sxhkdrc")
-          (shell-command "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
-(defun sxhkd-hook ()
-  "Add hook for sxhkd file"
-  (add-hook 'after-save-hook #'sxhkd-restart-on-save))
-(add-hook 'conf-space-mode-hook #'sxhkd-hook)
+(add-hook! 'conf-space-mode-hook
+  (when (stringp buffer-file-name)
+      (if (string-match-p "/sxhkdrc$" buffer-file-name)
+          (add-hook! 'after-save-hook :local
+            (shell-command-to-string "kill -SIGUSR1 \"$(pidof sxhkd)\""))
+        (if (string-match-p "/bindsrc$" buffer-file-name)
+            (add-hook! 'after-save-hook :local
+              (shell-command-to-string "wkd -u")))
+        (if (string-match-p "/xresources$" buffer-file-name)
+            (add-hook! 'after-save-hook :local
+              (shell-command-to-string "xrdb /home/anon/.config/x11/xresources"))))))
 (map! :localleader
       :map org-mode-map
       (:prefix ("m" . "my maps")
@@ -215,7 +218,7 @@
 (setq +lsp-company-backends
       '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
 (setq company-backends
-      '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
+      '((:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev)))
 (map! :leader
       :desc "Toggle line numbers" "t L" #'doom/toggle-line-numbers
       :desc "Toggle lsp server (restart)" "t l" #'lsp-restart-workspace)
@@ -234,3 +237,16 @@
 (defadvice! prompt-for-buffer (&rest _)
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
+(map! :leader
+      "h" nil
+      "H" help-map
+      "h" #'evil-window-left
+      "j" #'evil-window-down
+      "k" #'evil-window-up
+      "l" #'evil-window-right)
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda ()
+    (when (not (memq major-mode
+                (list 'org-agenda-mode)))
+     (rainbow-mode 1))))
+(global-rainbow-mode 1 )
