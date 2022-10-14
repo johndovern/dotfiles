@@ -65,7 +65,9 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 ;; Get file icons in dired
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook! 'dired-mode-hook
+           'all-the-icons-dired-mode
+           'dired-hide-details-mode)
 ;; With dired-open plugin, you can launch external programs for certain extensions
 ;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
 (setq dired-open-extensions '(("gif" . "nsxiv")
@@ -80,24 +82,26 @@
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 (map! :leader
-      :desc "Load new theme" "h t" #'counsel-load-theme)
+      :desc "Load new theme" "H t" #'counsel-load-theme)
 (use-package emojify
   :hook (after-init . global-emojify-mode))
-(setq doom-font (font-spec :font "Monospace" :size 18)
+(setq doom-font (font-spec :font "Monospace" :size 20)
       doom-big-font (font-spec :font "Monospace" :size 36)
-      doom-variable-pitch-font (font-spec :font "Monospace" :size 18)
-      doom-unicode-font (font-spec :font "Monospace" :size 18)
-      doom-serif-font (font-spec :font "Monospace" :size 18))
+      doom-variable-pitch-font (font-spec :font "Sans" :size 20)
+      doom-unicode-font (font-spec :font "Monospace" :size 20)
+      doom-serif-font (font-spec :font "Monospace" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t
         doom-themes-treemacs-enable-variable-pitch nil
-        doom-themes-treemacs-theme 'doom-gruvbox
-        doom-gruvbox-brighter-comments t))
+        doom-themes-treemacs-theme 'doom-one
+        doom-one-light-brighter-comments t
+        doom-one-brighter-comments t))
 (after! treemacs
-  (setq! treemacs-width 20))
+  (setq! treemacs-width 20
+         treemacs-show-cursor t))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
 (setq ivy-posframe-display-functions-alist
@@ -134,7 +138,7 @@
   (setq org-auto-tangle-default t))
 (xterm-mouse-mode 1)
 (map! :leader
-      (:prefix ("r" . "registers")
+      (:prefix ("R" . "registers")
        :desc "Copy to register" "c" #'copy-to-register
        :desc "Frameset to register" "f" #'frameset-to-register
        :desc "Insert contents of register" "i" #'insert-register
@@ -197,15 +201,23 @@
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 (add-hook! 'conf-space-mode-hook
   (when (stringp buffer-file-name)
-      (if (string-match-p "/sxhkdrc$" buffer-file-name)
+      (when (string-match-p "/sxhkdrc$" buffer-file-name)
           (add-hook! 'after-save-hook :local
-            (shell-command-to-string "kill -SIGUSR1 \"$(pidof sxhkd)\""))
-        (if (string-match-p "/bindsrc$" buffer-file-name)
-            (add-hook! 'after-save-hook :local
-              (shell-command-to-string "wkd -u")))
-        (if (string-match-p "/xresources$" buffer-file-name)
-            (add-hook! 'after-save-hook :local
-              (shell-command-to-string "xrdb /home/anon/.config/x11/xresources"))))))
+            (shell-command-to-string "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
+      (when (string-match-p "/bindsrc$" buffer-file-name)
+        (add-hook! 'after-save-hook :local
+          (shell-command-to-string "wkd -u")))))
+(add-to-list 'auto-mode-alist '("xresources" . conf-mode))
+(add-hook! 'conf-mode-hook
+  (when (stringp buffer-file-name)
+    (when (string-match-p "/xresources$" buffer-file-name)
+      (add-hook! 'after-save-hook :local
+        (shell-command "xrdb \"$HOME/.config/x11/xresources\"")))))
+(add-hook! 'conf-unix-mode-hook
+  (when (stringp buffer-file-name)
+      (if (string-match-p "/dunstrc$" buffer-file-name)
+          (add-hook! 'after-save-hook :local
+            (shell-command-to-string "systemctl --user restart dunst.service")))))
 (map! :localleader
       :map org-mode-map
       (:prefix ("m" . "my maps")
@@ -244,9 +256,9 @@
       "j" #'evil-window-down
       "k" #'evil-window-up
       "l" #'evil-window-right)
-(define-globalized-minor-mode global-rainbow-mode rainbow-mode
-  (lambda ()
-    (when (not (memq major-mode
-                (list 'org-agenda-mode)))
-     (rainbow-mode 1))))
-(global-rainbow-mode 1 )
+(setq org-roam-directory "~/ewiki")
+(map! :leader
+      (:prefix ("r" . "roam")
+       (:prefix ("n" . "node")
+        :desc "Find node" "f" #'org-roam-node-find
+        :desc "Insert node" "i" #'org-roam-node-insert)))

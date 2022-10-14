@@ -18,50 +18,28 @@ abort() {
 }
 
 get_opts() {
-  while :; do
-    if [[ "$#" -gt 0 ]]; then
-      case "$1" in
-        -f | --fzf)
-          INTERACT=0
-          shift
-          ;;
-        -F | --full)
-          FULL=1
-          shift
-          ;;
-        -m | --music)
-          NO_MUSIC=1
-          shift
-          ;;
-        -p | --pid)
-          PID=1
-          shift
-          ;;
-        -q | --quiet)
-          QUIET=1
-          shift
-          ;;
-        -u | --umpv)
-          NO_UMPV=1
-          shift
-          ;;
-        -U | --unique)
-          NO_CUSTOM=1
-          shift
-          ;;
-        --)
-          shift
-          break
-          ;;
-        *)
-          abort "Invalid option(s): $*"
-          return 1
-          ;;
-      esac
-    else
-      break
-    fi
+  while [[ "$#" -ne 0 ]]; do
+    case "$1" in
+      -c | --current) IS_PLAYING=1 ;;
+      -f | --fzf) INTERACT=0 ;;
+      -F | --full) FULL=1 ;;
+      -m | --music) NO_MUSIC=1 ;;
+      -p | --pid) PID=1 ;;
+      -q | --quiet) QUIET=1 ;;
+      -u | --umpv) NO_UMPV=1 ;;
+      -U | --unique) NO_CUSTOM=1 ;;
+      --)
+        shift
+        break
+        ;;
+      *)
+        abort "Invalid option(s): $*"
+        return 1
+        ;;
+    esac
+    shift
   done
+  [[ "$IS_PLAYING" -eq 1 ]] && GET_COMMAND="mpv-currently-playing -s" || GET_COMMAND="mpv-active-sockets"
 }
 
 is_ignored() {
@@ -83,7 +61,7 @@ get_sockets() {
   while read -r SOCKET; do
     is_ignored "$SOCKET" && continue
     ACTIVE+=("$SOCKET")
-  done < <(mpv-active-sockets)
+  done < <($GET_COMMAND)
 }
 
 print_sockets() {

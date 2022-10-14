@@ -96,6 +96,8 @@ super + shift + bracketright
 super + s
     wkd -p s
 
+super + shift + s
+    wkd -p sD
 # not bound super + shift + s
 
 super + d
