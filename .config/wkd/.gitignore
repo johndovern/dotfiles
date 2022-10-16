@@ -2,7 +2,7 @@
 *
 !.gitignore
 #batch_backup.conf
-!batch_binds.conf
-!binds.json
-!old_binds.json
-!wkd.conf
+!bindsrc
+!keys.json
+!old_keys.json
+!wkdrc
