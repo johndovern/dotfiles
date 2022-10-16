@@ -1,0 +1,209 @@
+{
+    "b -> Browser": {
+        "b -> Open Brave": "brave",
+        "f -> Open Firefox": "firefox",
+        "l -> Open Librewolf": "GTK_USE_PORTAL=1 librewolf",
+        "m -> Mullvad-exclude": {
+            "b -> Exclude Brave": "mullvad-exclude brave",
+            "f -> Exclude Firefox": "mullvad-exclude firefox",
+            "l -> Exclude Librewolf": "GTK_USE_PORTAL=1 mullvad-exclude librewolf"
+        },
+        "p -> Profiles": {
+            "c -> 4chan Profile": "GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting \"4chan.org/g/\""
+        },
+        "s -> Open sites": {
+            "c -> Codeberg": "librewolf \"https://www.codeberg.org\"",
+            "e -> ESL_CSGO": "librewolf \"https://www.twitch.tv/esl_csgo/videos?filter=archives&sort=time\"",
+            "y -> Youtube": "librewolf \"https://vid.puffyan.us/feed/popular\""
+        }
+    },
+    "d -> Dmenu scripts": {
+        "m -> Manga": "dmenumanga -v",
+        "g -> Gitignore-auto": "dmenugitignore-auto"
+    },
+    "e -> Emacs": {
+        "e -> Open blank": "emacs",
+        "p -> Projects": {
+            "p -> Python projects": {
+                "v -> vmt-dev": "emacs \"~/programs/python/Personal/vmt-dev\"",
+                "w -> wkd-dev": "emacs \"~/programs/python/Personal/wkd-dev\"",
+                "z -> znp-dev": "emacs \"~/programs/python/Personal/znp-dev\""
+            },
+            "c -> C projects": {
+                "c -> Projects dir": "emacs \"~/programs/C\"",
+                "d -> dwm": "emacs \"~/.local/src/dwm\"",
+                "m -> dmenu": "emacs \"~/.local/src/dmenu\""
+            }
+        }
+    },
+    "m -> mpv": {
+        "d -> Float": "mpv-opts --float",
+        "f -> Focus": "mpv-opts --focus",
+        "l -> Playlists": {
+            "g -> ygyl": "mpv-playlist --shuffle \"$HOME/.config/mpv/playlists/groove.m3u\"",
+            "o -> anime groove": "mpv-playlist --shuffle \"$HOME/.config/mpv/playlists/groovy.m3u\""
+        },
+        "m -> Move right": "mpv-opts --move",
+        "M -> Move left": "mpv-opts --move 0",
+        "o -> mpv opts": {
+            "f -> Fullscreen": "mpv-opts --full-screen",
+            "s -> Sticky": "mpv-opts --sticky",
+            "S -> Shuffle": "mpv-opts --shuffle"
+        },
+        "p -> Pick mpv": {
+            "s -> Seek": {
+                "l -> Seek +10s": "mpv-seek 10 ; wkd -p ms",
+                "L -> Seek +60s": "mpv-seek 60 ; wkd -p ms",
+                "h -> Seek -10s": "mpv-seek -10 ; wkd -p ms",
+                "H -> Seek -60s": "mpv-seek -60 ; wkd -p ms",
+                "n -> Next": "mpv-next --pick",
+                "p -> Prev": "mpv-prev --pick"
+            },
+            "t -> Toggle": {
+                "m -> Toggle music": "mpv-toggle --music",
+                "t -> Toggle pick": "mpv-toggle --pick",
+                "u -> Toggle umpv": "mpv-toggle --umpv"
+            }
+        },
+        "q -> quit pick": "mpv-quit",
+        "s -> Seek": {
+            "l -> Seek +10s": "mpv-seek -c 10 ; wkd -p ms",
+            "L -> Seek +60s": "mpv-seek -c 60 ; wkd -p ms",
+            "h -> Seek -10s": "mpv-seek -c -10 ; wkd -p ms",
+            "H -> Seek -60s": "mpv-seek -c -60 ; wkd -p ms",
+            "n -> Next": "mpv-next --pick",
+            "p -> Prev": "mpv-prev --pick"
+        },
+        "t -> Smart toggle": "mpv-toggle"
+    },
+    "n -> nvim": {
+        "n -> Empty nvim": "st -e nvim",
+        "t -> Temp notes": "st -e nvim -c VimwikiIndex -c \"VimwikiGoto temp-notes\"",
+        "w -> VimwikiIndex": "st -e nvim -c VimwikiIndex"
+    },
+    "o -> Open": {
+        "h -> htop": "st -e htop",
+        "l -> lf": "st -n lf_run -e lfrun",
+        "m -> music": {
+            "n -> ncmpcpp": "st -e ncmpcpp"
+        },
+        "p -> Pulsemixer": "st -e pulsemixer",
+        "s -> Screen shot": {
+            "c -> Copy Shot": {
+                "c -> Current window": "maim -i \"$(xdotool getactivewindow)\" | xclip -selection clipboard -t image/png",
+                "f -> Full screen": "maim | xclip -selection clipboard -t image/png",
+                "s -> Selected area": "maim -s | xclip -selection clipboard -t image/png"
+            },
+            "f -> Full screen": "maim pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send \"Screenshot of desktop taken\"",
+            "s -> Selected area": "maim -s pic-selected-\"$(date '+%y%m%d-%H%M-%S').png\"",
+            "w -> Current window": "maim -i \"$(xdotool getactivewindow)\" pic-window-\"$(date '+%y%m%d-%H%M-%S').png\""
+        }
+    },
+    "p -> mpc": {
+        "l -> Next song": "mpc next & wkd -p p",
+        "h -> Prev song": "mpc prev & wkd -p p",
+        "p -> Playlist": {
+            "a -> Vaporwave": "mpc-playlists \"vaporwave\"",
+            "j -> Japanese Disco Edits": "mpc-playlists \"Japanese Disco Edits\"",
+            "l -> Vocaloid": "mpc-playlists \"vocaloid\"",
+            "m -> Mish Mash": "mpc-playlists \"mish-mash\"",
+            "n -> Newpipe": "mpc-playlists \"newpipe\"",
+            "o -> Non-Vaporwave": "mpc-playlists \"non-vaporwave\"",
+            "s -> Spotify Rip": "mpc-playlists \"Spotify Rip\"",
+            "t -> Too many vocaloids": "mpc-playlists \"Too_Many_Vocaloid_Songs\"",
+            "v -> Vocaloid Classics": "mpc-playlists \"Vocaloid_Classics\""
+        }
+    },
+    "s -> System": {
+        "D -> Dangerous": {
+            "d -> Display off": "sysact Display-off",
+            "L -> Leave dwm": "sysact Leave",
+            "R -> Reboot": "sysact Reboot",
+            "s -> Sleep": "sysact Sleep",
+            "S -> shutdown": "sysact Shutdown"
+        },
+        "l -> Lock": "sleep 0.1 ; sysact Lock",
+        "r -> Renew dwm": "sysact Renew-dwm"
+    },
+    "t -> Toggle": {
+        "a -> Pause all": "mpc pause ; pauseallmpv",
+        "b -> Toggle Bluetooth": {
+            "a -> Airpods connect": "dmenubluetooth -r -a",
+            "A -> Airpods disconnect": "dmenubluetooth -d -a",
+            "s -> Sony connect": "dmenubluetooth -r -s",
+            "S -> Sony disconnect": "dmenubluetooth -d -s",
+            "t -> Toggle Bluetooth": "dmenubluetooth -t"
+        },
+        "m -> mpv": "mpv-toggle",
+        "n -> mpc": "mpc toggle",
+        "u -> umpv": "mpv-toggle --umpv"
+    },
+    "u -> umpv": {
+        "o -> Open blank": "umpv"
+    },
+    "v -> vmt": {
+        "b -> Browse": "vmt -B",
+        "l -> Latest": "vmt -l",
+        "u -> Update": "st -e vmt -u",
+        "w -> Watch": "vmt -w"
+    },
+    "w -> Window": {
+        "d -> Toggle floating": "dwmc togglefloating",
+        "i -> [M] Monocle": "dwmc setlayoutex 5",
+        "h -> Go tag left": "dwmc shiftview -1 ; wkd -p w",
+        "H -> Shrink master": "dwmc setmfact \"-0.05\" ; wkd -p w",
+        "l -> Go tag left": "dwmc shiftview +1 ; wkd -p w",
+        "L -> Grow master": "dwmc setmfact \"+0.05\" ; wkd -p w",
+        "m -> Move": {
+            "m -> Monitor": "dwmc tagmon 0"
+        },
+        "p -> Layout": {
+            "b -> TTT Bstack": "dwmc setlayoutex 2",
+            "c -> |M| Centered": "dwmc setlayoutex 6",
+            "C -> >M> Center float": "dwmc setlayoutex 7",
+            "d -> [D] Deck": "dwmc setlayoutex 4",
+            "D -> [\\\\] dwindle": "dwmc setlayoutex 3",
+            "f -> ><> Floating": "dwmc setlayout 8",
+            "t -> []= Stack": "dwmc setlayoutex 1"
+        },
+        "q -> Kill window": "dwmc killclient",
+        "s -> Send tag": {
+            "a -> Tag 1": "dwmc tagex 0",
+            "r -> Tag 2": "dwmc tagex 1",
+            "s -> Tag 3": "dwmc tagex 2",
+            "t -> Tag 4": "dwmc tagex 3",
+            "g -> Tag 5": "dwmc tagex 4",
+            "m -> Tag 6": "dwmc tagex 5",
+            "n -> Tag 7": "dwmc tagex 6",
+            "e -> Tag 8": "dwmc tagex 7",
+            "i -> Tag 9": "dwmc tagex 8"
+        },
+        "S -> Send & follow": {
+            "a -> Tag 1": "dwmc tagex 0 ; dwmc viewex 0",
+            "r -> Tag 2": "dwmc tagex 1 ; dwmc viewex 1",
+            "s -> Tag 3": "dwmc tagex 2 ; dwmc viewex 2",
+            "t -> Tag 4": "dwmc tagex 3 ; dwmc viewex 3",
+            "g -> Tag 5": "dwmc tagex 4 ; dwmc viewex 4",
+            "m -> Tag 6": "dwmc tagex 5 ; dwmc viewex 5",
+            "n -> Tag 7": "dwmc tagex 6 ; dwmc viewex 6",
+            "e -> Tag 8": "dwmc tagex 7 ; dwmc viewex 7",
+            "i -> Tag 9": "dwmc tagex 8 ; dwmc viewex 8"
+        },
+        "t -> Focus tag": {
+            "a -> View tag 1": "dwmc viewex 0 ; wkd -p wt",
+            "r -> View tag 2": "dwmc viewex 1 ; wkd -p wt",
+            "s -> View tag 3": "dwmc viewex 2 ; wkd -p wt",
+            "t -> View tag 4": "dwmc viewex 3 ; wkd -p wt",
+            "g -> View tag 5": "dwmc viewex 4 ; wkd -p wt",
+            "m -> View tag 6": "dwmc viewex 5 ; wkd -p wt",
+            "n -> View tag 7": "dwmc viewex 6 ; wkd -p wt",
+            "e -> View tag 8": "dwmc viewex 7 ; wkd -p wt",
+            "i -> View tag 9": "dwmc viewex 8 ; wkd -p wt"
+        },
+        "v -> Fullscreen": "dwmc togglefullscr",
+        "y -> @ Fibonacci": "dwmc setlayoutex 0"
+    },
+    "W -> whichkey": {
+        "u -> update": "wkd -u"
+    }
+}

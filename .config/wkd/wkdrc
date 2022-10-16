@@ -1,0 +1,6 @@
+prompt_cmd = dmenu
+bind_args = -z 800 -x 580 -y 150 -bw 2 -n -e -b -q
+seperator = ->
+shell = true
+merge_current = false
+columns = 3
