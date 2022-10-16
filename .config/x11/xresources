@@ -6,11 +6,17 @@
 /* To see avaliable fonts on your system run */
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
-*.font:  monospace:size=12
-*.font1: IPAGothic:pixelsize=16:antialias=true:autohint=true
-*.font2: Source Han Sans JP:pixelsize=16:antialias=true:autohint=true
-*.font3: M+ 1c:pixelsize=16:antialias=true:autohint=true
-*.font4: Joypixels:pixelsize=14:antialias=true:autohint=true
+St.font:  monospace:size=14
+St.font1: IPAGothic:pixelsize=18:antialias=true:autohint=true
+St.font2: Source Han Sans JP:pixelsize=18:antialias=true:autohint=true
+St.font3: M+ 1c:pixelsize=18:antialias=true:autohint=true
+St.font4: Joypixels:pixelsize=16:antialias=true:autohint=true
+
+dmenu.font:  monospace:size=12
+dmenu.font1: IPAGothic:pixelsize=16:antialias=true:autohint=true
+dmenu.font2: Source Han Sans JP:pixelsize=16:antialias=true:autohint=true
+dmenu.font3: M+ 1c:pixelsize=16:antialias=true:autohint=true
+dmenu.font4: Joypixels:pixelsize=14:antialias=true:autohint=true
 
 /* hiDPI setting */
 Xft.dpi: 120
@@ -35,68 +41,103 @@ Xft.rgba: rgb
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
-/* *.colornfg:      #ffffff */
-*.colornfg:      #ebdbb2
-/* *.colornfg:      #009688 */
-/* *.colornbg:      #0c0d0e */
-/* *.colornbg:      #262425 */
-*.colornbg:      #1d2021
-/* *.colornbg:      #212121 */
-/* *.colorselfg:    #0c0d0e */
-/* *.colorselfg:    #262425 */
-*.colorselfg:    #1d2021
-/* *.colorselfg:    #009688 */
-/* *.colorselbg:    #ffffff */
-*.colorselbg:    #ebdbb2
-/* *.colorselbg:    #009688 */
-/* *.colornbord:    #969896 */
-*.colornbord:    #928374
-/* *.colornbord:    #0c0d0e */
-/* *.colorselbord:  #ff361e */
-*.colorselbord:  #009688
+*.colornfg:      #F8F7FB
+*.colornbg:      #21242B
+*.colorselfg:    #F8F7FB
+*.colorselbg:    #505564
+*.colornbord:    #505564
+*.colorselbord:  #51AFEF
+
+// *.colornfg:      #BFBA9F
+// *.colornbg:      #2A3340
+// *.colorselfg:    #2A3340
+// *.colorselbg:    #BFBA9F
+// *.colornbord:    #717B85
+// *.colorselbord:  #782E27
+//
+// *.colornfg:      #B8CEF0
+// *.colornbg:      #333455
+// *.colorselfg:    #333455
+// *.colorselbg:    #B8CEF0
+// *.colornbord:    #928374
+// *.colorselbord:  #ACC5ED
+//
+/* *.colornfg:      #ebdbb2 */
+/* *.colornbg:      #1d2021 */
+/* *.colorselfg:    #1d2021 */
+/* *.colorselbg:    #ebdbb2 */
+/* *.colornbord:    #928374 */
+/* *.colorselbord:  #009688 */
 
 /* Color settings for St */
 
 /* ! special */
-/* *.foreground:   #d9d8d8 */
-/* *.background:   #262425 */
-*.foreground:   #ebdbb2
-*.background:   #1d2021
-*.cursorColor:  #d9d8d8
+*.foreground:   #BAC1CB
+*.background:   #21242B
+*.cursorColor:  #51AFEF
 *.rcursorColor: #db2d20
 
-*background: #282828
-/* soft contrast: *background: #32302f */
 ! Black + DarkGrey
-*.color0:  #282828
-*.color8:  #928374
+*.color0:  #1B2229
+*.color8:  #54595E
 ! DarkRed + Red
-*.color1:  #cc241d
-*.color9:  #fb4934
+*.color1:  #FF6C6B
+*.color9:  #FF9090
 ! DarkGreen + Green
-*.color2:  #98971a
-*.color10: #b8bb26
+*.color2:  #98BE65
+*.color10: #B1CE8B
 ! DarkYellow + Yellow
-*.color3:  #d79921
-*.color11: #fabd2f
+*.color3:  #ECBE7B
+*.color11: #F0CE9C
 ! DarkBlue + Blue
-*.color4:  #458588
-*.color12: #83a598
+*.color4:  #51AFEF
+*.color12: #7CC3F3
 ! DarkMagenta + Magenta
-*.color5:  #b16286
-*.color13: #d3869b
+*.color5:  #C678DD
+*.color13: #D499E5
 ! DarkCyan + Cyan
-*.color6:  #689d6a
-*.color14: #8ec07c
+*.color6:  #46D9FF
+*.color14: #74E2FF
 ! LightGrey + White
-*.color7:  #a89984
-*.color15: #ebdbb2
+*.color7:  #DFDFDF
+*.color15: #E7E7E7
 
 /* Slock settings */
 *.message: henlo
 *.sfont: -misc-roboto-medium-i-normal--34-240-100-100-p-182-iso8859-1
 
-/* /1* d - black *1/ */
+// /* ! special */
+// *.foreground:   #ebdbb2
+// *.background:   #1d2021
+// *.cursorColor:  #d9d8d8
+// *.rcursorColor: #db2d20
+/* soft contrast: *background: #32302f */
+// ! Black + DarkGrey
+// *.color0:  #282828
+// *.color8:  #928374
+// ! DarkRed + Red
+// *.color1:  #cc241d
+// *.color9:  #fb4934
+// ! DarkGreen + Green
+// *.color2:  #98971a
+// *.color10: #b8bb26
+// ! DarkYellow + Yellow
+// *.color3:  #d79921
+// *.color11: #fabd2f
+// ! DarkBlue + Blue
+// *.color4:  #458588
+// *.color12: #83a598
+// ! DarkMagenta + Magenta
+// *.color5:  #b16286
+// *.color13: #d3869b
+// ! DarkCyan + Cyan
+// *.color6:  #689d6a
+// *.color14: #8ec07c
+// ! LightGrey + White
+// *.color7:  #a89984
+// *.color15: #ebdbb2
+
+# /1* d - black *1/
 /* *.color0:       #262425 */
 /* /1* *.color0:       #0c0d0e *1/ */
 /* /1* *.color0:       #1d1f21 *1/ */

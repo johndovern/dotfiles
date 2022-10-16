@@ -1,9 +1,12 @@
-### Updated on Tue Aug 16 04:07:36 PM PDT 2022 ###
+### Updated on Fri Sep 23 09:33:57 PM PDT 2022 ###
+### < !sb-mpv-roll > deleted since last update ###
+### < #sb-mpv.bak > deleted since last update ###
+### < !sb-mpc-roll > deleted since last update ###
 ### < .gitignore-very-old > deleted since last update ###
-### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
-.gitignore-very-old
+#.gitignore-old
+#.gitignore-very-old
 !sb-actions
 !sb-battery
 !sb-clock
@@ -19,12 +22,9 @@
 !sb-mailbox
 !sb-memory
 !sb-moonphase
-!sb-mpc-roll
 !sb-mpdup
 !sb-mpv
-#sb-mpv.bak
 !sb-mpv-music
-!sb-mpv-roll
 !sb-music
 !sb-nettraf
 !sb-news
@@ -32,6 +32,7 @@
 !sb-popupgrade
 !sb-price
 !sb-tasks
+#sb-test
 !sb-torrent
 !sb-volume
 !sb-yt-monitor

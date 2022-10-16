@@ -40,17 +40,17 @@ local function set_vars()
     end
 
     if o.umpv == "yes" then
-        TheSocketFile = os.getenv("MPV_UMPV_SOCKET")
-        if not TheSocketFile then
-            TheSocketFile = join_paths(SocketDir, "umpv_socket")
+        TheSocket = os.getenv("MPV_UMPV_SOCKET")
+        if not TheSocket then
+            TheSocket = join_paths(SocketDir, "umpv_socket")
         end
     elseif o.music == "yes" then
-        TheSocketFile = os.getenv("MPV_MUSIC_SOCKET")
-        if not TheSocketFile then
-            TheSocketFile = join_paths(SocketDir, "music_socket")
+        TheSocket = os.getenv("MPV_MUSIC_SOCKET")
+        if not TheSocket then
+            TheSocket = join_paths(SocketDir, "music_socket")
         end
     elseif o.pid == "yes" then
-        TheSocketFile = join_paths(SocketDir, os.time(os.date("!*t")))
+        TheSocket = join_paths(SocketDir, os.time(os.date("!*t")))
     end
 end
 
@@ -58,12 +58,12 @@ local function create_socket()
     if o.enabled == "no" then return end
     set_vars()
     os.execute("mkdir " .. SocketDir .. " 2>/dev/null")
-    mp.set_property("options/input-ipc-server", TheSocketFile)
+    mp.set_property("options/input-ipc-server", TheSocket)
 end
 
 local function shutdown_handler()
     if o.enabled == "no" then return end
-    os.remove(TheSocketFile)
+    os.remove(TheSocket)
 end
 
 create_socket()

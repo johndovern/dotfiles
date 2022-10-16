@@ -14,26 +14,48 @@ find_active_sockets() {
 
   [[ "${#ACTIVE_SOCKETS[@]}" -eq 0 ]] && return 1
 
+  [[ "$PID" -eq 1 ]] && find_socket_pid
+
   printf '%s\n' "${ACTIVE_SOCKETS[@]}" | sort -n
+}
+
+find_socket_pid() {
+  for SOCKET in "${ACTIVE_SOCKETS[@]}"; do
+    SOCKET_PID="$(mpv-get-property "$SOCKET" "pid")"
+    [[ ! "$SOCKET_PID" == "$PCHECK" ]] && continue
+    FOUND="$SOCKET"
+    break
+  done
+
+  [[ -n "$FOUND" ]] && ACTIVE_SOCKETS=("$FOUND")
 }
 
 get_opts() {
   while [[ $# -gt 0 ]]; do
     case "$1" in
-      -h|--help)
+      -h | --help)
         usage
         return 1
         ;;
-      -i|--invert)
+      -i | --invert)
         INVERT=1
         ;;
-      -m|--music)
+      -m | --music)
         NO_MUSIC=1
         ;;
-      -p|--print)
+      -p | --print)
         PRINT=1
         ;;
-      -s|--socket)
+      -P | --pid)
+        shift
+        PID=1
+        [[ -z "$1" ]] && {
+          usage >&2
+          return 1
+        }
+        PCHECK="$1"
+        ;;
+      -s | --socket)
         shift
         [[ -z "$1" ]] && {
           usage >&2
@@ -41,10 +63,10 @@ get_opts() {
         }
         CHECK="$1"
         ;;
-      -u|--umpv)
+      -u | --umpv)
         NO_UMPV=1
         ;;
-      -U|--unique)
+      -U | --unique)
         NO_CUSTOM=1
         ;;
       *)
@@ -92,7 +114,7 @@ test_given_socket() {
 }
 
 usage() {
-  cat <<- EOF
+  cat <<-EOF
   Usage:  mpv-active-sockets [options]
 
   Options:
@@ -116,7 +138,10 @@ EOF
 
 main() {
   get_opts "$@" || return 1
-  [[ -n "$CHECK" ]] && { test_given_socket ; return $? ;}
+  [[ -n "$CHECK" ]] && {
+    test_given_socket
+    return $?
+  }
   find_active_sockets || return 1
 }
 

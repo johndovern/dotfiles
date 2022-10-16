@@ -1,106 +1,103 @@
 #!/bin/bash
-export OPTION=
-export OPTION_2=
-export FIRST=
-export SECOND=
-export CHOSEN=
-export CHOSEN=
-export CHOSEN_WID=
-export CHOSEN_SOCKET=
-export SHUFFLE=
-export NOW=
-declare -a SOCKETS
-declare -a SOCKET_FILE
+
+abort() {
+  usage
+  exit 1
+}
 
 get_opts() {
-  while :; do
-    if [[ $# -gt 0 ]]; then
-      case "$1" in
-        -d|--float)
-          OPTION="FLOAT"
-          OPTION_2="--music"
-          shift
-          break
-          ;;
-        -F|--focus)
-          OPTION="FOCUS"
-          shift
-          break
-          ;;
-        -f|--full-screen)
-          OPTION="FULL"
-          shift
-          break
-          ;;
-        -m|--move)
-          OPTION="MOVE"
-          shift
-          break
-          ;;
-        -q|--quit)
-          OPTION="QUIT"
-          shift
-          case "${1:-NO_OPTION}" in
-            NO_OPTION)
-              ;;
-            --music)
-              OPTION_2="${1}"
-              shift
-              ;;
-            --socket)
-              OPTION_2="${1}"
-              shift
-              OPTION_3="${1}"
-              shift
-              ;;
-          esac
-          break
-          ;;
-        -s|--sticky)
-          OPTION="STICKY"
-          shift
-          break
-          ;;
-        -u|--shuffle)
-          OPTION="SHUFFLE"
-          if [[ "$2" == "--now" ]]; then
-            NOW=1
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -d | --float)
+        OPTION="FLOAT"
+        OPTION_2="--music"
+        shift
+        break
+        ;;
+      -F | --focus)
+        OPTION="FOCUS"
+        shift
+        break
+        ;;
+      -f | --full-screen)
+        OPTION="FULL"
+        shift
+        break
+        ;;
+      -m | --move)
+        OPTION="MOVE"
+        shift
+        [[ "$#" -eq 1 ]] && MOVE_MON="$1" || MOVE_MON=1
+        shift
+        break
+        ;;
+      -q | --quit)
+        OPTION="QUIT"
+        shift
+        case "$1" in
+          --music)
+            OPTION_2="$1"
             shift
-          fi
+            ;;
+          --socket)
+            OPTION_2="$1"
+            shift
+            [[ -z "$1" ]] && abort
+            OPTION_3="$1"
+            shift
+            ;;
+        esac
+        break
+        ;;
+      -s | --sticky)
+        OPTION="STICKY"
+        shift
+        break
+        ;;
+      -u | --shuffle)
+        OPTION="SHUFFLE"
+        [[ "$2" == "--now" ]] && {
+          NOW=1
           shift
-          break
-          ;;
-        *)
-          OPTION=$(printf "FLOAT\\nFOCUS\\nFULL\\nQUIT\\nSTICKY\\nEXIT" | dmenu -i -p "Action:")
-          shift
-          break
-          ;;
-      esac
-    else
-      break
-    fi
+        }
+        shift
+        break
+        ;;
+      *)
+        OPTION=$(printf "FLOAT\\nFOCUS\\nFULL\\nQUIT\\nSTICKY\\nEXIT" | dmenu -i -p "Action:")
+        shift
+        break
+        ;;
+    esac
   done
 }
 
 get_mpv() {
-  if [[ $(mpv-active-sockets ${OPTION_2} | wc -l) -gt 1 ]]; then
-    CHOSEN="$(mpv-pick --pid --full --music)"
-    [[ -z "${CHOSEN}" ]] && return 1
-    CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")
-    return 0
-  else
+  # shellcheck disable=SC2086
+  [[ $(mpv-active-sockets $OPTION_2 | wc -l) -eq 1 ]] && {
     CHOSEN="$(mpv-pick --pid)"
-    CHOSEN_WID=$(xdotool search --pid "${CHOSEN} - mpv")
-  fi
+    MPV_PATH="$(mpv-pick)"
+    FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"
+    CHOSEN_WID=$(xdotool search --pid "$CHOSEN - mpv")
+    return 0
+  }
+  CHOSEN="$(mpv-pick --pid --full --music)"
+  [[ -z "$CHOSEN" ]] && return 1
+  MPV_PATH="$(mpv-active-sockets --pid "${CHOSEN%%:*}")"
+  FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"
+  CHOSEN_WID=$(xdotool search --pid "${CHOSEN%%:*} - mpv")
 }
 
 mpv_float() {
   dwmc pushstack 0
-  xdotool mousemove --window "${CHOSEN_WID}" 0 0 ; sleep 0.03
+  xdotool mousemove --window "$CHOSEN_WID" 0 0
+  sleep 0.03
   xdotool keydown super mousedown 1
   xdotool mousemove 1272 756
-  xdotool mouseup 1 keyup super ; sleep 0.03
-  xdotool keydown super mousedown 3 ; sleep 0.03
+  xdotool mouseup 1 keyup super
+  sleep 0.03
+  xdotool keydown super mousedown 3
+  sleep 0.03
   xdotool mousemove 1781 1059
   xdotool mouseup 3 keyup super
   dwmc pushstack -1
@@ -110,36 +107,35 @@ mpv_float() {
 }
 
 mpv_move() {
-  wmctrl -ia "${CHOSEN_WID}"
-  dwmc tagmon 1
+  wmctrl -ia "$CHOSEN_WID"
+  dwmc tagnmon "$1"
+  wmctrl -ia "$CHOSEN_WID"
+  [[ "$FULLSCREEN" == "false" ]] && xdotool key f
+  dwmc focusnmon 0
 }
 
 mpv_shuffle() {
-  if [[ "${NOW:-0}" -eq 0 ]]; then
-    if [[ "$(mpv-active-sockets --umpv | wc -l)" -gt 1 ]]; then
-      SHUFFLE="$(mpv-pick --full --umpv)"
-      case "${SHUFFLE:-NO_SOCKET}" in
-        NO_SOCKET)
-          return 1
-          ;;
-        *)
-          mpv-communicate "${SHUFFLE%%:*}" \
-            '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
-          ;;
-      esac
-    elif [[ "${ACTIVE}" -eq 1 ]]; then
-      mpv-communicate "$(mpv-active-sockets --umpv )" \
-        '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
-    fi
-  else
+  [[ "$NOW" -eq 1 ]] && {
     mpv-communicate "$(mpv-active-sockets --unique | tail -n1)" \
       '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
-  fi
+    return 0
+  }
+  IFS=$'\n' read -r -d '' -a ACTIVE < <(mpv-active-sockets --umpv && printf '\0')
+  [[ "${#ACTIVE[@]}" -eq 0 ]] && return 1
+  [[ "${#ACTIVE[@]}" -eq 1 ]] && {
+    mpv-communicate "$ACTIVE" \
+      '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
+    return 0
+  }
+  SHUFFLE="$(mpv-pick --full --umpv --quiet)"
+  [[ -z "$SHUFFLE" ]] && return 1
+  mpv-communicate "${SHUFFLE%%:*}" \
+    '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
 }
 
 opts_handler() {
   killall wmctrl >/dev/null 2>&1
-  case "${OPTION}" in
+  case "$OPTION" in
     FLOAT)
       get_mpv || return 1
       sleep 0.2
@@ -148,34 +144,79 @@ opts_handler() {
     FOCUS)
       get_mpv || return 1
       sleep 0.2
-      wmctrl -ia "${CHOSEN_WID}"
+      wmctrl -ia "$CHOSEN_WID"
       ;;
     FULL)
       get_mpv || return 1
       sleep 0.2
-      xdotool key --window "${CHOSEN_WID}" f && wmctrl -ia "${CHOSEN_WID}"
+      xdotool key --window "$CHOSEN_WID" f # && wmctrl -ia "$CHOSEN_WID"
       ;;
     MOVE)
       get_mpv || return 1
       sleep 0.2
-      mpv_move
+      mpv_move "$MOVE_MON"
       ;;
     QUIT)
-      mpv-quit "${OPTION_2}" "${OPTION_3}"
+      mpv-quit "$OPTION_2" "$OPTION_3"
       ;;
     STICKY)
       get_mpv || return 1
       sleep 0.2
-      wmctrl -ia "${CHOSEN_WID}" && xdotool key super+s super+f
+      wmctrl -ia "$CHOSEN_WID" && xdotool key super+s super+f
       ;;
     SHUFFLE)
       mpv_shuffle || return 1
       ;;
     *)
-      notify-send -u critical "Error" "Invalid option: ${OPTION}"
+      notify-send -u critical "Error" "Invalid option: $OPTION"
       return 1
       ;;
   esac
+}
+
+usage() {
+  cat <<-EOF
+  Usage: mpv-opts [-d | -f | -F | -q | -s | -u]
+
+  Control an instance of mpv via commandline and sockets. Great for hotkeys
+
+  Options:
+
+    -d, --float         Float an instance of mpv to the bottom right of the monitor.
+    -F, --focus         Focus an instance of mpv.
+    -f, --full-screen   Full screen an instance of mpv.
+    -m, --move          Move an instance of mpv an full screen it on the secondary monitor.
+    -q, --quit          Quit an instance of mpv. This flag may be followed by two other flags.
+                        The --music flag when given after -q will quit the mpv-music instance.
+                        The --socket flag quits the given socket which is required.
+    -s, --sticky        Make an instance of mpv sticky.
+    -u, --shuffle       Shuffle an instance of mpv excluding the umpv instance. This flag will
+                        accept the --now flag to shuffle the most recent instance of mpv.
+
+  Details:
+
+  This script requires several things to be in place to work properly.
+
+    1.  You must be using dwm for the following flags:
+            --float, --move,  --sticky
+        See my patched version for any needed patches especially dwmc:
+            https://github.com/johndovern/dwm
+    2.  You need the following scripts installed and working on your system:
+          mpvSockets -- To create mpv sockets, and communicate with them
+            https://github.com/johndovern/mpvSockets-umpv
+          patched dwm -- See above
+          xdotool -- To manipulate windows and simulate key presses
+          wmctrl -- To get info about the current windows available
+          mpv-sockets -- A collection of bash scripts that allow for easy
+          interaction with mpv
+            https://github.com/johndovern/mpv-sockets
+          umpv and mpv-music (optional) -- Allow for unique instances of mpv
+          that can be filtered out or manipulated specifically.
+            https://github.com/johndovern/mpvSockets-umpv/tree/master/umpv
+            https://github.com/johndovern/mpvSockets-umpv/tree/master/mpv-music
+          playlist manager -- A lua script for managing a playlist of videos
+            https://github.com/jonniek/mpv-playlistmanager
+EOF
 }
 
 main() {
@@ -183,6 +224,6 @@ main() {
   opts_handler && return 0 || return 1
 }
 
-main "$@" && exit 1 || { notify-send -u critical "Error" "mpv-opts failed \
-CHOSEN: ${CHOSEN}
-CHOSEN_WID: ${CHOSEN_WID}" && exit 1 ; }
+main "$@" && exit 0 || { notify-send -u critical "Error" "mpv-opts failed \
+CHOSEN: $CHOSEN
+CHOSEN_WID: $CHOSEN_WID" && exit 1; }

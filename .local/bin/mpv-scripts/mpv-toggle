@@ -13,57 +13,50 @@ declare -a MANUAL_SOCKET CURRENTLY_PLAYING # ALL_SOCKETS
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
 
+abort() {
+  echo "USAGE: $*" >&2
+  exit 1
+}
+
 get_opts() {
-  while :; do
-    if [[ "$#" -gt 0 ]]; then
-      case "${1}" in
-        -f|--fzf)
-          FZF="--fzf"
-          ;;
-        -m|--music)
-          MANUAL_SOCKET+=("${MUSIC_SOCKET}")
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -f | --fzf)
+        FZF="--fzf"
+        ;;
+      -m | --music)
+        MANUAL_SOCKET+=("${MUSIC_SOCKET}")
+        ;;
+      -p | --pick)
+        MANUAL_SOCKET+=("$(mpv-pick $FZF)")
+        ;;
+      -s | --socket)
+        shift
+        [[ "$#" -eq 0 ]] && abort "--socket needs a socket"
+        for SOCKET in "$@"; do
+          MANUAL_SOCKET+=("${SOCKET}")
           shift
-          ;;
-        -s|--socket)
-          shift
-          case "${1:-NO_SOCKET}" in
-            NO_SOCKET)
-              echo "USAGE: --socket needs a socket"
-              return 1
-              ;;
-            *)
-              for SOCKET in "$@" ; do
-                MANUAL_SOCKET+=("${SOCKET}")
-                shift
-              done
-              unset SOCKET
-              break
-              ;;
-          esac
-          ;;
-        -u|--umpv)
-          MANUAL_SOCKET+=("${UMPV_SOCKET}")
-          shift
-          ;;
-        *)
-          shift
-          ;;
-      esac
-    else
-      break
-    fi
+        done
+        break
+        ;;
+      -u | --umpv)
+        MANUAL_SOCKET+=("${UMPV_SOCKET}")
+        ;;
+      *) ;;
+    esac
+    shift
   done
 }
 
 manual_toggle() {
-  toggle "$1" && \
-  rm -f "$LAST_PLAYING" && \
-  ln -s "$1" "$LAST_PLAYING"
+  toggle "$1" &&
+    rm -f "$LAST_PLAYING" &&
+    ln -s "$1" "$LAST_PLAYING"
 }
 
 smart_toggle() {
-  if mpv-currently-playing --quiet ; then
-    while read -r SOCKET ; do
+  if mpv-currently-playing --quiet; then
+    while read -r SOCKET; do
       CURRENTLY_PLAYING+=("${SOCKET}")
     done < <(mpv-currently-playing --socket)
 
@@ -78,9 +71,9 @@ smart_toggle() {
       toggle "${LAST_PLAYING}"
     else
       echo "Last paused socket no longer exists, checking for active instance..." >&2
-      if mpv-active-sockets >/dev/null 2>&1 ; then
+      if mpv-active-sockets >/dev/null 2>&1; then
         echo "Starting mpv instance of choice..."
-        if toggle "$(mpv-pick ${FZF})" ; then
+        if toggle "$(mpv-pick ${FZF})"; then
           echo 'Success!'
         else
           echo "Failed..." >&2

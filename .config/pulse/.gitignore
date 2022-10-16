@@ -1,8 +1,8 @@
-### Updated on Tue Jul 12 08:11:25 PM PDT 2022 ###
+### Updated on Fri Sep 23 09:33:41 PM PDT 2022 ###
 ### < .gitignore-very-old > deleted since last update ###
 *
 !.gitignore
-.gitignore-very-old
+#.gitignore-very-old
 #40da7ccbd00701ac27ca6da361845606-card-database.tdb
 #40da7ccbd00701ac27ca6da361845606-default-sink
 #40da7ccbd00701ac27ca6da361845606-default-source

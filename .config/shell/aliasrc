@@ -42,7 +42,7 @@ alias \
 	sdn="shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="pacman" \
+	p="python3" \
 	z="zathura"
 
 alias \

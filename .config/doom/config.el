@@ -1,20 +1,12 @@
-;; Set lazy loading
-(setq package-enable-at-startup nil ; don't auto-initialize!
-      ;; don't add that `custom-set-variables' block to my init.el!
-      package--init-file-ensured t)
-
 ;; Remap leader key
 (setq doom-leader-key ","
-      doom-localleader-key "\\")
-
+      doom-localleader-key "SPC")
 (map! :leader
       (:prefix ("b". "buffer")
        :desc "List bookmarks" "L" #'list-bookmarks
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
-
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
-
 (evil-define-key 'normal ibuffer-mode-map
         (kbd "f c") 'ibuffer-filter-by-content
         (kbd "f d") 'ibuffer-filter-by-directory
@@ -24,12 +16,10 @@
         (kbd "f x") 'ibuffer-filter-disable
         (kbd "g h") 'ibuffer-do-kill-lines
         (kbd "g H") 'ibuffer-update)
-
 (use-package dashboard
         :init      ;; tweak dashboard config before loading it
         (setq dashboard-set-heading-icons t)
         (setq dashboard-set-file-icons t)
-        ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
         (setq dashboard-startup-banner "~/.config/doom/doom-emacs-dash.png")  ;; use custom image as banner
         (setq dashboard-center-content t) ;; set to 't' for centered content
         (setq dashboard-items '((recents . 5)
@@ -41,10 +31,9 @@
         (dashboard-setup-startup-hook)
         (dashboard-modify-heading-icons '((recents . "file-text")
                                           (bookmarks . "book"))))
-
 (setq doom-fallback-buffer-name "*dashboard*")
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-
+;; Usefull if running emacs as a daemon
+;; (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "d" #'dired
@@ -53,7 +42,6 @@
        (:map dired-mode-map
         :desc "Peep-dired image previews" "d p" #'peep-dired
         :desc "Dired view file" "d v" #'dired-view-file)))
-
 (evil-define-key 'normal dired-mode-map
   (kbd "M-RET") 'dired-display-file
   (kbd "h") 'dired-up-directory
@@ -77,7 +65,9 @@
   (kbd "; d") 'epa-dired-do-decrypt
   (kbd "; e") 'epa-dired-do-encrypt)
 ;; Get file icons in dired
-;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook! 'dired-mode-hook
+           'all-the-icons-dired-mode
+           'dired-hide-details-mode)
 ;; With dired-open plugin, you can launch external programs for certain extensions
 ;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
 (setq dired-open-extensions '(("gif" . "nsxiv")
@@ -86,31 +76,34 @@
                               ("pdf" . "zathura")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
-
 (evil-define-key 'normal peep-dired-mode-map
   (kbd "j") 'peep-dired-next-file
   (kbd "k") 'peep-dired-prev-file)
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
-
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
-
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 (map! :leader
-      :desc "Load new theme" "h t" #'counsel-load-theme)
-
+      :desc "Load new theme" "H t" #'counsel-load-theme)
 (use-package emojify
   :hook (after-init . global-emojify-mode))
-
-(setq doom-font (font-spec :size 18)
-      ;; doom-variable-pitch-font (font-spec :size 18)
-      doom-big-font (font-spec :size 24))
+(setq doom-font (font-spec :font "Monospace" :size 20)
+      doom-big-font (font-spec :font "Monospace" :size 36)
+      doom-variable-pitch-font (font-spec :font "Sans" :size 20)
+      doom-unicode-font (font-spec :font "Monospace" :size 20)
+      doom-serif-font (font-spec :font "Monospace" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t))
+        doom-themes-enable-italic t
+        doom-themes-treemacs-enable-variable-pitch nil
+        doom-themes-treemacs-theme 'doom-one
+        doom-one-light-brighter-comments t
+        doom-one-brighter-comments t))
+(after! treemacs
+  (setq! treemacs-width 20
+         treemacs-show-cursor t))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
-
 (setq ivy-posframe-display-functions-alist
       '((swiper                     . ivy-posframe-display-at-point)
         (complete-symbol            . ivy-posframe-display-at-point)
@@ -128,42 +121,24 @@
         (dmenu . 20)
         (t . 10)))
 (ivy-posframe-mode 1) ; 1 enables posframe-mode, 0 disables it.
-
 (map! :leader
       (:prefix ("v" . "Ivy")
        :desc "Ivy push view" "v p" #'ivy-push-view
        :desc "Ivy switch view" "v s" #'ivy-switch-view))
-
 (setq display-line-numbers-type 'relative)
-
-;; (custom-set-faces
-;;  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "Monospace"))))
-;;  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.7))))
-;;  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.6))))
-;;  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.5))))
-;;  '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.4))))
-;;  '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.3))))
-;;  '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.2)))))
-
 (set-face-attribute 'mode-line nil :font "Monospace")
 (setq doom-modeline-height 25     ;; sets modeline height
       doom-modeline-bar-width 5   ;; sets right bar width
       doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
-
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
 (xterm-mouse-mode 1)
-
-(after! neotree
-  (setq neo-smart-open t
-        neo-window-fixed-size nil))
-(after! doom-themes
-  (setq doom-neotree-enable-variable-pitch nil))
 (map! :leader
-      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
-      :desc "Open directory in neotree" "d n" #'neotree-dir)
-
-(map! :leader
-      (:prefix ("r" . "registers")
+      (:prefix ("R" . "registers")
        :desc "Copy to register" "c" #'copy-to-register
        :desc "Frameset to register" "f" #'frameset-to-register
        :desc "Insert contents of register" "i" #'insert-register
@@ -175,7 +150,6 @@
        :desc "Window configuration to register" "w" #'window-configuration-to-register
        :desc "Increment register" "+" #'increment-register
        :desc "Point to register" "SPC" #'point-to-register))
-
 (setq shell-file-name "/bin/zsh"
       vterm-max-scrollback 5000)
 (setq eshell-aliases-file "~/.config/doom/eshell/aliases"
@@ -190,62 +164,101 @@
       :desc "Eshell popup toggle" "e t" #'+eshell/toggle
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
       :desc "Vterm popup toggle" "t t" #'+vterm/toggle)
-
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
 (add-hook 'markdown-mode-hook 'prefer-horizontal-split)
 (map! :leader
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
-
 (map! :leader
       (:prefix ("w" . "window")
        :desc "Winner redo" "<right>" #'winner-redo
        :desc "Winner undo" "<left>" #'winner-undo))
-
 (map! :leader
       :desc "Zap to char" "z" #'zap-to-char
       :desc "Zap up to char" "Z" #'zap-up-to-char)
-
 (+global-word-wrap-mode +1)
-
+(setq +word-wrap-extra-indent nil)
 (defun my-c-hook-settings ()
   (setq +format-on-save-enabled-modes nil)
-  #'lsp)
-
+  #'lsp!)
 (add-hook 'c-mode-hook #'my-c-hook-settings)
-
 (map! :after evil
       :map evil-normal-state-map
       "ZZ"      #'doom/save-and-kill-buffer
       "ZQ"      #'kill-current-buffer)
-
 (map! :leader
       :desc "Previous workspace" "TAB h" #'+workspace/switch-left
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
-      :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode)
-
+      :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode
+      :desc "Toggle treemacs" "t e" #'treemacs)
 (map! :leader
       :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
-      :desc "Delete frame" "q q" #'delete-frame)
-
+      :desc "Delete frame" "q q" #'save-buffers-kill-emacs)
 (global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
-
-(defun sxhkd-restart-on-save ()
-    "Restart sxhkd daemon"
-    ;; (when (eq major-mode 'conf-space-mode)
-      (if (string= buffer-file-name "/home/anon/.config/sxhkd/sxhkdrc")
-          (shell-command "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
-
-(defun sxhkd-hook ()
-  "Add hook for sxhkd file"
-  (add-hook 'after-save-hook #'sxhkd-restart-on-save))
-
-(add-hook 'conf-space-mode-hook #'sxhkd-hook)
-;; (add-hook 'after-save-hook #'sxhkd-restart-on-save)
-
+(add-hook! 'conf-space-mode-hook
+  (when (stringp buffer-file-name)
+      (when (string-match-p "/sxhkdrc$" buffer-file-name)
+          (add-hook! 'after-save-hook :local
+            (shell-command-to-string "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
+      (when (string-match-p "/bindsrc$" buffer-file-name)
+        (add-hook! 'after-save-hook :local
+          (shell-command-to-string "wkd -u")))))
+(add-to-list 'auto-mode-alist '("xresources" . conf-mode))
+(add-hook! 'conf-mode-hook
+  (when (stringp buffer-file-name)
+    (when (string-match-p "/xresources$" buffer-file-name)
+      (add-hook! 'after-save-hook :local
+        (shell-command "xrdb \"$HOME/.config/x11/xresources\"")))))
+(add-hook! 'conf-unix-mode-hook
+  (when (stringp buffer-file-name)
+      (if (string-match-p "/dunstrc$" buffer-file-name)
+          (add-hook! 'after-save-hook :local
+            (shell-command-to-string "systemctl --user restart dunst.service")))))
+(map! :localleader
+      :map org-mode-map
+      (:prefix ("m" . "my maps")
+       (:prefix ("e" . "export")
+        :desc "Export to gfm" "g" #'org-pandoc-export-to-gfm
+        :desc "Export as gfm" "G" #'org-pandoc-export-as-gfm)))
+(setq company-statistics-mode t)
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
+(setq +lsp-company-backends
+      '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
+(setq company-backends
+      '((:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev)))
+(map! :leader
+      :desc "Toggle line numbers" "t L" #'doom/toggle-line-numbers
+      :desc "Toggle lsp server (restart)" "t l" #'lsp-restart-workspace)
+(evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
+(evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)
+(map! :after evil
+      :map evil-normal-state-map
+      "Q"       #'evil-fill-and-move)
+(modify-syntax-entry ?_ "w")
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      scroll-preserve-screen-position 'always     ; Don't have `point' jump around
+      scroll-margin 5)                            ; It's nice to maintain a little margin
+(setq evil-vsplit-window-right t
+      evil-split-window-below t)
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (consult-buffer))
+(map! :leader
+      "h" nil
+      "H" help-map
+      "h" #'evil-window-left
+      "j" #'evil-window-down
+      "k" #'evil-window-up
+      "l" #'evil-window-right)
+(setq org-roam-directory "~/ewiki")
+(map! :leader
+      (:prefix ("r" . "roam")
+       (:prefix ("n" . "node")
+        :desc "Find node" "f" #'org-roam-node-find
+        :desc "Insert node" "i" #'org-roam-node-insert)))

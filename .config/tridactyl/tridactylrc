@@ -2,7 +2,7 @@
 set update.lastchecktime 1646930445391
 set configversion 2.0
 " Theme
-set theme greenmat
+set theme shydactyl
 
 " Rebind basics
 bind d scrollline 10
@@ -40,7 +40,7 @@ bind ,chg tabopen -b https://4chan.org/g/
 " Search urls
 set searchurls.aw https://wiki.archlinux.org/index.php?search=
 set searchurls.yt https://www.youtube.com/results?search_query=
-set searchurls.iv https://yewtu.be/search?q=
+set searchurls.iv https://vid.puffyan.us/search?q=
 set searchurls.ny https://nyaa.si/?q=
 set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
@@ -56,8 +56,8 @@ bind ,gn composite url2args | gal_dl
 " MPV
 bind ,mh hint -W mpv_open
 bind ,mn composite url2args | mpv_open
-bind ,mmh hint -W mpv_music
-bind ,mmn composite url2args | mpv_music
+bind ,Mh hint -W mpv_music
+bind ,Mn composite url2args | mpv_music
 bind ,mf hint -W mpv_float
 
 " UMPV
@@ -81,7 +81,7 @@ command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&
 command gal_dl js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f gallery-dl -f "/O" -d "$HOME/gallery-dl" ' + url))
 
 " MPV
-command mpv_open js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f mpv --no-terminal --loop-playlist=no --keep-open=no ' + url))
+command mpv_open js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f mpv --no-terminal --loop-playlist=no --keep-open=yes ' + url))
 command mpv_music js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f mpv-music ' + url))
 command mpv_float js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f mpv --x11-name=fmpv --loop-playlist=no --keep-open=no ' + url))
 command wsg_mpv js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f wsg2mpv ' + url))

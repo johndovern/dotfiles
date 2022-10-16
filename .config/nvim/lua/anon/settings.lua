@@ -10,7 +10,7 @@ g.maplocalleader = ','
 o.title = true
 o.go = 'a'
 o.mouse = 'a'
-g.nohlsearch = true
+cmd[[set nohlsearch]]
 o.clipboard = 'unnamedplus'
 g.noshowmode = true
 g.noruler = true

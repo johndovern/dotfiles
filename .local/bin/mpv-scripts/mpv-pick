@@ -18,61 +18,39 @@ abort() {
 }
 
 get_opts() {
-  while :; do
-    if [[ "$#" -gt 0 ]]; then
-      case "$1" in
-        -f|--fzf)
-          INTERACT=0
-          shift
-          ;;
-        -F|--full)
-          FULL=1
-          shift
-          ;;
-        -m|--music)
-          NO_MUSIC=1
-          shift
-          ;;
-        -p|--pid)
-          PID=1
-          shift
-          ;;
-        -q|--quiet)
-          QUIET=1
-          shift
-          ;;
-        -u|--umpv)
-          NO_UMPV=1
-          shift
-          ;;
-        -U|--unique)
-          NO_CUSTOM=1
-          shift
-          ;;
-        --)
-          shift
-          break
-          ;;
-        *)
-          abort "Invalid option(s): $*"
-          return 1
-          ;;
-      esac
-    else
-      break
-    fi
+  while [[ "$#" -ne 0 ]]; do
+    case "$1" in
+      -c | --current) IS_PLAYING=1 ;;
+      -f | --fzf) INTERACT=0 ;;
+      -F | --full) FULL=1 ;;
+      -m | --music) NO_MUSIC=1 ;;
+      -p | --pid) PID=1 ;;
+      -q | --quiet) QUIET=1 ;;
+      -u | --umpv) NO_UMPV=1 ;;
+      -U | --unique) NO_CUSTOM=1 ;;
+      --)
+        shift
+        break
+        ;;
+      *)
+        abort "Invalid option(s): $*"
+        return 1
+        ;;
+    esac
+    shift
   done
+  [[ "$IS_PLAYING" -eq 1 ]] && GET_COMMAND="mpv-currently-playing -s" || GET_COMMAND="mpv-active-sockets"
 }
 
 is_ignored() {
-  if [[ "${NO_CUSTOM}" -eq 1 ]]; then
-    [[ "${UMPV_SOCKET} ${MUSIC_SOCKET}" =~ "${1}" ]] && return 0
+  if [[ "$NO_CUSTOM" -eq 1 ]]; then
+    [[ "$UMPV_SOCKET $MUSIC_SOCKET" =~ "$1" ]] && return 0
     return 1
-  elif [[ "${NO_UMPV}" -eq 1 ]]; then
-    [[ "${UMPV_SOCKET}" =~ "${1}" ]] && return 0
+  elif [[ "$NO_UMPV" -eq 1 ]]; then
+    [[ "$UMPV_SOCKET" =~ "$1" ]] && return 0
     return 1
-  elif [[ "${NO_MUSIC}" -eq 1 ]]; then
-    [[ "${MUSIC_SOCKET}" =~ "${1}" ]] && return 0
+  elif [[ "$NO_MUSIC" -eq 1 ]]; then
+    [[ "$MUSIC_SOCKET" =~ "$1" ]] && return 0
     return 1
   else
     return 1
@@ -80,24 +58,24 @@ is_ignored() {
 }
 
 get_sockets() {
-  while read -r SOCKET ; do
-    is_ignored "${SOCKET}" && continue
-    ACTIVE+=("${SOCKET}")
-  done < <(mpv-active-sockets)
+  while read -r SOCKET; do
+    is_ignored "$SOCKET" && continue
+    ACTIVE+=("$SOCKET")
+  done < <($GET_COMMAND)
 }
 
 print_sockets() {
   for SOCKET in "${ACTIVE[@]}"; do
-    [[ "${PID}" -ne 1 ]] && printf '%s:' "${SOCKET}"
-    [[ "${PID}" -eq 1 ]] && printf '%s:' "$(mpv-get-property "${SOCKET}" 'pid')"
-    mpv-get-property "${SOCKET}" 'media-title' || exit $?
+    [[ "$PID" -ne 1 ]] && printf '%s:' "$SOCKET"
+    [[ "$PID" -eq 1 ]] && printf '%s:' "$(mpv-get-property "$SOCKET" 'pid')"
+    mpv-get-property "$SOCKET" 'media-title' || exit $?
   done
 }
 
 print_active() {
   CHOSEN="$(print_sockets)"
-  if [[ "${FULL}" -eq 1 ]]; then
-    echo "${CHOSEN}"
+  if [[ "$FULL" -eq 1 ]]; then
+    echo "$CHOSEN"
     return 0
   else
     echo "${CHOSEN%%:*}"
@@ -106,21 +84,21 @@ print_active() {
 }
 
 select_instance() {
-  if [[ "${INTERACT}" -eq 1 ]]; then
-    if ! CHOSEN="$(print_sockets | dmenu -i -l 10 -p "Select:")" ; then
+  if [[ "$INTERACT" -eq 1 ]]; then
+    if ! CHOSEN="$(print_sockets | dmenu -i -l 10 -p "Select:")"; then
       abort 'No instance selected...'
       return 1
     fi
-  elif [[ "${INTERACT}" -eq 0 ]]; then
-    if ! CHOSEN="$(print_sockets | fzf +m -i --prompt='Select mpv instance... > ')" ; then
+  elif [[ "$INTERACT" -eq 0 ]]; then
+    if ! CHOSEN="$(print_sockets | fzf +m -i --prompt='Select mpv instance... > ')"; then
       abort 'No instance selected...'
       return 1
     fi
   fi
 
-  if [[ -n "${CHOSEN}" ]]; then
-    if [[ "${FULL}" -eq 1 ]]; then
-      echo "${CHOSEN}"
+  if [[ -n "$CHOSEN" ]]; then
+    if [[ "$FULL" -eq 1 ]]; then
+      echo "$CHOSEN"
     else
       echo "${CHOSEN%%:*}"
     fi

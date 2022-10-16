@@ -1,10 +1,10 @@
-### Updated on Tue Aug 16 10:30:47 AM PDT 2022 ###
+### Updated on Fri Sep 23 09:33:06 PM PDT 2022 ###
 ### < .gitignore-very-old > deleted since last update ###
-### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
 #.gitignore.bak
-.gitignore-very-old
+#.gitignore-old
+#.gitignore-very-old
 !ani-man
 #ani-man.~1~
 #autostart
@@ -17,15 +17,23 @@
 #Code
 #configstore
 #coreapps
+#croc
 #cubocore
 #dconf
+!dmenumanga
 !dolphinrc
 !doom
+#doom.bak
+#doom-current
 !dunst
 !dwmblocks
 !easyeffects
 #Electron
 !emacs
+#emacs.bak
+#emacs.bak.new
+#emacs-current
+#emacs-working
 !fontconfig
 #fontforge
 #GIMP
@@ -64,6 +72,7 @@
 #mpv-backup
 #Mullvad VPN
 #Mumble
+#my_program
 !ncmpcpp
 #neofetch
 !nnn
@@ -107,12 +116,15 @@
 #vmt.~1~
 #VSCodium
 !vsnip
+#vtest
 !wal
 !wget
+!wkd
 !x11
 #xarchiver
 !xdg-desktop-portal-kderc
 #yay
 !yt-dlp
 !zathura
+!znp
 !zsh

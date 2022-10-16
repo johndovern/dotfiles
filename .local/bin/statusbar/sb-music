@@ -69,15 +69,6 @@ play_playlist() {
 }
 
 roll_text() {
-  # SONG="$(mpc | head -n1 | sed 's|tmaster.*/||g')"
-  # TIME="$(awk '{print int($1)}' /proc/uptime)"
-  # LENGTH=${#SONG}
-  # TIME=$((TIME % LENGTH))
-  # TIME_OUT=$((LENGTH - 15))
-  # while [[ $TIME -gt $TIME_OUT ]]; do
-  #   TIME=$((TIME - TIME_OUT))
-  # done
-  # printf '[%s]\n' "${SONG:${TIME}:15}"
   POSITION=$(tail -n1 "$SONG_FILE")
   LENGTH=${#SONG}
   PADDING=$((LENGTH - 15))

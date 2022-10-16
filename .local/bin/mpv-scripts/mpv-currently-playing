@@ -20,31 +20,23 @@ abort() {
 get_opts() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
-      -a|--all)
-        ALLOW_PAUSED=1
-        ;;
-      -c|--check)
+      -a | --all) ALLOW_PAUSED=1 ;;
+      -c | --check)
         shift
         [[ -z "$1" ]] && abort "Need a socket to check"
         [[ ! -S "$1" ]] && abort "--check takes a socket"
         OPTIONS+=("--socket" "$1" "--print")
         ;;
-      -M|--media-title)
-        MEDIA_TITLE=1
-        ;;
-      -m|--music)
+      -M | --media-title) MEDIA_TITLE=1 ;;
+      -m | --music)
         OPTIONS+=("--music" "--invert")
         ;;
-      -q|--quiet)
-        QUIET=1
-        ;;
-      -s|--socket)
-        PRINT_SOCKET=1
-        ;;
-      -u|--umpv)
+      -q | --quiet) QUIET=1 ;;
+      -s | --socket) PRINT_SOCKET=1 ;;
+      -u | --umpv)
         OPTIONS+=("--umpv" "--invert")
         ;;
-      -U|--unique)
+      -U | --unique)
         OPTIONS+=("--unique")
         ;;
       *)
@@ -63,7 +55,10 @@ get_playing() {
       [[ "$(mpv-get-property "$SOCKET" 'pause')" == "true" ]] && continue
     }
 
-    [[ "$PRINT_SOCKET" -eq 1 ]] && { RESULT+=("$SOCKET"); continue; }
+    [[ "$PRINT_SOCKET" -eq 1 ]] && {
+      RESULT+=("$SOCKET")
+      continue
+    }
     [[ "$MEDIA_TITLE" -eq 1 ]] && {
       RESULT+=("$(mpv-get-property "$SOCKET" 'media-title')")
       continue

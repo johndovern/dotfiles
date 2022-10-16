@@ -1,12 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 # A dmenu wrapper script for system functions.
 case "$(readlink -f /sbin/init)" in
   *systemd*) ctl='systemctl' ;;
   *) ctl='loginctl' ;;
 esac
 
-case "$(printf "Lock\nLeave-dwm\nReboot\nHibernate\nSleep\nRenew-dwm\nShutdown\nDisplay off" | dmenu -i -p 'Action:')" in
+actions=("Lock"
+  "Leave-dwm"
+  "Reboot"
+  "Hibernate"
+  "Sleep"
+  "Renew-dwm"
+  "Shutdown"
+  "Display-off"
+)
+
+[ "$#" -eq 1 ] && SYS_ACTION="$1"
+[ "$#" -eq 0 ] && SYS_ACTION="$(printf '%s\n' "${actions[@]}" | dmenu -i -p 'Action:')"
+[[ ! "${actions[*]}" =~ "$SYS_ACTION" ]] && exit 1
+
+case "$SYS_ACTION" in
   'Lock')
+    dmenubluetooth --off
+    sleep 0.2
     xset dpms force off
     slock
     ;;
@@ -15,7 +31,7 @@ case "$(printf "Lock\nLeave-dwm\nReboot\nHibernate\nSleep\nRenew-dwm\nShutdown\n
     ;;
   'Renew-dwm')
     kill -HUP "$(pgrep -u "$USER" "\bdwm$")"
-    if xdotool search --name -- "Passwords - KeePassXC" >/dev/null 2>&1 ; then
+    if xdotool search --name -- "Passwords - KeePassXC" >/dev/null 2>&1; then
       sleep 1 && keepasshide
     fi
     ;;
@@ -32,7 +48,7 @@ case "$(printf "Lock\nLeave-dwm\nReboot\nHibernate\nSleep\nRenew-dwm\nShutdown\n
   'Shutdown')
     st -e key-zip 0
     ;;
-  'Display off')
+  'Display-off')
     xset dpms force off
     ;;
   *) exit 1 ;;

@@ -84,9 +84,12 @@ mp.options = require "mp.options"
 mp.options.read_options(options, "sponsorblock")
 
 local legacy = mp.command_native_async == nil
+--[[
 if legacy then
     options.local_database = false
 end
+--]]
+options.local_database = false
 
 local utils = require "mp.utils"
 scripts_dir = mp.find_config_file("scripts")
@@ -395,11 +398,12 @@ function file_loaded()
         "/embed/([%w-_]+).*"
     }
     youtube_id = nil
-    for i,url in ipairs(urls) do
+    for i, url in ipairs(urls) do 
         youtube_id = youtube_id or string.match(video_path, url) or string.match(video_referer, url)
+        if youtube_id then break end
     end
     youtube_id = youtube_id or string.match(video_path, options.local_pattern)
-
+    
     if not youtube_id or string.len(youtube_id) < 11 or (local_pattern and string.len(youtube_id) ~= 11) then return end
     youtube_id = string.sub(youtube_id, 1, 11)
     mp.msg.debug("Found YouTube ID: " .. youtube_id)

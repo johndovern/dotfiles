@@ -21,7 +21,9 @@ map q    lf_close
 map t    file_type
 map u    clear
 map U    unselect
-map V    push :!nvim<space>
+# map V    push :!nvim<space>
+map v    $less $fx
+map V    invert
 map W    $setsid -f $TERMINAL >/dev/null 2>&1
 map x    $$f
 map X    !$f
@@ -67,7 +69,7 @@ cmd lf_close ${{
   if xprop -id $(xdotool getactivewindow) WM_CLASS | grep -q "lf_run" ; then
     lf -remote "send $id quit"
   else
-    setsid -f tmux run-shell "sleep 0.02 && xdotool key "Ctrl+b" "Ctrl+o" " &
+    setsid -f tmux run-shell "sleep 0.02 && xdotool key \"Ctrl+b\" \"Ctrl+o\" " &
     lf -remote "send $id quit"
   fi
 }}
@@ -78,16 +80,9 @@ cmd file_type %{{
 
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
-    # text/*) $EDITOR $fx;;
-    # text/*) setsid -f dmacs $fx >/dev/null 2>&1;;
-    text/*)
-        pidof -q emacs || {
-            setsid -f emacs --daemon >/dev/null 2>&1 &
-            sleep 0.6
-        }
-        emacsclient -c -a '' -n $fx
-        ;;
+    # image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) znp $fx ;;
+    text/*) setsid -f emacs $fx >/dev/null 2>&1;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
@@ -95,8 +90,10 @@ cmd open ${{
     audio/*) mpv $f >/dev/null 2>&1 ;;
     video/*) mpv $f -quiet >/dev/null 2>&1 ;;
     application/vnd.openxmlformats*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+    # application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/pgp-encrypted) $EDITOR $fx ;;
+    # application/x-7z-compressed) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/x-7z-compressed) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/x-executable) setsid -f $fx >/dev/null 2>&1 ;;
     *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;

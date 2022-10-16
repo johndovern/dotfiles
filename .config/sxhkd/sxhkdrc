@@ -32,17 +32,18 @@ super + shift + q
   sysact
 
 super + w
-  GTK_USE_PORTAL=1 $BROWSER
+    wkd -p w
+  # GTK_USE_PORTAL=1 $BROWSER
 
 super + shift + w
   st -e sudo nmtui
 
 super + e
-    dmacs
+    wkd -p e
   # st -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook
 
 super + shift + e
-    remacs
+    emacs
   # st -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook
 
 super + r
@@ -63,7 +64,8 @@ super + shift + r
 # super + i bound in dwm
 # super + shift + i bound in dwm
 
-# super + o bound in dwm
+super + o
+    wkd -p o
 # super + shift + o bound in dwm
 
 super + p
@@ -91,8 +93,11 @@ super + shift + bracketright
 # super + a bound in dwm
 # super + shift + a bound in dwm
 
-# super + s bound in dwm
+super + s
+    wkd -p s
 
+super + shift + s
+    wkd -p sD
 # not bound super + shift + s
 
 super + d
@@ -147,25 +152,24 @@ super + shift + d
 # not bound super + shift + b
 
 super + n
-  st -e nvim -c VimwikiIndex
+    wkd -p n
+  # st -e nvim -c VimwikiIndex
 
 super + shift + n
   st -e newsboat; pkill -RTMIN+6 dwmblocks
 
 super + m
-  st -e ncmpcpp
+    wkd -p m
+  # st -e ncmpcpp
 
 super + shift + m
   pamixer -t; kill -44 $(pidof dwmblocks)
 
 super + comma
-  pkill sb-music ; pkill sb-mpc-roll ; mpc prev ;
+    wkd
 
 super + shift + comma
   mpc seek 0%
-
-super + period
-  pkill sb-music ; pkill sb-mpc-roll ; mpc next
 
 super + shift + period
   mpc repeat
@@ -261,7 +265,7 @@ ctrl + alt + shift + super + w
   mullvad-exclude qutebrowser
 
 ctrl + alt + shift + e
-  mpv-opts --focus
+    wkd -p ep
 
 ctrl + alt + shift + r
   dautoupdate
@@ -364,7 +368,7 @@ ctrl + alt + shift + space
   vmt -B
 
 ctrl + alt + shift + m
-  dmenumanga
+  dmenumanga -v
 
 ctrl + alt + shift + super + m
   umpv
