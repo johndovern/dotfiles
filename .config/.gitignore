@@ -5,7 +5,7 @@
 #.gitignore.bak
 #.gitignore-old
 #.gitignore-very-old
-!ani-man
+#ani-man
 #ani-man.~1~
 #autostart
 #baloofileinformationrc
@@ -112,7 +112,7 @@
 #Vieb
 #VirtualBox
 #vlc
-!vmt
+#vmt
 #vmt.~1~
 #VSCodium
 !vsnip
