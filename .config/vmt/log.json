@@ -1,4 +1,39 @@
 {
+    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
+        "watching": "[SubsPlease] Lycoris Recoil - 10 (1080p) [3144C666].mkv",
+        "title": "Seasonal Shows - Lycoris Recoil",
+        "episodes": [
+            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
+            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
+            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
+            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
+            "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv",
+            "[SubsPlease] Lycoris Recoil - 06 (1080p) [F5E3291C].mkv",
+            "[SubsPlease] Lycoris Recoil - 07 (1080p) [C7E2F56A].mkv",
+            "[SubsPlease] Lycoris Recoil - 08 (1080p) [C828303A].mkv",
+            "[SubsPlease] Lycoris Recoil - 09 (1080p) [FD404E2F].mkv",
+            "[SubsPlease] Lycoris Recoil - 10 (1080p) [3144C666].mkv",
+            "[SubsPlease] Lycoris Recoil - 11 (1080p) [B27DF6FD].mkv",
+            "[SubsPlease] Lycoris Recoil - 12 (1080p) [EB2EBD33].mkv",
+            "[SubsPlease] Lycoris Recoil - 13 (1080p) [033F4332].mkv"
+        ]
+    },
+    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER": {
+        "watching": "S02E01 - The Cocoon of Caprice I.mkv",
+        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER",
+        "episodes": [
+            "S02E01 - The Cocoon of Caprice I.mkv",
+            "S02E02 - The Cocoon of Caprice II.mkv",
+            "S02E03 - The Cocoon of Caprice III.mkv",
+            "S02E04 - The Cocoon of Caprice IV.mkv",
+            "S02E05 - The Seed of Blanc Aile I.mkv",
+            "S02E06 - The Seed of Blanc Aile II.mkv",
+            "S02E07 - The Seed of Blanc Aile III.mkv",
+            "S02E08 - The Seed of Blanc Aile IV.mkv",
+            "S02E09 - The Seed of Blanc Aile V.mkv",
+            "S02E10 - The Seed of Blanc Aile VI.mkv"
+        ]
+    },
     "[SubsPlease] Seasonal Shows/Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2": {
         "watching": "[SubsPlease] Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2 - 10 (1080p) [91FDB513].mkv",
         "title": "Seasonal Shows - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e S2",
@@ -231,33 +266,6 @@
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 10 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 11 (BD 1280x720).mp4",
             "[JacobSwaggedUp] Maji de Watashi ni Koi Shinasai!! - 12 (BD 1280x720).mp4"
-        ]
-    },
-    "[SubsPlease] Seasonal Shows/Lycoris Recoil": {
-        "watching": "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv",
-        "title": "Seasonal Shows - Lycoris Recoil",
-        "episodes": [
-            "[SubsPlease] Lycoris Recoil - 01 (1080p) [E9D36F13].mkv",
-            "[SubsPlease] Lycoris Recoil - 02 (1080p) [B21759D3].mkv",
-            "[SubsPlease] Lycoris Recoil - 03 (1080p) [07F7980D].mkv",
-            "[SubsPlease] Lycoris Recoil - 04 (1080p) [A98BF834].mkv",
-            "[SubsPlease] Lycoris Recoil - 05 (1080p) [D11DF1FC].mkv"
-        ]
-    },
-    "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER": {
-        "watching": "S02E04 - The Cocoon of Caprice IV.mkv",
-        "title": "Grisaia 1080p BDRip 10 bits DD x265-EMBER - Grisaia no Rakuen + Specials 2015 1080p BDRip 10 bits DD x265-EMBER",
-        "episodes": [
-            "S02E01 - The Cocoon of Caprice I.mkv",
-            "S02E02 - The Cocoon of Caprice II.mkv",
-            "S02E03 - The Cocoon of Caprice III.mkv",
-            "S02E04 - The Cocoon of Caprice IV.mkv",
-            "S02E05 - The Seed of Blanc Aile I.mkv",
-            "S02E06 - The Seed of Blanc Aile II.mkv",
-            "S02E07 - The Seed of Blanc Aile III.mkv",
-            "S02E08 - The Seed of Blanc Aile IV.mkv",
-            "S02E09 - The Seed of Blanc Aile V.mkv",
-            "S02E10 - The Seed of Blanc Aile VI.mkv"
         ]
     },
     "Grisaia 1080p BDRip 10 bits DD x265-EMBER/Movies": {
