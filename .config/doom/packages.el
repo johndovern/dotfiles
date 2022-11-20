@@ -50,7 +50,7 @@
 ;(unpin! t)
 (package! flycheck-aspell)
 ;; (package! company-irony)
-(package! dashboard)
+;; (package! dashboard)
 (package! dired-open)
 (package! dired-subtree)
 (package! dmenu)

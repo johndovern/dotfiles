@@ -13,6 +13,15 @@ read -r -d '' -a PLAYING < <(mpv-currently-playing --socket && printf '\0')
 
 [[ "${#PLAYING[@]}" -eq 0 ]] && abort
 
+get_latest() {
+  LAST_PLAYING="/tmp/mpvSockets/mpv-last-used"
+  LP_LOCATION="$(readlink "${LAST_PLAYING}")"
+  [[ -e "$LP_LOCATION" ]] && {
+    USE_SOCKET="$LP_LOCATION"
+    [[ "$USE_SOCKET" =~ ${PLAYING[*]} ]]
+  }
+}
+
 mpv_next() {
   mpv-communicate "$1" '{ "command": ["playlist-next"] }'
   [[ -n "$2" ]] && shift
@@ -20,22 +29,23 @@ mpv_next() {
 }
 
 [[ "$#" -eq 0 ]] && {
-  mpv_next "${PLAYING[-1]}"
+  get_latest || USE_SOCKET="${PLAYING[-1]}"
+  mpv_next "$USE_SOCKET"
   exit
 }
 
 # shellcheck disable=SC2207
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
-    -f|--fzf)
+    -f | --fzf)
       FZF="--fzf"
       shift
       ;;
-    -m|--music)
+    -m | --music)
       mpv_next --music "${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
       shift
       ;;
-    -p|--pick)
+    -p | --pick)
       CHOSEN="$(mpv-pick $FZF --quiet)"
       [[ -z "$CHOSEN" ]] && {
         echo "No socket selected..." >&2
@@ -44,7 +54,7 @@ while [[ "$#" -gt 0 ]]; do
       mpv_next "$CHOSEN"
       shift
       ;;
-    -s|--socket)
+    -s | --socket)
       shift
       [[ -z "$1" ]] && {
         echo "USAGE: --socket needs a socket"
@@ -53,7 +63,7 @@ while [[ "$#" -gt 0 ]]; do
       mpv_next "$1"
       shift
       ;;
-    -u|--umpv)
+    -u | --umpv)
       mpv_next --umpv "${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
       shift
       ;;

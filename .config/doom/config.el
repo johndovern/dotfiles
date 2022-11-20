@@ -16,24 +16,26 @@
         (kbd "f x") 'ibuffer-filter-disable
         (kbd "g h") 'ibuffer-do-kill-lines
         (kbd "g H") 'ibuffer-update)
-(use-package dashboard
-        :init      ;; tweak dashboard config before loading it
-        (setq dashboard-set-heading-icons t)
-        (setq dashboard-set-file-icons t)
-        (setq dashboard-startup-banner "~/.config/doom/doom-emacs-dash.png")  ;; use custom image as banner
-        (setq dashboard-center-content t) ;; set to 't' for centered content
-        (setq dashboard-items '((recents . 5)
-                                (agenda . 5 )
-                                (bookmarks . 5)
-                                (projects . 5)
-                                (registers . 5)))
-        :config
-        (dashboard-setup-startup-hook)
-        (dashboard-modify-heading-icons '((recents . "file-text")
-                                          (bookmarks . "book"))))
-(setq doom-fallback-buffer-name "*dashboard*")
+;; (use-package dashboard
+;;         :init      ;; tweak dashboard config before loading it
+;;         (setq dashboard-set-heading-icons t)
+;;         (setq dashboard-set-file-icons t)
+;;         (setq dashboard-startup-banner "~/.config/doom/doom-emacs-dash.png")  ;; use custom image as banner
+;;         (setq dashboard-center-content t) ;; set to 't' for centered content
+;;         (setq dashboard-items '((recents . 5)
+;;                                 (agenda . 5 )
+;;                                 (bookmarks . 5)
+;;                                 (projects . 5)
+;;                                 (registers . 5)))
+;;         :config
+;;         (dashboard-setup-startup-hook)
+;;         (dashboard-modify-heading-icons '((recents . "file-text")
+;;                                           (bookmarks . "book"))))
+;; (setq doom-fallback-buffer-name "*dashboard*")
 ;; Usefull if running emacs as a daemon
 ;; (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+(setq +doom-dashboard-pwd-policy "~/"
+      fancy-splash-image "~/.config/doom/doom-emacs-dash.png")
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "d" #'dired
@@ -82,7 +84,7 @@
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-one-light)
 (map! :leader
       :desc "Load new theme" "H t" #'counsel-load-theme)
 (use-package emojify
@@ -177,7 +179,7 @@
 (map! :leader
       :desc "Zap to char" "z" #'zap-to-char
       :desc "Zap up to char" "Z" #'zap-up-to-char)
-(+global-word-wrap-mode +1)
+;; (+global-word-wrap-mode +1)
 (setq +word-wrap-extra-indent nil)
 (defun my-c-hook-settings ()
   (setq +format-on-save-enabled-modes nil)
@@ -227,6 +229,7 @@
 (setq company-statistics-mode t)
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
+(setq lsp-signature-doc-lines 5)
 (setq +lsp-company-backends
       '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
 (setq company-backends

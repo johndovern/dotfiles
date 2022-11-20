@@ -16,7 +16,7 @@ map I    push A<c-a> # at the very beginning
 map L    $nvim -M $fx
 map M    moveto
 map o    $setsid -f mimeopen $f >/dev/null 2>&1
-map O    $setsid -f mimeopen --ask $f
+map O    $setsid -f st -e mimeopen --ask $f
 map q    lf_close
 map t    file_type
 map u    clear
@@ -82,7 +82,7 @@ cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
     # image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
     image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) znp $fx ;;
-    text/*) setsid -f emacs $fx >/dev/null 2>&1;;
+    text/*) setsid -f emacsclient -c -a '' $fx >/dev/null 2>&1;;
     application/json) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;

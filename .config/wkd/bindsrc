@@ -22,7 +22,7 @@ d Dmenu scripts
     :g Gitignore-auto == dmenugitignore-auto
 # Emacs binds
 e Emacs
-    :e Open blank == emacs
+    :e Open blank == emacsclient -c -a ''
     # Emacs projects prefix
     :p Projects
         # Python projects
@@ -72,8 +72,8 @@ m mpv
         ::L Seek +60s == mpv-seek -c 60 ; wkd -p ms
         ::h Seek -10s == mpv-seek -c -10 ; wkd -p ms
         ::H Seek -60s == mpv-seek -c -60 ; wkd -p ms
-        ::n Next == mpv-next --pick
-        ::p Prev == mpv-prev --pick
+        ::n Next == mpv-next --pick ; wkd -p ms
+        ::p Prev == mpv-prev --pick ; wkd -p ms
     :t Smart toggle == mpv-toggle
 # nvim binds
 n nvim
@@ -100,10 +100,7 @@ o Open
         ::w Current window == maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-%H%M-%S').png"
 # Music prefix
 p mpc
-    :l Next song == mpc next & wkd -p p
-    :h Prev song == mpc prev & wkd -p p
-    # Playlist prefix
-    :p Playlist
+    :l Playlist
         ::a Vaporwave == mpc-playlists "vaporwave"
         ::j Japanese Disco Edits == mpc-playlists "Japanese Disco Edits"
         ::l Vocaloid == mpc-playlists "vocaloid"
@@ -113,6 +110,9 @@ p mpc
         ::s Spotify Rip == mpc-playlists "Spotify Rip"
         ::t Too many vocaloids == mpc-playlists "Too_Many_Vocaloid_Songs"
         ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
+    :n Next song == mpc next & wkd -p p
+    :p Prev song == mpc prev & wkd -p p
+    # Playlist prefix
 # System binds
 s System
     # Binds that I want to be sure before pressing
@@ -122,8 +122,10 @@ s System
         ::R Reboot == sysact Reboot
         ::s Sleep == sysact Sleep
         ::S shutdown == sysact Shutdown
+    :h Hide == dwmc focusnmon 1 ; dwmc viewex 0 ; dwmc focusnmon 0
     :l Lock == sleep 0.1 ; sysact Lock
     :r Renew dwm == sysact Renew-dwm
+    :u Unhide == dwmc focusnmon 1 ; dwmc viewex 8 ; dwmc focusnmon 0
 # Toggle prefix
 t Toggle
     :a Pause all == mpc pause ; pauseallmpv

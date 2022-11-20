@@ -21,7 +21,7 @@ map <Down> scroll half-down
 map <Up> scroll half-up
 map = zoom in
 map + zoom width
-map N exec "znp -n '$FILE'"
-map P exec "znp -p '$FILE'"
+map N exec "znp -n '$FILE' -g '$PAGE'"
+map P exec "znp -p '$FILE' -g '$PAGE'"
 map c exec "dmenumanga --track '$FILE'"
 map <C-q> exec "echo '$FILE'"

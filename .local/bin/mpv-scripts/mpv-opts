@@ -31,6 +31,13 @@ get_opts() {
         shift
         break
         ;;
+      -p | --press)
+        OPTION="PRESS"
+        shift
+        [[ "$#" -ne 1 ]] && abort
+        KEYS="$1"
+        break
+        ;;
       -q | --quit)
         OPTION="QUIT"
         shift
@@ -156,6 +163,10 @@ opts_handler() {
       sleep 0.2
       mpv_move "$MOVE_MON"
       ;;
+    PRESS)
+      get_mpv || return 1
+      press_keys
+      ;;
     QUIT)
       mpv-quit "$OPTION_2" "$OPTION_3"
       ;;
@@ -174,9 +185,13 @@ opts_handler() {
   esac
 }
 
+press_keys() {
+  mpv-communicate "$MPV_PATH" "$(printf '{ "command": ["keypress", "%s" ] }' "$KEYS")"
+}
+
 usage() {
   cat <<-EOF
-  Usage: mpv-opts [-d | -f | -F | -q | -s | -u]
+  Usage: mpv-opts [-d | -f | -F | -m | -p | -q | -s | -u]
 
   Control an instance of mpv via commandline and sockets. Great for hotkeys
 
@@ -186,6 +201,7 @@ usage() {
     -F, --focus         Focus an instance of mpv.
     -f, --full-screen   Full screen an instance of mpv.
     -m, --move          Move an instance of mpv an full screen it on the secondary monitor.
+    -p, --press KEY     Send KEY to mpv via keypress function
     -q, --quit          Quit an instance of mpv. This flag may be followed by two other flags.
                         The --music flag when given after -q will quit the mpv-music instance.
                         The --socket flag quits the given socket which is required.

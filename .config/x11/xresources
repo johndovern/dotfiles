@@ -23,8 +23,9 @@ Xft.dpi: 96
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.autohint: false
-Xft.hintstyle: hintfull
 Xft.rgba: rgb
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 /* DWM resources */
 *.borderpx: 2	! border pixel of windows
@@ -137,7 +138,7 @@ Xft.rgba: rgb
 // *.color7:  #a89984
 // *.color15: #ebdbb2
 
-# /1* d - black *1/
+/* /\* d - black *\/ */
 /* *.color0:       #262425 */
 /* /1* *.color0:       #0c0d0e *1/ */
 /* /1* *.color0:       #1d1f21 *1/ */

@@ -1,6 +1,8 @@
 [FileDialogSize]
 DisplayPort-0 HDMI-A-0 Height 1920x1080=699
+DisplayPort-0 HDMI-A-0 Height 1920x1080 DisplayPort-0=630
 DisplayPort-0 HDMI-A-0 Width 1920x1080=836
+DisplayPort-0 HDMI-A-0 Width 1920x1080 DisplayPort-0=877
 HDMI3 LVDS1 HDMI2 Height 1080x1920=630
 HDMI3 LVDS1 HDMI2 Height 1920x1080=630
 HDMI3 LVDS1 HDMI2 Width 1080x1920=956
@@ -9,8 +11,8 @@ LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/tmaster/shared/phone/an/Cigarette-kid.jpg,file:$HOME/documents/tmaster/books/coding/C/21st Century C.pdf,file:$HOME/documents/tmaster/college/Transcripts/Cosumnes_Transcript.pdf,file:$HOME/documents/tmaster/books/coding/C/Expert_C_Programming.pdf,file:$HOME/documents/tmaster/books/coding/C/Modern C.pdf,file:$HOME/pictures/wp/1640508677551.png,file:$HOME/pictures/wp/1640963976704.png,file:$HOME/pictures/wp/1643069396168.jpg,file:$HOME/pictures/wp/1643102085255.jpg,file:$HOME/pictures/Random Walls/1662659228265121.png,file:$HOME/pictures/Random Walls/1662659096116221.png,file:$HOME/downloads/iso_s/linuxmint-21-cinnamon-64bit.iso,file:$HOME/downloads/iso_s/ubuntu-22.04.1-desktop-amd64.iso
-Recent URLs[$e]=file:$HOME/programs/C/Kochan/,file:$HOME/pictures/shared/phone/,file:$HOME/,file:$HOME/downloads/,file:$HOME/pictures/Random Walls/,file:$HOME/pictures/wp/,file:$HOME/pictures/,file:$HOME/documents/,file:$HOME/documents/tmaster/books/coding/C/,file:$HOME/documents/tmaster/college/Transcripts/,file:$HOME/pictures/tmaster/shared/phone/an/
+Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pic-selected-221108-1527-10.png,file:$HOME/downloads/OpenScan 20221012 134509690892.pdf,file:$HOME/downloads/Cosumnes_Transcript.pdf,file:$HOME/videos/webms/webms/groove/lukes myth.webm,file:$HOME/pictures/tmaster/shared/phone/an/Cigarette-kid.jpg,file:$HOME/documents/tmaster/books/coding/C/21st Century C.pdf,file:$HOME/documents/tmaster/college/Transcripts/Cosumnes_Transcript.pdf,file:$HOME/documents/tmaster/books/coding/C/Expert_C_Programming.pdf,file:$HOME/documents/tmaster/books/coding/C/Modern C.pdf,file:$HOME/pictures/wp/1640508677551.png,file:$HOME/pictures/wp/1640963976704.png,file:$HOME/pictures/wp/1643069396168.jpg,file:$HOME/pictures/wp/1643102085255.jpg,file:$HOME/pictures/Random Walls/1662659228265121.png
+Recent URLs[$e]=file:$HOME/pictures/wp/,file:$HOME/pictures/,file:$HOME/documents/,file:$HOME/documents/tmaster/books/coding/C/,file:$HOME/documents/tmaster/college/Transcripts/,file:$HOME/pictures/tmaster/shared/phone/an/,file:$HOME/videos/webms/webms/groove/,file:$HOME/programs/C/Personal/wkx-dev/,file:$HOME/,file:$HOME/downloads/
 detailViewIconSize=64
 
 [KPropertiesDialog]

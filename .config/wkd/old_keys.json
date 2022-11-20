@@ -22,7 +22,7 @@
         "g -> Gitignore-auto": "dmenugitignore-auto"
     },
     "e -> Emacs": {
-        "e -> Open blank": "emacs",
+        "e -> Open blank": "emacsclient -c -a ''",
         "p -> Projects": {
             "p -> Python projects": {
                 "v -> vmt-dev": "emacs \"~/programs/python/Personal/vmt-dev\"",
@@ -71,8 +71,8 @@
             "L -> Seek +60s": "mpv-seek -c 60 ; wkd -p ms",
             "h -> Seek -10s": "mpv-seek -c -10 ; wkd -p ms",
             "H -> Seek -60s": "mpv-seek -c -60 ; wkd -p ms",
-            "n -> Next": "mpv-next --pick",
-            "p -> Prev": "mpv-prev --pick"
+            "n -> Next": "mpv-next --pick ; wkd -p ms",
+            "p -> Prev": "mpv-prev --pick ; wkd -p ms"
         },
         "t -> Smart toggle": "mpv-toggle"
     },
@@ -100,9 +100,7 @@
         }
     },
     "p -> mpc": {
-        "l -> Next song": "mpc next & wkd -p p",
-        "h -> Prev song": "mpc prev & wkd -p p",
-        "p -> Playlist": {
+        "l -> Playlist": {
             "a -> Vaporwave": "mpc-playlists \"vaporwave\"",
             "j -> Japanese Disco Edits": "mpc-playlists \"Japanese Disco Edits\"",
             "l -> Vocaloid": "mpc-playlists \"vocaloid\"",
@@ -112,7 +110,9 @@
             "s -> Spotify Rip": "mpc-playlists \"Spotify Rip\"",
             "t -> Too many vocaloids": "mpc-playlists \"Too_Many_Vocaloid_Songs\"",
             "v -> Vocaloid Classics": "mpc-playlists \"Vocaloid_Classics\""
-        }
+        },
+        "n -> Next song": "mpc next & wkd -p p",
+        "p -> Prev song": "mpc prev & wkd -p p"
     },
     "s -> System": {
         "D -> Dangerous": {
@@ -122,18 +122,20 @@
             "s -> Sleep": "sysact Sleep",
             "S -> shutdown": "sysact Shutdown"
         },
+        "h -> Hide": "dwmc focusnmon 1 ; dwmc viewex 0 ; dwmc focusnmon 0",
         "l -> Lock": "sleep 0.1 ; sysact Lock",
-        "t -> Toggle settings": {
+        "r -> Renew dwm": "sysact Renew-dwm",
+        "u -> Unhide": "dwmc focusnmon 1 ; dwmc viewex 8 ; dwmc focusnmon 0"
+    },
+    "t -> Toggle": {
+        "a -> Pause all": "mpc pause ; pauseallmpv",
+        "b -> Toggle Bluetooth": {
             "a -> Airpods connect": "dmenubluetooth -r -a",
             "A -> Airpods disconnect": "dmenubluetooth -d -a",
             "s -> Sony connect": "dmenubluetooth -r -s",
             "S -> Sony disconnect": "dmenubluetooth -d -s",
             "t -> Toggle Bluetooth": "dmenubluetooth -t"
         },
-        "r -> Renew dwm": "sysact Renew-dwm"
-    },
-    "t -> Toggle": {
-        "a -> Pause all": "mpc pause ; pauseallmpv",
         "m -> mpv": "mpv-toggle",
         "n -> mpc": "mpc toggle",
         "u -> umpv": "mpv-toggle --umpv"
