@@ -389,6 +389,74 @@
             "[YURI] A Certain Magical Index ll S02E24 [BD 1080p x264 10bit FLAC].mkv"
         ]
     },
+    "[Mysteria] Tanaka-kun is Always Listless [BD 1080p] (HEVC x265 10-bit Opus)/Season 1": {
+        "watching": "[Mysteria] Tanaka-kun is Always Listless - 02.mkv",
+        "title": "Tanaka-kun is Always Listless(HEVC x265 10-bit Opus) - Season 1",
+        "episodes": [
+            "[Mysteria] Tanaka-kun is Always Listless - 01.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 02.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 03.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 04.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 05.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 06.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 07.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 08.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 09.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 10.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 11.mkv",
+            "[Mysteria] Tanaka-kun is Always Listless - 12.mkv"
+        ]
+    },
+    "[Mysteria] Tanaka-kun is Always Listless [BD 1080p] (HEVC x265 10-bit Opus)/Season 1/Tanaka-kun wa Kyou mo Kedaruge ONA": {
+        "watching": null,
+        "title": "Tanaka-kun is Always Listless(HEVC x265 10-bit Opus) - Season 1 - Tanaka-kun wa Kyou mo Kedaruge ONA",
+        "episodes": [
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 01.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 02.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 03.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 04.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 05.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 06.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 07.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 08.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 09.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 10.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 11.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 12.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 13.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 14.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 15.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 16.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 17.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 18.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 19.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 20.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 21.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 22.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 23.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 24.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 25.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 26.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 27.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 28.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 29.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 30.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 31.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 32.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 33.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 34.mkv",
+            "[Mysteria] Tanaka-kun wa Kyou mo Kedaruge - 35.mkv"
+        ]
+    },
+    "[Mysteria] Tanaka-kun is Always Listless [BD 1080p] (HEVC x265 10-bit Opus)/Season 1/Creditless": {
+        "watching": null,
+        "title": "Tanaka-kun is Always Listless(HEVC x265 10-bit Opus) - Season 1 - Creditless",
+        "episodes": [
+            "Tanaka-kun is Always Listless-NCED.mkv",
+            "Tanaka-kun is Always Listless-NCOP1.mkv",
+            "Tanaka-kun is Always Listless-NCOP2.mkv"
+        ]
+    },
     "Air (2005) [Doki][1280x720 Hi10P BD FLAC]": {
         "watching": null,
         "title": "Air (2005)",
@@ -418,7 +486,7 @@
         ]
     },
     "[RH] Kuzu no Honkai [BDRip] [Hi10] [1080p]": {
-        "watching": null,
+        "watching": "[RH] Kuzu no Honkai - 07 [8D6934BC].mkv",
         "title": "Kuzu no Honkai",
         "episodes": [
             "[RH] Kuzu no Honkai - 01 [964CBA0F].mkv",
@@ -662,7 +730,7 @@
         ]
     },
     "Joukamachi no Dandelion (2015) [Doki][1920x1080 Hi10P BD FLAC]": {
-        "watching": "[Doki] Joukamachi no Dandelion - 11 (1920x1080 Hi10P BD FLAC) [A4EEC16E].mkv",
+        "watching": "[Doki] Joukamachi no Dandelion - 12 (1920x1080 Hi10P BD FLAC) [C6CB190D].mkv",
         "title": "Joukamachi no Dandelion (2015)",
         "episodes": [
             "[Doki] Joukamachi no Dandelion - 01 (1920x1080 Hi10P BD FLAC) [57ACD0FA].mkv",
@@ -983,25 +1051,8 @@
             "[Deadmau- RAWS] Joshikousei.Girls.High.2006.S01.DVDRip.Deadmauvlad.Ep.15.Sp.03.END.mkv"
         ]
     },
-    "[HR] Hajimete no Gal (Season 1 + OVA) [1080p][HEVC][x265][Dual-Audio][10bit] HR-SR": {
-        "watching": null,
-        "title": "Hajimete no Gal (Season 1 + OVA)HR-SR",
-        "episodes": [
-            "[HR] Hajimete no Gal 01 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 02 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 03 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 04 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 05 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 06 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 07 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 08 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 09 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal 10 [1080p][x265].mkv",
-            "[HR] Hajimete no Gal OVA [1080p][x265].mkv"
-        ]
-    },
     "[AK-Submarines] Girls und Panzer (BD 1920x1080 x264 FLAC DTS-HD)": {
-        "watching": null,
+        "watching": "[AK-Submarines] Girls und Panzer - 02 (BD 1920x1080 x264 FLAC DTS-HD) [B933B607].mkv",
         "title": "Girls und Panzer (BD 1920x1080 x264 FLAC DTS-HD)",
         "episodes": [
             "Notes.txt",
@@ -1145,24 +1196,6 @@
             "[Judas] Psycho-Pass S1 - 20.mkv",
             "[Judas] Psycho-Pass S1 - 21.mkv",
             "[Judas] Psycho-Pass S1 - 22.mkv"
-        ]
-    },
-    "Medaka Box [1080p]": {
-        "watching": null,
-        "title": "Medaka Box",
-        "episodes": [
-            "[Ranger] Medaka Box - E01 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E02 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E03 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E04 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E05 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E06 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E07 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E08 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E09 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E10 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E11 [BD][1080p][10bit][Dual Audio].mkv",
-            "[Ranger] Medaka Box - E12 [BD][1080p][10bit][Dual Audio].mkv"
         ]
     },
     "[neoHEVC] A Certain Scientific Railgun T [Season 3] [BD 1080p x265 HEVC AAC] [Dual Audio] Toaru Kagaku no Railgun T": {
@@ -1339,7 +1372,7 @@
         ]
     },
     "[FFF] Photokano [BD][1080p-FLAC]": {
-        "watching": null,
+        "watching": "[FFF] Photokano - 11 [BD][1080p-FLAC][8EAA7EB8].mkv",
         "title": "Photokano",
         "episodes": [
             "[FFF] Photokano - 01 [BD][1080p-FLAC][853843F0].mkv",
@@ -1406,7 +1439,7 @@
         ]
     },
     "[Judas] Love Hina [Season 1 + OVAs + Specials] [BD 1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]/[Judas] Love Hina - S1": {
-        "watching": null,
+        "watching": "[Judas] Love Hina S1 - 25.mkv",
         "title": "Love Hina - Love Hina - S1",
         "episodes": [
             "[Judas] Love Hina S1 - 01.mkv",
@@ -1675,7 +1708,7 @@
         ]
     },
     "Humanity Has Declined [1080p;H265] (2012)": {
-        "watching": null,
+        "watching": "Humanity Has Declined - 10.mkv",
         "title": "Humanity Has Declined(2012)",
         "episodes": [
             "Humanity Has Declined - 01.mkv",
@@ -1877,6 +1910,42 @@
             "[RH] Danshi Koukousei no Nichijou - S7 [0348AD6E].mkv"
         ]
     },
+    "[Judas] Kakegurui (Seasons 1-2) [BD 1080p][HEVC x265 10bit][Dual-Audio][Multi-Subs]/[Judas] Kakegurui S2 - XX": {
+        "watching": "[Judas] Kakegurui - S02E02.mkv",
+        "title": "Kakegurui (Seasons 1-2) - Kakegurui S2 - XX",
+        "episodes": [
+            "[Judas] Kakegurui - S02E01.mkv",
+            "[Judas] Kakegurui - S02E02.mkv",
+            "[Judas] Kakegurui - S02E03.mkv",
+            "[Judas] Kakegurui - S02E04.mkv",
+            "[Judas] Kakegurui - S02E05.mkv",
+            "[Judas] Kakegurui - S02E06.mkv",
+            "[Judas] Kakegurui - S02E07.mkv",
+            "[Judas] Kakegurui - S02E08.mkv",
+            "[Judas] Kakegurui - S02E09.mkv",
+            "[Judas] Kakegurui - S02E10.mkv",
+            "[Judas] Kakegurui - S02E11.mkv",
+            "[Judas] Kakegurui - S02E12.mkv"
+        ]
+    },
+    "[Judas] Kakegurui (Seasons 1-2) [BD 1080p][HEVC x265 10bit][Dual-Audio][Multi-Subs]/[Judas] Kakegurui S1": {
+        "watching": "[Judas] Kakegurui - S01E01.mkv",
+        "title": "Kakegurui (Seasons 1-2) - Kakegurui S1",
+        "episodes": [
+            "[Judas] Kakegurui - S01E01.mkv",
+            "[Judas] Kakegurui - S01E02.mkv",
+            "[Judas] Kakegurui - S01E03.mkv",
+            "[Judas] Kakegurui - S01E04.mkv",
+            "[Judas] Kakegurui - S01E05.mkv",
+            "[Judas] Kakegurui - S01E06.mkv",
+            "[Judas] Kakegurui - S01E07.mkv",
+            "[Judas] Kakegurui - S01E08.mkv",
+            "[Judas] Kakegurui - S01E09.mkv",
+            "[Judas] Kakegurui - S01E10.mkv",
+            "[Judas] Kakegurui - S01E11.mkv",
+            "[Judas] Kakegurui - S01E12.mkv"
+        ]
+    },
     "From_Up_On_Poppy_Hill_[2011]_[1080p,BluRay,flac,x264]_-_THORA": {
         "watching": null,
         "title": "From_Up_On_Poppy_Hill___-_THORA",
@@ -1994,40 +2063,8 @@
             "[Reza] Oreimo - S01OVA04.mkv"
         ]
     },
-    "Darker Than Black (Season 1 + OVA)": {
-        "watching": null,
-        "title": "Darker Than Black (Season 1 + OVA)",
-        "episodes": [
-            "Darker Than Black - 01 - The Fallen Star Of A Contract (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 02 - The Fallen Star Of A Contract (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 03 - A New Star Shines In The Dawn Sky (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 04 - A New Star Shines In The Dawn Sky (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 05 - Red Giant Over Eastern Europe (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 06 - Red Giant Over Eastern Europe (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 07 - The Scent Of Gardenias Lingers In The Summer Rain (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 08 - The Scent Of Gardenias Lingers In The Summer Rain (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 09 - The White Dress, Stained With The Girl's Dreams And Blood (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 10 - The White Dress, Stained With The Girl's Dreams And Blood (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 11 - When One Takes Back What Was Lost Within The Wall (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 12 - When One Takes Back What Was Lost Within The Wall (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 13 - A Heart Unswaying On The Water's Surface (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 14 - A Heart Unswaying On The Water's Surface (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 15 - Memories Of Betrayal In An Amber Smile (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 16 - Memories Of Betrayal In An Amber Smile (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 17 - A Love Song Sung From A Trash Heap (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 18 - A Love Song Sung From A Trash Heap (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 19 - Dreaming Shallow, Uninebriated (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 20 - Dreaming Shallow, Uninebriated (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 21 - City Under Crackdown, Moist With Tears (Part 1)   [DarkDream].mkv",
-            "Darker Than Black - 22 - City Under Crackdown, Moist With Tears (Part 2)   [DarkDream].mkv",
-            "Darker Than Black - 23 - God Is In His Heaven   [DarkDream].mkv",
-            "Darker Than Black - 24 - Meteor Shower   [DarkDream].mkv",
-            "Darker Than Black - 25 - Does The Reaper Dream Of Darkness Darker Than Black   [DarkDream].mkv",
-            "Darker Than Black - 26 - Beneath Cherry Blossoms In Full Bloom   [DarkDream].mkv"
-        ]
-    },
     "Orange": {
-        "watching": null,
+        "watching": "[Cleo]Orange_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
         "title": "Orange",
         "episodes": [
             "[Cleo]Orange_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
@@ -2121,7 +2158,7 @@
         ]
     },
     "Boys Be... S01 DVDRip DD-EMBER": {
-        "watching": null,
+        "watching": "S01E01-Cherry Blossoms.mkv",
         "title": "Boys Be... S01 DVDRip DD-EMBER",
         "episodes": [
             "S01E01-Cherry Blossoms.mkv",
@@ -2137,24 +2174,6 @@
             "S01E11-First Snowfall.mkv",
             "S01E12-End to Beginning.mkv",
             "S01E13-Let It Be.mkv"
-        ]
-    },
-    "Barakamon [1080]": {
-        "watching": null,
-        "title": "Barakamon",
-        "episodes": [
-            "[Cleo]Barakamon_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_02_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_03_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_04_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_05_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_06_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_07_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_08_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_09_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_10_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_11_(Dual Audio_10bit_BD1080p_x265).mkv",
-            "[Cleo]Barakamon_-_12_(Dual Audio_10bit_BD1080p_x265).mkv"
         ]
     },
     "Log Horizon S01-S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER/Log Horizon S03 1080p Dual Audio BDRip 10 bits DD x265-EMBER": {
@@ -2269,24 +2288,6 @@
             "[m.3.3.w] Itazura na Kiss 25 - Final (H.264) [D362D101].mkv"
         ]
     },
-    "[Judas] Kamisama ni Natta Hi (The Day I Became a God) (Season 1) [1080p][HEVC x265 10bit][Eng-Subs]": {
-        "watching": "[Judas] Kamisama ni Natta Hi - S01E01.mkv",
-        "title": "Kamisama ni Natta Hi (The Day I Became a God) (Season 1)",
-        "episodes": [
-            "[Judas] Kamisama ni Natta Hi - S01E01.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E02.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E03.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E04.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E05.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E06.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E07.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E08.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E09.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E10.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E11.mkv",
-            "[Judas] Kamisama ni Natta Hi - S01E12.mkv"
-        ]
-    },
     "[bonkai77] Katanagatari  [BD-1080p] [x265] [HEVC] [AAC] [10bit]": {
         "watching": null,
         "title": "Katanagatari ",
@@ -2305,24 +2306,6 @@
             "[bonkai77].Katanagatari.Episode.11.[BD.1080p.x265.HEVC.10bit].mkv",
             "[bonkai77].Katanagatari.Episode.12.[BD.1080p.x265.HEVC.10bit].mkv",
             "torrent.info.nfo"
-        ]
-    },
-    "[Judas] Osananajimi ga Zettai ni Makenai Love Comedy (Season 1) [1080p][HEVC x265 10bit][Multi-Subs]": {
-        "watching": "[Judas] Osamake - S01E08.mkv",
-        "title": "Osananajimi ga Zettai ni Makenai Love Comedy (Season 1)",
-        "episodes": [
-            "[Judas] Osamake - S01E01.mkv",
-            "[Judas] Osamake - S01E02.mkv",
-            "[Judas] Osamake - S01E03.mkv",
-            "[Judas] Osamake - S01E04.mkv",
-            "[Judas] Osamake - S01E05.mkv",
-            "[Judas] Osamake - S01E06.mkv",
-            "[Judas] Osamake - S01E07.mkv",
-            "[Judas] Osamake - S01E08.mkv",
-            "[Judas] Osamake - S01E09.mkv",
-            "[Judas] Osamake - S01E10.mkv",
-            "[Judas] Osamake - S01E11.mkv",
-            "[Judas] Osamake - S01E12.mkv"
         ]
     },
     "[SubsPlease] Seasonal Shows/Hataraku Maou-sama S2": {
@@ -2763,6 +2746,25 @@
             "[SubsPlease] Sono Bisque Doll wa Koi wo Suru - 12v2 (1080p) [C3328464].mkv"
         ]
     },
+    "Tada-kun wa Koi wo Shinai": {
+        "watching": "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_01_(Dual Audio_10bit_1080p_x265).mkv",
+        "title": "Tada-kun wa Koi wo Shinai",
+        "episodes": [
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_01_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_02_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_03_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_04_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_05_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_06_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_07_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_08_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_09_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_10_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_11_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_12_(Dual Audio_10bit_1080p_x265).mkv",
+            "[Cleo]Tada-kun_wa_Koi_wo_Shinai_-_13_(Dual Audio_10bit_1080p_x265).mkv"
+        ]
+    },
     "Tsuki ga Kirei": {
         "watching": null,
         "title": "Tsuki ga Kirei",
@@ -2855,24 +2857,6 @@
             "[Cerberus] Kono Subarashii Sekai ni Shukufuku wo! 2 - S02E11 OVA - [9EBB01E4].mkv"
         ]
     },
-    "[FFF] Medaka Box [TV][10bit]": {
-        "watching": null,
-        "title": "Medaka Box",
-        "episodes": [
-            "[FFF] Medaka Box - 01 [10bit][007A2100].mkv",
-            "[FFF] Medaka Box - 02 [10bit][29E08D9A].mkv",
-            "[FFF] Medaka Box - 03 [10bit][BB29651F].mkv",
-            "[FFF] Medaka Box - 04 [10bit][47877465].mkv",
-            "[FFF] Medaka Box - 05 [10bit][6F934843].mkv",
-            "[FFF] Medaka Box - 06 [10bit][D10AC1F7].mkv",
-            "[FFF] Medaka Box - 07 [10bit][3A4A98A3].mkv",
-            "[FFF] Medaka Box - 08 [10bit][6A20EDF2].mkv",
-            "[FFF] Medaka Box - 09 [10bit][CB353922].mkv",
-            "[FFF] Medaka Box - 10 [10bit][845DF948].mkv",
-            "[FFF] Medaka Box - 11 [10bit][863BA3E3].mkv",
-            "[FFF] Medaka Box - 12 [10bit][70AB708B].mkv"
-        ]
-    },
     "[B-G_&_m.3.3.w]_Myself_Yourself.DVD[H.264_DD2.0]": {
         "watching": null,
         "title": "_Myself_Yourself.DVD",
@@ -2935,7 +2919,7 @@
         ]
     },
     "KILL la KILL [BD 720p HEVC OPUS]": {
-        "watching": null,
+        "watching": "KILL la KILL - 13 [BD 720p HEVC OPUS] [D1D72501].mkv",
         "title": "KILL la KILL",
         "episodes": [
             "KILL la KILL - 01 [BD 720p HEVC OPUS] [7F438EB2].mkv",
@@ -3056,36 +3040,6 @@
             "OVA.mkv"
         ]
     },
-    "[Davinci] Saiki Kusuo no Psi-nan 2 [BD 1080p 10bit qAAC]": {
-        "watching": null,
-        "title": "Saiki Kusuo no Psi-nan 2",
-        "episodes": [
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 01 [BD 1080p qAAC][17F3C807].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 02 [BD 1080p qAAC][62D350F4].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 03 [BD 1080p qAAC][542D1379].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 04 [BD 1080p qAAC][DF8849F4].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 05 [BD 1080p qAAC][A670E98A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 06 [BD 1080p qAAC][DBB23F33].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 07 [BD 1080p qAAC][A3F1B7EA].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 08 [BD 1080p qAAC][AA926449].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 09 [BD 1080p qAAC][EA82A938].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 10 [BD 1080p qAAC][A200E6BF].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 11 [BD 1080p qAAC][5FF30A7C].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 12 [BD 1080p qAAC][3700DD5F].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 13 [BD 1080p qAAC][2C7A7A2B].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 14 [BD 1080p qAAC][E284C22C].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 15 [BD 1080p qAAC][4BE53DC7].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 16 [BD 1080p qAAC][A3E81556].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 17 [BD 1080p qAAC][26F4A011].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 18 [BD 1080p qAAC][56BB2F1F].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 19 [BD 1080p qAAC][2481D84D].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 20 [BD 1080p qAAC][95D4BA0A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 21 [BD 1080p qAAC][760A4038].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 22 [BD 1080p qAAC][ACC09C34].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 23 [BD 1080p qAAC][76ECCD38].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan 2 - 24 [BD 1080p qAAC][893BC9AB].mkv"
-        ]
-    },
     "[Koten_Gars] Wotakoi - Love is Hard for Otaku [BD][Hi10][1080p][FLAC] [English Subbed]": {
         "watching": null,
         "title": "Wotakoi - Love is Hard for Otaku",
@@ -3101,25 +3055,6 @@
             "[Koten_Gars] Wotakoi - 09 [BD][Hi10][1080p][FLAC] [0EAD40D2].mkv",
             "[Koten_Gars] Wotakoi - 10 [BD][Hi10][1080p][FLAC] [C2D15CEA].mkv",
             "[Koten_Gars] Wotakoi - 11 [BD][Hi10][1080p][FLAC] [77D5852B].mkv"
-        ]
-    },
-    "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep01-13": {
-        "watching": null,
-        "title": "__They_Are_My_Noble_Masters_DVD_Ep01-13",
-        "episodes": [
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep01_(91D2C6CC).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep02_(218AC161).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep03_(49E98BDC).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep04_(D1B21D9E).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep05_(4F60B80C).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep06_(145BB9C9).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep07_(48F1A660).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep08_(A14BC6E9).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep09_(2BE74C3D).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep10_(276D5BC7).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep11_(918CBA5C).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep12_(F9C0B386).mkv",
-            "[Retrofit]_[AniYoshi]_They_Are_My_Noble_Masters_DVD_Ep13_(A9BDAC59).mkv"
         ]
     },
     "[SubsPlease] Aharen-san wa Hakarenai S01 (1080p)": {
@@ -3769,66 +3704,6 @@
             "[Judas] Kiss X Sis OVA - S01E12.mkv"
         ]
     },
-    "[Hi10] Amagami SS Complete Batch [10bit BD1080p]/Season 1": {
-        "watching": null,
-        "title": "Amagami SS Complete Batch - Season 1",
-        "episodes": [
-            "(Hi10)_Amagami_SS_-_01_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_02_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_03_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_04_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_05_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_06_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_07_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_08_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_09_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_10_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_11_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_12_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_13_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_14_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_15_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_16_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_17_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_18_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_19_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_20_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_21_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_22_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_23_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_24_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_25_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_-_26_(BD_1080p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_Short_Animations_-_01_(480p)_(UTW).mkv",
-            "(Hi10)_Amagami_SS_Short_Animations_-_02_(480p)_(UTW).mkv"
-        ]
-    },
-    "[Hi10] Amagami SS Complete Batch [10bit BD1080p]/Season 2": {
-        "watching": null,
-        "title": "Amagami SS Complete Batch - Season 2",
-        "episodes": [
-            "(Hi10)_Amagami_SS_Plus_-_01_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_02_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_03_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_04_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_05_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_06_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_07_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_08_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_09_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_10_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_11_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_12_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_-_13_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_01_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_02_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_03_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_04_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_05_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_06_(BD_1080p)_(Final8).mkv",
-            "(Hi10)_Amagami_SS_Plus_Special_-_07_(BD_1080p)_(Final8).mkv"
-        ]
-    },
     "Toaru Kagaku no Accelerator [BD]": {
         "watching": null,
         "title": "Toaru Kagaku no Accelerator",
@@ -3865,18 +3740,6 @@
             "[ReDone] Tonagura! - 12v2 (DVD) [3157679A].mkv",
             "[ReDone] Tonagura! - 13 (DVD) [END] [14BF200F].mkv",
             "[ReDone] Tonagura! 01-13 (DVD) Complete.sfv"
-        ]
-    },
-    "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen [WEB][720p]": {
-        "watching": null,
-        "title": "Saiki Kusuo no Psi-nan - Shidou-hen",
-        "episodes": [
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 01 [720p][081F8619].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 02 [720p][01248A01].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 03 [720p][B51D7853].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 04 [720p][612E3C5B].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 05 [720p][BEF1F47A].mkv",
-            "[Davinci] Saiki Kusuo no Psi-nan - Shidou-hen - 06 [720p][48581B6D].mkv"
         ]
     },
     "Actually, I Am... [1080p;H265] [2015]": {
@@ -3986,24 +3849,6 @@
             "[HR] Fate Zero S01E23.mkv",
             "[HR] Fate Zero S01E24.mkv",
             "[HR] Fate Zero S01E25.mkv"
-        ]
-    },
-    "Koi to Yobu ni wa Kimochi Warui S01 1080p WEBRip AAC x265-EMBER": {
-        "watching": "[EMBER] Koi to Yobu ni wa Kimochi Warui - 01.mkv",
-        "title": "Koi to Yobu ni wa Kimochi Warui S01 1080p WEBRip AAC x265-EMBER",
-        "episodes": [
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 01.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 02.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 03.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 04.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 05.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 06.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 07.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 08.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 09.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 10.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 11.mkv",
-            "[EMBER] Koi to Yobu ni wa Kimochi Warui - 12.mkv"
         ]
     },
     "[Judas] Rikei ga Koi ni Ochita no de Shoumei Shitemita [Season 1] [1080p][HEVC x265 10bit][Multi-Subs]": {
@@ -4438,32 +4283,6 @@
             "Tonari no Seki-kun - OVA 2 (DVDRip 852x480).mkv"
         ]
     },
-    "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER/OVA": {
-        "watching": null,
-        "title": "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER - OVA",
-        "episodes": [
-            "S01OVA01-After the ending, the heroine's clothes are a little unusual [7F2FA40A].mkv",
-            "S01OVA02-Weird skill names, usually have unknown origins [7808D078].mkv"
-        ]
-    },
-    "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER/Season 1": {
-        "watching": "S01E12-Equipment for girls has special effects [CE0E2BD1].mkv",
-        "title": "Jaku-Chara Tomozaki-ku S01+OVA 1080p Dual Audio WEBRip AAC x265-EMBER - Season 1",
-        "episodes": [
-            "S01E01-After All Famous Games are Generally Interesting [875EA806].mkv",
-            "S01E02-It feels really good when the level goes up in a row in one battle [7A6128D5].mkv",
-            "S01E03-If the first companion is a girl you can feel the adventure of a date for a while [B76C84A2].mkv",
-            "S01E04-Sometimes you conquer a dungeon only to find a strong boss back in your village [23EDC43A].mkv",
-            "S01E05-Characters who become friends after conquering difficult events usually have high attributes [D8A76616].mkv",
-            "S01E06-When I start a game inside a game, it doesn't really stop [075D9D0D].mkv",
-            "S01E07-When the master character becomes a boss, it is strong enough to get stuck [CFB2DFC9].mkv",
-            "S01E08-There are some problems that cannot be solved only by low-level characters [9D97916F].mkv",
-            "S01E09-When you return to the first town with all your friends, new events will occur [ED75E34B].mkv",
-            "S01E10-Multiplayer has the advantages of multiplayer [427890DF].mkv",
-            "S01E11-Sometimes just one option can change everything [76656C98].mkv",
-            "S01E12-Equipment for girls has special effects [CE0E2BD1].mkv"
-        ]
-    },
     "[WBDP] Rosario + Vampire [BD][720p]": {
         "watching": null,
         "title": "Rosario + Vampire",
@@ -4778,7 +4597,7 @@
         ]
     },
     "[Underwater] Panty and Stocking with Garterbelt - 01-13 + OVA (BD 720p) [Batch] [v2]": {
-        "watching": null,
+        "watching": "[Underwater] Panty and Stocking with Garterbelt 01v2 - Excretion Without Honor and Humanity - Death Race 2010 (BD 720p) [32949214].mkv",
         "title": "Panty and Stocking with Garterbelt - 01-13 + OVA (BD 720p)",
         "episodes": [
             "[Underwater] Panty and Stocking with Garterbelt 01v2 - Excretion Without Honor and Humanity - Death Race 2010 (BD 720p) [32949214].mkv",
@@ -4893,7 +4712,7 @@
         ]
     },
     "Minami-ke/Minami-ke [720p]": {
-        "watching": null,
+        "watching": "[Hi10]_Minami-ke_01_[720p][Ayako][CA5AB1D7].mkv",
         "title": "Minami-ke - Minami-ke",
         "episodes": [
             "[Hi10]_Minami-ke_01_[720p][Ayako][CA5AB1D7].mkv",
@@ -4912,7 +4731,7 @@
         ]
     },
     "Minami-ke/Minami-ke Okawari [720p]": {
-        "watching": null,
+        "watching": "[Hi10]_Minami-ke_Okawari_02_[720p][Ayako-sae][E77E2E5F].mkv",
         "title": "Minami-ke - Minami-ke Okawari",
         "episodes": [
             "[Hi10]_Minami-ke_Okawari_01_[720p][Ayako-sae][EB1D29F4].mkv",
@@ -5129,7 +4948,7 @@
         ]
     },
     "[Tsundere] Nyan Koi! [BDRip h264 1920x1080 FLAC]": {
-        "watching": null,
+        "watching": "[Tsundere] Nyan Koi! - 12 [BDRip h264 1920x1080 FLAC][9236151F].mkv",
         "title": "Nyan Koi!",
         "episodes": [
             "[Tsundere] Nyan Koi! - 01 [BDRip h264 1920x1080 FLAC][4422B727].mkv",
@@ -5298,7 +5117,7 @@
         ]
     },
     "[HR] Koi to Uso (BD Batch + OVA) [1080p][HEVC][x265][10bit] HR-SR": {
-        "watching": "[HR] Koi to Uso 11 [1080p][x265].mkv",
+        "watching": "[HR] Koi to Uso 12 [1080p][x265].mkv",
         "title": "Koi to Uso (BD Batch + OVA)HR-SR",
         "episodes": [
             "[HR] Koi to Uso  OAD [480p][x265].mkv",
@@ -5335,7 +5154,7 @@
         ]
     },
     "Nichijou": {
-        "watching": null,
+        "watching": "[DB]Nichijou_-_01_(Dual Audio_10bit_BD1080p_x265).mkv",
         "title": "Nichijou",
         "episodes": [
             "[DB]Nichijou_-_00_(Dual Audio_10bit_BD1080p_x265).mkv",
@@ -5396,25 +5215,6 @@
             "[Exiled-Destiny]_Special_A_Ep22_Subbed_(CF547E6D).mkv",
             "[Exiled-Destiny]_Special_A_Ep23_Subbed_(D94BCA5F).mkv",
             "[Exiled-Destiny]_Special_A_Ep24_Subbed_(D0A09D8D).mkv"
-        ]
-    },
-    "[Judas] ID Invaded (Season 1) [1080p][HEVC x265 10bit][Dual-Audio][Eng-Subs]": {
-        "watching": null,
-        "title": "ID Invaded (Season 1)",
-        "episodes": [
-            "[Judas] ID Invaded - S01E01.mkv",
-            "[Judas] ID Invaded - S01E02.mkv",
-            "[Judas] ID Invaded - S01E03.mkv",
-            "[Judas] ID Invaded - S01E04.mkv",
-            "[Judas] ID Invaded - S01E05.mkv",
-            "[Judas] ID Invaded - S01E06.mkv",
-            "[Judas] ID Invaded - S01E07.mkv",
-            "[Judas] ID Invaded - S01E08.mkv",
-            "[Judas] ID Invaded - S01E09.mkv",
-            "[Judas] ID Invaded - S01E10.mkv",
-            "[Judas] ID Invaded - S01E11.mkv",
-            "[Judas] ID Invaded - S01E12.mkv",
-            "[Judas] ID Invaded - S01E13.mkv"
         ]
     }
 }

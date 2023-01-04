@@ -11,11 +11,9 @@ find_active_sockets() {
     is_ignored "$SOCKET" && continue
     is_active_socket "$SOCKET" && ACTIVE_SOCKETS+=("$SOCKET")
   done < <(find "$SOCKET_DIR" -type s -printf '%p\n')
-
   [[ "${#ACTIVE_SOCKETS[@]}" -eq 0 ]] && return 1
-
   [[ "$PID" -eq 1 ]] && find_socket_pid
-
+  [[ "$QUIET" -eq 1 ]] && return 0
   printf '%s\n' "${ACTIVE_SOCKETS[@]}" | sort -n
 }
 
@@ -54,6 +52,9 @@ get_opts() {
           return 1
         }
         PCHECK="$1"
+        ;;
+      -q | --quiet)
+        QUIET=1
         ;;
       -s | --socket)
         shift

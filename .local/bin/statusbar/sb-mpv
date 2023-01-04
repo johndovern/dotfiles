@@ -47,7 +47,7 @@ mpv_display() {
   printf '[%s]\n' "$SONG"
 }
 
-if ! pgrep -x "mpv" >/dev/null 2>&1; then
+if ! { pgrep -x "mpv" >/dev/null 2>&1 && mpv-active-sockets --music --quiet; }; then
   exit 0
 fi
 

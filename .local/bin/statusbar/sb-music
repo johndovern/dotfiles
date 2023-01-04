@@ -94,7 +94,7 @@ case $BLOCK_BUTTON in
     ;;
   3)
     filter
-    notify-send "$(mpc current)"
+    notify-send "mpc - currently-playing" "$(mpc current)"
     exit
     ;;
   4)

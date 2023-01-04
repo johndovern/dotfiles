@@ -13,10 +13,13 @@ mpv_add() {
 }
 
 mpv_loop() {
-  while [ $# -gt 0 ]; do
-    mpv_add "$1"
-    shift
+  for video in "$@"; do
+    mpv_add "$video"
   done
+  # while [ $# -gt 0 ]; do
+  #   mpv_add "$1"
+  #   shift
+  # done
 }
 
 mpv_start() {
@@ -34,9 +37,9 @@ mpv_track() {
   [ "$1" = "$ACTUAL_SOCKET" ] && exit 0
 
   test_socket() {
-      sleep 0.5
-      [ ! -S "$1" ] && exit 0
-      ln -s "$1" "$TRACK_SOCKET"
+    sleep 0.5
+    [ ! -S "$1" ] && exit 0
+    ln -s "$1" "$TRACK_SOCKET"
   }
 
   rm -f "$TRACK_SOCKET"
@@ -44,8 +47,14 @@ mpv_track() {
 }
 
 main() {
-  [ -S "$SOCKET" ] && mpv_loop "$@"
-  [ ! -S "$SOCKET" ] && mpv_start "$@"
+  if mpv-active-sockets --socket "$SOCKET" >/dev/null 2>&1; then
+    mpv_loop "$@"
+  else
+    rm "$SOCKET"
+    mpv_start "$@"
+  fi
+  # [ -S "$SOCKET" ] && mpv_loop "$@"
+  # [ ! -S "$SOCKET" ] && mpv_start "$@"
 
   mpv_track "$SOCKET"
 }

@@ -4,13 +4,13 @@
 
 get_opts() {
   case "$1" in
-    -f|--fzf)
+    -f | --fzf)
       FZF="--fzf"
       ;;
-    -l|--latest)
+    -l | --latest)
       IFS=$'\n'
       shift
-      while read -r PLAY ; do
+      while read -r PLAY; do
         PLAYING+=("$PLAY")
       done < <(mpv-currently-playing --unique --socket)
       [[ "${#PLAYING[@]}" -eq 0 ]] && {
@@ -19,13 +19,13 @@ get_opts() {
       }
       USE_SOCKET="${PLAYING[-1]}"
       ;;
-    -m|--music)
+    -m | --music)
       USE_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
       ;;
-    -u|--umpv)
+    -u | --umpv)
       USE_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
       ;;
-    -s|--socket)
+    -s | --socket)
       shift
       USE_SOCKET="$1"
       ;;
@@ -52,7 +52,7 @@ main() {
   mpv_quit "$USE_SOCKET"
 }
 
-[[ -z "$*" ]] && {
+[[ -z "$1" ]] && {
   mpv_quit_pick || exit 1
   exit 0
 }
