@@ -14,8 +14,8 @@ bind k scrollpage -0.5
 bind K scrollpx -10
 bind l tabnext
 bind m tabmove
-bind n findnext 1
-bind N findnext -1
+bind n findnext --search-from-view
+bind N findnext --search-from-view --reverse
 bind O fillcmdline tabopen
 bind scp source
 bind S fillcmdline open search
@@ -25,10 +25,12 @@ bind / fillcmdline find
 bind ,, nohlsearch
 bind ;d hint -qA
 bind V mode visual
+bind ,y hint -y
 
 " Unbound keys
 unbind s
 unbind <C-b>
+unbind <C-f>
 unbind W
 unbind w
 
@@ -46,6 +48,7 @@ set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
 
 " Costom binds
+
 " Hint search text
 bind ,nh composite hint -p | nyaa_search
 
@@ -66,14 +69,20 @@ bind ,un composite url2args | umpv_open
 bind ,ur hint -qW umpv_open
 
 " YT-DLP
-bind ,yh hint -W yt_options
-bind ,yn composite url2args | yt_options
+bind ,Yh hint -W yt_options
+bind ,Yn composite url2args | yt_options
 
 " WSG
 bind ,wh hint -W wsg_mpv
 bind ,wn composite url2args | wsg_mpv
 
+" dmenu_url
+" bind ,d hint -y dmenu_url
+bind ,d hint -W dmenu_url
+
 " Custom commands
+command dmenu_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo "' + url + '" | xclip -selection clipboard && wkx -p "d u"'))
+
 " Nyaa search
 command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&o=desc&q=" + JS_ARG)
 

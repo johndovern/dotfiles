@@ -25,6 +25,7 @@ mpv_loop() {
 mpv_start() {
   mpv --idle=yes \
     --script-opts=mpvSockets-umpv=yes \
+    --x11-name=umpv \
     --loop-playlist=no \
     --keep-open=yes "$@" >/dev/null 2>&1 &
   notify-send "umpv" "Started $*"

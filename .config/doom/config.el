@@ -201,11 +201,11 @@
 (add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
-(add-hook! 'conf-space-mode-hook
+(add-hook! 'conf-unix-mode-hook
   (when (stringp buffer-file-name)
-      (when (string-match-p "/sxhkdrc$" buffer-file-name)
+      (when (string-match-p "/keysrc$" buffer-file-name)
           (add-hook! 'after-save-hook :local
-            (shell-command-to-string "kill -SIGUSR1 \"$(pidof sxhkd)\"")))
+            (shell-command-to-string "kill -SIGUSR1 \"$(pidof wkx)\"")))
       (when (string-match-p "/bindsrc$" buffer-file-name)
         (add-hook! 'after-save-hook :local
           (shell-command-to-string "wkd -u")))))

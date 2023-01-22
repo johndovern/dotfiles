@@ -1,8 +1,4 @@
-### Updated on Fri Sep 23 09:33:57 PM PDT 2022 ###
-### < !sb-mpv-roll > deleted since last update ###
-### < #sb-mpv.bak > deleted since last update ###
-### < !sb-mpc-roll > deleted since last update ###
-### < .gitignore-very-old > deleted since last update ###
+### Updated on Sat Jan 21 10:30:27 PM PST 2023 ###
 *
 !.gitignore
 #.gitignore-old

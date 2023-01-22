@@ -1,5 +1,7 @@
-### Updated on Fri Sep 23 09:33:06 PM PDT 2022 ###
-### < .gitignore-very-old > deleted since last update ###
+### Updated on Sat Jan 21 10:27:17 PM PST 2023 ###
+### < #emacs-working > deleted since last update ###
+### < #emacs-current > deleted since last update ###
+### < #emacs.bak.new > deleted since last update ###
 *
 !.gitignore
 #.gitignore.bak
@@ -20,7 +22,9 @@
 #croc
 #cubocore
 #dconf
+!dmenu
 !dmenumanga
+#dmenuplaylist
 !dolphinrc
 !doom
 #doom.bak
@@ -31,12 +35,10 @@
 #Electron
 !emacs
 #emacs.bak
-#emacs.bak.new
-#emacs-current
-#emacs-working
 !fontconfig
 #fontforge
 #GIMP
+#gnucash
 #goa-1.0
 #gsmartcontrol
 !gtk-2.0
@@ -66,6 +68,7 @@
 !manga-man
 #menus
 !mimeapps.list
+#mlm
 #monero-project
 !mpd
 !mpv
@@ -78,6 +81,7 @@
 !nnn
 !nsxiv
 !nvim
+#obs-studio
 #onlyoffice
 #pavucontrol.ini
 #pcmanfm
@@ -90,6 +94,7 @@
 !qt5ct
 #QtProject.conf
 !qutebrowser
+#racket
 #ranger
 !redshift
 #session
@@ -120,10 +125,12 @@
 !wal
 !wget
 !wkd
+!wkx
 !x11
 #xarchiver
 !xdg-desktop-portal-kderc
 #yay
+#yelp
 !yt-dlp
 !zathura
 !znp

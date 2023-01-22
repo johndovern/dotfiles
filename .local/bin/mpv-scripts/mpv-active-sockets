@@ -90,6 +90,10 @@ invert_ignore() {
 }
 
 is_active_socket() {
+  pidof mpv >/dev/null 2>&1 || {
+    rm "$1" >&2
+    return 1
+  }
   socat - "$1" <<<'{ "command": ["get_property", "path"] }' >/dev/null 2>&1 && return 0
   rm "$1" >&2
   return 1
