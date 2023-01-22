@@ -1,0 +1,31 @@
+#!/bin/bash
+
+get_opts() {
+    while [[ "$#" -gt 0 ]]; do
+        case "$1" in
+            -s | --shuffle)
+                SHUFFLE=1
+                ;;
+            *)
+                PLAYLIST="$1"
+                ;;
+        esac
+        shift
+    done
+}
+
+mpv_open() {
+    [[ -z "$PLAYLIST" ]] && return 1
+    setsid -f mpv "$PLAYLIST" >/dev/null 2>&1
+    [[ "$SHUFFLE" -eq 1 ]] && {
+        sleep 1.5
+        mpv-opts --shuffle --now
+    }
+}
+
+main() {
+    get_opts "$@" || return 1
+    mpv_open || return 1
+}
+
+main "$@" && exit 0 || exit 1

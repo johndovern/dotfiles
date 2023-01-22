@@ -1,0 +1,12 @@
+### Updated on Sat Jan 21 10:32:51 PM PST 2023 ###
+### < !wkdrc > deleted since last update ###
+### < !old_keys.json > deleted since last update ###
+### < !keys.json > deleted since last update ###
+### < #batch_backup.conf > deleted since last update ###
+*
+!.gitignore
+#binds
+!bindsrc
+#keys
+!keysrc
+!wkxrc

@@ -1,0 +1,38 @@
+# command sep for bindsrc parsing
+command_char = '='
+# comment char for bindsrc parsing
+comment_char = '#'
+# level char for bindsrc parsing
+level_char = ':'
+# Seperator when displaying binds
+delim = "->"
+# 0 disables parsing without -b || -w flag
+parse_binds = 1
+# 0 disables parsing without -K || -W flag
+parse_keys = 1
+# Max number of columns to use
+cols = 4
+# put wkx at this x offset
+wkx_x = -1
+# put wkx at this y offset from bottom
+wkx_y = -1
+# make wkx this wide
+wkx_w = -1
+# wkx border width
+border_w = 2
+# Colors
+col_fg = "#F8F7FB"
+col_bg = "#21242B"
+col_bd = "#51AFEF"
+# default cmd redirection file
+def_redir = "cmds_output"
+# daemon cmd redirection file
+daemon_redir = "daemon_output"
+# default shell
+shell = "/bin/sh"
+# font(s)
+font = "monospace:size=14"
+font = "IPAGothic:pixelsize=18:antialias=true:autohint=true"
+font = "Source Han Sans JP:pixelsize=18:antialias=true:autohint=true"
+font = "M+ 1c:pixelsize=18:antialias=true:autohint=true"
+font = "JoyPixels:pixelsize=14:antialias=true:autohit=true"

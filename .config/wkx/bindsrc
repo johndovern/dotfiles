@@ -1,0 +1,259 @@
+# Browser binds
+b Browser
+    :b Open Brave == brave
+    :f Open Firefox == firefox
+    :l Open Librewolf == GTK_USE_PORTAL=1 librewolf
+    # Mullvad-exclude browser
+    :m Mullvad-exclude
+        ::b Exclude Brave == mullvad-exclude brave
+        ::f Exclude Firefox == mullvad-exclude firefox
+        ::l Exclude Librewolf == GTK_USE_PORTAL=1 mullvad-exclude librewolf
+    # Browser Profiles
+    :p Profiles
+        ::c 4chan Profile == GTK_USE_PORTAL=1 mullvad-exclude librewolf -P posting "4chan.org/g/"
+    # Sites prefixes
+    :s Open sites
+        ::c Codeberg == librewolf "https://www.codeberg.org"
+        ::e ESL_CSGO == librewolf "https://www.twitch.tv/esl_csgo/videos?filter=archives&sort=time"
+        ::y Youtube == librewolf "https://vid.puffyan.us/feed/popular"
+# Dmenuscripts
+d Dmenu scripts
+    :g Gitignore-auto == dmenugitignore-auto
+    # Playlist prefix
+    :l Playlist
+        ::a Add to playlist == dmenuplaylist --add "$(xclip -o -selection clipboard)"
+        ::l Show playlist == dmenuplaylist --list
+        ::p Play playlist == dmenuplaylist
+        ::r Remove playlist == dmenuplaylist --remove
+    :m Manga == mlm -r
+    :o Opener == durl
+    :u Url-handler
+        ::b Brave == brave "$(xclip -o -selection clipboard)"
+        ::f Firefox == firefox "$(xclip -o -selection clipboard)"
+        ::l Librewolf == librewolf "$(xclip -o -selection clipboard)"
+        ::m mpv == mpv "$(xclip -o -selection clipboard)"
+        ::n mpv-music == mpv-music "$(xclip -o -selection clipboard)"
+        ::u umpv == umpv "$(xclip -o -selection clipboard)"
+        ::w wsg2mpv == wsg2mpv "$(xclip -o -selection clipboard)"
+        ::y yt-opts == yt-opts "$(xclip -o -selection clipboard)"
+# Emacs binds
+e Emacs
+    :e Open blank == dwmc viewex 0 && emacsclient -c -a ''
+    # Emacs projects prefix
+    :p Projects
+        # C projects
+        ::c C projects
+            :::c Projects dir == dwmc viewex 0 && emacs "~/programs/C"
+            :::d dwm == dwmc viewex 0 && emacs "~/.local/src/dwm"
+            :::m dmenu == dwmc viewex 0 && emacs "~/.local/src/dmenu"
+        # Python projects
+        ::p Python projects
+            :::v vmt-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/vmt-dev"
+            :::w wkx-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/wkx-dev"
+            :::z znp-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/znp-dev"
+        ::w wkx == dwmc viewex 0 && emacs "~/.config/wkx/bindsrc"
+# mpv binds
+m mpv
+    :d Float == mpv-opts --float
+    :f Focus == mpv-opts --focus
+    # Playlist prefix
+    :l Playlists
+        ::g ygyl == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
+        ::o anime groove == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
+    :m Move right == mpv-opts --move
+    :M Move left == mpv-opts --move 0
+    # Opts prefix
+    :o mpv opts
+        ::f Fullscreen == mpv-opts --full-screen
+        # Download prefix
+        ::d Download options
+            :::a Audio for webms == mpv-opts --press "alt+a"
+            :::A Audio == mpv-opts --press "alt+A"
+            :::p Audio playlist == mpv-opts --press "alt+p"
+            :::P Video playlist == mpv-opts --press "alt+P"
+            :::u YouTube playlist == mpv-opts --press "alt+u"
+            :::v Video == mpv-opts --press "alt+v"
+            :::w Webm == mpv-opts --press "alt+w"
+            :::W Webm playlist == mpv-opts --press "alt+W"
+            :::x Rip webm audio == mpv-opts --press "alt+x"
+        ::s Sticky == mpv-opts --sticky
+        ::S Shuffle == mpv-opts --shuffle
+    # Pick prefix
+    :p Pick mpv
+        # Seek prefix
+        ::s Seek
+            :::l Seek +10s == mpv-seek 10 ; wkx -p "m s"
+            :::L Seek +60s == mpv-seek 60 ; wkx -p "m s"
+            :::h Seek -10s == mpv-seek -10 ; wkx -p "m s"
+            :::H Seek -60s == mpv-seek -60 ; wkx -p "m s"
+            :::n Next == mpv-next --pick
+            :::p Prev == mpv-prev --pick
+        # Toggle prefix
+        ::t Toggle
+            :::m Toggle music == mpv-toggle --music
+            :::t Toggle pick == mpv-toggle --pick
+            :::u Toggle umpv == mpv-toggle --umpv
+    :q quit pick == mpv-quit
+    # Seek prefix
+    :s Seek
+        ::l Seek +10s == mpv-seek -c 10 ; wkx -p "m s"
+        ::L Seek +60s == mpv-seek -c 60 ; wkx -p "m s"
+        ::h Seek -10s == mpv-seek -c -10 ; wkx -p "m s"
+        ::H Seek -60s == mpv-seek -c -60 ; wkx -p "m s"
+        ::n Next == mpv-next ; wkx -p "m s"
+        ::p Prev == mpv-prev ; wkx -p "m s"
+    :t Smart toggle == mpv-toggle
+# nvim binds
+n nvim
+    :n Empty nvim == st -e nvim
+    :t Temp notes == st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
+    :w VimwikiIndex == st -e nvim -c VimwikiIndex
+# Open programs
+o Open
+    :d dmenu == dmenu_run
+    :e Emacs == emacsclient -c -a ''
+    :h htop == st -e htop
+    :l lf == st -n lf_run -e lfrun
+    :k KeePass == keepasshide
+    # Manga options
+    :m Manga
+        ::l Latest == dwmc viewex 4 ; mlm -l
+        ::r Read == dwmc viewex 4 ; mlm -r
+    :n ncmpcpp == st -e ncmpcpp
+    # Other programs
+    :o Other programs
+        ::l Lutris == lutris
+        # Music programs
+        ::m music
+            :::n ncmpcpp == st -e ncmpcpp
+        ::p Playlist == dmenuplaylist --list
+    :p Pulsemixer == st -e pulsemixer
+    :r DrRacket == drracket
+    # Screen shot prefix
+    :s Screen shot
+        # Copy prefix
+        ::c Copy Shot
+            :::c Current window == maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
+            :::f Full screen == maim | xclip -selection clipboard -t image/png
+            :::s Selected area == maim -s | xclip -selection clipboard -t image/png
+        ::f Full screen == maim pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send "Screenshot of desktop taken"
+        ::s Selected area == maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
+        ::w Current window == maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-%H%M-%S').png"
+# Music prefix
+p mpc
+    :c Current Song == notify-send "mpc" "$(mpc current)"
+    # Playlist prefix
+    :l Playlist
+        ::a Vaporwave == mpc-playlists "vaporwave"
+        ::j Japanese Disco Edits == mpc-playlists "Japanese Disco Edits"
+        ::l Vocaloid == mpc-playlists "vocaloid"
+        ::m Mish Mash == mpc-playlists "mish-mash"
+        ::n Newpipe == mpc-playlists "newpipe"
+        ::o Non-Vaporwave == mpc-playlists "non-vaporwave"
+        ::s Spotify Rip == mpc-playlists "Spotify Rip"
+        ::t Too many vocaloids == mpc-playlists "Too_Many_Vocaloid_Songs"
+        ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
+    :n Next song == mpc next & wkx -p p
+    :p Prev song == mpc prev & wkx -p p
+# Quit prefix
+q Quit
+    :c Client == sleep 0.1 ; dwmc killclient
+    :m mpv == mpv-opts --quit
+    :n mpc == mpc stop ; mpc clear
+# System binds
+s System
+    # Binds that I want to be sure before pressing
+    :D Dangerous
+        ::d Display off == sysact Display-off
+        ::L Leave dwm == sysact Leave-dwm
+        ::R Reboot == sysact Reboot
+        ::s Sleep == sysact Sleep
+        ::S shutdown == sysact Shutdown
+    :h Hide == dwmc focusnmon 1 ; dwmc viewex 0 ; dwmc focusnmon 0
+    :l Lock == sleep 0.1 ; sysact Lock
+    :r Renew dwm == sysact Renew-dwm
+    :u Unhide == dwmc focusnmon 1 ; dwmc viewex 8 ; dwmc focusnmon 0
+# Toggle prefix
+t Toggle
+    :a Pause all == mpc pause ; pauseallmpv
+    # Toggle prefix
+    :b Toggle Bluetooth
+        ::a Airpods connect == dmenubluetooth -r -a
+        ::A Airpods disconnect == dmenubluetooth -d -a
+        ::s Sony connect == dmenubluetooth -r -s
+        ::S Sony disconnect == dmenubluetooth -d -s
+        ::t Toggle Bluetooth == dmenubluetooth -t
+    :m mpv == mpv-toggle
+    :n mpc == mpc-toggle
+    :u umpv == mpv-toggle --umpv
+# umpv binds
+u umpv
+    :o Open blank == umpv
+# vmt binds
+v vmt
+    :b Browse == vmt -B
+    :l Latest == vmt -l
+    :u Update == st -e vmt -u
+    :w Watch == vmt -w
+# Window manipulation
+w Window
+    # Client prefix
+    :c Client
+        ::s Sticky == dwmc togglesticky
+    :d Toggle floating == dwmc togglefloating
+    :i [M] Monocle == dwmc setlayoutex 1
+    :h Go tag left == dwmc shiftview -1 ; wkx -p w
+    :H Shrink master == dwmc setmfact "-0.05" ; wkx -p w
+    :l Go tag left == dwmc shiftview +1 ; wkx -p w
+    :L Grow master == dwmc setmfact "+0.05" ; wkx -p w
+    # Move prefix
+    :m Move
+        ::m Monitor == dwmc tagmon 0
+    # Layout prefix
+    :p Layout
+        ::b TTT Bstack       == dwmc setlayoutex 3 ; wkx -p "w p"
+        ::c |M| Centered     == dwmc setlayoutex 7 ; wkx -p "w p"
+        ::C >M> Center float == dwmc setlayoutex 8 ; wkx -p "w p"
+        ::d [D] Deck         == dwmc setlayoutex 6 ; wkx -p "w p"
+        ::D [\\] dwindle     == dwmc setlayoutex 5 ; wkx -p "w p"
+        ::f ><> Floating     == dwmc setlayoutex 9 ; wkx -p "w p"
+        ::t []= Tile         == dwmc setlayoutex 4 ; wkx -p "w p"
+    :q Kill window == dwmc killclient
+    # Tag prefix
+    :s Send tag
+        ::a Tag 1 == sleep 0.2 ; dwmc tagex 0
+        ::r Tag 2 == sleep 0.2 ; dwmc tagex 1
+        ::s Tag 3 == sleep 0.2 ; dwmc tagex 2
+        ::t Tag 4 == sleep 0.2 ; dwmc tagex 3
+        ::g Tag 5 == sleep 0.2 ; dwmc tagex 4
+        ::m Tag 6 == sleep 0.2 ; dwmc tagex 5
+        ::n Tag 7 == sleep 0.2 ; dwmc tagex 6
+        ::e Tag 8 == sleep 0.2 ; dwmc tagex 7
+        ::i Tag 9 == sleep 0.2 ; dwmc tagex 8
+    # Tag prefix
+    :S Send & follow
+        ::a Tag 1 == dwmc tagex 0 ; dwmc viewex 0
+        ::r Tag 2 == dwmc tagex 1 ; dwmc viewex 1
+        ::s Tag 3 == dwmc tagex 2 ; dwmc viewex 2
+        ::t Tag 4 == dwmc tagex 3 ; dwmc viewex 3
+        ::g Tag 5 == dwmc tagex 4 ; dwmc viewex 4
+        ::m Tag 6 == dwmc tagex 5 ; dwmc viewex 5
+        ::n Tag 7 == dwmc tagex 6 ; dwmc viewex 6
+        ::e Tag 8 == dwmc tagex 7 ; dwmc viewex 7
+        ::i Tag 9 == dwmc tagex 8 ; dwmc viewex 8
+    # Focus tag prefix
+    :t Focus tag
+        ::a View tag 1 == dwmc viewex 0 ; wkx -p "w t"
+        ::r View tag 2 == dwmc viewex 1 ; wkx -p "w t"
+        ::s View tag 3 == dwmc viewex 2 ; wkx -p "w t"
+        ::t View tag 4 == dwmc viewex 3 ; wkx -p "w t"
+        ::g View tag 5 == dwmc viewex 4 ; wkx -p "w t"
+        ::m View tag 6 == dwmc viewex 5 ; wkx -p "w t"
+        ::n View tag 7 == dwmc viewex 6 ; wkx -p "w t"
+        ::e View tag 8 == dwmc viewex 7 ; wkx -p "w t"
+        ::i View tag 9 == dwmc viewex 8 ; wkx -p "w t"
+    :v Fullscreen == dwmc togglefullscr
+    :y @ Fibonacci == dwmc setlayoutex 0
+# whichkey binds
+W whichkey
+    :u update == wkx -u
