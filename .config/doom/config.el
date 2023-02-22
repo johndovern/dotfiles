@@ -75,7 +75,7 @@
 (setq dired-open-extensions '(("gif" . "nsxiv")
                               ("jpg" . "nsxiv")
                               ("png" . "nsxiv")
-                              ("pdf" . "zathura")
+                              ("pdf" . "llpp")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 (evil-define-key 'normal peep-dired-mode-map
@@ -182,23 +182,45 @@
 ;; (+global-word-wrap-mode +1)
 (setq +word-wrap-extra-indent nil)
 (defun my-c-hook-settings ()
-  (setq +format-on-save-enabled-modes nil)
-  #'lsp!)
-(add-hook 'c-mode-hook #'my-c-hook-settings)
+  (setq-local +format-on-save-enabled-modes nil
+              c-basic-offset 4))
+              ;; +tree-sitter-hl-enabled-modes t)
+  ;; (add-hook! 'lsp-mode-hook #'tree-sitter-hl-mode)
+  ;; #'lsp-restart-workspace)
+;; (defun my-c-hook-settings ()
+;;   (setq-local +tree-sitter-hl-enabled-modes t)
+;;   (add-hook! 'lsp-mode-hook #'tree-sitter-hl-mode)
+;;   #'lsp-restart-workspace)
+  ;; #'lsp!
+  ;; #'tree-sitter-hl-mode)
+(add-hook! '(c-mode-hook c++-mode-hook)
+           #'my-c-hook-settings)
 (map! :after evil
       :map evil-normal-state-map
       "ZZ"      #'doom/save-and-kill-buffer
       "ZQ"      #'kill-current-buffer)
+(defun toggle-my-theme ()
+  "Toggle light and dark themes"
+  (interactive)
+  (if (eq doom-theme 'doom-one)
+      (load-theme 'doom-one-light t)
+    (load-theme 'doom-one t)))
+;; (if (eq doom-theme 'doom-one)
+;;     (load-theme 'doom-one-light t)
+;;   (load-theme 'doom-one t))
 (map! :leader
       :desc "Previous workspace" "TAB h" #'+workspace/switch-left
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
       :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode
-      :desc "Toggle treemacs" "t e" #'treemacs)
+      :desc "Toggle treemacs" "t e" #'treemacs
+      :desc "Toggle theme" "t d" #'toggle-my-theme)
 (map! :leader
       :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
       :desc "Delete frame" "q q" #'save-buffers-kill-emacs)
-(global-tree-sitter-mode)
-(add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
+(after! tree-sitter
+  (global-tree-sitter-mode))
+(setq +tree-sitter-hl-enabled-modes t)
+;; (add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
 (setq c-tab-always-indent nil)
 (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 (add-hook! 'conf-unix-mode-hook
@@ -265,3 +287,4 @@
        (:prefix ("n" . "node")
         :desc "Find node" "f" #'org-roam-node-find
         :desc "Insert node" "i" #'org-roam-node-insert)))
+(setq +workspaces-main "master")

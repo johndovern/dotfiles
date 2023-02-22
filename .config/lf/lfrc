@@ -30,7 +30,7 @@ map X    !$f
 
 map <c-e> down
 map <c-f> $lf -remote "send $id select '$(fzf)'"
-map <c-n> push $mkdir<space>""<left>
+map +     push $mkdir<space>""<left>
 map <c-r> reload
 map <c-s> set hidden!
 map <c-y> up

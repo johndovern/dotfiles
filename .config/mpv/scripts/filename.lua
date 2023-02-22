@@ -23,7 +23,9 @@ local function write_filename()
 end
 
 local function remove_file()
-    os.remove(TheSocketFile)
+    if TheSocketFile ~= nil then
+        os.remove(TheSocketFile)
+    end
 end
 
 if o.enabled == "yes" then

@@ -16,23 +16,50 @@ b Browser
         ::c Codeberg == librewolf "https://www.codeberg.org"
         ::e ESL_CSGO == librewolf "https://www.twitch.tv/esl_csgo/videos?filter=archives&sort=time"
         ::y Youtube == librewolf "https://vid.puffyan.us/feed/popular"
+# Client binds
+c Client
+    # Tag & follow prefix
+    :m Tag & follow
+        ::a Tag 1 == sleep 0.2 ; dwmc tagex 0 ; dwmc viewex 0
+        ::r Tag 2 == sleep 0.2 ; dwmc tagex 1 ; dwmc viewex 1
+        ::s Tag 3 == sleep 0.2 ; dwmc tagex 2 ; dwmc viewex 2
+        ::t Tag 4 == sleep 0.2 ; dwmc tagex 3 ; dwmc viewex 3
+        ::g Tag 5 == sleep 0.2 ; dwmc tagex 4 ; dwmc viewex 4
+        ::m Tag 6 == sleep 0.2 ; dwmc tagex 5 ; dwmc viewex 5
+        ::n Tag 7 == sleep 0.2 ; dwmc tagex 6 ; dwmc viewex 6
+        ::e Tag 8 == sleep 0.2 ; dwmc tagex 7 ; dwmc viewex 7
+        ::i Tag 9 == sleep 0.2 ; dwmc tagex 8 ; dwmc viewex 8
+    :q Quit == sleep 0.1 ; dwmc killclient
+    :s Sticky == dwmc togglesticky
+    # Tag prefix
+    :t Tag
+        ::a Tag 1 == sleep 0.2 ; dwmc tagex 0
+        ::r Tag 2 == sleep 0.2 ; dwmc tagex 1
+        ::s Tag 3 == sleep 0.2 ; dwmc tagex 2
+        ::t Tag 4 == sleep 0.2 ; dwmc tagex 3
+        ::g Tag 5 == sleep 0.2 ; dwmc tagex 4
+        ::m Tag 6 == sleep 0.2 ; dwmc tagex 5
+        ::n Tag 7 == sleep 0.2 ; dwmc tagex 6
+        ::e Tag 8 == sleep 0.2 ; dwmc tagex 7
+        ::i Tag 9 == sleep 0.2 ; dwmc tagex 8
 # Dmenuscripts
 d Dmenu scripts
     :g Gitignore-auto == dmenugitignore-auto
+    :m Manga == mlm -r
+    :o Opener == durl
     # Playlist prefix
-    :l Playlist
+    :p Playlist
         ::a Add to playlist == dmenuplaylist --add "$(xclip -o -selection clipboard)"
         ::l Show playlist == dmenuplaylist --list
         ::p Play playlist == dmenuplaylist
         ::r Remove playlist == dmenuplaylist --remove
-    :m Manga == mlm -r
-    :o Opener == durl
     :u Url-handler
         ::b Brave == brave "$(xclip -o -selection clipboard)"
         ::f Firefox == firefox "$(xclip -o -selection clipboard)"
         ::l Librewolf == librewolf "$(xclip -o -selection clipboard)"
         ::m mpv == mpv "$(xclip -o -selection clipboard)"
         ::n mpv-music == mpv-music "$(xclip -o -selection clipboard)"
+        ::p Playlist == dmenuplaylist -a "$(xclip -o -selection clipboard)"
         ::u umpv == umpv "$(xclip -o -selection clipboard)"
         ::w wsg2mpv == wsg2mpv "$(xclip -o -selection clipboard)"
         ::y yt-opts == yt-opts "$(xclip -o -selection clipboard)"
@@ -76,6 +103,11 @@ m mpv
             :::w Webm == mpv-opts --press "alt+w"
             :::W Webm playlist == mpv-opts --press "alt+W"
             :::x Rip webm audio == mpv-opts --press "alt+x"
+        # Press prefix
+        ::p Press keys
+            :::L Press L == mpv-opts --press "L"; wkx -p "m o p"
+            :::RET Press RET == mpv-opts --press "enter"; wkx -p "m o p"
+            :::C-RET Press C-RET == mpv-opts --press "ctrl+enter"; wkx -p "m o p"
         ::s Sticky == mpv-opts --sticky
         ::S Shuffle == mpv-opts --shuffle
     # Pick prefix
@@ -139,9 +171,11 @@ o Open
         ::f Full screen == maim pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send "Screenshot of desktop taken"
         ::s Selected area == maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
         ::w Current window == maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-%H%M-%S').png"
+    :t Thunderbird == thunderbird
 # Music prefix
 p mpc
-    :c Current Song == notify-send "mpc" "$(mpc current)"
+    :c Clear mpc == mpc clear
+    :d Display Song == notify-send "mpc" "$(mpc current)"
     # Playlist prefix
     :l Playlist
         ::a Vaporwave == mpc-playlists "vaporwave"
@@ -155,6 +189,7 @@ p mpc
         ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
     :n Next song == mpc next & wkx -p p
     :p Prev song == mpc prev & wkx -p p
+    :o Open mpc == st -e ncmpcpp
 # Quit prefix
 q Quit
     :c Client == sleep 0.1 ; dwmc killclient
@@ -167,11 +202,11 @@ s System
         ::d Display off == sysact Display-off
         ::L Leave dwm == sysact Leave-dwm
         ::R Reboot == sysact Reboot
-        ::s Sleep == sysact Sleep
         ::S shutdown == sysact Shutdown
     :h Hide == dwmc focusnmon 1 ; dwmc viewex 0 ; dwmc focusnmon 0
     :l Lock == sleep 0.1 ; sysact Lock
     :r Renew dwm == sysact Renew-dwm
+    :s Sleep == sysact Sleep
     :u Unhide == dwmc focusnmon 1 ; dwmc viewex 8 ; dwmc focusnmon 0
 # Toggle prefix
 t Toggle

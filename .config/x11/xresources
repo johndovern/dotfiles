@@ -28,7 +28,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 /* DWM resources */
-*.borderpx: 2	! border pixel of windows
+*.borderpx: 4	! border pixel of windows
 *.gappih: 20	! horiz inner gap between windows
 *.gappiv: 20	! vert inner gap between windows
 *.gappoh: 20	! horiz outer gap between windows and screen edge
@@ -48,6 +48,7 @@ Xft.lcdfilter: lcddefault
 *.colorselbg:    #505564
 *.colornbord:    #505564
 *.colorselbord:  #51AFEF
+/* *.colorselbord:  #FF4500 */
 
 // *.colornfg:      #BFBA9F
 // *.colornbg:      #2A3340

@@ -39,6 +39,8 @@ case "$SYS_ACTION" in
     slock $ctl hibernate
     ;;
   'Sleep')
+    dmenubluetooth --off
+    sleep 0.2
     [[ "$(pgrep "transmission")" ]] && pkill transmission && pkill transmission
     slock $ctl suspend
     ;;

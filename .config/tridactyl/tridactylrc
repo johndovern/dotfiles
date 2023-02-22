@@ -4,6 +4,9 @@ set configversion 2.0
 " Theme
 set theme shydactyl
 
+" Blacklist
+blacklistadd my.vultr.com
+
 " Rebind basics
 bind d scrollline 10
 bind e hint -b
@@ -43,7 +46,7 @@ bind ,chg tabopen -b https://4chan.org/g/
 set searchurls.aw https://wiki.archlinux.org/index.php?search=
 set searchurls.yt https://www.youtube.com/results?search_query=
 set searchurls.iv https://vid.puffyan.us/search?q=
-set searchurls.ny https://nyaa.si/?q=
+set searchurls.ny https://nyaa.si/?s=seeders&o=desc&q=
 set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
 
@@ -81,7 +84,7 @@ bind ,wn composite url2args | wsg_mpv
 bind ,d hint -W dmenu_url
 
 " Custom commands
-command dmenu_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo "' + url + '" | xclip -selection clipboard && wkx -p "d u"'))
+command dmenu_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo ' + url + ' | xclip -selection clipboard && wkx -p "d u"'))
 
 " Nyaa search
 command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&o=desc&q=" + JS_ARG)
