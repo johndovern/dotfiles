@@ -1,4 +1,8 @@
-### Updated on Tue Aug 16 10:31:37 AM PDT 2022 ###
+### Updated on Thu Mar  2 08:05:16 PM PST 2023 ###
 *
 !.gitignore
+!cc-mode
+!c++-mode
 !c-mode
+!org-mode
+!sh-mode

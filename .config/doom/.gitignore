@@ -1,9 +1,7 @@
-### Updated on Thu Mar  2 08:00:38 PM PST 2023 ###
-### < #test > deleted since last update ###
-### < #config.org > deleted since last update ###
-### < #backup > deleted since last update ###
+### Updated on Thu Mar  2 08:05:16 PM PST 2023 ###
 *
 !.gitignore
+#.gitignore-old
 !config.el
 #config.el.bak
 !custom.el

@@ -1,12 +1,22 @@
-### Updated on Wed May 11 06:14:27 PM PDT 2022 ###
+### Updated on Thu Mar  2 08:04:50 PM PST 2023 ###
+### < #anime.txt.bak.backup > deleted since last update ###
+### < #ani-man.conf.bak > deleted since last update ###
+### < .gitignore-very-old > deleted since last update ###
 ### < .gitignore-old > deleted since last update ###
 *
 !.gitignore
-.gitignore-old
-.gitignore-very-old
+#.gitignore-old
+#.gitignore-very-old
+#.valid_episodes
 !ani-man.conf
-#ani-man.conf.bak
 !ani-man.filters
 #ani-man.log
 !anime.txt
-#anime.txt.bak.backup
+#anime.txt.bak.test
+#anime.txt.save
+#confparser.py
+#jreader.py
+#shows.json
+#tmp.txt
+#t.py
+#vmt.conf

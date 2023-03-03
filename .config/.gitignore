@@ -1,8 +1,7 @@
-### Updated on Thu Mar  2 07:58:33 PM PST 2023 ###
+### Updated on Thu Mar  2 08:04:49 PM PST 2023 ###
 *
 !.gitignore
 #.gitignore.bak
-#.gitignore-old
 #.gitignore-very-old
 !ani-man
 #ani-man.~1~
@@ -118,8 +117,7 @@
 #Vieb
 #VirtualBox
 #vlc
-!vmt
-#vmt.~1~
+#vmt
 #VSCodium
 !vsnip
 #vtest

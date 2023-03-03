@@ -1,7 +1,6 @@
-### Updated on Thu Mar  2 07:58:34 PM PST 2023 ###
+### Updated on Thu Mar  2 08:05:36 PM PST 2023 ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 !ani-man.conf
 !auto_profiles.conf
