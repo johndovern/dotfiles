@@ -1,13 +1,16 @@
-### Updated on Tue Aug 16 10:31:06 AM PDT 2022 ###
+### Updated on Thu Mar  2 08:00:38 PM PST 2023 ###
+### < #test > deleted since last update ###
+### < #config.org > deleted since last update ###
+### < #backup > deleted since last update ###
 *
 !.gitignore
-#backup
 !config.el
-#config.org
+#config.el.bak
 !custom.el
 !doom-emacs-dash.png
 !eshell
+!funcs.el
 !init.el
+#init.el.bak
 !packages.el
 !snippets
-#test
