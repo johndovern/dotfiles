@@ -1,4 +1,4 @@
-### Updated on Fri Sep 23 09:33:41 PM PDT 2022 ###
+### Updated on Thu Mar  2 07:58:34 PM PST 2023 ###
 *
 !.gitignore
 #.gitignore-old
@@ -8,6 +8,7 @@
 !auto-profiles.lua
 !betterchapters.lua
 !coverart.lua
+!dmenuplaylist.lua
 !dwmblocks.lua
 !file-browser.lua
 !filename.lua
@@ -29,5 +30,6 @@
 !trackselect.lua
 !vmt.lua
 !webm.lua
+!webtorrent-hook
 !youtube-quality.lua
 !ytdl_hook.lua

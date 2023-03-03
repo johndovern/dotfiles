@@ -102,7 +102,7 @@ get_opts() {
 }
 
 set_defaults() {
-  [[ -z "$GITREPODIR" ]] && GITREPODIR="$HOME/.cfg/"
+  [[ -z "$GITREPODIR" ]] && GITREPODIR="$HOME/.git/"
   [[ -z "$GITREPOTREE" ]] && GITREPOTREE="$HOME"
   [[ -z "$BRANCH" ]] && BRANCH="master"
 }

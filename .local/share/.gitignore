@@ -1,20 +1,23 @@
-### Updated on Fri Sep 23 09:34:01 PM PDT 2022 ###
-### < .gitignore-very-old > deleted since last update ###
-### < .gitignore-old > deleted since last update ###
+### Updated on Thu Mar  2 07:58:35 PM PST 2023 ###
 *
 !.gitignore
+#.gitignore-old
 #.gitignore-very-old
 !applications
 #Aspyr
 #baloo
+#bash-completion
 !bg
 #calcurse
 #cargo
 #desktop-directories
+#doc
 #dolphin
+#fish
 #flatpak
 #fonts
 #gegl-0.4
+#gnucash
 #gnupg
 #go
 #gvfs-metadata
@@ -24,16 +27,19 @@
 #kdenlive
 #keyrings
 #knewstuff3
+#konversation
 #kwalletd
 !larbs
 #lf
 #libvirt
 #lutris
 #lyrics
+#man
 #mime
 #mplug
 #Mumble
 #nvim
+#okular
 #onlyoffice
 #qBittorrent
 #qutebrowser
@@ -61,3 +67,4 @@
 !Yotsuba-drop.png
 !yotsuba.png
 #zathura
+#zsh

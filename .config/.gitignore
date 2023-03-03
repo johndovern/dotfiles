@@ -1,7 +1,4 @@
-### Updated on Sat Jan 21 10:27:17 PM PST 2023 ###
-### < #emacs-working > deleted since last update ###
-### < #emacs-current > deleted since last update ###
-### < #emacs.bak.new > deleted since last update ###
+### Updated on Thu Mar  2 07:58:33 PM PST 2023 ###
 *
 !.gitignore
 #.gitignore.bak
@@ -53,9 +50,11 @@
 #kdenliverc
 #kde.org
 #keepassxc
+!kglobalshortcutsrc
 #kiorc
 !kmonad
 #knfsshare
+#konversationrc
 #kservicemenurc
 #kwalletrc
 !lf
@@ -82,6 +81,8 @@
 !nsxiv
 !nvim
 #obs-studio
+#okularpartrc
+#okularrc
 #onlyoffice
 #pavucontrol.ini
 #pcmanfm

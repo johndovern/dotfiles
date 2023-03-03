@@ -1,7 +1,7 @@
-### Updated on Sat Jan 21 10:29:21 PM PST 2023 ###
+### Updated on Thu Mar  2 07:58:34 PM PST 2023 ###
+### < #.gitignore-old > deleted since last update ###
 *
 !.gitignore
-#.gitignore-old
 #.gitignore-very-old
 !.gitignore-very-old-backup
 !black

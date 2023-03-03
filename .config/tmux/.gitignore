@@ -1,11 +1,9 @@
-### Updated on Fri Sep 23 09:33:42 PM PDT 2022 ###
-### < .gitignore-very-old > deleted since last update ###
+### Updated on Thu Mar  2 07:58:34 PM PST 2023 ###
 *
 !.gitignore
 #.gitignore-very-old
 !sxhkd.conf
 !tmux.conf
-#tmux.conf-backup
 !tmux-res
 !tmux-yank
 !twm.conf

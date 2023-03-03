@@ -151,22 +151,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_5x7(
         // left hand
-        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_MINS,
-        MH_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,   KC_B,   KC_BSLS,
+        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   DM_REC1,
+        MH_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,   KC_B,   DM_PLY1,
         LS_ESC,     ALT_A,   CTL_R,   GUI_S,  LS_T,   MEH_G,  KC_VOLU,
         KC_LCTL,    BUTT_Z,  KC_X,    MEH_C,  KC_D,   KC_V,
         TT(_SYMBL), MAC_ZZ,  TAB_L,   SH_RBRC,
                                     KC_TMUX, MOU_ESC,
-                                    KC_LCTL, NAV_BCS,
+                                    DM_RSTP, NAV_BCS,
                                     TG(_MANGA), MED_TAB,
         // right hand
-                          KC_DEL,  KC_6,    KC_7,    KC_8,     KC_9,     KC_0,     KC_BSPC,
-                          KC_MINS, KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,  KC_EQL,
+                          DM_REC2,  KC_6,    KC_7,    KC_8,     KC_9,     KC_0,     KC_BSPC,
+                          DM_PLY2, KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,  KC_EQL,
                           KC_VOLD, MEH_M,   LS_N,    GUI_E,    CTL_I,    ALT_O,    MH_ENT,
                                    KC_K,    KC_H,    MEH_COM,  KC_DOT,   BUTT_SL,  LS_QOUT,
                                                      SH_LBRC,  SH_RBRC,  MAC_ZQ,   CTL_BSL,
              SYM_ENT, LS_RBRC,
-             NUM_SPC, KC_LSFT,
+             NUM_SPC, CW_TOGG,
              FUN_DEL, MAC_CW
     ),
 

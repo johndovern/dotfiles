@@ -5,6 +5,7 @@
       (:prefix ("b". "buffer")
        :desc "List bookmarks" "L" #'list-bookmarks
        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+(load! "funcs.el")
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 (evil-define-key 'normal ibuffer-mode-map
@@ -38,7 +39,6 @@
       fancy-splash-image "~/.config/doom/doom-emacs-dash.png")
 (map! :leader
       (:prefix ("d" . "dired")
-       :desc "Open dired" "d" #'dired
        :desc "Dired jump to current" "j" #'dired-jump)
       (:after dired
        (:map dired-mode-map
@@ -106,27 +106,27 @@
          treemacs-show-cursor t))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
-(setq ivy-posframe-display-functions-alist
-      '((swiper                     . ivy-posframe-display-at-point)
-        (complete-symbol            . ivy-posframe-display-at-point)
-        (counsel-M-x                . ivy-display-function-fallback)
-        (counsel-esh-history        . ivy-posframe-display-at-window-center)
-        (counsel-describe-function  . ivy-display-function-fallback)
-        (counsel-describe-variable  . ivy-display-function-fallback)
-        (counsel-find-file          . ivy-display-function-fallback)
-        (counsel-recentf            . ivy-display-function-fallback)
-        (counsel-register           . ivy-posframe-display-at-frame-bottom-window-center)
-        (dmenu                      . ivy-posframe-display-at-frame-top-center)
-        (nil                        . ivy-posframe-display))
-      ivy-posframe-height-alist
-      '((swiper . 20)
-        (dmenu . 20)
-        (t . 10)))
-(ivy-posframe-mode 1) ; 1 enables posframe-mode, 0 disables it.
-(map! :leader
-      (:prefix ("v" . "Ivy")
-       :desc "Ivy push view" "v p" #'ivy-push-view
-       :desc "Ivy switch view" "v s" #'ivy-switch-view))
+;; (setq ivy-posframe-display-functions-alist
+;;       '((swiper                     . ivy-posframe-display-at-point)
+;;         (complete-symbol            . ivy-posframe-display-at-point)
+;;         (counsel-M-x                . ivy-display-function-fallback)
+;;         (counsel-esh-history        . ivy-posframe-display-at-window-center)
+;;         (counsel-describe-function  . ivy-display-function-fallback)
+;;         (counsel-describe-variable  . ivy-display-function-fallback)
+;;         (counsel-find-file          . ivy-display-function-fallback)
+;;         (counsel-recentf            . ivy-display-function-fallback)
+;;         (counsel-register           . ivy-posframe-display-at-frame-bottom-window-center)
+;;         (dmenu                      . ivy-posframe-display-at-frame-top-center)
+;;         (nil                        . ivy-posframe-display))
+;;       ivy-posframe-height-alist
+;;       '((swiper . 20)
+;;         (dmenu . 20)
+;;         (t . 10)))
+;; (ivy-posframe-mode 1) ; 1 enables posframe-mode, 0 disables it.
+;; (map! :leader
+;;       (:prefix ("v" . "Ivy")
+;;        :desc "Ivy push view" "v p" #'ivy-push-view
+;;        :desc "Ivy switch view" "v s" #'ivy-switch-view))
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'mode-line nil :font "Monospace")
 (setq doom-modeline-height 25     ;; sets modeline height
@@ -161,11 +161,52 @@
       eshell-scroll-to-bottom-on-input t
       eshell-destroy-buffer-when-process-dies t
       eshell-visual-commands'("bash" "htop" "ssh" "top" "zsh"))
+(require 'dap-cpptools)
+(require 'dap-lldb)
+(require 'dap-gdb-lldb)
+(setq dap-ui-locals-expand-depth t)
+(setq dap-auto-show-output nil)
+(add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+(map! :map dap-mode-map
+      :leader
+      :prefix ("d" . "dap")
+      ;; basics
+      :desc "dap next"          "n" #'dap-next
+      :desc "dap step in"       "i" #'dap-step-in
+      :desc "dap step out"      "o" #'dap-step-out
+      :desc "dap continue"      "c" #'dap-continue
+      :desc "dap hydra"         "h" #'dap-hydra
+      :desc "dap debug restart" "r" #'dap-debug-restart
+      :desc "dap debug"         "s" #'dap-debug
+
+      ;; debug
+      :prefix ("dd" . "Debug")
+      :desc "dap debug recent"  "r" #'dap-debug-recent
+      :desc "dap debug last"    "l" #'dap-debug-last
+
+      ;; eval
+      :prefix ("de" . "Eval")
+      :desc "eval"                "e" #'dap-eval
+      :desc "eval region"         "r" #'dap-eval-region
+      :desc "eval thing at point" "s" #'dap-eval-thing-at-point
+      :desc "add expression"      "a" #'dap-ui-expressions-add
+      :desc "remove expression"   "d" #'dap-ui-expressions-remove
+
+      :prefix ("db" . "Breakpoint")
+      :desc "dap breakpoint toggle"      "b" #'dap-breakpoint-toggle
+      :desc "dap breakpoint condition"   "c" #'dap-breakpoint-condition
+      :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
+      :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message
+      ;; debug
+      :prefix ("dt" . "Template")
+      :desc "dap edit template"  "e" #'dap-debug-edit-template)
 (map! :leader
       :desc "Eshell" "e s" #'eshell
-      :desc "Eshell popup toggle" "e t" #'+eshell/toggle
+      :desc "Eshell popup toggle" "t e" #'+eshell/toggle
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
-      :desc "Vterm popup toggle" "t t" #'+vterm/toggle)
+      :desc "Vterm popup toggle" "t t" #'+vterm/toggle
+      :desc "Open vterm" "t v" #'vterm)
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
@@ -205,14 +246,11 @@
   (if (eq doom-theme 'doom-one)
       (load-theme 'doom-one-light t)
     (load-theme 'doom-one t)))
-;; (if (eq doom-theme 'doom-one)
-;;     (load-theme 'doom-one-light t)
-;;   (load-theme 'doom-one t))
 (map! :leader
       :desc "Previous workspace" "TAB h" #'+workspace/switch-left
       :desc "Previous workspace" "TAB l" #'+workspace/switch-right
       :desc "Toggle syntax highlighting" "t h" #'tree-sitter-hl-mode
-      :desc "Toggle treemacs" "t e" #'treemacs
+      :desc "Toggle treemacs" "t r" #'treemacs
       :desc "Toggle theme" "t d" #'toggle-my-theme)
 (map! :leader
       :desc "Quit Emacs" "q e" #'save-buffers-kill-terminal
@@ -222,7 +260,7 @@
 (setq +tree-sitter-hl-enabled-modes t)
 ;; (add-hook! 'python-mode-local-vars-hook '(lsp! tree-sitter-hl-mode))
 (setq c-tab-always-indent nil)
-(evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
+;; (evil-define-key 'insert c-mode-map (kbd "TAB"), nil)
 (add-hook! 'conf-unix-mode-hook
   (when (stringp buffer-file-name)
       (when (string-match-p "/keysrc$" buffer-file-name)
@@ -248,7 +286,7 @@
        (:prefix ("e" . "export")
         :desc "Export to gfm" "g" #'org-pandoc-export-to-gfm
         :desc "Export as gfm" "G" #'org-pandoc-export-as-gfm)))
-(setq company-statistics-mode t)
+;; (setq company-statistics-mode t)
 (setq company-minimum-prefix-length 2
       company-idle-delay 0.0) ;; default is 0.2
 (setq lsp-signature-doc-lines 5)
@@ -256,9 +294,11 @@
       '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
 (setq company-backends
       '((:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev)))
+(add-hook! 'lsp-completion-mode-hook
+           (setf (alist-get 'lsp-capf completion-category-defaults) '((styles . (basic)))))
 (map! :leader
       :desc "Toggle line numbers" "t L" #'doom/toggle-line-numbers
-      :desc "Toggle lsp server (restart)" "t l" #'lsp-restart-workspace)
+      :desc "Toggle lsp server (restart)" "t l" #'lsp-workspace-restart)
 (evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
 (evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)
 (map! :after evil
@@ -288,3 +328,13 @@
         :desc "Find node" "f" #'org-roam-node-find
         :desc "Insert node" "i" #'org-roam-node-insert)))
 (setq +workspaces-main "master")
+;; close dap-output on exit
+(add-hook 'dap-terminated-hook #'debug-cleanup-output)
+(dap-register-debug-template
+ "cpptools::Run"
+ (list :type "cppdbg"
+       :request "launch"
+       :name "cpptools::Run"
+       :MIMode "gdb"
+       :program "${workspaceFolder}/"
+       :cwd     "${workspaceFolder}"))

@@ -176,8 +176,13 @@ o Open
 p mpc
     :c Clear mpc == mpc clear
     :d Display Song == notify-send "mpc" "$(mpc current)"
+    :h Seek -5 == mpc seek "-5" & wkx -p p
+    :l Seek +5 == mpc seek "+5" & wkx -p p
+    :n Next song == mpc next & wkx -p p
+    :p Prev song == mpc prev & wkx -p p
+    :o Open mpc == st -e ncmpcpp
     # Playlist prefix
-    :l Playlist
+    :y Playlist
         ::a Vaporwave == mpc-playlists "vaporwave"
         ::j Japanese Disco Edits == mpc-playlists "Japanese Disco Edits"
         ::l Vocaloid == mpc-playlists "vocaloid"
@@ -187,9 +192,6 @@ p mpc
         ::s Spotify Rip == mpc-playlists "Spotify Rip"
         ::t Too many vocaloids == mpc-playlists "Too_Many_Vocaloid_Songs"
         ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
-    :n Next song == mpc next & wkx -p p
-    :p Prev song == mpc prev & wkx -p p
-    :o Open mpc == st -e ncmpcpp
 # Quit prefix
 q Quit
     :c Client == sleep 0.1 ; dwmc killclient
