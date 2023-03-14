@@ -84,9 +84,9 @@
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
-(setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-one)
 (map! :leader
-      :desc "Load new theme" "H t" #'counsel-load-theme)
+      :desc "Load new theme" "H t" #'consult-theme)
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 (setq doom-font (font-spec :font "Monospace" :size 20)
@@ -206,7 +206,7 @@
       :desc "Eshell popup toggle" "t e" #'+eshell/toggle
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
       :desc "Vterm popup toggle" "t t" #'+vterm/toggle
-      :desc "Open vterm" "t v" #'vterm)
+      :desc "Open vterm" "t v" #'my-open-vterm)
 (defun prefer-horizontal-split ()
   (set-variable 'split-height-threshold nil t)
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
@@ -268,7 +268,7 @@
             (shell-command-to-string "kill -SIGUSR1 \"$(pidof wkx)\"")))
       (when (string-match-p "/bindsrc$" buffer-file-name)
         (add-hook! 'after-save-hook :local
-          (shell-command-to-string "wkd -u")))))
+          (run-shell-command-split-window "wkx-update")))))
 (add-to-list 'auto-mode-alist '("xresources" . conf-mode))
 (add-hook! 'conf-mode-hook
   (when (stringp buffer-file-name)

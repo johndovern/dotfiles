@@ -28,7 +28,8 @@
        ;;      +childframe
        ;;      +prescient
        ;;      +fuzzy)               ; a search engine for love and life
-       (vertico +icons)           ; the search engine of the future
+       (vertico +childframe
+                +icons)           ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs

@@ -51,7 +51,77 @@
 (defun debug-cleanup-output (arg)
   "Kill output buffer if confirmed"
   (interactive)
+  (hydra-keyboard-quit)
   (let ((target-session (concat "\*" (dap--debug-session-name arg) "[^*]+-\scppdbg:.*\*")))
-        (execute-if-confirmed #'kill-selected-buffer target-session "Kill output?")
-        (message target-session))
+    (execute-if-confirmed #'kill-selected-buffer target-session "Kill output?")
+    (message target-session))
   (message (dap--debug-session-name arg)))
+
+(defun run-shell-command-split-window (&optional command)
+  "Run a shell command in a horizontal split window.
+   The user can interact with the command and the output is
+   visible in the split window. Delete the split window after
+   the command is finished if the user responds with y.
+   If COMMAND is provided, use it as the shell command to run."
+  (interactive)
+  (unless command
+    (setq command (read-shell-command "Shell command: ")))
+  (let* ((split-buffer (split-window-below))
+         (output-buffer (get-buffer-create "*Shell Command Output*")))
+    (set-window-buffer split-buffer output-buffer)
+    (async-shell-command command output-buffer)
+    (with-selected-window split-buffer
+      (setq-local quit-window-timer
+                  (run-with-timer 0.1 nil
+                                  (lambda ()
+                                    (when (y-or-n-p "Delete output window?")
+                                      (delete-window split-buffer))))))))
+
+;; Get the current Unix time
+(defun my-get-current-unix-time ()
+  "Return the current Unix time."
+  (car (time-convert (car (current-time)) (cadr (current-time)))))
+
+(defun my-open-vterm ()
+  "Open a unique vterm window and resize it to take up 35% of the bottom of the screen."
+  (interactive)
+  (setq vterm-buffer-name (format "*vterm<%s>*" (my-get-current-unix-time)))
+  (let* ((height (round (* 0.35 (window-total-height))))
+         (my-vterm-buffer (get-buffer-create vterm-buffer-name)))
+    (with-current-buffer my-vterm-buffer
+      (vterm)
+      (fit-window-to-buffer nil nil height)
+      (set-process-sentinel vterm--process
+                            (lambda (process event)
+                              (let ((window (get-buffer-window my-vterm-buffer)))
+                                (when window
+                                  (delete-window window))))))))
+
+;; (defun my-open-vterm ()
+;;   "Open a unique vterm window and resize it to take up 35% of the bottom of the screen."
+;;   (interactive)
+;;   (let ((vterm-buffer-name (format "*vterm<%s>*" (my-get-current-unix-time))))
+;;     (switch-to-buffer (get-buffer-create vterm-buffer-name))
+;;     (vterm)
+;;     (fit-window-to-buffer nil nil (round (* 0.35 (window-total-height))))
+;;     (let ((vterm-buffer (current-buffer)))
+;;       (set-process-sentinel (get-buffer-process vterm-buffer)
+;;                             (lambda (process event)
+;;                               (let ((window (get-buffer-window vterm-buffer)))
+;;                                 (when window
+;;                                   (delete-window window))))))))
+
+;; (defun open-vterm ()
+;;   "Open a vterm window that takes up 35% of the screen, opens it below the current window, and kills the window when vterm is exited."
+;;   (interactive)
+;;   (let* ((vterm-buffer (generate-new-buffer "*vterm*"))
+;;          (vterm-window-height (round (* 0.35 (window-height))))
+;;          (vterm-window (split-window-below vterm-window-height)))
+;;     (with-selected-window vterm-window
+;;       (set-window-buffer vterm-window vterm-buffer)
+;;       (vterm)))
+;;   (set-process-sentinel
+;;    (get-buffer-process (current-buffer))
+;;    (lambda (process event)
+;;      (when (string= event "finished\n")
+;;        (kill-buffer-and-window)))))

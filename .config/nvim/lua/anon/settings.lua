@@ -36,7 +36,7 @@ g.wildmode = { 'longest', 'list', 'full' }
 o.splitbelow = true
 o.splitright = true
 cmd[[hi Visual ctermfg=Grey ctermbg=Black]]
-o.foldmethod = 'indent'
+-- o.foldmethod = 'indent'
 o.scrolloff = 8
 
 -- Set snippet dir

@@ -22,11 +22,13 @@ mpv_loop() {
 mpv_start() {
   mpv --idle=yes \
     --no-terminal \
-    --script-opts=mpvSockets-music=yes,dwmblocks-music=yes \
+    --script-opts=mpvSockets-music=yes,dwmblocks-music=yes,playlistmanager-sortplaylist_on_start=no \
     --force-window=no \
     --video=no \
     --loop-playlist=yes \
+    --ytdl=no \
     --keep-open=yes "$@" >/dev/null 2>&1 &
+    # --keep-open=yes "$@" &
   notify-send "mpv-music" "Started $*"
 }
 
