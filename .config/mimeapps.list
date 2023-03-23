@@ -33,3 +33,4 @@ text/x-log=nvim.desktop;
 text/org=text.desktop;
 text/markdown=text.desktop;
 text/x-lua=text.desktop;
+application/zip=llpp.desktop;

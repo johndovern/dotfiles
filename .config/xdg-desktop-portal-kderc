@@ -1,4 +1,6 @@
 [FileDialogSize]
+2 screens: Height=667
+2 screens: Width=1079
 DisplayPort-0 HDMI-A-0 Height 1920x1080=699
 DisplayPort-0 HDMI-A-0 Height 1920x1080 DisplayPort-0=630
 DisplayPort-0 HDMI-A-0 Width 1920x1080=836
@@ -11,8 +13,8 @@ LVDS1 Height 1920x1080=691
 LVDS1 Width 1920x1080=1034
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/videos/webms/webms/groove/wmv - i fink u freaky.webm,file:$HOME/pictures/shared/phone/to-sort/bjarnechair_original.jpg,file:$HOME/documents/books/coding/Cpp/Effective C++ 3rd ed.pdf,file:$HOME/documents/books/coding/Cpp/Exceptional_C_Plus_Plus_47_Engineering_Puzzles_Programming_Problems_and_Solutions_Herb_Sutter.pdf,file:$HOME/documents/books/coding/Cpp/Exceptional C++ - Herb Sutter.pdf,file:$HOME/programs/Cpp/Projects/libmdb/src/chinook.zip,file:$HOME/pictures/shared/phone/to-sort/(Yuu).png,file:$HOME/documents/finances/Statements/CreditCard2.qfx,file:$HOME/documents/finances/Statements/Checking1.qfx,file:$HOME/pictures/shared/Yotsuba edits/1677430251146676.png,file:$HOME/pictures/shared/Yotsuba edits/1677426080970994.png,file:$HOME/documents/books/coding/Cpp/Effective-Modern-C++.pdf,file:$HOME/documents/com.microsoft.Edge.flatpakref,file:$HOME/pictures/tmaster/shared/reaction-images/reaction-non-anime/reaction-non-anime-gifs/sensiblechuckle.gif,file:$HOME/documents/Abortion-Tainted-Vaccines.pdf
-Recent URLs[$e]=file:$HOME/documents/finances/,file:$HOME/,file:$HOME/downloads/,file:$HOME/documents/books/coding/Cpp/,file:$HOME/pictures/shared/,file:$HOME/documents/finances/Statements/,file:$HOME/pictures/shared/phone/to-sort/,file:$HOME/programs/Cpp/Projects/libmdb/src/,file:$HOME/documents/books/coding/,file:$HOME/pictures/shared/phone/,file:$HOME/videos/webms/webms/groove/
+Recent Files[$e]=file:$HOME/pictures/l3gyan.zip,file:$HOME/pictures/shared/phone/dox_jay.webm,file:$HOME/documents/finances/Statements/Checking1.qfx,file:$HOME/documents/finances/Statements/CreditCard2.qfx,file:$HOME/documents/tmaster/browser-backup-files/4chanX/4chan X v1.14.22.4-1678836276437.json,file:$HOME/videos/webms/webms/groove/wmv - i fink u freaky.webm,file:$HOME/pictures/shared/phone/to-sort/bjarnechair_original.jpg,file:$HOME/documents/books/coding/Cpp/Effective C++ 3rd ed.pdf,file:$HOME/documents/books/coding/Cpp/Exceptional_C_Plus_Plus_47_Engineering_Puzzles_Programming_Problems_and_Solutions_Herb_Sutter.pdf,file:$HOME/documents/books/coding/Cpp/Exceptional C++ - Herb Sutter.pdf,file:$HOME/pictures/shared/phone/to-sort/(Yuu).png
+Recent URLs[$e]=file:$HOME/documents/finances/Statements/,file:$HOME/pictures/shared/phone/to-sort/,file:$HOME/programs/Cpp/Projects/libmdb/src/,file:$HOME/documents/books/coding/,file:$HOME/pictures/shared/phone/,file:$HOME/videos/webms/webms/groove/,file:$HOME/documents/tmaster/browser-backup-files/4chanX/,file:$HOME/,file:$HOME/documents/finances/,file:$HOME/downloads/,file:$HOME/pictures/shared/
 detailViewIconSize=64
 
 [KPropertiesDialog]
