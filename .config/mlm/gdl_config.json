@@ -1,0 +1,7 @@
+{
+    "extractor":
+    {
+        "directory": ["{chapter:>05.1f}"],
+        "filename": "{page:>03}"
+    }
+}

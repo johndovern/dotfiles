@@ -1,0 +1,6 @@
+include "/home/anon/.config/zathura/zathurarc"
+map q exec "mlm --track '$FILE' --page '$PAGE'"
+map <C-n> exec "znp -n '$FILE' -g '$PAGE'"
+map <C-p> exec "znp -p '$FILE' -g '$PAGE'"
+map <Return> exec "znp -n '$FILE' -g '$PAGE'"
+map <S-Return> exec "znp -p '$FILE' -g '$PAGE'"

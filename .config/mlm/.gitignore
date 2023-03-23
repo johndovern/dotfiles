@@ -1,0 +1,10 @@
+### Updated on Wed Mar 22 10:04:48 PM PDT 2023 ###
+*
+!.gitignore
+!filters.conf
+!gdl_config.json
+#library.json
+#library.json.bak
+#log.json
+!mlm.conf
+!zathurarc
