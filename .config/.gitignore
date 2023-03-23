@@ -3,7 +3,7 @@
 !.gitignore
 #.gitignore.bak
 #.gitignore-very-old
-!ani-man
+#ani-man
 #ani-man.~1~
 #autostart
 #baloofileinformationrc
