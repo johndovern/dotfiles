@@ -55,6 +55,7 @@ d Dmenu scripts
         ::r Remove playlist == dmenuplaylist --remove
     :u Url-handler
         ::b Brave == brave "$(xclip -o -selection clipboard)"
+        ::d Download manga == mlm-wrapper "$(xclip -o -selection clipboard)"
         ::f Firefox == firefox "$(xclip -o -selection clipboard)"
         ::l Librewolf == librewolf "$(xclip -o -selection clipboard)"
         ::m mpv == mpv "$(xclip -o -selection clipboard)"
