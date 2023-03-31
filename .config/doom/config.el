@@ -212,6 +212,11 @@
   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
 (add-hook 'markdown-mode-hook 'prefer-horizontal-split)
 (map! :leader
+      :prefix ("w". "window")
+      :desc "Window enlargen" "i" #'doom/window-enlargen
+      :desc "balance windows" "y" #'balance-windows)
+(setq hscroll-margin 6)
+(map! :leader
       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
 (map! :leader
       (:prefix ("w" . "window")
@@ -321,6 +326,10 @@
       "j" #'evil-window-down
       "k" #'evil-window-up
       "l" #'evil-window-right)
+(map! :leader
+      :desc "List workspaces" "TAB TAB" #'+workspace/switch-to
+      :desc "Last workspace"  "TAB ."   #'+workspace/other
+      :desc "Display tab bar" "TAB '"   #'+workspace/display)
 (setq org-roam-directory "~/ewiki")
 (map! :leader
       (:prefix ("r" . "roam")

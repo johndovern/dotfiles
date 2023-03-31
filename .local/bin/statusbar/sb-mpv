@@ -66,6 +66,9 @@ case $BLOCK_BUTTON in
   3)
     notify-send "$(mpv_display -u)"
     mpv_display
+    [[ -z "${SOCKET}" ]] && exit 0
+    PID="$(mpv-get-property "${SOCKET}" 'pid')"
+    mpv-opts --pid "$PID" --focus
     ;;
   4)
     mpv-prev --socket "${SOCKET}"

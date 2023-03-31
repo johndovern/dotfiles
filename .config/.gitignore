@@ -27,7 +27,7 @@
 #doom-current
 !dunst
 !dwmblocks
-!easyeffects
+#easyeffects
 #Electron
 !emacs
 #emacs.bak
@@ -61,9 +61,9 @@
 !libreoffice
 !libvirt
 #light
-!llpp.conf
+#llpp.conf
 !lutris
-!manga-man
+#manga-man
 #menus
 !mimeapps.list
 !mlm
@@ -106,7 +106,7 @@
 #syncthing-gtk
 !systemd
 !tmux
-!transmission
+#transmission
 #trashrc
 !tridactyl
 #tuta_integration
@@ -117,7 +117,7 @@
 #Vieb
 #VirtualBox
 #vlc
-#vmt
+!vmt
 #VSCodium
 !vsnip
 #vtest
@@ -127,7 +127,7 @@
 !wkx
 !x11
 #xarchiver
-!xdg-desktop-portal-kderc
+#xdg-desktop-portal-kderc
 #yay
 #yelp
 !yt-dlp

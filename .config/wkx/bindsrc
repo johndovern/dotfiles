@@ -45,7 +45,7 @@ c Client
 # Dmenuscripts
 d Dmenu scripts
     :g Gitignore-auto == dmenugitignore-auto
-    :m Manga == mlm -r
+    :m Manga == mlm -rn
     :o Opener == durl
     # Playlist prefix
     :p Playlist
@@ -152,7 +152,10 @@ o Open
     # Manga options
     :m Manga
         ::l Latest == dwmc viewex 4 ; mlm -l
+        ::n New latest == dwmc viewex 4 ; mlm -ln
         ::r Read == dwmc viewex 4 ; mlm -r
+        ::s Last updated == dwmc viewex 4 ; mlm -rn
+        ::u Update == dwmc viewex 4 ; mlm -u
     :n ncmpcpp == st -e ncmpcpp
     # Other programs
     :o Other programs

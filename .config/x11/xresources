@@ -42,11 +42,17 @@ Xft.lcdfilter: lcddefault
 /* *.swallowfloating: 		! 1 means swallow floating windows by default */
 
 /* DWM & DMENU color settings */
+/* normal */
 *.colornfg:      #F8F7FB
 *.colornbg:      #21242B
+*.colornbord:    #505564
+/* cursor */
+*.colorcurfg:    #21242B
+*.colorcurbg:    #F8F7FB
+*.colorcurbord:  #505564
+/* select */
 *.colorselfg:    #F8F7FB
 *.colorselbg:    #505564
-*.colornbord:    #505564
 *.colorselbord:  #51AFEF
 /* *.colorselbord:  #FF4500 */
 

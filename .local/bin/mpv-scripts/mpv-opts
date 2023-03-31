@@ -38,6 +38,11 @@ get_opts() {
         KEYS="$1"
         break
         ;;
+      -P | --pid)
+        shift
+        GIVEN_PID="$1"
+        shift
+        ;;
       -q | --quit)
         OPTION="QUIT"
         shift
@@ -80,6 +85,14 @@ get_opts() {
 }
 
 get_mpv() {
+  # shellcheck disable=SC2086
+  [[ -n "$GIVEN_PID" ]] && {
+    MPV_PATH="$(mpv-active-sockets --pid "$GIVEN_PID")"
+    FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"
+    CHOSEN_WID=$(xdotool search --pid "$GIVEN_PID - mpv")
+    [[ -n "$MPV_PATH" ]] && [[ -n "$FULLSCREEN" ]] && [[ -n "$CHOSEN_WID" ]]
+    return $?
+  }
   # shellcheck disable=SC2086
   [[ $(mpv-active-sockets $OPTION_2 | wc -l) -eq 1 ]] && {
     CHOSEN="$(mpv-pick --pid)"
@@ -150,7 +163,7 @@ opts_handler() {
       ;;
     FOCUS)
       get_mpv || return 1
-      sleep 0.2
+      [[ -z "$GIVEN_PID" ]] && sleep 0.2
       wmctrl -ia "$CHOSEN_WID"
       ;;
     FULL)

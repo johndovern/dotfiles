@@ -1,7 +1,7 @@
 {
     "extractor":
     {
-        "directory": ["{chapter:>05.1f}"],
+        "directory": ["{chapter:>03}{chapter_minor|_lit[.0]}"],
         "filename": "{page:>03}"
     }
 }
