@@ -233,10 +233,10 @@ u umpv
     :o Open blank == umpv
 # vmt binds
 v vmt
-    :b Browse == dwmc viewex 3; vmt -B
-    :l Latest == dwmc viewex 3; vmt -l
+    :b Browse == dwmc viewex 4; vmt -B
+    :l Latest == dwmc viewex 4; vmt -l
     :u Update == st -e vmt -u
-    :w Watch == dwmc viewex 3; vmt -w
+    :w Watch == dwmc viewex 4; vmt -w
 # Window manipulation
 w Window
     # Client prefix

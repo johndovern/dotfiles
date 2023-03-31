@@ -328,8 +328,8 @@
       "l" #'evil-window-right)
 (map! :leader
       :desc "List workspaces" "TAB TAB" #'+workspace/switch-to
-      :desc "Last workspace"  "TAB ."   #'+workspace/other
-      :desc "Display tab bar" "TAB '"   #'+workspace/display)
+      :desc "Last workspace"  "TAB '"   #'+workspace/other
+      :desc "Display tab bar" "TAB ."   #'+workspace/display)
 (setq org-roam-directory "~/ewiki")
 (map! :leader
       (:prefix ("r" . "roam")
