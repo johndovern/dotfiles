@@ -262,38 +262,40 @@ w Window
         ::t []= Tile         == dwmc setlayoutex 4 ; wkx -p "w p"
     :q Kill window == dwmc killclient
     # Tag prefix
-    :s Send tag
-        ::a Tag 1 == sleep 0.2 ; dwmc tagex 0
-        ::r Tag 2 == sleep 0.2 ; dwmc tagex 1
-        ::s Tag 3 == sleep 0.2 ; dwmc tagex 2
-        ::t Tag 4 == sleep 0.2 ; dwmc tagex 3
-        ::g Tag 5 == sleep 0.2 ; dwmc tagex 4
-        ::m Tag 6 == sleep 0.2 ; dwmc tagex 5
-        ::n Tag 7 == sleep 0.2 ; dwmc tagex 6
-        ::e Tag 8 == sleep 0.2 ; dwmc tagex 7
-        ::i Tag 9 == sleep 0.2 ; dwmc tagex 8
-    # Tag prefix
-    :S Send & follow
-        ::a Tag 1 == dwmc tagex 0 ; dwmc viewex 0
-        ::r Tag 2 == dwmc tagex 1 ; dwmc viewex 1
-        ::s Tag 3 == dwmc tagex 2 ; dwmc viewex 2
-        ::t Tag 4 == dwmc tagex 3 ; dwmc viewex 3
-        ::g Tag 5 == dwmc tagex 4 ; dwmc viewex 4
-        ::m Tag 6 == dwmc tagex 5 ; dwmc viewex 5
-        ::n Tag 7 == dwmc tagex 6 ; dwmc viewex 6
-        ::e Tag 8 == dwmc tagex 7 ; dwmc viewex 7
-        ::i Tag 9 == dwmc tagex 8 ; dwmc viewex 8
-    # Focus tag prefix
-    :t Focus tag
-        ::a View tag 1 == dwmc viewex 0 ; wkx -p "w t"
-        ::r View tag 2 == dwmc viewex 1 ; wkx -p "w t"
-        ::s View tag 3 == dwmc viewex 2 ; wkx -p "w t"
-        ::t View tag 4 == dwmc viewex 3 ; wkx -p "w t"
-        ::g View tag 5 == dwmc viewex 4 ; wkx -p "w t"
-        ::m View tag 6 == dwmc viewex 5 ; wkx -p "w t"
-        ::n View tag 7 == dwmc viewex 6 ; wkx -p "w t"
-        ::e View tag 8 == dwmc viewex 7 ; wkx -p "w t"
-        ::i View tag 9 == dwmc viewex 8 ; wkx -p "w t"
+    :t Tag
+        # Move to tag with window prefix
+        ::m Move
+            :::a Tag 1 == dwmc tagex 0 ; dwmc viewex 0
+            :::r Tag 2 == dwmc tagex 1 ; dwmc viewex 1
+            :::s Tag 3 == dwmc tagex 2 ; dwmc viewex 2
+            :::t Tag 4 == dwmc tagex 3 ; dwmc viewex 3
+            :::g Tag 5 == dwmc tagex 4 ; dwmc viewex 4
+            :::m Tag 6 == dwmc tagex 5 ; dwmc viewex 5
+            :::n Tag 7 == dwmc tagex 6 ; dwmc viewex 6
+            :::e Tag 8 == dwmc tagex 7 ; dwmc viewex 7
+            :::i Tag 9 == dwmc tagex 8 ; dwmc viewex 8
+        # Send window tag prefix
+        ::s Send tag
+            :::a Tag 1 == sleep 0.2 ; dwmc tagex 0
+            :::r Tag 2 == sleep 0.2 ; dwmc tagex 1
+            :::s Tag 3 == sleep 0.2 ; dwmc tagex 2
+            :::t Tag 4 == sleep 0.2 ; dwmc tagex 3
+            :::g Tag 5 == sleep 0.2 ; dwmc tagex 4
+            :::m Tag 6 == sleep 0.2 ; dwmc tagex 5
+            :::n Tag 7 == sleep 0.2 ; dwmc tagex 6
+            :::e Tag 8 == sleep 0.2 ; dwmc tagex 7
+            :::i Tag 9 == sleep 0.2 ; dwmc tagex 8
+        # Focus tag prefix
+        ::v View tag
+            :::a View tag 1 == dwmc viewex 0 ; wkx -p "w t v"
+            :::r View tag 2 == dwmc viewex 1 ; wkx -p "w t v"
+            :::s View tag 3 == dwmc viewex 2 ; wkx -p "w t v"
+            :::t View tag 4 == dwmc viewex 3 ; wkx -p "w t v"
+            :::g View tag 5 == dwmc viewex 4 ; wkx -p "w t v"
+            :::m View tag 6 == dwmc viewex 5 ; wkx -p "w t v"
+            :::n View tag 7 == dwmc viewex 6 ; wkx -p "w t v"
+            :::e View tag 8 == dwmc viewex 7 ; wkx -p "w t v"
+            :::i View tag 9 == dwmc viewex 8 ; wkx -p "w t v"
     :v Fullscreen == dwmc togglefullscr
     :y @ Fibonacci == dwmc setlayoutex 0
 # whichkey binds
