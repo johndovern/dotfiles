@@ -330,6 +330,12 @@
       :desc "List workspaces" "TAB TAB" #'+workspace/switch-to
       :desc "Last workspace"  "TAB '"   #'+workspace/other
       :desc "Display tab bar" "TAB ."   #'+workspace/display)
+(setq c-default-style "linux"
+      c-basic-offset 4
+      tab-width 4)
+(defun my-c++-mode-hook ()
+  (c-set-offset 'access-label '-4))
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (setq org-roam-directory "~/ewiki")
 (map! :leader
       (:prefix ("r" . "roam")
