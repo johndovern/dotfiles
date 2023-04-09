@@ -95,6 +95,8 @@ get_mpv() {
   }
   # shellcheck disable=SC2086
   [[ $(mpv-currently-playing --socket | wc -l) -eq 1 ]] && {
+    # [[ $(mpv-currently-playing --socket --no-music | wc -l) -eq 1 ]] && {
+    # if not filtering music is an issue use this ^
     CHOSEN="$(mpv-pick --pid --current)"
     MPV_PATH="$(mpv-pick --current)"
     FULLSCREEN="$(mpv-get-property "$MPV_PATH" "fullscreen")"

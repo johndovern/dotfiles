@@ -83,7 +83,7 @@ pidof -x sb-mpdup >/dev/null 2>&1 || setsid -f sb-mpdup >/dev/null 2>&1
 case $BLOCK_BUTTON in
   1)
     mpc_status >/dev/null 2>&1
-    [[ "STOPPED" == "$STATUS" ]] && check_playlist
+    [[ "STOPPED" == "$STATUS" ]] && mpc-toggle
     [[ "PLAYING|PAUSED" =~ "$STATUS" ]] && mpc_toggle
     exit
     ;;

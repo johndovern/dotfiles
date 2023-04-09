@@ -31,6 +31,9 @@ get_opts() {
       -m | --music)
         OPTIONS+=("--music" "--invert")
         ;;
+      --no-music)
+        OPTIONS+=("--music")
+        ;;
       -q | --quiet) QUIET=1 ;;
       -s | --socket) PRINT_SOCKET=1 ;;
       -u | --umpv)
