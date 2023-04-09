@@ -354,18 +354,38 @@
        (:prefix ("l" . "+links")
         :desc "Yank link" "y" #'org-store-link
         :desc "Paste link" "p" #'org-insert-link)))
+;; (setq spell-fu-ignore-modes '(org-mode org-roam-mode))
 (add-hook! '(org-mode-hook org-roam-mode-hook)
            #'auto-fill-mode
            (setq-local fill-column 60)
-           (setq-local flyspell-mode 0))
+           (spell-fu-mode -1))
+           ;; (lambda () (spell-fu-mode -1)))
+(setf (alist-get '(markdown-mode org-mode org-roam-mode) +spell-excluded-faces-alist)
+      '(markdown-code-face
+        markdown-reference-face
+        markdown-link-face
+        markdown-url-face
+        markdown-markup-face
+        markdown-html-attr-value-face
+        markdown-html-attr-name-face
+        markdown-html-tag-name-face))
 (map! :localleader
       (:prefix ("l" . "+links")
-       (:prefix ("r" . "+refrences")
+       (:prefix ("r" . "+references")
         :desc "URL" "u" #'org-insert-link-from-clipboard
         :desc "ID" "i" #'org-add-id-link
         :desc "ID +desc" "I" #'org-add-id-link-desc
         :desc "Header" "h" #'org-add-header-link
         :desc "Header +desc" "H" #'org-add-header-link-desc)))
+(after! org-roam
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+           :unnarrowed t)
+          ("n" "ncmpcpp" plain "\n\n* ${title}\n%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}\n#+filetags:\"ncmpcpp_notes\" \"${title}\" \"ncurses\"\n#+startup: show2levels")
+           :unnarrowed t))))
 (setq +workspaces-main "master")
 ;; close dap-output on exit
 (add-hook 'dap-terminated-hook #'debug-cleanup-output)
