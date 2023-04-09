@@ -66,12 +66,10 @@ cmd trash ${{
 }}
 
 cmd lf_close ${{
-  if xprop -id $(xdotool getactivewindow) WM_CLASS | grep -q "lf_run" ; then
-    lf -remote "send $id quit"
-  else
-    setsid -f tmux run-shell "sleep 0.02 && xdotool key \"Ctrl+b\" \"Ctrl+o\" " &
-    lf -remote "send $id quit"
+  if [[ "$TERM" == "screen-256color" ]] ; then
+    setsid -f tmux run-shell "sleep 0.02 && xdotool key \"Ctrl+b\" \"Ctrl+o\" "
   fi
+  lf -remote "send $id quit"
 }}
 
 cmd file_type %{{
