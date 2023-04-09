@@ -97,6 +97,94 @@
                                 (when window
                                   (delete-window window))))))))
 
+(defun org-add-id-link ()
+  "Convert the word under the cursor to a user-defined reference."
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'word))
+         (word (buffer-substring-no-properties (car bounds) (cdr bounds))))
+    (if (not (string= word ""))
+        (progn
+          (delete-region (car bounds) (cdr bounds))
+          (insert (format "[[#%s][%s]]" word word)))
+      (message "Using \"%s\" as reference" word))))
+
+(defun org-add-id-link-desc ()
+  "Convert the word under the cursor to a user-defined reference."
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'word))
+         (word (buffer-substring-no-properties (car bounds) (cdr bounds)))
+         (user-ref (read-string (format "Enter a reference for \"%s\": " word) nil nil word)))
+    (if (not (string= user-ref ""))
+        (progn
+          (delete-region (car bounds) (cdr bounds))
+          (insert (format "[[#%s][%s]]" user-ref word)))
+      (message "Using \"%s\" as reference" word))))
+
+(defun org-add-header-link ()
+  "Convert the word under the cursor to a user-defined reference."
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'word))
+         (word (buffer-substring-no-properties (car bounds) (cdr bounds))))
+    (if (not (string= word ""))
+        (progn
+          (delete-region (car bounds) (cdr bounds))
+          (insert (format "[[%s][%s]]" word word)))
+      (message "Using \"%s\" as reference" word))))
+
+(defun org-add-header-link-desc ()
+  "Convert the word under the cursor to a user-defined reference."
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'word))
+         (word (buffer-substring-no-properties (car bounds) (cdr bounds)))
+         (user-ref (read-string (format "Enter a reference for \"%s\": " word) nil nil word)))
+    (if (not (string= user-ref ""))
+        (progn
+          (delete-region (car bounds) (cdr bounds))
+          (insert (format "[[%s][%s]]" user-ref word)))
+      (message "Using \"%s\" as reference" word))))
+
+(defun org-insert-link-from-clipboard ()
+  "Replace the word at point with a link with the URL from the clipboard in an
+   Org mode document.  If there is no word at point, prompt the user to enter a
+   word."
+  (interactive)
+  (let ((url (gui-backend-get-selection 'CLIPBOARD 'TEXT)))
+    (when url
+      (let* ((bounds (bounds-of-thing-at-point 'word))
+             (word (if bounds
+                       (buffer-substring-no-properties (car bounds) (cdr bounds))
+                     (read-string "Enter word: "))))
+        (when bounds
+          (delete-region (car bounds) (cdr bounds)))
+        (org-insert-link nil url word)))))
+
+;; (defun org-insert-link-from-clipboard ()
+;;   "Replace the word at point with a link with the URL from the clipboard in an Org mode document."
+;;   (interactive)
+;;   (let ((url (gui-backend-get-selection 'CLIPBOARD 'TEXT)))
+;;     (when url
+;;       (let* ((bounds (bounds-of-thing-at-point 'word))
+;;              (word (buffer-substring-no-properties (car bounds) (cdr bounds))))
+;;         (delete-region (car bounds) (cdr bounds))
+;;         (org-insert-link nil url word)))))
+
+;; (defun org-insert-link-from-clipboard ()
+;;   "Insert a link with the URL from the clipboard at point in an Org mode document."
+;;   (interactive)
+;;   (let ((url (gui-backend-get-selection 'CLIPBOARD 'TEXT)))
+;;     (when url
+;;       (org-insert-link nil url (thing-at-point 'word)))))
+
+;; Does not work
+(defun my/org-insert-last-link (description)
+  "Insert the last stored link and prompt for a DESCRIPTION."
+  (interactive "sDescription: ")
+  (let* ((link-info (car org-stored-links))
+         (link (org-link-make-string (nth 1 link-info))))
+    (insert (format "[[%s][%s]]" link description))))
+
+
+
 ;; (defun my-open-vterm ()
 ;;   "Open a unique vterm window and resize it to take up 35% of the bottom of the screen."
 ;;   (interactive)

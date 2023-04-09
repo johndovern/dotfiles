@@ -1,6 +1,8 @@
 ;; Remap leader key
 (setq doom-leader-key ","
-      doom-localleader-key "SPC")
+      doom-leader-alt-key "M-,"
+      doom-localleader-key "SPC"
+      doom-localleader-alt-key "M-SPC")
 (map! :leader
       (:prefix ("b". "buffer")
        :desc "List bookmarks" "L" #'list-bookmarks
@@ -341,7 +343,29 @@
       (:prefix ("r" . "roam")
        (:prefix ("n" . "node")
         :desc "Find node" "f" #'org-roam-node-find
-        :desc "Insert node" "i" #'org-roam-node-insert)))
+        :desc "Insert node" "i" #'org-roam-node-insert)
+       (:prefix ("l" . "links")
+        :desc "Yank link" "y" #'org-store-link
+        :desc "Paste link" "p" #'org-insert-link)))
+(map! :leader
+      :desc "Find node" "f n" #'org-roam-node-find
+      "n l" nil
+      (:prefix ("n" . "notes")
+       (:prefix ("l" . "+links")
+        :desc "Yank link" "y" #'org-store-link
+        :desc "Paste link" "p" #'org-insert-link)))
+(add-hook! '(org-mode-hook org-roam-mode-hook)
+           #'auto-fill-mode
+           (setq-local fill-column 60)
+           (setq-local flyspell-mode 0))
+(map! :localleader
+      (:prefix ("l" . "+links")
+       (:prefix ("r" . "+refrences")
+        :desc "URL" "u" #'org-insert-link-from-clipboard
+        :desc "ID" "i" #'org-add-id-link
+        :desc "ID +desc" "I" #'org-add-id-link-desc
+        :desc "Header" "h" #'org-add-header-link
+        :desc "Header +desc" "H" #'org-add-header-link-desc)))
 (setq +workspaces-main "master")
 ;; close dap-output on exit
 (add-hook 'dap-terminated-hook #'debug-cleanup-output)
