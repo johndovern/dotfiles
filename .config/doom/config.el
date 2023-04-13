@@ -386,6 +386,8 @@
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                               "#+title: ${title}\n#+filetags:\"ncmpcpp_notes\" \"${title}\" \"ncurses\"\n#+startup: show2levels")
            :unnarrowed t))))
+(map! :leader
+      :desc "Get files" "c g" (lambda () (interactive) (run-command-in-vterm "grep -R")))
 (setq +workspaces-main "master")
 ;; close dap-output on exit
 (add-hook 'dap-terminated-hook #'debug-cleanup-output)

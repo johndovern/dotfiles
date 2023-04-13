@@ -158,6 +158,17 @@
           (delete-region (car bounds) (cdr bounds)))
         (org-insert-link nil url word)))))
 
+(defun run-command-in-vterm (base-command)
+  "Open a new vterm buffer and run a command with optional arguments.
+   If BASE-COMMAND is not specified, prompt the user for a command.
+   The command is run in the current directory of the file open in the
+   current buffer, or $HOME if no directory is found."
+  (interactive (list (read-string "Command: ")))
+  (let ((default-directory (or (ignore-errors (file-name-directory buffer-file-name))
+                               (getenv "HOME"))))
+    (vterm-other-window)
+    (vterm-send-string (concat base-command " " (read-string "Args: ") "\n"))))
+
 ;; (defun org-insert-link-from-clipboard ()
 ;;   "Replace the word at point with a link with the URL from the clipboard in an Org mode document."
 ;;   (interactive)
