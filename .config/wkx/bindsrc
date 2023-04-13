@@ -44,6 +44,9 @@ c Client
         ::i Tag 9 == sleep 0.2 ; dwmc tagex 8
 # Dmenuscripts
 d Dmenu scripts
+    # dfeed prefix
+    :d dfeed
+        ::l list feeds == dfeed -l
     :g Gitignore-auto == dmenugitignore-auto
     :m Manga == mlm -rn
     :o Opener == durl

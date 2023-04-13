@@ -80,7 +80,7 @@ cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
     # image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
     image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar)
-        znp $fx
+        setsid -f sioyek $fx >/dev/null 2>&1
         ;;
     text/*)
         nvim $fx

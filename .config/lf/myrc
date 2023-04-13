@@ -15,6 +15,7 @@ map ,gi  %dmenugitignore
 map ,gI  get_info
 map ,l   $lfrun
 map ,mb  $manga-bulk
+map ,md  %echo $fx >> ~/rezip_dirs.txt
 map ,mm  mangamove
 map ,nc  push $nvim<space>.c<left><left>
 map ,nf  mknf
