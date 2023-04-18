@@ -21,6 +21,7 @@ export PASSMAN="keepassxc"
 export MPV_SOCKET_DIR="/tmp/mpvSockets"
 export MPV_MUSIC_SOCKET="${MPV_SOCKET_DIR}/music_socket"
 export MPV_UMPV_SOCKET="${MPV_SOCKET_DIR}/umpv_socket"
+export MPV_AMPV_SOCKET="${MPV_SOCKET_DIR}/ampv_socket"
 
 # mpc tmp file
 export MPC_TMP_DIR="/tmp/mpc"
