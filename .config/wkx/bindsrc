@@ -44,9 +44,6 @@ c Client
         ::i Tag 9 == sleep 0.2 ; dwmc tagex 8
 # Dmenuscripts
 d Dmenu scripts
-    # dfeed prefix
-    :d dfeed
-        ::l list feeds == dfeed -l
     :g Gitignore-auto == dmenugitignore-auto
     :m Manga == mlm -rn
     :o Opener == durl
@@ -149,6 +146,11 @@ n nvim
 o Open
     :d dmenu == dmenu_run
     :e Emacs == emacsclient -c -a ''
+    # dfeed prefix
+    :f dfeed
+        ::s Seasonal == dwmc viewex 4 ; dfeed --apply-filter seasonal_filter --invert
+        ::l List feed == dwmc viewx 4 ; dfeed
+        ::p Pick feed == dwmc viewx 4 ; dfeed --pick
     :h htop == st -e htop
     :l lf == st -n lf_run -e lfrun
     :k KeePass == keepasshide
