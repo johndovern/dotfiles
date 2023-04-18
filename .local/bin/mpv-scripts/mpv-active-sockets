@@ -4,6 +4,7 @@
 declare -a ACTIVE_SOCKETS
 export SOCKET_DIR="${MPV_SOCKET_DIR:-/tmp/mpvSockets}"
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-$SOCKET_DIR/umpv_socket}"
+export AMPV_SOCKET="${MPV_AMPV_SOCKET:-$SOCKET_DIR/ampv_socket}"
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-$SOCKET_DIR/music_socket}"
 
 find_active_sockets() {
@@ -31,6 +32,9 @@ find_socket_pid() {
 get_opts() {
   while [[ $# -gt 0 ]]; do
     case "$1" in
+      -a | --ampv)
+        NO_AMPV=1
+        ;;
       -h | --help)
         usage
         return 1
@@ -102,7 +106,9 @@ is_active_socket() {
 is_ignored() {
   # shellcheck disable=SC2076
   # shellcheck disable=SC2046
-  [[ "$NO_CUSTOM" -eq 1 ]] && [[ "$UMPV_SOCKET|$MUSIC_SOCKET" =~ "$1" ]] && return $(invert_ignore)
+  [[ "$NO_CUSTOM" -eq 1 ]] && [[ "$AMPV_SOCKET|$UMPV_SOCKET|$MUSIC_SOCKET" =~ "$1" ]] && return $(invert_ignore)
+  # shellcheck disable=SC2046
+  [[ "$NO_AMPV" -eq 1 ]] && [[ "$AMPV_SOCKET" == "$1" ]] && return $(invert_ignore)
   # shellcheck disable=SC2046
   [[ "$NO_UMPV" -eq 1 ]] && [[ "$UMPV_SOCKET" == "$1" ]] && return $(invert_ignore)
   # shellcheck disable=SC2046

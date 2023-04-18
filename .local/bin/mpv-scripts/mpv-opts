@@ -150,14 +150,14 @@ mpv_shuffle() {
       '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
     return 0
   }
-  IFS=$'\n' read -r -d '' -a ACTIVE < <(mpv-active-sockets --umpv && printf '\0')
+  IFS=$'\n' read -r -d '' -a ACTIVE < <(mpv-active-sockets --umpv --ampv && printf '\0')
   [[ "${#ACTIVE[@]}" -eq 0 ]] && return 1
   [[ "${#ACTIVE[@]}" -eq 1 ]] && {
     mpv-communicate "$ACTIVE" \
       '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1
     return 0
   }
-  SHUFFLE="$(mpv-pick --full --umpv --quiet)"
+  SHUFFLE="$(mpv-pick --full --umpv --ampv --quiet)"
   [[ -z "$SHUFFLE" ]] && return 1
   mpv-communicate "${SHUFFLE%%:*}" \
     '{ "command": ["script-binding", "playlistmanager/shuffleplaylist"] }' >/dev/null 2>&1

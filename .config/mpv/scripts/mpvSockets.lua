@@ -8,6 +8,7 @@ local o = {
   pid     = "yes",
   music   = "no",
   umpv    = "no",
+  ampv    = "no",
 }
 options.read_options(o, "mpvSockets")
 
@@ -48,6 +49,11 @@ local function set_vars()
         TheSocket = os.getenv("MPV_MUSIC_SOCKET")
         if not TheSocket then
             TheSocket = join_paths(SocketDir, "music_socket")
+        end
+    elseif o.ampv == "yes" then
+        TheSocket = os.getenv("MPV_AMPV_SOCKET")
+        if not TheSocket then
+            TheSocket = join_paths(SocketDir, "anime_socket")
         end
     elseif o.pid == "yes" then
         TheSocket = join_paths(SocketDir, os.time(os.date("!*t")))

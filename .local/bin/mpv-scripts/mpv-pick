@@ -7,6 +7,7 @@ set -e
 declare -a ACTIVE
 export CHOSEN
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+export AMPV_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 export INSTANCE_COUNT
 export INTERACT=1
@@ -20,6 +21,7 @@ abort() {
 get_opts() {
   while [[ "$#" -ne 0 ]]; do
     case "$1" in
+      -a | --ampv) NO_AMPV=1 ;;
       -c | --current) IS_PLAYING=1 ;;
       -f | --fzf) INTERACT=0 ;;
       -F | --full) FULL=1 ;;
@@ -48,6 +50,9 @@ is_ignored() {
     return 1
   elif [[ "$NO_UMPV" -eq 1 ]]; then
     [[ "$UMPV_SOCKET" =~ "$1" ]] && return 0
+    return 1
+  elif [[ "$NO_AMPV" -eq 1 ]]; then
+    [[ "$AMPV_SOCKET" =~ "$1" ]] && return 0
     return 1
   elif [[ "$NO_MUSIC" -eq 1 ]]; then
     [[ "$MUSIC_SOCKET" =~ "$1" ]] && return 0

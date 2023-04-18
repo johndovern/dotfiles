@@ -11,6 +11,7 @@ LP_LOCATION="$(readlink "${LAST_PLAYING}")"
 export MOST_RECENT=
 declare -a MANUAL_SOCKET CURRENTLY_PLAYING # ALL_SOCKETS
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+export AMPV_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
 
 abort() {
@@ -21,6 +22,9 @@ abort() {
 get_opts() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
+      -a | --ampv)
+        MANUAL_SOCKET+=("${AMPV_SOCKET}")
+        ;;
       -f | --fzf)
         FZF="--fzf"
         ;;

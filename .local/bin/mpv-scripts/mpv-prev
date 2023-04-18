@@ -37,6 +37,10 @@ mpv_prev() {
 # shellcheck disable=SC2207
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
+    -a | --ampv)
+      mpv_prev --umpv "${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+      shift
+      ;;
     -f | --fzf)
       FZF="--fzf"
       shift

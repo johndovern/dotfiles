@@ -10,6 +10,9 @@ choose_socket() {
 get_opts() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
+      -a | --ampv)
+        USE_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+        ;;
       -c | --current) USE_CURRENT="-c" ;;
       -f | --fzf) FZF="--fzf" ;;
       -l | --latest)

@@ -21,6 +21,9 @@ get_opts() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
       -a | --all) ALLOW_PAUSED=1 ;;
+      -A | --ampv)
+        OPTIONS+=("--ampv" "--invert")
+        ;;
       -c | --check)
         shift
         [[ -z "$1" ]] && abort "Need a socket to check"

@@ -3,6 +3,8 @@
 set_socket() {
   if mpv-currently-playing --umpv --socket >/dev/null 2>&1; then
     SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+  elif mpv-currently-playing --ampv --socket >/dev/null 2>&1; then
+    SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
   elif mpv-currently-playing --unique --socket >/dev/null 2>&1; then
     SOCKET="$(mpv-currently-playing --unique --socket | head -n1)"
   fi

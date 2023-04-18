@@ -9,10 +9,13 @@ abort() {
 }
 
 case "$1" in
-  -u|--umpv)
+  -a | --ampv)
+    SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+    ;;
+  -u | --umpv)
     SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
     ;;
-  -m|--music)
+  -m | --music)
     SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
     ;;
   *)

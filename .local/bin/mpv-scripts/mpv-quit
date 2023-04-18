@@ -4,6 +4,9 @@
 
 get_opts() {
   case "$1" in
+    -a | --ampv)
+      USE_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+      ;;
     -f | --fzf)
       FZF="--fzf"
       ;;
