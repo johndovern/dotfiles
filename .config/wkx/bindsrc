@@ -80,6 +80,22 @@ e Emacs
             :::w wkx-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/wkx-dev"
             :::z znp-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/znp-dev"
         ::w wkx == dwmc viewex 0 && emacs "~/.config/wkx/bindsrc"
+# dfeed binds
+f dfeed
+    :l List feeds == dfeed
+    :s Seasonal == dwmc viewex 4 ; dfeed --filter-output seasonal_anime --invert
+    # Tech prefix
+    :t Tech
+        ::a All tech == dfeed --feed tech
+        ::c CyberSec == dfeed --feed cybersecurity
+        ::f Filesharing == dfeed --feed filesharing
+        ::g General == dfeed --feed general
+        ::l List feed == dwmc viewx 4 ; dfeed
+        ::n Linux == dfeed --feed linux
+        ::o Podcasts == dfeed --feed podcasts
+        ::p Pick feeds == dwmc viewx 4 ; dfeed --pick-filters
+        ::s Software == dfeed --feed software
+        ::t Technology == dfeed --feed technology
 # mpv binds
 m mpv
     :d Float == mpv-opts --float
@@ -148,7 +164,7 @@ o Open
     :e Emacs == emacsclient -c -a ''
     # dfeed prefix
     :f dfeed
-        ::s Seasonal == dwmc viewex 4 ; dfeed --apply-filter seasonal_filter --invert
+        ::s Seasonal == dwmc viewex 4 ; dfeed --apply-filter seasonal_anime --invert
         ::l List feed == dwmc viewx 4 ; dfeed
         ::p Pick feed == dwmc viewx 4 ; dfeed --pick
     :h htop == st -e htop

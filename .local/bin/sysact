@@ -48,7 +48,7 @@ case "$SYS_ACTION" in
     st -e key-zip 1
     ;;
   'Shutdown')
-    st -e key-zip 0
+    st -e poweroff
     ;;
   'Display-off')
     xset dpms force off
