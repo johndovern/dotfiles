@@ -77,7 +77,7 @@
 (setq dired-open-extensions '(("gif" . "nsxiv")
                               ("jpg" . "nsxiv")
                               ("png" . "nsxiv")
-                              ("pdf" . "llpp")
+                              ("pdf" . "sioyek")
                               ("mkv" . "mpv")
                               ("mp4" . "mpv")))
 (evil-define-key 'normal peep-dired-mode-map
@@ -275,7 +275,10 @@
             (shell-command-to-string "kill -SIGUSR1 \"$(pidof wkx)\"")))
       (when (string-match-p "/bindsrc$" buffer-file-name)
         (add-hook! 'after-save-hook :local
-          (run-shell-command-split-window "wkx-update")))))
+          (run-shell-command-split-window "wkx-update --binds")))
+      (when (string-match-p "/keysrc$" buffer-file-name)
+        (add-hook! 'after-save-hook :local
+          (run-shell-command-split-window "wkx-update --keys")))))
 (add-to-list 'auto-mode-alist '("xresources" . conf-mode))
 (add-hook! 'conf-mode-hook
   (when (stringp buffer-file-name)

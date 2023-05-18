@@ -255,7 +255,7 @@ ctrl + alt + shift + g == setsid -f mpv --script-opts=vmt-enabled=no "$HOME/.con
 
 ctrl + alt + shift + j == xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
 
-ctrl + alt + shift + k == xdotool mousemove --sync 3000 300
+ctrl + alt + shift + k == xdotool mousemove --sync 3840 300
 
 ctrl + alt + shift + l == keepasshide
 

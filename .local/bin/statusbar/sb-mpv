@@ -55,9 +55,10 @@ fi
 
 set_socket
 
+# notify-send "test" "$BLOCK_BUTTON"
 case $BLOCK_BUTTON in
   1)
-    mpv-toggle --socket "${SOCKET}" || mpv-toggle --umpv || mpv-toggle --socket "$(mpv-active-sockets --unique | head -n1)"
+    mpv-toggle --quiet --socket "${SOCKET}" || mpv-toggle --quiet --umpv || mpv-toggle --quiet --socket "$(mpv-active-sockets --unique | head -n1)"
     mpv_display
     ;;
   2)

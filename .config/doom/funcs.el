@@ -194,7 +194,134 @@
          (link (org-link-make-string (nth 1 link-info))))
     (insert (format "[[%s][%s]]" link description))))
 
+(defun add-header-to-org-files (&optional directory)
+  "Add a header to every Org file in the given DIRECTORY.
+   If DIRECTORY is not provided, prompt the user to select a directory."
+  (interactive)
+  (unless directory
+    (setq directory (read-directory-name "Select directory: ")))
+  (let ((files (directory-files directory t "\\.org$")))
+    (dolist (file files)
+      (with-temp-buffer
+        (insert-file-contents file)
+        (goto-char (point-min))
+        (unless (search-forward-regexp "^#\\+TITLE:" nil t)
+          (goto-char (point-min))
+          (let* ((filename (file-name-sans-extension
+                            (file-name-nondirectory file)))
+                 (title (if (string-match "^[0-9]+-\\(.*\\)" filename)
+                            (match-string 1 filename)
+                          (filename))))
+            (insert (concat ":PROPERTIES:\n"
+                            ":ID:       " (shell-command-to-string "uuidgen")
+                            ":END:\n"
+                            "#+TITLE: " title "\n"
+                            "#+filetags: \"learncpp\" \"cpp\" \"programming\"\n\n"))
+            (write-region (point-min) (point-max) file nil 'quiet)))))))
 
+(defun rename-org-file-based-on-header (directory)
+  "Rename Org files in DIRECTORY based on the first header in the file."
+  (interactive (list (read-directory-name "Directory: " default-directory)))
+  (let ((files (directory-files directory nil "\\.org$")))
+    (dolist (file files)
+      (let* ((filepath (concat directory file))
+             (buffer (find-file-noselect filepath))
+             (filename (file-name-sans-extension
+                        (file-name-nondirectory filepath)))
+             (filedate (if (string-match "^\\([0-9]+\\)-" filename)
+                           (match-string 1 filename)
+                         filename)))
+        (with-current-buffer buffer
+          (goto-char (point-min))
+          (when (re-search-forward
+                 "^\\* \\([0-9]+\\|[a-zA-Z]\\).\\([0-9]+\\|[a-zA-Z]\\) -+ \\(.*\\)$"
+                 nil t)
+            (let* ((value1 (if (string-match-p "^[0-9]+$" (match-string 1))
+                               (format "%02d"
+                                       (string-to-number (match-string 1)))
+                             (match-string 1)))
+                   (value2 (if (string-match-p "^[0-9]+$" (match-string 2))
+                               (format "%02d"
+                                       (string-to-number (match-string 2)))
+                             (match-string 2)))
+                   (value3 (replace-regexp-in-string
+                            "[ /]" "-"
+                            (downcase (match-string 3))))
+                   (new-filename
+                    (format "%s/%d-%s.%s___%s.org"
+                            directory
+                            (string-to-number filedate)
+                            value1
+                            value2
+                            value3)))
+              ;; )
+            ;; (let ((new-filename
+            ;;        (format "%s/%d-%02d.%02d___%s.org"
+            ;;                directory
+            ;;                (string-to-number filedate)
+            ;;                (string-to-number (match-string 1))
+            ;;                (string-to-number (match-string 2))
+            ;;                (replace-regexp-in-string
+            ;;                 "[ /]" "-"
+            ;;                 (downcase (match-string 3))))))
+              (message "%s\n%s" filepath new-filename)
+              ;; (sit-for 2)
+              (rename-file
+               (expand-file-name filepath)
+               (expand-file-name new-filename) t))
+               ;; filepath new-filename t))))
+        (kill-buffer buffer)))))))
+
+;; (defun rename-org-file-based-on-header (directory)
+;;   "Rename Org files in DIRECTORY based on the first header in the file."
+;;   (interactive (list (read-directory-name "Directory: " default-directory)))
+;;   (let ((files (directory-files directory nil "\\.org$")))
+;;     (dolist (file files)
+;;       (let* ((filepath (concat directory file))
+;;              (buffer (find-file-noselect file))
+;;              (filename (file-name-sans-extension
+;;                         (file-name-nondirectory filepath)))
+;;              (filedate (if (string-match "^\\([0-9]+\\)-" filename)
+;;                            (match-string 1 filename)
+;;                         (filename))))
+;;         (with-current-buffer buffer
+;;           (goto-char (point-min))
+;;           (when (re-search-forward
+;;                  "^\\* \\([0-9]+\\)\\.\\([0-9]+\\) -+ \\(.*\\)$"
+;;                  nil t)
+;;             (let ((new-filename
+;;                    (format "%d-%02d.%02d___%s.org"
+;;                            (string-to-number filedate)
+;;                            (string-to-number (match-string 1))
+;;                            (string-to-number (match-string 2))
+;;                            (replace-regexp-in-string
+;;                             " " "-"
+;;                             (downcase (match-string 3))))))
+;;               (message "%s\n%s" filepath new-filename)
+;;               (sleep-for 2)
+;;               (rename-file
+;;                (expand-file-name filepath)
+;;                (expand-file-name (concat directory new-filename)) t))))
+;;         (kill-buffer buffer)))))
+
+;; (defun add-header-to-org-files (&optional directory)
+;;   "Add a header to every Org file in the given DIRECTORY.
+;; If DIRECTORY is not provided, prompt the user to select a directory."
+;;   (interactive)
+;;   (unless directory
+;;     (setq directory (read-directory-name "Select directory: ")))
+;;   (let ((files (directory-files directory t "\\.org$")))
+;;     (dolist (file files)
+;;       (with-temp-buffer
+;;         (insert-file-contents file)
+;;         (goto-char (point-min))
+;;         (unless (search-forward-regexp "^#\\+TITLE:" nil t)
+;;           (goto-char (point-min))
+;;           (insert (concat ":PROPERTIES:\n"
+;;                           ":ID:       " (shell-command-to-string "uuidgen")
+;;                           ":END:\n"
+;;                           "#+TITLE: " (file-name-sans-extension (file-name-nondirectory file)) "\n\n"))
+;;           (write-region (point-min) (point-max) file nil 'quiet))))))
 
 ;; (defun my-open-vterm ()
 ;;   "Open a unique vterm window and resize it to take up 35% of the bottom of the screen."

@@ -7,7 +7,7 @@ level_char = ':'
 # Seperator when displaying binds
 delim = "->"
 # 0 disables parsing without -b || -w flag
-parse_binds = 1
+parse_binds = 0
 # 0 disables parsing without -K || -W flag
 parse_keys = 1
 # Max number of columns to use
@@ -19,7 +19,7 @@ wkx_y = -1
 # make wkx this wide
 wkx_w = -1
 # wkx border width
-border_w = 2
+border_w = 4
 # Colors
 col_fg = "#F8F7FB"
 col_bg = "#21242B"

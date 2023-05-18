@@ -23,6 +23,9 @@ export MPV_MUSIC_SOCKET="${MPV_SOCKET_DIR}/music_socket"
 export MPV_UMPV_SOCKET="${MPV_SOCKET_DIR}/umpv_socket"
 export MPV_AMPV_SOCKET="${MPV_SOCKET_DIR}/ampv_socket"
 
+# dmenu args
+export DMENU_ARGS="-c -l 20 -bw 4"
+
 # mpc tmp file
 export MPC_TMP_DIR="/tmp/mpc"
 export MPC_TMP_FILE="${MPC_TMP_DIR}/current-song.txt"

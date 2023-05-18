@@ -102,8 +102,8 @@ m mpv
     :f Focus == mpv-opts --focus
     # Playlist prefix
     :l Playlists
-        ::g ygyl == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
-        ::o anime groove == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
+        ::g ygyl == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
+        ::o anime groove == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
         ::p 0_0 == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/0_0.m3u"
     :m Move right == mpv-opts --move
     :M Move left == mpv-opts --move 0

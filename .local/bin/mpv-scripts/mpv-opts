@@ -5,6 +5,23 @@ abort() {
   exit 1
 }
 
+extra_opts() {
+  if [[ "$START_LEFT" -eq 1 ]] || [[ "$START_RIGHT" -eq 1 ]] || [[ "$FLOAT_WIN" -eq 1 ]]; then
+    get_mpv
+  fi
+  if [[ "$START_LEFT" -eq 1 ]]; then
+    mpv_move 0
+  elif [[ "$START_RIGHT" -eq 1 ]]; then
+    mpv_move 1
+  fi
+  if [[ "$FLOAT_WIN" -eq 1 ]]; then
+    wmctrl -ia "$CHOSEN_WID"
+    xdotool keydown super shift space
+    xdotool keyup super shift space
+    dwmc focusnmon 0
+  fi
+}
+
 get_opts() {
   while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -23,6 +40,14 @@ get_opts() {
         OPTION="FULL"
         shift
         break
+        ;;
+      --float-win)
+        FLOAT_WIN=1
+        shift
+        ;;
+      -l | --start-left)
+        START_LEFT=1
+        shift
         ;;
       -m | --move)
         OPTION="MOVE"
@@ -60,6 +85,10 @@ get_opts() {
             ;;
         esac
         break
+        ;;
+      -r | --start-right)
+        START_RIGHT=1
+        shift
         ;;
       -s | --sticky)
         OPTION="STICKY"
@@ -140,7 +169,9 @@ mpv_move() {
   wmctrl -ia "$CHOSEN_WID"
   dwmc tagnmon "$1"
   wmctrl -ia "$CHOSEN_WID"
-  [[ "$FULLSCREEN" == "false" ]] && xdotool key f
+  if [[ "$FULLSCREEN" == "false" ]] && [[ "$START_LEFT" -ne 1 ]] && [[ "$START_RIGHT" -ne 1 ]]; then
+    xdotool key f
+  fi
   dwmc focusnmon 0
 }
 
@@ -260,7 +291,8 @@ EOF
 
 main() {
   get_opts "$@" || return 1
-  opts_handler && return 0 || return 1
+  opts_handler
+  extra_opts && return 0 || return 1
 }
 
 main "$@" && exit 0 || { notify-send -u critical "Error" "mpv-opts failed \

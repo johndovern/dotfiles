@@ -34,6 +34,10 @@ get_opts() {
       -p | --pick)
         MANUAL_SOCKET+=("$(mpv-pick $FZF)")
         ;;
+      -q | --quiet)
+        QUIET=1
+        QUIET_FLAG="--quiet"
+        ;;
       -s | --socket)
         shift
         [[ "$#" -eq 0 ]] && abort "--socket needs a socket"
@@ -66,7 +70,7 @@ smart_toggle() {
 
     rm -f "${LAST_PLAYING}"
     MOST_RECENT="${CURRENTLY_PLAYING[-1]}"
-    echo "Pausing ${MOST_RECENT}..."
+    [[ "$QUIET" -ne 1 ]] && echo "Pausing ${MOST_RECENT}..."
     toggle "${MOST_RECENT}" || exit $?
     ln -s "${MOST_RECENT}" "${LAST_PLAYING}"
   else
@@ -92,8 +96,8 @@ smart_toggle() {
 }
 
 toggle() {
-  mpv-communicate "$1" 'cycle pause'
-  mpv-communicate "$1" '{ "command": ["script-binding", "dwmblocks/update-dwmblocks"] }'
+  mpv-communicate $QUIET_FLAG "$1" 'cycle pause'
+  mpv-communicate $QUIET_FLAG "$1" '{ "command": ["script-binding", "dwmblocks/update-dwmblocks"] }'
   return $?
 }
 
@@ -101,7 +105,7 @@ main() {
   get_opts "$@" || return 1
   if [[ "${#MANUAL_SOCKET[@]}" -gt 0 ]]; then
     for SOCKET in "${MANUAL_SOCKET[@]}"; do
-      echo "pausing ${SOCKET}"
+      [[ "$QUIET" -ne 1 ]] && echo "Pausing ${SOCKET}"
       manual_toggle "${SOCKET}"
     done
   else
