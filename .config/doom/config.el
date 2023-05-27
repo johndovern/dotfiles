@@ -333,14 +333,8 @@
       "l" #'evil-window-right)
 (map! :leader
       :desc "List workspaces" "TAB TAB" #'+workspace/switch-to
-      :desc "Last workspace"  "TAB '"   #'+workspace/other
-      :desc "Display tab bar" "TAB ."   #'+workspace/display)
-(setq c-default-style "linux"
-      c-basic-offset 4
-      tab-width 4)
-(defun my-c++-mode-hook ()
-  (c-set-offset 'access-label '-4))
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+      :desc "Last workspace"  "TAB ."   #'+workspace/other
+      :desc "Display tab bar" "TAB '"   #'+workspace/display)
 (setq org-roam-directory "~/ewiki")
 (map! :leader
       (:prefix ("r" . "roam")
@@ -402,3 +396,38 @@
        :MIMode "gdb"
        :program "${workspaceFolder}/"
        :cwd     "${workspaceFolder}"))
+;; (defconst test-c++-style
+;;   '("bsd" (c-offsets-alist . ((func-decl-cont . ++)
+;;                               (member-init-intro . ++)
+;;                               (inher-intro . ++)
+;;                               (comment-intro . 0)
+;;                               (arglist-close . c-lineup-arglist)
+;;                               (topmost-intro . 0)
+;;                               (block-open . 0)
+;;                               (inline-open . 0)
+;;                               (substatement-open . 0)
+;;                               (label . /)
+;;                               (case-label . +)
+;;                               (statement-case-open . +)
+;;                               (statement-case-intro . +) ; case w/o {
+;;                               (access-label . /)
+;;                               (innamespace . 0)))))
+(defconst my-c++-style
+  '("bsd" (c-offsets-alist . ((innamespace . 0)
+                              (label . --)
+                              (access-label . --)))))
+(defun my-c++-mode-hook ()
+  (c-add-style "my-c++-style" my-c++-style)
+  (c-set-style "my-c++-style")
+  (setq! c-default-style "my-c++-style"))
+(add-hook! 'c++-mode-hook 'my-c++-mode-hook)
+(c-add-style "my-c++-style" my-c++-style)
+(setq! c-default-style "my-c++-style"
+       lsp-ui-sideline-enable nil
+       c-basic-offset 4
+       tab-width 4)
+;; (setq +file-templates-alist)
+;;
+;; (set-file-template! "\\.h\\(?:h\\|pp\\|xx\\)$"
+;;   :trigger "__hpp"
+;;   :mode c++-mode)

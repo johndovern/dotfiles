@@ -186,6 +186,7 @@ set scrolloff 10
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set mouse on
+set cursorpreviewfmt "\033[7m"
 
 # lfimg
 set previewer ~/.config/lf/preview
