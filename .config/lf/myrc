@@ -5,7 +5,7 @@
 map ,am  animove
 map ,bs  bscript
 map ,ce  cred
-map ,ch  chmod
+map ,ch  lf_chmod
 map ,cs  push $curl<space>-LJO<space>
 map ,cx  chmodx
 map ,e   $dmacs "$PWD"
@@ -64,12 +64,12 @@ cmd cred ${{
   [ ! -e $ans ] && nvim $ans
 }}
 
-cmd chmod ${{
+cmd lf_chmod ${{
   printf "Mode Bits: "
   read ans
 
-  for file in "$fx"; do
-  chmod $ans $file
+  for file in $fx; do
+      chmod $ans "$file"
   done
 
   lf -remote 'send reload'
