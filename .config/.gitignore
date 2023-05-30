@@ -29,7 +29,7 @@
 !dwmblocks
 #easyeffects
 #Electron
-!emacs
+#emacs
 #emacs.bak
 !fontconfig
 #fontforge
