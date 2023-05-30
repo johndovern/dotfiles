@@ -1,0 +1,58 @@
+#!/usr/bin/env sh
+
+SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+
+mpv_add() {
+  mpv-communicate --ampv '{ "command": ["loadfile", "'"$1"'", "append-play"] }' >/dev/null 2>&1 || return 1
+  notify-send "ampv" "Added $1"
+  mpv-communicate --ampv '{ "command": ["get_property", "eof-reached"] }' | grep -q ":true" || return 0
+  mpv-communicate --ampv '{ "command": ["playlist-next"] }'
+  sleep 0.5
+  mpv-toggle --ampv
+  sleep 5
+}
+
+mpv_loop() {
+  for video in "$@"; do
+    mpv_add "$video"
+  done
+}
+
+mpv_start() {
+  mpv --idle=yes \
+    --script-opts=mpvSockets-ampv=yes,playlistmanager-sortplaylist_on_start=no \
+    --x11-name=ampv \
+    --loop-playlist=no \
+    --ytdl=no \
+    --keep-open=yes "$@" >/dev/null 2>&1 &
+  notify-send "ampv" "Started $*"
+}
+
+mpv_track() {
+  TRACK_SOCKET="/tmp/mpvSockets/mpv-last-used"
+  ACTUAL_SOCKET="$(readlink "$TRACK_SOCKET")"
+
+  [ "$1" = "$ACTUAL_SOCKET" ] && exit 0
+
+  test_socket() {
+    sleep 0.5
+    [ ! -S "$1" ] && exit 0
+    ln -s "$1" "$TRACK_SOCKET"
+  }
+
+  rm -f "$TRACK_SOCKET"
+  test_socket "$1" &
+}
+
+main() {
+  if mpv-active-sockets --socket "$SOCKET" >/dev/null 2>&1; then
+    mpv_loop "$@"
+  else
+    rm "$SOCKET"
+    mpv_start "$@"
+  fi
+
+  mpv_track "$SOCKET"
+}
+
+main "$@"
