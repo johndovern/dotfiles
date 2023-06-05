@@ -1,9 +1,28 @@
+--local function map(m, k, v)
+--   vim.keymap.set(m, k, v, { silent = true })
+--end
+
 local function map(m, k, v, o)
-    vim.keymap.set(m, k, v, o)
+    -- vim.keymap.set(m, k, v, o)
+    vim.api.nvim_set_keymap(m, k, v, o)
 end
 
 local d = { silent = true, noremap = true }
 local opt = { noremap = true }
+
+-- Mimic shell movements
+map('i', '<C-E>', '<ESC>A', d)
+map('i', '<C-A>', '<ESC>I', d)
+
+-- Load recent sessions
+map('n', '<leader>sl', ':SessionLoad<CR>', d)
+
+-- Keybindings for telescope
+map('n', '<leader>fr', ':Telescope oldfiles<CR>', d)
+map('n', '<leader>ff', ':Telescope find_files<CR>', d)
+map('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', d)
+map('n', '<leader>fw', ':Telescope live_grep<CR>', d)
+map('n', '<leader>dt', ':Telescope colorscheme<CR>', d)
 
 map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', opt)
 map('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', opt)
@@ -35,7 +54,7 @@ map('n', 'c', '"_c', d)
 map('v', '.', ':normal .<CR>', d)
 
 -- Goyo makes text more readable when writing prose
-map('n', '<leader>f', ':Goyo | set linebreak<CR>', d)
+--map('n', '<leader>f', ':Goyo | set linebreak<CR>', d)
 
 -- Toggle spell-check
 map('n', '<leader>to', ':setlocal spell! spelling=en_us<CR>', d)
@@ -44,11 +63,11 @@ map('n', '<leader>to', ':setlocal spell! spelling=en_us<CR>', d)
 map('n', '<leader>tn', ':NERDTreeToggle<CR>', d)
 
 -- Better navigation
-map('n', '<C-H>', '<C-W>h', d)
-map('n', '<C-J>', '<C-W>j', d)
-map('n', '<C-K>', '<C-W>k', d)
-map('n', '<C-L>', '<C-W>l', d)
-map('n', '<C-N>', '<C-W>n', d)
+map('n', '<leader>h', '<C-W>h', d)
+map('n', '<leader>j', '<C-W>j', d)
+map('n', '<leader>k', '<C-W>k', d)
+map('n', '<leader>l', '<C-W>l', d)
+map('n', '<leader>n', '<C-W>n', d)
 
 -- Replace ex mode with gq
 map('n', 'Q', 'gq', d)
@@ -71,7 +90,7 @@ map('v', '>', '>gv', d)
 map('v', '<', '<gv', d)
 
 -- Easymotion mapping, may not work
-map('n', 's', '<Plug>(easymotion-overwin-f2)', d)
+--map('n', 's', '<Plug>(easymotion-overwin-f2)', d)
 
 -- Enable moving up and down over visual lines
 vim.keymap.set('n', 'j', function()
@@ -81,20 +100,3 @@ vim.keymap.set('n', 'k', function()
     return vim.v.count == 1 and 'k' or 'gk' end,
     { expr = true })
 
--- Jump forward or backward in snippets
-vim.keymap.set('i', '<Tab>', function()
-    return vim.fn.call('vsnip#jumpable', {1}) == 1
-        and '<Plug>(vsnip-jump-next)' or '<Tab>' end,
-    { expr = true })
-vim.keymap.set('s', '<Tab>', function()
-    return vim.fn.call('vsnip#jumpable', {1}) == 1
-        and '<Plug>(vsnip-jump-next)' or '<Tab>' end,
-    { expr = true })
-vim.keymap.set('i', '<S-Tab>', function()
-    return vim.fn.call('vsnip#jumpable', {-1}) == 1
-        and '<Plug>(vsnip-jump-prev)' or '<S-Tab>' end,
-    { expr = true })
-vim.keymap.set('s', '<S-Tab>', function()
-    return vim.fn.call('vsnip#jumpable', {-1}) == 1
-        and '<Plug>(vsnip-jump-prev)' or '<S-Tab>' end,
-    { expr = true })

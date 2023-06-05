@@ -29,6 +29,6 @@
 !trackselect.lua
 !vmt.lua
 !webm.lua
-!webtorrent-hook
+#webtorrent-hook
 !youtube-quality.lua
 !ytdl_hook.lua

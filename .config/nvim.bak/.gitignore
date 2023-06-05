@@ -1,5 +1,8 @@
 ### Updated on Thu Mar  2 08:05:36 PM PST 2023 ###
 *
 !.gitignore
-!anon
-!config.lua
+#.gitignore-very-old
+#autoload
+!init.lua
+!lua
+#plugged
