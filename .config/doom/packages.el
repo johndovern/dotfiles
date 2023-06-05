@@ -66,3 +66,6 @@
 ;; (package! rtags)
 (package! tldr)
 ;; (package! company-statistics)
+(package! kbd-mode
+  :recipe (:host github
+           :repo "kmonad/kbd-mode"))

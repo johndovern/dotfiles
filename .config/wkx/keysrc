@@ -11,7 +11,7 @@ super + equal == pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)
 
 super + shift + equal == pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)
 
-super + BackSpace == sysact
+super + BackSpace == wkx -p "s"
 
 super + shift + BackSpace == sysact
 

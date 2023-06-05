@@ -1,0 +1,165 @@
+#| --------------------------------------------------------------------------
+
+                         KMonad: ISO ThinkPad T430 Template
+
+   This file contains US and `defsrc' configurations for a ThinkPad T430
+   with an ISO keyboard.  Copy out the `defsrc' layer to start your own
+   keyboard configuration.  Copy out the `deflayer' template to easily start
+   a new layer with matching `transparent' buttons.
+
+(deflayer name
+       _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _          _
+  _    _    _    _    _    _    _    _    _    _    _               _
+  _    _    _    _              _              _    _    _     _    _    _
+                                                               _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+(defcfg
+  input   (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output  (uinput-sink "KMonad output")
+  fallthrough   true
+  allow-cmd     false
+)
+
+(defsrc
+       mute vold volu
+esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+grv  1    2    3    4    5    6    7    8    9    0    -     =    bspc
+tab  q    w    e    r    t    y    u    i    o    p    [     ]    \
+caps a    s    d    f    g    h    j    k    l    ;    '          ret
+lsft z    x    c    v    b    n    m    ,    .    /               rsft
+wkup lctl lmet lalt           spc            ralt prnt rctl  pgdn up   pgup
+                                                               left down rght
+)
+
+(deflayer name
+_    _    _    _
+     _
+     _
+     _
+     _
+_    _    _
+_    _    _
+       _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _
+_    _    _    _              _              _    _    _
+)
+
+(defsrc
+home end  ins  del
+     bspc
+     \
+     ret
+     rsft
+pgdn up   pgup
+left down rght
+       mute vold volu
+esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+grv  1    2    3    4    5    6    7    8    9    0    -     =
+tab  q    w    e    r    t    y    u    i    o    p    [     ]
+caps a    s    d    f    g    h    j    k    l    ;    '
+lsft z    x    c    v    b    n    m    ,    .    /
+wkup lctl lmet lalt           spc            ralt sys  rctl
+)
+
+(defalias
+
+  ;; basics
+
+  cpy   C-c
+  cut   C-x
+  pst   C-v
+  rev   C-z
+  wrd   C-S-rght
+  mux   C-b
+  scd   stopcd
+  pse   pause
+  meh   C-A-sft
+  psg   previoussong
+  nsg   nextsong
+  pp    playpause
+
+  ;; layers
+
+  lt-base       (layer-toggle U_BASE)
+  lt-extra      (layer-toggle U_EXTRA)
+  lt-tap        (layer-toggle U_TAP)
+  lt-button     (layer-toggle U_BUTTON)
+  lt-nav        (layer-toggle U_NAV)
+  lt-mouse      (layer-toggle U_MOUSE)
+  lt-media      (layer-toggle U_MEDIA)
+  lt-num        (layer-toggle U_NUM)
+  lt-sym        (layer-toggle U_SYM)
+  lt-fun        (layer-toggle U_FUN)
+
+  ;; layer switching
+
+  bas   (multi-tap 200 XX (layer-switch U_BASE))
+  ext   (multi-tap 200 XX (layer-switch U_EXTRA))
+  tap   (multi-tap 200 XX (layer-switch U_TAP))
+  but   (multi-tap 200 XX (layer-switch U_BUTTON))
+  nav   (multi-tap 200 XX (layer-switch U_NAV))
+  mou   (multi-tap 200 XX (layer-switch U_MOUSE))
+  med   (multi-tap 200 XX (layer-switch U_MEDIA))
+  num   (multi-tap 200 XX (layer-switch U_NUM))
+  sym   (multi-tap 200 XX (layer-switch U_SYM))
+  fun   (multi-tap 200 XX (layer-switch U_FUN))
+
+  ;; sticky-keys
+
+  ;; ssk   (sticky-key 500 lmet)
+
+  ;; tapping - keys - BASE
+
+  taa   (tap-hold-next-release 200 a alt)
+  trc   (tap-hold-next-release 200 r ctl)
+  tsh   (tap-hold-next-release 200 s met)
+  tts   (tap-hold-next-release 200 t sft)
+  tgm   (tap-hold-next-release 200 g C-A-sft)
+  tmm   (tap-hold-next-release 200 m C-A-sft)
+  tns   (tap-hold-next-release 200 n sft)
+  teh   (tap-hold-next-release 200 e met)
+  tic   (tap-hold-next-release 200 i ctl)
+  toa   (tap-hold-next-release 200 o alt)
+
+  ;; tapping - keys - EXTRA/QWERTY
+
+  tsc   (tap-hold-next-release 200 s ctl)
+  tdh   (tap-hold-next-release 200 d met)
+  tfs   (tap-hold-next-release 200 f sft)
+  ;; tgm   (tap-hold-next-release 200 g C-A-sft)
+  thm   (tap-hold-next-release 200 h C-A-sft)
+  tjs   (tap-hold-next-release 200 j sft)
+  tkh   (tap-hold-next-release 200 k met)
+  tlc   (tap-hold-next-release 200 l ctl)
+  tca   (tap-hold-next-release 200 ; alt)
+
+  ;; tapping - layers
+
+  tem   (tap-hold-next-release 200 esc  @lt-mouse)
+  tbn   (tap-hold-next-release 200 bspc @lt-nav)
+  ttm   (tap-hold-next-release 200 tab  @lt-media)
+  tes   (tap-hold-next-release 200 ent  @lt-sym)
+  tsn   (tap-hold-next-release 200 spc  @lt-nav)
+  tdf   (tap-hold-next-release 200 del  @lt-fun)
+
+  ;; Multi-tap keys
+
+  ;; macros
+
+  mvs   #(S-z P10 S-z)
+  mvq   #(S-z P10 S-q)
+  mvw   #(: P10 w P10 ret)
+  mml   #(kp- kp5)
+  mmm   #(kp/ kp5)
+  mmr   #(kp* kp5)
+)

@@ -86,7 +86,8 @@
 (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
+(setq doom-theme 'custom-kanagawa)
 (map! :leader
       :desc "Load new theme" "H t" #'consult-theme)
 (use-package emojify
@@ -100,7 +101,8 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t
         doom-themes-treemacs-enable-variable-pitch nil
-        doom-themes-treemacs-theme 'doom-one
+        doom-themes-treemacs-theme 'custom-kanagawa
+        custom-kanagawa-brighter-comments t
         doom-one-light-brighter-comments t
         doom-one-brighter-comments t))
 (after! treemacs
@@ -431,3 +433,4 @@
 ;; (set-file-template! "\\.h\\(?:h\\|pp\\|xx\\)$"
 ;;   :trigger "__hpp"
 ;;   :mode c++-mode)
+;; (use-package! kbd-mode)
