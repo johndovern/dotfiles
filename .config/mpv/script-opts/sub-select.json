@@ -2,7 +2,7 @@
     {
         "alang": [ "j[ap]n?" ],
         "slang": [ "eng?", "und", "jpn?" ],
-        "blacklist": [ "sings/songs", "signs", "songs", "sign", "song", "english %(translation only%)", "signs & songs" ]
+        "blacklist": [ "sings/songs", "signs", "songs", "sign", "song", "english %(translation only%)", "signs & songs", "s&s" ]
     },
     {
         "alang": "eng?",

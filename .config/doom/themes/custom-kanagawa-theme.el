@@ -1,4 +1,4 @@
-;;; themes/kanagawa-theme.el -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; themes/custom-kanagawa-theme.el -*- lexical-binding: t; no-byte-compile: t; -*-
 ;;
 ;; Added: June 4 2023
 ;; Author: Mikael Konradsson
@@ -44,39 +44,39 @@ Can be an integer to determine the exact padding."
   "A dark theme inspired by Atom One Dark."
 
   ;; name        default   256           16
-  ((bg         '("#33333c" "black"       "black"  ))
-   (fg         '("#DCD7BA" "#C8C093"     "brightwhite"  ))
+  ((bg         '("#1d1c1c" "black"       "black"  ))
+   (fg         '("#DCD7BA" "#DCD7BA"     "brightwhite"  ))
 
    ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
    ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
    ;; or region), especially when paired with the `doom-darken', `doom-lighten',
    ;; and `doom-blend' helper functions.
-   (bg-alt     '("#191922" "black"       "black"        ))
-   (fg-alt     '("#54546D" "#223249"     "white"        ))
+   (bg-alt     '("#181616" "black"       "black"        ))
+   (fg-alt     '("#C8C093" "#C8C093"     "white"        ))
 
    ;; These should represent a spectrum from bg to fg, where base0 is a starker
    ;; bg and base8 is a starker fg. For example, if bg is light grey and fg is
    ;; dark grey, base0 should be white and base8 should be black.
-   (base0      '("#1f1f28" "black"       "black"        ))
-   (base1      '("#25252e" "#1f1f28"     "brightblack"  ))
-   (base2      '("#272730" "#2a2a37"     "brightblack"  ))
-   (base3      '("#2f2f38" "#223249"     "brightblack"  ))
-   (base4      '("#363646" "#363646"     "brightblack"  ))
-   (base5      '("#43434c" "#4c4c55"     "brightblack"  ))
-   (base6      '("#4c4c55" "#c8c3a6"     "brightblack"  ))
-   (base7      '("#53535c" "#d2cdb0"     "brightblack"  ))
-   (base8      '("#5c5c65" "#DCD7BA"     "white"        ))
+   (base0      '("#191922" "black"       "black"        ))
+   (base1      '("#28282E" "#28282E"     "brightblack"  ))
+   (base2      '("#37363A" "#37363A"     "brightblack"  ))
+   (base3      '("#464546" "#464546"     "brightblack"  ))
+   (base4      '("#545451" "#545451"     "brightblack"  ))
+   (base5      '("#63625D" "#63625D"     "brightblack"  ))
+   (base6      '("#727169" "#727169"     "brightblack"  ))
+   (base7      '("#969791" "#969791"     "brightblack"  ))
+   (base8      '("#BABDB9" "#BABDB9"     "white"        ))
 
    (grey       base4)
    (red        '("#d8616b" "#d8616b" "red"          )) ;; done
    (orange     '("#ffa066" "#ffa066" "brightred"    )) ;; done
    (green      '("#98bb6c" "#98bb6c" "green"        )) ;; done
    (teal       '("#7AA89F" "#7AA89F" "brightgreen"  )) ;; done
-   (yellow     '("#dca561" "#dca561" "yellow"       )) ;; done
+   (yellow     '("#E6C384" "#E6C384" "yellow"       )) ;; done
    (blue       '("#7FB4CA" "#7FB4CA" "brightblue"   )) ;; done
    (dark-blue  '("#7E9CD8" "#7E9CD8" "blue"         )) ;; done
-   (magenta    '("#9c86bf" "#9c86bf" "brightmagenta")) ;; done
-   (violet     '("#a48ec7" "#a48ec7" "magenta"      )) ;; done
+   (magenta    '("#957FB8" "#957FB8" "brightmagenta")) ;; done
+   (violet     '("#aaa1c8" "#aaa1c8" "magenta"      )) ;; done
    (cyan       '("#A3D4D5" "#A3D4D5" "brightcyan"   )) ;; done
    (dark-cyan  '("#658594" "#658594" "cyan"         ))
 

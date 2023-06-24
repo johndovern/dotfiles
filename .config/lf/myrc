@@ -9,6 +9,7 @@ map ,ch  lf_chmod
 map ,cs  push $curl<space>-LJO<space>
 map ,cx  chmodx
 map ,e   $dmacs "$PWD"
+map ,ff  push $nvim<space>""<left>
 map ,fm  fmpv
 map ,gc  push $git<space>clone<space>
 map ,gi  %dmenugitignore

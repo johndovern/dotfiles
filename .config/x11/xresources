@@ -43,17 +43,17 @@ Xft.lcdfilter: lcddefault
 
 /* DWM & DMENU color settings */
 /* normal */
-*.colornfg:      #F8F7FB
-*.colornbg:      #21242B
-*.colornbord:    #505564
+*.colornfg:      #DCD7BA
+*.colornbg:      #181616
+*.colornbord:    #3a3838
 /* cursor */
-*.colorcurfg:    #21242B
-*.colorcurbg:    #F8F7FB
-*.colorcurbord:  #505564
+*.colorcurfg:    #181616
+*.colorcurbg:    #DCD7BA
+*.colorcurbord:  #3a3838
 /* select */
-*.colorselfg:    #F8F7FB
-*.colorselbg:    #505564
-*.colorselbord:  #51AFEF
+*.colorselfg:    #DCD7BA
+*.colorselbg:    #3a3838
+*.colorselbord:  #7FB4CA
 /* *.colorselbord:  #FF4500 */
 
 // *.colornfg:      #BFBA9F
@@ -80,39 +80,71 @@ Xft.lcdfilter: lcddefault
 /* Color settings for St */
 
 /* ! special */
-*.foreground:   #BAC1CB
-*.background:   #21242B
-*.cursorColor:  #51AFEF
-*.rcursorColor: #db2d20
+/* Kanagawa colors */
+*.foreground:   #DCD7BA
+*.background:   #181616
+*.cursorColor:  #7FB4CA
+*.rcursorColor: #FF5D62
 
 ! Black + DarkGrey
-*.color0:  #1B2229
-*.color8:  #54595E
+*.color0:  #191922
+*.color8:  #525259
 ! DarkRed + Red
-*.color1:  #FF6C6B
-*.color9:  #FF9090
+*.color1:  #d8616b
+*.color9:  #e18890
 ! DarkGreen + Green
-*.color2:  #98BE65
-*.color10: #B1CE8B
+*.color2:  #98bb6c
+*.color10: #b1cb90
 ! DarkYellow + Yellow
-*.color3:  #ECBE7B
-*.color11: #F0CE9C
+*.color3:  #e6c384
+*.color11: #ecd2a2
 ! DarkBlue + Blue
-*.color4:  #51AFEF
-*.color12: #7CC3F3
+*.color4:  #7FB4CA
+*.color12: #9fc6d7
 ! DarkMagenta + Magenta
-*.color5:  #C678DD
-*.color13: #D499E5
+*.color5:  #957fb8
+*.color13: #b4a4cf
 ! DarkCyan + Cyan
-*.color6:  #46D9FF
-*.color14: #74E2FF
+*.color6:  #A3D4D5
+*.color14: #badedf
 ! LightGrey + White
-*.color7:  #DFDFDF
-*.color15: #E7E7E7
+*.color7:  #DCD7BA
+*.color15: #C8C093
 
 /* Slock settings */
 *.message: henlo
 *.sfont: -misc-roboto-medium-i-normal--34-240-100-100-p-182-iso8859-1
+
+/* Doom one colors */
+!*.foreground:   #BAC1CB
+!*.background:   #21242B
+!*.cursorColor:  #51AFEF
+!*.rcursorColor: #db2d20
+!
+!! Black + DarkGrey
+!*.color0:  #1B2229
+!*.color8:  #54595E
+!! DarkRed + Red
+!*.color1:  #FF6C6B
+!*.color9:  #FF9090
+!! DarkGreen + Green
+!*.color2:  #98BE65
+!*.color10: #B1CE8B
+!! DarkYellow + Yellow
+!*.color3:  #ECBE7B
+!*.color11: #F0CE9C
+!! DarkBlue + Blue
+!*.color4:  #51AFEF
+!*.color12: #7CC3F3
+!! DarkMagenta + Magenta
+!*.color5:  #C678DD
+!*.color13: #D499E5
+!! DarkCyan + Cyan
+!*.color6:  #46D9FF
+!*.color14: #74E2FF
+!! LightGrey + White
+!*.color7:  #DFDFDF
+!*.color15: #E7E7E7
 
 // /* ! special */
 // *.foreground:   #ebdbb2

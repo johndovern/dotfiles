@@ -45,10 +45,11 @@ bind ,chg tabopen -b https://4chan.org/g/
 " Search urls
 set searchurls.aw https://wiki.archlinux.org/index.php?search=
 set searchurls.yt https://www.youtube.com/results?search_query=
-set searchurls.iv https://vid.puffyan.us/search?q=
+set searchurls.iv https://yewtu.be/search?q=
 set searchurls.ny https://nyaa.si/?s=seeders&o=desc&q=
 set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
+set searchurls.bs https://search.brave.com/search?q=
 
 " Costom binds
 
@@ -79,12 +80,16 @@ bind ,Yn composite url2args | yt_options
 bind ,wh hint -W wsg_mpv
 bind ,wn composite url2args | wsg_mpv
 
-" dmenu_url
+" Custom Commands
 " bind ,d hint -y dmenu_url
-bind ,d hint -W dmenu_url
+bind ,dh hint -W dmenu_url
+bind ,dn composite url2args | dmenu_url
+bind ,sh hint -W save_url
+bind ,sn composite url2args | save_url
 
 " Custom commands
 command dmenu_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo ' + url + ' | xclip -selection clipboard && wkx -p "d u"'))
+command save_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo ' + url + '>> ~/tri_urls.txt'))
 
 " Nyaa search
 command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&o=desc&q=" + JS_ARG)

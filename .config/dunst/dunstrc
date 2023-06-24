@@ -6,24 +6,24 @@
     offset = 0x30
     padding = 8
     horizontal_padding = 8
-    frame_width = 2
+    frame_width = 3
     transparency = 10
     font = monospace 12
     format = "<b>%s</b>\n%b"
 
 [urgency_low]
-    foreground = "#F8F7FB"
-    background = "#21242B"
+    foreground =    "#DCD7BA"
+    background =    "#181616"
     timeout = 3
 
 [urgency_normal]
-    foreground = "#F8F7FB"
-    background = "#21242B"
-    frame_color = "#51AFEF"
+    foreground =    "#DCD7BA"
+    background =    "#181616"
+    frame_color =   "#7FB4CA"
     timeout = 5
 
 [urgency_critical]
-    foreground = "#F8F7FB"
-    background = "#21242B"
-    frame_color = "#C678DD"
+    foreground =    "#DCD7BA"
+    background =    "#181616"
+    frame_color =   "#957fb8"
     timeout = 60

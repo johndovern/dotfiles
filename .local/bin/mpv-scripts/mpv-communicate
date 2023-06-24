@@ -4,7 +4,7 @@
 # all other arguments are sent to the socket using socat
 
 abort() {
-  echo "$1" >&2
+  [[ "$QUIET" -ne 1 ]] && echo "$1" >&2
   exit 1
 }
 

@@ -23,7 +23,7 @@
 #croc
 #cubocore
 #dconf
-#dfeed
+!dfeed
 !dmenu
 #dmenuplaylist
 !dolphinrc
@@ -37,7 +37,7 @@
 #emacs.bak
 !fontconfig
 #fontforge
-#gallery-dl
+!gallery-dl
 #GIMP
 #gnucash
 #goa-1.0
@@ -105,9 +105,9 @@
 #ranger
 !redshift
 #session
-#sfeed
+!sfeed
 !shell
-#sioyek
+!sioyek
 #sqlitebrowser
 !sxhkd
 !sxiv

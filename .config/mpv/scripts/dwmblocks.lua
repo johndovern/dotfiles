@@ -4,7 +4,7 @@ local mp = require 'mp'
 local options = require 'mp.options'
 
 local o = {
-  enabled = "yes",
+  enabled = "no",
   music = "no",
 }
 options.read_options(o, "dwmblocks")

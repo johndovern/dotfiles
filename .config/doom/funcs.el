@@ -219,6 +219,38 @@
                             "#+filetags: \"learncpp\" \"cpp\" \"programming\"\n\n"))
             (write-region (point-min) (point-max) file nil 'quiet)))))))
 
+(defun add-header-to-org-files (&optional directory)
+  "Add a header to every Org file in the given DIRECTORY.
+   If DIRECTORY is not provided, prompt the user to select a directory."
+  (interactive)
+  (unless directory
+    (setq directory (read-directory-name "Select directory: ")))
+  (let* ((files (directory-files directory t "\\.org$"))
+         (filetags '())
+         (tag "[empty]"))
+    (while (not (string-equal tag ""))
+      (setq tag (read-string "Enter a file tag (leave blank to finish): "))
+      (unless (string-equal tag "")
+        (push (concat "\"" tag "\"") filetags)))
+    (dolist (file files)
+      (with-temp-buffer
+        (insert-file-contents file)
+        (goto-char (point-min))
+        (unless (search-forward-regexp "^#\\+TITLE:" nil t)
+          (goto-char (point-min))
+          (let* ((filename (file-name-sans-extension
+                            (file-name-nondirectory file)))
+                 (title (if (string-match "^[0-9]+-\\(.*\\)" filename)
+                            (match-string 1 filename)
+                          (filename))))
+            (insert (concat ":PROPERTIES:\n"
+                            ":ID:       " (shell-command-to-string "uuidgen")
+                            ":END:\n"
+                            "#+TITLE: " title "\n"
+                            "#+filetags: " (mapconcat 'identity (reverse filetags) " ") "\n\n"))
+            (write-region (point-min) (point-max) file nil 'quiet)))))))
+
+
 (defun rename-org-file-based-on-header (directory)
   "Rename Org files in DIRECTORY based on the first header in the file."
   (interactive (list (read-directory-name "Directory: " default-directory)))

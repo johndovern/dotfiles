@@ -15,15 +15,6 @@ cut_song() {
 }
 
 roll_text() {
-  # SONG="$(mpv-get-property "${SOCKET}" "media-title")"
-  # TIME="$(awk '{print int($1)}' /proc/uptime)"
-  # LENGTH=${#SONG}
-  # TIME=$((TIME % LENGTH))
-  # TIME_OUT=$((LENGTH - 15))
-  # while [[ $TIME -gt $TIME_OUT ]]; do
-  #   TIME=$((TIME - TIME_OUT))
-  # done
-  # printf '[%s]\n' "${SONG:${TIME}:15}"
   POSITION=$(tail -n1 "$SONG_FILE")
   LENGTH=${#SONG}
   PADDING=$((LENGTH - 15))
@@ -54,7 +45,7 @@ mpv_display() {
 
 case $BLOCK_BUTTON in
   1)
-    mpv-toggle --music
+    mpv-toggle --music --quiet
     mpv_display
     ;;
   2)

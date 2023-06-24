@@ -13,7 +13,7 @@ super + shift + equal == pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks
 
 super + BackSpace == wkx -p "s"
 
-super + shift + BackSpace == sysact
+super + shift + BackSpace ==  wkx -p "s D"
 
 # super + Tab bound in dwm
 
@@ -36,7 +36,7 @@ super + shift + e == emacs
 
 super + r == st -n lf_run -e lfrun
 
-super + shift + r == st -e htop
+# super + shift + r == st -e htop
 
 # super + t bound in dwm
 # super + shift + t bound in dwm
@@ -74,7 +74,7 @@ super + shift + bracketright == mpc seek +60
 
 # super + s == wkx -p s
 
-super + shift + s == wkx -p "s D"
+# super + shift + s bound in dwm
 # not bound super + shift + s
 
 super + d == dmenu_run
@@ -211,7 +211,7 @@ ctrl + alt + shift + e == wkx -p "e p"
 
 ctrl + alt + shift + r == dautoupdate
 
-ctrl + alt + shift + super + r ==   dmenugitignore-auto
+# ctrl + alt + shift + super + r ==   dmenugitignore-auto
 
 ctrl + alt + shift + t == st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
 
@@ -255,7 +255,7 @@ ctrl + alt + shift + g == setsid -f mpv --script-opts=vmt-enabled=no "$HOME/.con
 
 ctrl + alt + shift + j == xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300
 
-ctrl + alt + shift + k == xdotool mousemove --sync 3840 300
+ctrl + alt + shift + k == xdotool mousemove --sync 1970 300 && xdotool mousemove --sync 3840 300
 
 ctrl + alt + shift + l == keepasshide
 
