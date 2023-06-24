@@ -1,0 +1,14 @@
+debug = False
+feed_length = 999
+field_length = 50
+format_list = {status} - {time:%Y-%m-%d %H:%M} - {feed_file:<12} - {title:.51}
+format_all =
+new_indicator = N
+new_time = 86400
+old_indicator = " "
+opener_delim = \=\=
+prompt_cmd = dmenu
+prompt_args = -vi -l 20 -i
+sfeed_dir = ~/.sfeed/feeds
+sort_time = True
+temp_dir = /tmp/dfeed

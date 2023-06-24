@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+# keeps track of which sockets were recently
+# paused by this script
+#
+# if that socket can be resumed, does that
+# else, tries to look for another paused
+# mpv instance and resumes that
+
+readonly LAST_PLAYING="/tmp/mpvSockets/mpv-last-used"
+LP_LOCATION="$(readlink "${LAST_PLAYING}")"
+export MOST_RECENT=
+declare -a MANUAL_SOCKET CURRENTLY_PLAYING # ALL_SOCKETS
+export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
+export AMPV_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
+export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+
+abort() {
+    my_echo "USAGE: $*" >&2
+    exit 1
+}
+
+my_echo() {
+    [[ "$QUIET" -ne 1 ]] && echo "$*"
+}
+
+get_opts() {
+    while [[ "$#" -ne 0 ]]; do
+        SHIFT_COUNT=1
+        case "$1" in
+            -a | --ampv) MANUAL_SOCKET+=("${AMPV_SOCKET}") ;;
+            -f | --fzf) FZF="--fzf" ;;
+            -l | --last) MANUAL_SOCKET+=("$LP_LOCATION") ;;
+            -m | --music) MANUAL_SOCKET+=("${MUSIC_SOCKET}") ;;
+            -p | --pick) MANUAL_SOCKET+=("$(mpv-pick $FZF)") ;;
+            -q | --quiet)
+                QUIET=1
+                QUIET_FLAG="--quiet"
+                ;;
+            -s | --socket)
+                shift
+                [[ "$#" -eq 0 ]] && abort "--socket needs a socket"
+                MANUAL_SOCKET+=("$@")
+                SHIFT_COUNT="${#@}"
+                ;;
+            -u | --umpv) MANUAL_SOCKET+=("${UMPV_SOCKET}") ;;
+            *) ;;
+        esac
+        shift "$SHIFT_COUNT"
+    done
+}
+
+get_currently_playing() {
+    while read -r SOCKET; do
+        CURRENTLY_PLAYING+=("${SOCKET}")
+    done < <(mpv-currently-playing --socket)
+    MOST_RECENT="${CURRENTLY_PLAYING[-1]}"
+}
+
+manual_toggle_loop() {
+    for SOCKET in "${MANUAL_SOCKET[@]}"; do
+        my_echo "Pausing ${SOCKET}"
+        toggle "${SOCKET}"
+    done
+}
+
+toggle() {
+    rm -f "$LAST_PLAYING"
+    ln -s "$1" "$LAST_PLAYING"
+    mpv-communicate $QUIET_FLAG "$1" 'cycle pause'
+    return $?
+}
+
+smart_toggle() {
+    if mpv-currently-playing --quiet; then
+        get_currently_playing
+        my_echo "Pausing ${MOST_RECENT}..."
+        toggle "${MOST_RECENT}" || exit $?
+    elif [[ -n "$LP_LOCATION" ]] && [[ -e "$LP_LOCATION" ]]; then
+        my_echo "Found recently paused socket, resuming..."
+        toggle "${LP_LOCATION}"
+    else
+        toggle "$(mpv-pick $FZF)"
+    fi
+}
+
+main() {
+    get_opts "$@" || return 1
+    [[ "${#MANUAL_SOCKET[@]}" -eq 0 ]] && {
+        smart_toggle
+        return $?
+    }
+    manual_toggle_loop
+}
+
+main "$@"

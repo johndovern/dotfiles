@@ -1,0 +1,77 @@
+#sfeedpath="$HOME/.sfeed/feeds"
+
+# list of feeds to fetch:
+feeds() {
+	# feed <name> <feedurl> [basesiteurl] [encoding]
+    # Seasonal
+    feed "subsplease" "https://subsplease.org/rss/?r=1080"
+    feed "DKB" "https://nyaa.si/?page=rss&u=DKB0512"
+    feed "Tezu" "https://nyaa.si/?page=rss&u=Tezu"
+
+    # general
+    feed "bleepingcomputer" "https://www.bleepingcomputer.com/feed/"
+    feed "hnrss" "https://hnrss.org/newest"
+    feed "ghacks" "https://www.ghacks.net/feed/"
+    feed "phoronix" "https://www.phoronix.com/rss.php"
+    feed "slashdot" "http://rss.slashdot.org/Slashdot/slashdot"
+    # feed "TechCrunch" "https://feeds.feedburner.com/TechCrunch"
+    feed "techdirt" "https://www.techdirt.com/techdirt_rss.xml"
+    feed "theregister" "https://www.theregister.com/headlines.atom"
+
+    # cybersecurity
+    # feed "eff" "https://www.eff.org/rss/updates.xml"
+    feed "digdeeper" "https://digdeeper.club/atom.xml"
+    # feed "g0tmi1k" "https://blog.g0tmi1k.com/atom.xml"
+    # feed "securityintelligence" "https://feeds.feedburner.com/securityintelligence/feed/news"
+    feed "packetstormsecurity" "https://rss.packetstormsecurity.com/"
+    feed "reclaimthenet" "https://reclaimthenet.org/feed/"
+    feed "schneier" "https://www.schneier.com/blog/atom.xml"
+    feed "defensivesecurity" "http://www.defensivesecurity.org/feed/podcast"
+    feed "twit" "http://feeds.twit.tv/sn.xml"
+
+    # distros
+    feed "distrowatch_news" "https://distrowatch.com/news/dw.xml"
+    # feed "debian" "https://planet.debian.org/atom.xml"
+    # feed "gentoo" "https://planet.gentoo.org/atom.xml"
+
+    # filesharing
+    feed "opentrackers" "https://opentrackers.org/feed/"
+    # feed "Torrentfreak" "https://feeds.feedburner.com/Torrentfreak"
+    feed "hinatasubs" "https://hinatasubs.com/rss"
+    feed "eztv" "https://eztv.io/ezrss.xml"
+
+    # linux
+    feed "lwn" "https://lwn.net/headlines/rss"
+    feed "cyberciti" "https://www.cyberciti.biz/atom/atom.xml"
+    feed "dedoimedo" "https://www.dedoimedo.com/rss_feed.xml"
+
+    # mobile
+    feed "gsmarena" "https://www.gsmarena.com/rss-news-reviews.php3"
+
+    # programming
+    # feed "nullprogram" "https://nullprogram.com/feed/"
+    feed "projecteuler" "https://projecteuler.net/rss2_euler.xml"
+
+    # software
+    feed "gamingonlinux" "https://www.gamingonlinux.com/article_rss.php"
+    feed "itsfoss" "https://itsfoss.com/feed"
+    feed "TheGeekStuff" "https://feeds.feedburner.com/TheGeekStuff"
+    # feed "feeds2" "https://feeds2.feedburner.com/webupd8"
+    feed "xmodulo" "http://xmodulo.com/feed"
+    # feed "emacslife" "https://planet.emacslife.com/atom.xml"
+
+    # webdev
+    feed "peter" "https://peter.sh/feed/"
+
+    # technology
+    feed "arstechnica" "http://feeds.arstechnica.com/arstechnica/index"
+    # feed "hackaday" "https://hackaday.com/feed/"
+    # feed "technologyreview" "https://www.technologyreview.com/feed"
+
+    # podcasts
+    feed "techdirt" "https://www.techdirt.com/podcast.xml"
+    feed "podcasts" "http://podcasts.engadget.com/rss.xml"
+    feed "distrowatch_podcast" "http://distrowatch.com/news/podcast.xml"
+    # feed "hackerpublicradio" "http://www.hackerpublicradio.org/hpr_rss.php"
+
+}
