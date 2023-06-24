@@ -1,4 +1,4 @@
-### Updated on Thu Mar  2 08:06:06 PM PST 2023 ###
+### Updated on Tue Jun 20 12:19:04 AM PDT 2023 ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -19,6 +19,7 @@
 #gnucash
 #gnupg
 #go
+#Google
 #gvfs-metadata
 #history
 #icons
@@ -46,6 +47,7 @@
 #RecentDocuments
 #recently-used.xbel
 #remoteview
+#sioyek
 #stalefiles
 #Steam
 #syncthing
@@ -62,6 +64,7 @@
 #weatherreport
 #webkitgtk
 !wineprefixes
+#xdg-desktop-portal-kde
 #xorg
 !Yotsuba-drop.png
 !yotsuba.png

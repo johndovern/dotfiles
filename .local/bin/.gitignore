@@ -1,4 +1,4 @@
-### Updated on Thu Mar  2 08:06:06 PM PST 2023 ###
+### Updated on Tue Jun 20 12:19:03 AM PDT 2023 ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -10,6 +10,7 @@
 !cht.sh
 !compiler
 !cron
+#dfeed
 !displayselect
 !dmenugitignore
 !dmenugitignore-auto
@@ -36,6 +37,7 @@
 !lf-ueberzug-previewer
 !linkhandler
 !maimpick
+#markdownify
 !mkhome
 #mlm
 !monitor_setup.sh
@@ -76,6 +78,7 @@
 !slider
 !statusbar
 #statusbar-icons
+#stmd
 !sysact
 !tag
 !td-toggle

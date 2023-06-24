@@ -1,4 +1,4 @@
-### Updated on Thu Mar  2 08:05:36 PM PST 2023 ###
+### Updated on Tue Jun 20 12:18:59 AM PDT 2023 ###
 *
 !.gitignore
 #.gitignore-very-old
@@ -10,6 +10,7 @@
 !menu.json
 !mpv.conf
 #mpv.conf.bak
+#mpv.conf.bak.bak
 !persistent_config.json
 #playlists
 !script-opts

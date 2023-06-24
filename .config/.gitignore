@@ -1,10 +1,15 @@
-### Updated on Thu Mar  2 08:04:49 PM PST 2023 ###
+### Updated on Tue Jun 20 12:18:38 AM PDT 2023 ###
+### < #mpv-backup > deleted since last update ###
+### < #manga-man > deleted since last update ###
+### < #doom-current > deleted since last update ###
+### < !dmenumanga > deleted since last update ###
+### < #ani-man.~1~ > deleted since last update ###
+### < #ani-man > deleted since last update ###
 *
 !.gitignore
 #.gitignore.bak
 #.gitignore-very-old
-#ani-man
-#ani-man.~1~
+#android
 #autostart
 #baloofileinformationrc
 #BraveSoftware
@@ -18,13 +23,12 @@
 #croc
 #cubocore
 #dconf
+#dfeed
 !dmenu
-!dmenumanga
 #dmenuplaylist
 !dolphinrc
 !doom
 #doom.bak
-#doom-current
 !dunst
 !dwmblocks
 #easyeffects
@@ -33,9 +37,11 @@
 #emacs.bak
 !fontconfig
 #fontforge
+#gallery-dl
 #GIMP
 #gnucash
 #goa-1.0
+#Google
 #gsmartcontrol
 !gtk-2.0
 !gtk-3.0
@@ -63,14 +69,13 @@
 #light
 #llpp.conf
 !lutris
-#manga-man
+#matplotlib
 #menus
 !mimeapps.list
 !mlm
 #monero-project
 !mpd
 !mpv
-#mpv-backup
 #Mullvad VPN
 #Mumble
 #my_program
@@ -78,8 +83,9 @@
 #neofetch
 !nnn
 !nsxiv
-!nvim_custom
+#nvim
 !nvim.bak
+!nvim_custom
 #obs-studio
 #okularpartrc
 #okularrc
@@ -99,19 +105,24 @@
 #ranger
 !redshift
 #session
+#sfeed
 !shell
+#sioyek
+#sqlitebrowser
 !sxhkd
 !sxiv
 #syncthing
 #syncthing-backup
 #syncthing-gtk
 !systemd
+#test_program
 !tmux
 #transmission
 #trashrc
 !tridactyl
 #tuta_integration
 #tutanota-desktop
+#unity3d
 !user-dirs.dirs
 #VeraCrypt
 #VIA
@@ -128,6 +139,7 @@
 !wkx
 !x11
 #xarchiver
+#xchm.conf
 #xdg-desktop-portal-kderc
 #yay
 #yelp

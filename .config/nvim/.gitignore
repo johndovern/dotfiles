@@ -1,8 +1,17 @@
-### Updated on Thu Mar  2 08:05:36 PM PST 2023 ###
+### Updated on Tue Jun 20 12:19:00 AM PDT 2023 ###
 *
-!.gitignore
-#.gitignore-very-old
-#autoload
-!init.vim
-!lua
-#plugged
+### < lazy-lock.json > deleted since last update ###
+### < .luarc.json > deleted since last update ###
+### < coc-settings.json > deleted since last update ###
+### < ftplugin > deleted since last update ###
+### < spell > deleted since last update ###
+### < custom > deleted since last update ###
+### < plugin > deleted since last update ###
+#.git
+#.github
+#.gitignore
+#.stylua.toml
+#init.lua
+#lazy-lock.json
+#LICENSE
+#lua

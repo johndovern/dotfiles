@@ -3,6 +3,7 @@
 !.gitignore
 #.gitignore-old
 !config.el
+!config.org
 #config.el.bak
 !custom.el
 !doom-emacs-dash.png
