@@ -41,7 +41,10 @@ get_opts() {
         break
         ;;
       --float-win) FLOAT_WIN=1 ;;
-      -l | --last) GET_LAST=1 ;;
+      -l | --last)
+        notify-send "mpv-opts" "Using --last ??"
+        GET_LAST=1
+        ;;
       -L | --start-left) START_LEFT=1 ;;
       -m | --move)
         OPTION="MOVE"
@@ -92,16 +95,6 @@ get_opts() {
         break
         ;;
       *) usage ;;
-        # OPTIONS+=(
-        #   "FLOAT"
-        #   "FOCUS"
-        #   "FULL"
-        #   "QUIT"
-        #   "STICKY"
-        #   "EXIT"
-        # )
-        # OPTION=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -i -p "Action:")
-        # break
     esac
     shift "$SHIFT_COUNT"
   done
@@ -140,7 +133,7 @@ get_mpv_given() {
 }
 
 get_mpv_last() {
-  [[ "$GET_LAST" -ne 1 ]] && return 1
+  [[ ! -S "$MPV_LAST_PATH" ]] && return 1
   CHOSEN="$(mpv-get-property "$MPV_LAST_PATH" 'pid')"
   MPV_PATH="$MPV_LAST_PATH"
   get_fullscreen_status "$MPV_PATH"
@@ -177,8 +170,8 @@ get_mpv_pick() {
 
 get_mpv() {
   get_mpv_given && return 0
-  get_mpv_last && return 0
   get_mpv_current && return 0
+  get_mpv_last && return 0
   get_mpv_active && return 0
   get_mpv_pick
 }

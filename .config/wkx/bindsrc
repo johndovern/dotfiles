@@ -18,8 +18,10 @@ b Browser
         ::y Youtube == librewolf "https://vid.puffyan.us/feed/popular"
 # Client binds
 c Client
-    :l Move Left == dwmc shifttag +1 ; dwmc shiftview +1 ; wkx -p "c"
-    :h Move Right == dwmc shifttag -1 ; dwmc shiftview -1 ; wkx -p "c"
+    :l Tag Right == dwmc shifttag +1 ; dwmc shiftview +1 ; wkx -p "c"
+    :L Mon Right == dwmc tagnmon 1
+    :h Tag Left == dwmc shifttag -1 ; dwmc shiftview -1 ; wkx -p "c"
+    :H Mon Left == dwmc tagnmon 0
     # Tag & follow prefix
     :m Tag & follow
         ::a Tag 1 == sleep 0.2 ; dwmc tagex 0 ; dwmc viewex 0

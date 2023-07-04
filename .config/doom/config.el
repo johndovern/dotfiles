@@ -14,19 +14,28 @@
 
 (setq c-tab-always-indent nil)
 (defconst my-c++-style
-  '("bsd" (c-offsets-alist . ((innamespace . 0)
-                              (label . --)
-                              (access-label . --)))))
+  '("bsd"
+    (c-basic-offset . 4)
+    (c-offsets-alist . ((namespace-open . 0)
+                        (innamespace . 0)
+                        (label . 0)
+                        (access-label . 0)
+                        (inclass . +)
+                        (substatement-label . 0)
+                        (case-lable . 0)))))
 (defun my-c++-mode-hook ()
   (c-add-style "my-c++-style" my-c++-style)
   (c-set-style "my-c++-style")
-  (setq! c-default-style "my-c++-style"))
+  (setq! c-default-style "my-c++-style"
+         lsp-ui-sideline-enable t
+         c-basic-offset 4
+         tab-width 4))
 (add-hook! 'c++-mode-hook 'my-c++-mode-hook)
 (c-add-style "my-c++-style" my-c++-style)
-(setq! c-default-style "my-c++-style")
-       ;; lsp-ui-sideline-enable t
-       ;; c-basic-offset 4
-       ;; tab-width 4)
+(setq! c-default-style "my-c++-style"
+       lsp-ui-sideline-enable t
+       c-basic-offset 4
+       tab-width 4)
 
 (setq +doom-dashboard-pwd-policy "~/"
       fancy-splash-image "~/.config/doom/doom-emacs-dash.png")
@@ -337,8 +346,8 @@
       :desc "Zap up to char" "Z" #'zap-up-to-char)
 
 (defun my-c-hook-settings ()
-  (setq-local +format-on-save-enabled-modes nil
-              c-basic-offset 4))
+  (setq-local +format-on-save-enabled-modes nil)
+  (setq c-basic-offset 4))
 (add-hook! '(c-mode-hook c++-mode-hook)
            #'my-c-hook-settings)
 

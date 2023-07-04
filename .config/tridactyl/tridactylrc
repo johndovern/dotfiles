@@ -86,10 +86,12 @@ bind ,dh hint -W dmenu_url
 bind ,dn composite url2args | dmenu_url
 bind ,sh hint -W save_url
 bind ,sn composite url2args | save_url
+bind ,st composite hint -p | save_text
 
 " Custom commands
 command dmenu_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo ' + url + ' | xclip -selection clipboard && wkx -p "d u"'))
 command save_url js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('echo ' + url + '>> ~/tri_urls.txt'))
+command save_text js -p tri.excmds.exclaim_quiet('echo "$(xclip -o -selection clipboard)" >> ~/tri_saved.txt')
 
 " Nyaa search
 command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&o=desc&q=" + JS_ARG)

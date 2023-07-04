@@ -104,6 +104,9 @@ map gvw  cd ~/videos/webms
 map gvy  cd ~/videos/webms/youtube
 map gv4  cd ~/videos/webms/4chan-banners
 
+# zsh 
+map gzc  cd ~/.cache/zsh
+
 # home
 map gh   cd ~/
 
