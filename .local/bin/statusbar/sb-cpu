@@ -11,4 +11,4 @@ esac
 
 cpu=$(sensors | awk '/Tctl/ {print $2}' | sed -e 's/+//')
 
-printf '%s\n' "[$cpu]"
+printf '| %s ' "$cpu"

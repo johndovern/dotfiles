@@ -3,14 +3,13 @@
 play_music() {
   PLAY=$(find $XDG_CONFIG_HOME/mpd/playlists -type f -printf '%P\n' | sed 's/\.m3u//g' | dmenu -i -p "Playlist:")
   case "${PLAY:-NO_SELECTION}" in
-    NO_SELECTION)
-      ;;
+    NO_SELECTION) ;;
     *)
-      mpc clear && \
-        mpc load "$PLAY" >/dev/null 2>&1 && \
-        mpc random off >/dev/null 2>&1 && \
-        mpc repeat on >/dev/null 2>&1 && \
-        mpc play >/dev/null 2>&1 && \
+      mpc clear &&
+        mpc load "$PLAY" >/dev/null 2>&1 &&
+        mpc random off >/dev/null 2>&1 &&
+        mpc repeat on >/dev/null 2>&1 &&
+        mpc play >/dev/null 2>&1 &&
         mpc random on >/dev/null 2>&1
       ;;
   esac
@@ -30,7 +29,7 @@ case $BLOCK_BUTTON in
         mpv-options
         ;;
       Browser)
-        if pidof -qx $BROWSER ; then
+        if pidof -qx $BROWSER; then
           wmctrl -xa "$BROWSER"
         else
           setsid -f "$BROWSER"
@@ -42,10 +41,8 @@ case $BLOCK_BUTTON in
       Sysact)
         setsid -f sysact
         ;;
-      Exit)
-        ;;
-      *)
-        ;;
+      Exit) ;;
+      *) ;;
     esac
     ;;
   2)
@@ -65,8 +62,7 @@ case $BLOCK_BUTTON in
   5)
     setsid -f sysact
     ;;
-  *)
-    ;;
+  *) ;;
 esac
 
-printf '%s\n' "[+]"
+printf ' | %s\n' "+"

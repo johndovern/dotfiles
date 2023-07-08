@@ -39,5 +39,5 @@ esac
 
 date=$(date "+%b %d %H:%M")
 
-printf '%s\n' "[$date]"
+printf '| %s ' "$date"
 # date "+%Y %b %d (%a) $icon %H:%M%p"

@@ -18,4 +18,4 @@ esac
 
 vol="$(pamixer --get-volume)"
 
-echo "[$vol%]"
+echo "| $vol% "

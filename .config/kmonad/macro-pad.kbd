@@ -1,0 +1,84 @@
+;; pci-0000:0b:00.3-usb-0:4:1.0-event-kbd
+#| --------------------------------------------------------------------------
+
+                         KMonad: ISO ThinkPad T430 Template
+
+   This file contains US and `defsrc' configurations for a ThinkPad T430
+   with an ISO keyboard.  Copy out the `defsrc' layer to start your own
+   keyboard configuration.  Copy out the `deflayer' template to easily start
+   a new layer with matching `transparent' buttons.
+
+(deflayer name
+  _    _    _
+  _    _    _
+  _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+(defcfg
+  input   (device-file "/dev/input/by-path/pci-0000:0b:00.3-usb-0:4:1.0-event-kbd")
+  output (uinput-sink "KMonad output"
+    "/bin/sleep 1 && xset r rate 250 50")
+
+  fallthrough   true
+  allow-cmd     false
+)
+
+(defsrc
+  a    b    c
+  d    e    f
+  g    h    i
+)
+
+(defalias
+  lt-base       (layer-toggle BASE)
+  lt-left       (layer-toggle LEFT)
+  lt-right      (layer-toggle RIGHT)
+  lt-layers     (layer-toggle LAYERS)
+  lt-media      (layer-toggle MEDIA)
+
+  lsb           (layer-switch BASE)
+  lsl           (layer-switch LEFT)
+  lsr           (layer-switch RIGHT)
+  lsm           (layer-switch MEDIA)
+
+  thl   (tap-hold-next-release 200 h @lt-layers)
+  tjs   (tap-hold-next-release 200 j sft)
+  tlm   (tap-hold-next-release 200 l @lt-media)
+
+  pse   pause
+  meh   C-A-sft
+  psg   previoussong
+  nsg   nextsong
+  pp    playpause
+)
+
+(deflayer BASE
+  q    S-p  S-n
+  @tlm k    u
+  @thl @tjs d
+)
+
+(deflayer LEFT
+  S-n  S-p  q
+  u    k    @tlm
+  d    @tjs @thl
+)
+
+(deflayer RIGHT
+  q    S-p  S-n
+  @tlm k    u
+  @thl @tjs d
+)
+
+(deflayer MEDIA
+  volu @psg volu
+  _    @pp  _
+  vold @nsg vold
+)
+
+(deflayer LAYERS
+  _    _    @lsb
+  _    _    _
+  _    @lsl @lsr
+)

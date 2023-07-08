@@ -5,15 +5,18 @@
 # Show 🔒 if a vpn connection is active
 
 case $BLOCK_BUTTON in
-	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
+  1)
+    "$TERMINAL" -e nmtui
+    pkill -RTMIN+4 dwmblocks
+    ;;
   2)
-    if command -v mullvad-vpn ; then
+    if command -v mullvad-vpn; then
       setsid -f mullvad-vpn
     else
       notify-send "❗Mullvad-vpn not installed ❗"
     fi
     ;;
-	3) notify-send "Internet module" "\- Click to connect
+  3) notify-send "Internet module" "\- Click to connect
 - Middle click shows this message
 - Right click opens Mullvad-vpn
 !W: wifi disabled
@@ -23,13 +26,13 @@ N%: wifi connection quality
 +E: ethernet working
 +V: vpn is active
 " ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+  6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
-	wifiicon="$(awk '/^\s*w/ { print int($3 * 100 / 70) "% " }' /proc/net/wireless)"
-elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
-	grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="-W " || wifiicon="!W "
+if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null; then
+  wifiicon="$(awk '/^\s*w/ { print int($3 * 100 / 70) "% " }' /proc/net/wireless)"
+elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null; then
+  grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="-W " || wifiicon="!W "
 fi
 
-printf "%s%s%s%s%s\n" "[" "$wifiicon" "$(sed "s/down/-E/;s/up/+E/" /sys/class/net/enp6s0/operstate 2>/dev/null)" "$(mullvad status | grep -q "Connected" && echo " +V" 2>/dev/null || echo " -V" 2>/dev/null)" "]"
+printf "| %s%s%s |" "$wifiicon" "$(sed "s/down/-E/;s/up/+E/" /sys/class/net/enp6s0/operstate 2>/dev/null)" "$(mullvad status | grep -q "Connected" && echo " +V" 2>/dev/null || echo " -V" 2>/dev/null)"
