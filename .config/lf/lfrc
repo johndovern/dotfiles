@@ -190,14 +190,14 @@ set mouse on
 set cursorpreviewfmt "\033[7m"
 
 # lfimg
-# set previewer ~/.config/lf/preview
-# set cleaner ~/.config/lf/cleaner
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
 
 # ctpv
-set previewer ctpv
-set cleaner ctpvclear
-&ctpv -s $id
-&ctpvquit $id
+# set previewer ctpv
+# set cleaner ctpvclear
+# &ctpv -s $id
+# &ctpvquit $id
 
 # Vars that depend on environmental variables
 #$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"

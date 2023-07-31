@@ -114,11 +114,11 @@
            'all-the-icons-dired-mode
            'dired-hide-details-mode)
 
-(setq doom-font (font-spec :font "Monospace" :size 20)
+(setq doom-font (font-spec :font "Monospace" :size 18)
       doom-big-font (font-spec :font "Monospace" :size 36)
-      doom-variable-pitch-font (font-spec :font "Sans" :size 20)
-      doom-unicode-font (font-spec :font "Monospace" :size 20)
-      doom-serif-font (font-spec :font "Monospace" :size 20))
+      doom-variable-pitch-font (font-spec :font "Sans" :size 18)
+      doom-unicode-font (font-spec :font "Monospace" :size 18)
+      doom-serif-font (font-spec :font "Monospace" :size 18))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t

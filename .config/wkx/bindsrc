@@ -161,11 +161,26 @@ m mpv
         ::n Next == mpv-next ; wkx -p "m s"
         ::p Prev == mpv-prev ; wkx -p "m s"
     :t Smart toggle == mpv-toggle
-# nvim binds
-n nvim
-    :n Empty nvim == st -e nvim
-    :t Temp notes == st -e nvim -c VimwikiIndex -c "VimwikiGoto temp-notes"
-    :w VimwikiIndex == st -e nvim -c VimwikiIndex
+# Music prefix
+n ncmpcpp
+    :c Clear mpc == mpc clear
+    :d Display Song == notify-send "mpc" "$(mpc current)"
+    :h Seek -5 == mpc seek "-5" & wkx -p n
+    :l Seek +5 == mpc seek "+5" & wkx -p n
+    :n Next song == mpc next & wkx -p n
+    :p Prev song == mpc prev & wkx -p n
+    :o Open mpc == st -e ncmpcpp
+    # Playlist prefix
+    :y Playlist
+        ::a Vaporwave == mpc-playlists "vaporwave"
+        ::j Japanese Disco Edits == mpc-playlists "Japanese Disco Edits"
+        ::l Vocaloid == mpc-playlists "vocaloid"
+        ::m Mish Mash == mpc-playlists "mish-mash"
+        ::n Newpipe == mpc-playlists "newpipe"
+        ::o Non-Vaporwave == mpc-playlists "non-vaporwave"
+        ::s Spotify Rip == mpc-playlists "Spotify Rip"
+        ::t Too many vocaloids == mpc-playlists "Too_Many_Vocaloid_Songs"
+        ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
 # Open programs
 o Open
     :b dbrowse
@@ -216,26 +231,6 @@ o Open
         ::s Selected area == maim -s pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
         ::w Current window == maim -i "$(xdotool getactivewindow)" pic-window-"$(date '+%y%m%d-%H%M-%S').png"
     :t Thunderbird == thunderbird
-# Music prefix
-p mpc
-    :c Clear mpc == mpc clear
-    :d Display Song == notify-send "mpc" "$(mpc current)"
-    :h Seek -5 == mpc seek "-5" & wkx -p p
-    :l Seek +5 == mpc seek "+5" & wkx -p p
-    :n Next song == mpc next & wkx -p p
-    :p Prev song == mpc prev & wkx -p p
-    :o Open mpc == st -e ncmpcpp
-    # Playlist prefix
-    :y Playlist
-        ::a Vaporwave == mpc-playlists "vaporwave"
-        ::j Japanese Disco Edits == mpc-playlists "Japanese Disco Edits"
-        ::l Vocaloid == mpc-playlists "vocaloid"
-        ::m Mish Mash == mpc-playlists "mish-mash"
-        ::n Newpipe == mpc-playlists "newpipe"
-        ::o Non-Vaporwave == mpc-playlists "non-vaporwave"
-        ::s Spotify Rip == mpc-playlists "Spotify Rip"
-        ::t Too many vocaloids == mpc-playlists "Too_Many_Vocaloid_Songs"
-        ::v Vocaloid Classics == mpc-playlists "Vocaloid_Classics"
 # Quit prefix
 q Quit
     :c Client == sleep 0.1 ; dwmc killclient
@@ -302,39 +297,15 @@ w Window
     :q Kill window == dwmc killclient
     # Tag prefix
     :t Tag
-        # Move to tag with window prefix
-        ::m Move
-            :::a Tag 1 == dwmc tagex 0 ; dwmc viewex 0
-            :::r Tag 2 == dwmc tagex 1 ; dwmc viewex 1
-            :::s Tag 3 == dwmc tagex 2 ; dwmc viewex 2
-            :::t Tag 4 == dwmc tagex 3 ; dwmc viewex 3
-            :::g Tag 5 == dwmc tagex 4 ; dwmc viewex 4
-            :::m Tag 6 == dwmc tagex 5 ; dwmc viewex 5
-            :::n Tag 7 == dwmc tagex 6 ; dwmc viewex 6
-            :::e Tag 8 == dwmc tagex 7 ; dwmc viewex 7
-            :::i Tag 9 == dwmc tagex 8 ; dwmc viewex 8
-        # Send window tag prefix
-        ::s Send tag
-            :::a Tag 1 == sleep 0.2 ; dwmc tagex 0
-            :::r Tag 2 == sleep 0.2 ; dwmc tagex 1
-            :::s Tag 3 == sleep 0.2 ; dwmc tagex 2
-            :::t Tag 4 == sleep 0.2 ; dwmc tagex 3
-            :::g Tag 5 == sleep 0.2 ; dwmc tagex 4
-            :::m Tag 6 == sleep 0.2 ; dwmc tagex 5
-            :::n Tag 7 == sleep 0.2 ; dwmc tagex 6
-            :::e Tag 8 == sleep 0.2 ; dwmc tagex 7
-            :::i Tag 9 == sleep 0.2 ; dwmc tagex 8
-        # Focus tag prefix
-        ::v View tag
-            :::a View tag 1 == dwmc viewex 0 ; wkx -p "w t v"
-            :::r View tag 2 == dwmc viewex 1 ; wkx -p "w t v"
-            :::s View tag 3 == dwmc viewex 2 ; wkx -p "w t v"
-            :::t View tag 4 == dwmc viewex 3 ; wkx -p "w t v"
-            :::g View tag 5 == dwmc viewex 4 ; wkx -p "w t v"
-            :::m View tag 6 == dwmc viewex 5 ; wkx -p "w t v"
-            :::n View tag 7 == dwmc viewex 6 ; wkx -p "w t v"
-            :::e View tag 8 == dwmc viewex 7 ; wkx -p "w t v"
-            :::i View tag 9 == dwmc viewex 8 ; wkx -p "w t v"
+        ::a View tag 1 == dwmc viewex 0 ; wkx -p "w t"
+        ::r View tag 2 == dwmc viewex 1 ; wkx -p "w t"
+        ::s View tag 3 == dwmc viewex 2 ; wkx -p "w t"
+        ::t View tag 4 == dwmc viewex 3 ; wkx -p "w t"
+        ::g View tag 5 == dwmc viewex 4 ; wkx -p "w t"
+        ::m View tag 6 == dwmc viewex 5 ; wkx -p "w t"
+        ::n View tag 7 == dwmc viewex 6 ; wkx -p "w t"
+        ::e View tag 8 == dwmc viewex 7 ; wkx -p "w t"
+        ::i View tag 9 == dwmc viewex 8 ; wkx -p "w t"
     :v Fullscreen == dwmc togglefullscr
     :y @ Fibonacci == dwmc setlayoutex 0
 # whichkey binds

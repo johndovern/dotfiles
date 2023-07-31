@@ -49,6 +49,8 @@ roll_text() {
 
 pidof -x sb-mpdup >/dev/null 2>&1 || setsid -f sb-mpdup >/dev/null 2>&1
 
+mpc_status >/dev/null 2>&1
+
 case $BLOCK_BUTTON in
   1)
     [[ "$MPC_STOPPED" -eq 1 ]] && mpc-toggle
@@ -72,7 +74,6 @@ case $BLOCK_BUTTON in
   *) ;;
 esac
 
-mpc_status >/dev/null 2>&1
 filter
 [[ $LONG_MPC -eq 1 ]] && roll_text
 printf "| %s " "$MPC_SONG"
