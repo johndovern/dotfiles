@@ -112,7 +112,7 @@ m mpv
     :l Playlists
         ::g ygyl == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
         ::o anime groove == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
-        ::p 0_0 == mpv-playlist --shuffle "$HOME/.config/mpv/playlists/0_0.m3u"
+        ::p 0_0 == mpv-playlist --shuffle --0_0
     :m Move right == mpv-opts --move
     :M Move left == mpv-opts --move 0
     # Opts prefix
@@ -132,12 +132,14 @@ m mpv
         # Press prefix
         ::p Press keys
             :::L Press L == mpv-opts --press "L"; wkx -p "m o p"
+            :::Q Press Q == mpv-opts --press "Q"; wkx -p "m o p"
             :::RET Press RET == mpv-opts --press "enter"; wkx -p "m o p"
             :::C-RET Press C-RET == mpv-opts --press "ctrl+enter"; wkx -p "m o p"
         ::s Sticky == mpv-opts --sticky
         ::S Shuffle == mpv-opts --shuffle
     # Pick prefix
     :p Pick mpv
+        ::p Playlist == mpv-playlist --pick --shuffle
         # Seek prefix
         ::s Seek
             :::l Seek +10s == mpv-seek 10 ; wkx -p "m s"
@@ -152,6 +154,7 @@ m mpv
             :::t Toggle pick == mpv-toggle --pick
             :::u Toggle umpv == mpv-toggle --umpv
     :q quit pick == mpv-quit
+    :Q Press Q == mpv-opts --press "Q"
     # Seek prefix
     :s Seek
         ::l Seek +10s == mpv-seek -c 10 ; wkx -p "m s"

@@ -1,16 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+PLAYLIST_DIR="$HOME/.config/mpv/playlists"
+TEMP_SPECIAL_PLAYLIST="$PLAYLIST_DIR/temp_special_playlist.m3u"
 
 get_opts() {
     while [[ "$#" -gt 0 ]]; do
         case "$1" in
+            -m | --mark)
+                shift
+                if [[ "${1:?--mark needs a file}" =~ ^/ ]]; then 
+                  echo "$1" >>"$TEMP_SPECIAL_PLAYLIST"
+                else 
+                  echo "$PWD/$1" >>"$TEMP_SPECIAL_PLAYLIST"
+                fi
+                ;;
+            -p | --pick)
+                PICK_PLAYLIST=1
+                ;;
             -s | --shuffle)
                 SHUFFLE=1
+                ;;
+            -0 | --0_0)
+                PLAYLIST="$HOME/.config/mpv/playlists/thot_playlist_videos.m3u"
                 ;;
             -*)
                 OTHER_OPTIONS+=("$1")
                 ;;
             *)
-                PLAYLIST="$1"
+                PLAYLIST+=("$1")
                 ;;
         esac
         shift
@@ -18,17 +35,34 @@ get_opts() {
 }
 
 mpv_open() {
-    [[ -z "$PLAYLIST" ]] && return 1
-    setsid -f mpv "$PLAYLIST" >/dev/null 2>&1
+    setsid -f mpv "${PLAYLIST[@]}" >/dev/null 2>&1
     [[ "$SHUFFLE" -eq 1 ]] && {
         sleep 1.5
         mpv-opts "${OTHER_OPTIONS[@]}" --shuffle --now
     }
 }
 
+pick_playlist() {
+    [[ "$PICK_PLAYLIST" -ne 1 ]] && return 1
+    PLAYLIST+=("$(fd --unrestricted \
+        --type f \
+        --exact-depth 1 \
+        --extension m3u \
+        --base-directory "$PLAYLIST_DIR" | dmenu -l 20 -i -p "Playlist:")")
+    if [[ -n "${PLAYLIST[0]}" ]]; then
+        PLAYLIST+=("$PLAYLIST_DIR/$PLAYLIST")
+    else
+        return 1
+    fi
+}
+
 main() {
     get_opts "$@" || return 1
+    # shellcheck disable=SC2128
+    if [[ -z "$PLAYLIST" ]]; then
+        pick_playlist || return 1
+    fi
     mpv_open || return 1
 }
 
-main "$@" && exit 0 || exit 1
+main "$@"

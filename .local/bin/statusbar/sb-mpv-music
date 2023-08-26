@@ -33,13 +33,18 @@ handle_block() {
         6)
             yt-opts "$(mpv-get-property --music "path")"
             ;;
-        *) ;;
+        *)
+            [[ "$NOT_PLAYING" -eq 1 ]] && {
+                printf "| %s \n" "mpv-music"
+                exit 0
+            }
+            ;;
     esac
 }
 
 mpv_display() {
     [[ -z "$SOCKET" ]] && {
-        SONG="mpv"
+        SONG="mpv-music"
         return 0
     }
     SONG_FILE="$SOCKET.txt"
@@ -62,7 +67,8 @@ roll_text() {
 set_socket() {
     SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
     if [[ ! -S "${SOCKET}" ]] || ! mpv-currently-playing --music --quiet; then
-        exit 0
+        NOT_PLAYING=1
+        mpv-active-sockets --socket "$SOCKET" || exit 0
     fi
 }
 

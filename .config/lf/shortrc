@@ -40,6 +40,7 @@ map gls  cd ~/.local/src/st
 # ~/documents
 map gd.  cd ~/documents
 map gda  cd ~/documents/Archives
+map gdc  cd ~/documents/college
 map gdt  cd ~/documents/tmaster
 
 # ~/manga
@@ -96,13 +97,14 @@ map grv  cd ~/repos/vmt
 
 # ~/videos
 map gv.  cd ~/videos
+map gv4  cd ~/videos/webms/4chan-banners
 map gva  cd ~/videos/anime
 map gvA  cd ~/videos/webms/anime-webms
 map gve  cd ~/videos/webms/webms
 map gvs  cd ~/videos/webms/webms-to-sort
+map gvt  cd ~/mnt/drives/tmaster/media/0_0
 map gvw  cd ~/videos/webms
 map gvy  cd ~/videos/webms/youtube
-map gv4  cd ~/videos/webms/4chan-banners
 
 # zsh 
 map gzc  cd ~/.cache/zsh

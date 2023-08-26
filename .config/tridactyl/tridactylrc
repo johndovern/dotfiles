@@ -59,6 +59,8 @@ bind ,nh composite hint -p | nyaa_search
 " Gallery-dl
 bind ,gh hint -W gal_dl
 bind ,gn composite url2args | gal_dl
+bind ,th hint -W thot_dl
+bind ,tn composite url2args | thot_dl
 
 " MPV
 bind ,mh hint -W mpv_open
@@ -98,6 +100,7 @@ command nyaa_search js -p tri.excmds.open("https://nyaa.si/?f=0&c=1_2&s=seeders&
 
 " Gallery-dl
 command gal_dl js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f gallery-dl -f "/O" -d "$HOME/gallery-dl" ' + url))
+command thot_dl js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f thot-dl ' + url))
 
 " MPV
 command mpv_open js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('setsid -f mpv --no-terminal --loop-playlist=no --keep-open=yes ' + url))

@@ -1,16 +1,11 @@
-[CompactMode]
-FontWeight=50
-
-[DetailsMode]
-FontWeight=50
-
 [General]
 RememberOpenedTabs=false
-Version=201
+Version=202
 ViewPropsTimestamp=2021,11,22,23,19,38.895
 
-[IconsMode]
-FontWeight=50
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
 
 [KPropertiesDialog]
 DisplayPort-0 HDMI-A-0 Height 1920x1080=670

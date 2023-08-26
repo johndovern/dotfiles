@@ -63,6 +63,21 @@
 (add-hook! 'lsp-completion-mode-hook
            (setf (alist-get 'lsp-capf completion-category-defaults) '((styles . (basic)))))
 
+;; (after! lsp-pylsp
+;;   (setq lsp-pylsp-plugins-pydocstyle-ignore
+;;         ["D100" ; Missing docstring in public module
+;;          "D101"
+;;          "D102"
+;;          "D103" ; Missing docstring in public function
+;;          "D105"
+;;          "D107"
+;;          "D212" ; Multi-line docstring summary should start at the second line
+;;          "D413" ; Missing blank line after last section
+;;          "D401" ; First line should be in imperative mood
+;;          "D403"]
+;;         lsp-pylsp-plugins-rope-autoimport-enabled t
+;;         lsp-pylsp-plugins-jedi-completion-include-params nil))
+
 (modify-syntax-entry ?_ "w")
 
 (setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
