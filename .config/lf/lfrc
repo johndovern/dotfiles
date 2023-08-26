@@ -80,7 +80,7 @@ cmd file_type %{{
 cmd open ${{
   case $(file --mime-type "$(readlink -f $fx)" -bL) in
     # image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar) setsid -f zathura $fx >/dev/null 2>&1 ;;
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar)
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript|application/zip|application/x-tar|application/epub*)
         setsid -f sioyek $fx >/dev/null 2>&1
         ;;
     text/*)
@@ -112,7 +112,7 @@ cmd open ${{
         setsid -f libreoffice $fx >/dev/null 2>&1
         ;;
     # application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-    application/pdf|application/vnd*|application/epub*)
+    application/pdf|application/vnd*)
         setsid -f zathura $fx >/dev/null 2>&1
         ;;
     application/pgp-encrypted)

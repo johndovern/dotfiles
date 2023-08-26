@@ -132,7 +132,7 @@ super + shift + n == st -e newsboat; pkill -RTMIN+6 dwmblocks
 
 super + m == wkx -p m
 
-super + shift + m == pamixer -t; kill -44 $(pidof dwmblocks)
+super + shift + m == wkx -p "m o"
 
 super + comma == wkx
 
