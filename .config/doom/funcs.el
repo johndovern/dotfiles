@@ -1,4 +1,5 @@
 ;;; funcs.el -*- lexical-binding: t; -*-
+(load! "util-funcs.el")
 
 (defun choose-buffer (&optional pattern)
   "Interactively choose an open buffer that matches the given PATTERN
@@ -40,7 +41,7 @@
 
 (defun execute-if-confirmed (func &optional arg prompt)
   "Execute FUNCTION with optional ARG if user confirms the action
-   with a 'y' response to PROMPT."
+   with a \=y\= response to PROMPT."
   (when (y-or-n-p prompt)
     (if arg
         (if (listp arg)
@@ -83,7 +84,8 @@
   (car (time-convert (car (current-time)) (cadr (current-time)))))
 
 (defun my-open-vterm ()
-  "Open a unique vterm window and resize it to take up 35% of the bottom of the screen."
+  "Open a unique vterm window and resize it to take up 35% of the bottom of the
+   screen."
   (interactive)
   (setq vterm-buffer-name (format "*vterm<%s>*" (my-get-current-unix-time)))
   (let* ((height (round (* 0.35 (window-total-height))))
@@ -286,23 +288,44 @@
                             value1
                             value2
                             value3)))
-              ;; )
-            ;; (let ((new-filename
-            ;;        (format "%s/%d-%02d.%02d___%s.org"
-            ;;                directory
-            ;;                (string-to-number filedate)
-            ;;                (string-to-number (match-string 1))
-            ;;                (string-to-number (match-string 2))
-            ;;                (replace-regexp-in-string
-            ;;                 "[ /]" "-"
-            ;;                 (downcase (match-string 3))))))
               (message "%s\n%s" filepath new-filename)
-              ;; (sit-for 2)
               (rename-file
                (expand-file-name filepath)
                (expand-file-name new-filename) t))
-               ;; filepath new-filename t))))
         (kill-buffer buffer)))))))
+
+(defun run-if-file-name-matches (file-pattern command)
+  "Run COMMAND if file-name matches FILE-PATTERN"
+  (when (buffer-file-name-match-p file-pattern)
+    (add-hook! 'after-save-hook :local
+      (run-shell-command-split-window command))))
+
+(defun run-after-saving (mode-hook file-pattern command)
+  "Add a hook for MODE-HOOK to run COMMAND afters saving files matching
+   FILE-PATTERN."
+  (add-hook mode-hook
+            (lambda ()
+              (run-if-file-name-matches file-pattern command))))
+
+(defun run-after-saving-unix-mode (file-pattern command)
+  "Run COMMAND after saving conf-unix-mode files matching FILE-PATTERN"
+  (run-after-saving 'conf-unix-mode-hook file-pattern command))
+
+(defun prompt-if-file-name-matches (file-pattern command)
+  "Prompt user if COMMAND should be run after saving files matching
+   FILE-PATTERN"
+  ;; TODO turn (when (stringp ...) (when ((string-match-p ...)))) into a function
+  (when (buffer-file-name-match-p file-pattern)
+    (add-hook! 'after-save-hook :local
+      (when (y-or-n-p (concat "Run " command " ?"))
+        (run-shell-command-split-window command)))))
+
+(defun maybe-run-after-saving (mode-hook file-pattern command)
+  "Add a hook for MODE-HOOK to prompt user after saving files macthing
+   FILE-PATTERN if COMMAND should be run."
+  (add-hook mode-hook
+            (lambda ()
+              (prompt-if-file-name-matches file-pattern command))))
 
 ;; (defun rename-org-file-based-on-header (directory)
 ;;   "Rename Org files in DIRECTORY based on the first header in the file."

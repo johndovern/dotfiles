@@ -24,8 +24,8 @@ while pidof tmux >/dev/null 2>&1; do
     pkill tmux
 done
 tmux new-session -s x-server -d &
-# Start emacs
-emacs --daemon &
+# # Start emacs
+# emacs --daemon &
 # Create mpc tmp dir
 [ ! -d "${MPC_TMP_DIR:-/tmp/mpc}" ] && {
     mkdir "${MPC_TMP_DIR:-/tmp/mpc}" && chmod 700 "${MPC_TMP_DIR:-/tmp/mpc}"

@@ -13,6 +13,8 @@ declare -a MANUAL_SOCKET CURRENTLY_PLAYING # ALL_SOCKETS
 export MUSIC_SOCKET="${MPV_MUSIC_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/music_socket}"
 export AMPV_SOCKET="${MPV_AMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/ampv_socket}"
 export UMPV_SOCKET="${MPV_UMPV_SOCKET:-${MPV_SOCKET_DIR:-/tmp/mpvSockets}/umpv_socket}"
+export TOGGLE_DIR="/tmp/mpc-toggle"
+export TOGGLE_FILE="$TOGGLE_DIR/last-toggled.txt"
 
 abort() {
     my_echo "USAGE: $*" >&2
@@ -21,6 +23,11 @@ abort() {
 
 my_echo() {
     [[ "$QUIET" -ne 1 ]] && echo "$*"
+}
+
+create_tmp_file() {
+    [[ -d "$TOGGLE_DIR" ]] && return 0
+    mkdir --mode '700' "$TOGGLE_DIR"
 }
 
 get_opts() {
@@ -83,8 +90,14 @@ smart_toggle() {
     fi
 }
 
+update_last_toggled() {
+    create_tmp_file
+    echo "mpv" >"$TOGGLE_FILE"
+}
+
 main() {
     get_opts "$@" || return 1
+    update_last_toggled
     [[ "${#MANUAL_SOCKET[@]}" -eq 0 ]] && {
         smart_toggle
         return $?

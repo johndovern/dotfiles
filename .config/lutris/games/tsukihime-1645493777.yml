@@ -4,5 +4,14 @@ game:
   prefix: ~/.local/share/wineprefixes/32bit
 system: {}
 wine:
+  battleye: false
+  d3d_extras: true
+  dxvk: true
+  dxvk_nvapi: true
+  eac: false
   esync: false
+  fsr: false
   fsync: false
+  system_winetricks: true
+  version: wine-ge-8-16-x86_64
+  vkd3d: true

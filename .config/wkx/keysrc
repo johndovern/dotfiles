@@ -53,7 +53,7 @@ super + r == st -n lf_run -e lfrun
 super + o == wkx -p o
 # super + shift + o bound in dwm
 
-super + p == pkill sb-music ; pkill sb-mpc-roll ; mpc-toggle
+super + p == media-toggle
 
 super + shift + p == mpc pause ; pauseallmpv
 
@@ -287,4 +287,5 @@ ctrl + alt + shift + Sys_Req == maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 
 # XF86 keys
 
-XF86AudioPlay == mpc-toggle
+XF86AudioPlay == media-toggle
+XF86AudioPause == media-toggle

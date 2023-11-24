@@ -40,6 +40,7 @@ map gls  cd ~/.local/src/st
 # ~/documents
 map gd.  cd ~/documents
 map gda  cd ~/documents/Archives
+map gdb  cd ~/documents/books
 map gdc  cd ~/documents/college
 map gdt  cd ~/documents/tmaster
 

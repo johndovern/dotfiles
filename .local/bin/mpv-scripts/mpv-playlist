@@ -21,7 +21,7 @@ get_opts() {
                 SHUFFLE=1
                 ;;
             -0 | --0_0)
-                PLAYLIST="$HOME/.config/mpv/playlists/thot_playlist_videos.m3u"
+                PLAYLIST="$HOME/.config/mpv/playlists/long_popular.m3u"
                 ;;
             -*)
                 OTHER_OPTIONS+=("$1")
@@ -36,6 +36,7 @@ get_opts() {
 
 mpv_open() {
     setsid -f mpv "${PLAYLIST[@]}" >/dev/null 2>&1
+    # mpv --playlist="${PLAYLIST[0]}" # >/dev/null 2>&1
     [[ "$SHUFFLE" -eq 1 ]] && {
         sleep 1.5
         mpv-opts "${OTHER_OPTIONS[@]}" --shuffle --now

@@ -1,3 +1,5 @@
 system:
   game_path: /home/anon/games
-wine: {}
+wine:
+  esync: false
+  fsync: false

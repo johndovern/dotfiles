@@ -2,7 +2,7 @@
 b Browser
     :b Open Brave == brave
     :f Open Firefox == firefox
-    :l Open Librewolf == GTK_USE_PORTAL=1 librewolf
+    :l Open Librewolf == librewolf
     # Mullvad-exclude browser
     :m Mullvad-exclude
         ::b Exclude Brave == mullvad-exclude brave
@@ -73,20 +73,20 @@ d Dmenu scripts
         ::y yt-opts == yt-opts "$(xclip -o -selection clipboard)"
 # Emacs binds
 e Emacs
-    :e Open blank == dwmc viewex 0 && emacsclient -c -a ''
+    :e Open blank == dwmc viewex 1 && emacsclient -c -a ''
     # Emacs projects prefix
     :p Projects
         # C projects
         ::c C projects
-            :::c Projects dir == dwmc viewex 0 && emacs "~/programs/C"
-            :::d dwm == dwmc viewex 0 && emacs "~/.local/src/dwm"
-            :::m dmenu == dwmc viewex 0 && emacs "~/.local/src/dmenu"
+            :::c Projects dir == dwmc viewex 1 && emacs "~/programs/C"
+            :::d dwm == dwmc viewex 1 && emacs "~/.local/src/dwm"
+            :::m dmenu == dwmc viewex 1 && emacs "~/.local/src/dmenu"
         # Python projects
         ::p Python projects
-            :::v vmt-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/vmt-dev"
-            :::w wkx-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/wkx-dev"
-            :::z znp-dev == dwmc viewex 0 && emacs "~/programs/python/Personal/znp-dev"
-        ::w wkx == dwmc viewex 0 && emacs "~/.config/wkx/bindsrc"
+            :::v vmt-dev == dwmc viewex 1 && emacs "~/programs/python/Personal/vmt-dev"
+            :::w wkx-dev == dwmc viewex 1 && emacs "~/programs/python/Personal/wkx-dev"
+            :::z znp-dev == dwmc viewex 1 && emacs "~/programs/python/Personal/znp-dev"
+        ::w wkx == dwmc viewex 1 && emacs "~/.config/wkx/bindsrc"
     :r Roam == emacsclient -c -a '' "$HOME/ewiki/20230620214854-startpage.org"
 # dfeed binds
 f dfeed
@@ -154,14 +154,14 @@ m mpv
         ::s Sticky == mpv-opts --sticky
         ::S Shuffle == mpv-opts --shuffle
     :p Prev == mpv-prev ; wkx -p "m s"
-    # Playlist prefix
-    :P Playlists
-        ::g ygyl == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
-        ::o anime groove == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
-        ::p 0_0 == mpv-playlist --shuffle --0_0
     :q quit pick == mpv-quit
     :Q Press Q == mpv-opts --press "Q"
     :t Smart toggle == mpv-toggle
+    # Playlist prefix
+    :y Playlists
+        ::g ygyl == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groove.m3u"
+        ::o anime groove == mpv-playlist --start-right --float-win --shuffle "$HOME/.config/mpv/playlists/groovy.m3u"
+        ::p 0_0 == mpv-playlist --shuffle --0_0
 # Music prefix
 n ncmpcpp
     :c Clear mpc == mpc clear
@@ -261,7 +261,7 @@ t Toggle
         ::S Sony disconnect == dmenubluetooth -d -s
         ::t Toggle Bluetooth == dmenubluetooth -t
     :m mpv == mpv-toggle
-    :n mpc == mpc-toggle
+    :n mpc == media-toggle mpc
     :u umpv == mpv-toggle --umpv
 # umpv binds
 u umpv

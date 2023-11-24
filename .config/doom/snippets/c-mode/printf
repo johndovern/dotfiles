@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: printf
-# uuid: p
-# key: p
+# uuid: printf
+# key: printf
 # condition: t
 # --
 printf("${1:format}"${2:, $3});

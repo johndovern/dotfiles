@@ -50,6 +50,7 @@ set searchurls.ny https://nyaa.si/?s=seeders&o=desc&q=
 set searchurls.yi https://yandex.com/images/search?text=
 set searchurls.an https://amazon.com/s?k=
 set searchurls.bs https://search.brave.com/search?q=
+set searchurls.ms https://mangasee123.com/search/?name=
 
 " Costom binds
 

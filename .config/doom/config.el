@@ -16,13 +16,18 @@
 (defconst my-c++-style
   '("bsd"
     (c-basic-offset . 4)
+    (c-hanging-braces-alist . ((arglist-close before)))
     (c-offsets-alist . ((namespace-open . 0)
                         (innamespace . 0)
-                        (label . 0)
-                        (access-label . 0)
+                        (label . -)
+                        (access-label . -)
                         (inclass . +)
                         (substatement-label . 0)
-                        (case-lable . 0)))))
+                        (case-lable . 0)
+                        (arglist-intro . +)
+                        ;; (arglist-cont . +)
+                        ;; (arglist-cont-nonempty . +)
+                        (arglist-close . 0)))))
 (defun my-c++-mode-hook ()
   (c-add-style "my-c++-style" my-c++-style)
   (c-set-style "my-c++-style")
@@ -36,6 +41,37 @@
        lsp-ui-sideline-enable t
        c-basic-offset 4
        tab-width 4)
+
+;; close dap-output on exit
+(add-hook 'dap-terminated-hook #'debug-cleanup-output)
+(after! dap-mode
+  (dap-register-debug-template
+   "cpptools::Run"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run"
+         :args []
+         :MIMode "gdb"
+         :program "${workspaceFolder}/"
+         :cwd     "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::clox::cli"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::clox::cli"
+         :args []
+         :MIMode "gdb"
+         :program "${workspaceFolder}/clox"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::clox::script"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::clox::script"
+         :args ["./script.lox"]
+         :MIMode "gdb"
+         :program "${workspaceFolder}/clox"
+         :cwd "${workspaceFolder}")))
 
 (setq +doom-dashboard-pwd-policy "~/"
       fancy-splash-image "~/.config/doom/doom-emacs-dash.png")
@@ -56,12 +92,87 @@
       company-idle-delay 0.0) ;; default is 0.2
 
 (setq lsp-signature-doc-lines 5)
-(setq +lsp-company-backends
-      '(:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev))
+(after! company
+  (setq +company-backend-alist
+        '((company-files
+           company-capf
+           :with
+           company-yasnippet
+           :separate))))
+(after! lsp
+  (setq +lsp-company-backends
+        '(company-files
+          company-capf
+          :with
+          company-yasnippet
+          :separate)))
+(add-hook! 'prog-mode-hook
+  (setq +lsp-company-backends
+        '(company-files
+          company-capf
+          :with
+          company-yasnippet
+          :separate)))
 (setq company-backends
-      '((:separate company-files company-capf company-yasnippet company-dabbrev-code company-dabbrev)))
+      '((company-files
+         company-capf
+         :with
+         company-yasnippet
+         company-keywords
+         company-dict
+         company-dabbrev-code
+         company-dabbrev
+         :separate)))
 (add-hook! 'lsp-completion-mode-hook
-           (setf (alist-get 'lsp-capf completion-category-defaults) '((styles . (basic)))))
+  (setf (alist-get 'lsp-capf completion-category-defaults) '((styles . (basic)))))
+;; (remove-hook 'lsp-completion-mode-hook '+lsp-init-company-backends-h)
+;; (add-hook 'lsp-completion-mode-hook
+;;           (defun +lsp-init-company-backends-h ()
+;;             (if lsp-completion-mode
+;;                 (progn
+;;                   ;; (setq +lsp-company-backends '(company-capf :with company-yasnippet))
+;;                   (setq +lsp-company-backends '(:separate company-files company-capf))
+;;                   (set
+;;                    (make-local-variable 'company-backends)
+;;                    (cons +lsp-company-backends
+;;                          (remove +lsp-company-backends
+;;                                  (->> company-backends
+;;                                       (remq 'company-yasnippet)
+;;                                       (remq 'company-capf)))))))))
+;; (setq +company-backend-alist
+;;       '((text-mode (:separate company-dabbrev company-yasnippet company-ispell))
+;;         (prog-mode company-capf company-yasnippet)
+;;         (conf-mode company-capf company-dabbrev-code company-yasnippet)))
+;; (after! company
+;;   (setq +company-backend-alist
+;;         '((:separate company-files company-capf))))
+;; (after! lsp
+;;   (if (modulep! :editor snippets)
+;;       (setq +lsp-company-backends '(:separate company-files company-capf company-yasnippet))
+;;     (setq +lsp-company-backends '(:separate company-files company-capf))))
+;; (after! lsp
+;;   (setq +lsp-company-backends
+;;         '(:separate company-files company-capf)))
+;; (add-hook! 'prog-mode-hook
+;;   (setq +lsp-company-backends '(:separate company-files company-capf)))
+;; (defvar +lsp-company-backends
+;;   (if (modulep! :editor snippets)
+;;       '(:separate company-capf company-yasnippet)
+;;     'company-capf)
+;; (setq +lsp-company-backends
+;;       '(company-files
+;;         company-capf
+;;         company-dabbrev-code
+;;         company-dabbrev
+;;         company-yasnippet))
+;; (setq company-backends
+;;       '((:separate
+;;          company-files
+;;          company-keywords
+;;          company-dict
+;;          company-yasnippet
+;;          company-dabbrev-code
+;;          company-dabbrev)))
 
 ;; (after! lsp-pylsp
 ;;   (setq lsp-pylsp-plugins-pydocstyle-ignore
@@ -126,7 +237,7 @@
 
 ;; Get file icons in dired
 (add-hook! 'dired-mode-hook
-           'all-the-icons-dired-mode
+           ;; 'all-the-icons-dired-mode
            'dired-hide-details-mode)
 
 (setq doom-font (font-spec :font "Monospace" :size 18)
@@ -151,7 +262,7 @@
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
 
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type nil)
 
 (set-face-attribute 'mode-line nil :font "Monospace")
 
@@ -178,38 +289,30 @@
 (require 'dap-gdb-lldb)
 (setq dap-ui-locals-expand-depth t)
 (setq dap-auto-show-output nil)
-(add-hook 'dap-stopped-hook
+(add-hook 'dap-terminated-hook
           (lambda (arg) (call-interactively #'dap-hydra)))
 
 (setq hscroll-margin 6)
 
-(add-hook! 'conf-unix-mode-hook
-  (when (stringp buffer-file-name)
-      (when (string-match-p "/keysrc$" buffer-file-name)
-          (add-hook! 'after-save-hook :local
-            (shell-command-to-string "kill -SIGUSR1 \"$(pidof wkx)\"")))
-      (when (string-match-p "/bindsrc$" buffer-file-name)
-        (add-hook! 'after-save-hook :local
-          (run-shell-command-split-window "wkx-update --binds")))
-      (when (string-match-p "/keysrc$" buffer-file-name)
-        (add-hook! 'after-save-hook :local
-          (run-shell-command-split-window "wkx-update --keys")))
-      (when (string-match-p "/wkxrc$" buffer-file-name)
-        (add-hook! 'after-save-hook :local
-          (run-shell-command-split-window "wkx-update --conf")))))
+(run-after-saving-unix-mode "/bindsrc$" "wkx-update --binds")
+(run-after-saving-unix-mode "/keysrc$" "wkx-update --keys")
 
 (add-to-list 'auto-mode-alist '("xresources" . conf-mode))
-(add-hook! 'conf-mode-hook
-  (when (stringp buffer-file-name)
-    (when (string-match-p "/xresources$" buffer-file-name)
-      (add-hook! 'after-save-hook :local
-        (shell-command "xrdb \"$HOME/.config/x11/xresources\"")))))
+(run-after-saving 'conf-mode-hook "/xresources$"
+                  "xrdb \"$HOME/.config/x11/xresources\"")
+(maybe-run-after-saving 'c-mode-hook "/config\.h$" "dwmup")
+;; (add-hook! 'conf-mode-hook
+;;   (when (stringp buffer-file-name)
+;;     (when (string-match-p "/xresources$" buffer-file-name)
+;;       (add-hook! 'after-save-hook :local
+;;         (shell-command "xrdb \"$HOME/.config/x11/xresources\"")))))
 
-(add-hook! 'conf-unix-mode-hook
-  (when (stringp buffer-file-name)
-      (if (string-match-p "/dunstrc$" buffer-file-name)
-          (add-hook! 'after-save-hook :local
-            (shell-command-to-string "systemctl --user restart dunst.service")))))
+(run-after-saving-unix-mode "/dunstrc$" "systemctl --user restart dunst.service")
+;; (add-hook! 'conf-unix-mode-hook
+;;   (when (stringp buffer-file-name)
+;;       (if (string-match-p "/dunstrc$" buffer-file-name)
+;;           (add-hook! 'after-save-hook :local
+;;             (shell-command-to-string "systemctl --user restart dunst.service")))))
 
 ;; (setq spell-fu-ignore-modes '(org-mode org-roam-mode))
 ;; (after! (:or org org-roam)
@@ -361,7 +464,7 @@
       :desc "Zap up to char" "Z" #'zap-up-to-char)
 
 (defun my-c-hook-settings ()
-  (setq-local +format-on-save-enabled-modes nil)
+  (setq-local +format-with-lsp nil)
   (setq c-basic-offset 4))
 (add-hook! '(c-mode-hook c++-mode-hook)
            #'my-c-hook-settings)
@@ -382,8 +485,8 @@
       :desc "Previous workspace"         "TAB h" #'+workspace/switch-left
       :desc "Previous workspace"         "TAB l" #'+workspace/switch-right
       :desc "Toggle syntax highlighting" "t h"   #'tree-sitter-hl-mode
-      :desc "Toggle treemacs"            "t r"   #'treemacs
-      :desc "Toggle theme"               "t d"   #'toggle-my-theme)
+      :desc "Toggle treemacs"            "t r"   #'treemacs)
+      ;; :desc "Toggle theme"               "t d"   #'toggle-my-theme)
 
 (map! :leader
       :desc "Quit Emacs"   "q e" #'save-buffers-kill-terminal
@@ -405,6 +508,7 @@
 
 (map! :after evil
       :map evil-normal-state-map
+      "q q"     #'evil-fill-and-move
       "Q"       #'evil-fill-and-move)
 
 (defadvice! prompt-for-buffer (&rest _)
@@ -449,7 +553,7 @@
       :desc "Find node" "f n" #'org-roam-node-find
       "n l" nil
       (:prefix ("n" . "notes")
-       (:prefix ("l" . "+links")
+       (:prefix ("l" . "links")
         :desc "Yank link"  "y" #'org-store-link
         :desc "Paste link" "p" #'org-insert-link)))
 
@@ -464,14 +568,3 @@
 
 (map! :leader
       :desc "Get files" "c g" (lambda () (interactive) (run-command-in-vterm "grep -R")))
-
-;; close dap-output on exit
-(add-hook 'dap-terminated-hook #'debug-cleanup-output)
-(dap-register-debug-template
- "cpptools::Run"
- (list :type "cppdbg"
-       :request "launch"
-       :name "cpptools::Run"
-       :MIMode "gdb"
-       :program "${workspaceFolder}/"
-       :cwd     "${workspaceFolder}"))
