@@ -4,14 +4,14 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 # Set DPI. User may want to use a larger number for larger screens.
-if xrandr --listmonitors | grep "Monitors: 1"; then
-  xrandr --dpi 120 &
-  sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 120/' "$HOME/.config/x11/xresources"
-else
-  xrandr --dpi 96 &
-  pidof -s monitor_setup.sh || setsid -f monitor_setup.sh
-  sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 96/' "$HOME/.config/x11/xresources"
-fi
+# if xrandr --listmonitors | grep "Monitors: 1"; then
+#   xrandr --dpi 120 &
+#   sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 120/' "$HOME/.config/x11/xresources"
+# else
+  xrandr --dpi 150 &
+  pidof -s monitor_setup_4k.sh || setsid -f monitor_setup_4k.sh
+#   sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 96/' "$HOME/.config/x11/xresources"
+# fi
 # set the background with the `setbg` script
 setbg &
 # Uncomment to use Xresources colors/settings on startup

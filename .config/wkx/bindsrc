@@ -19,9 +19,9 @@ b Browser
 # Client binds
 c Client
     :l Tag Right == dwmc shifttag +1 ; dwmc shiftview +1 ; wkx -p "c"
-    :L Mon Right == dwmc tagnmon 1
+    :L Mon Right == dwmc tagnmon 0
     :h Tag Left == dwmc shifttag -1 ; dwmc shiftview -1 ; wkx -p "c"
-    :H Mon Left == dwmc tagnmon 0
+    :H Mon Left == dwmc tagnmon 1
     # Tag & follow prefix
     :m Tag & follow
         ::a Tag 1 == sleep 0.2 ; dwmc tagex 0 ; dwmc viewex 0
@@ -245,11 +245,11 @@ s System
         ::L Leave dwm == sysact Leave-dwm
         ::R Reboot == sysact Reboot
         ::S shutdown == sysact Shutdown
-    :h Hide == dwmc focusnmon 1 ; dwmc viewex 0 ; dwmc focusnmon 0
+    :h Hide == dwmc focusnmon 0 ; dwmc viewex 0 ; dwmc focusnmon 1
     :l Lock == sleep 0.1 ; sysact Lock
     :r Renew dwm == sysact Renew-dwm
     :s Sleep == sysact Sleep
-    :u Unhide == dwmc focusnmon 1 ; dwmc viewex 8 ; dwmc focusnmon 0
+    :u Unhide == dwmc focusnmon 0 ; dwmc viewex 8 ; dwmc focusnmon 1
 # Toggle prefix
 t Toggle
     :a Pause all == mpc pause ; pauseallmpv

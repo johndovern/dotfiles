@@ -69,3 +69,4 @@
 (package! kbd-mode
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
+(package! autothemer)

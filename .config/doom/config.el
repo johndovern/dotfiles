@@ -71,6 +71,24 @@
          :args ["./script.lox"]
          :MIMode "gdb"
          :program "${workspaceFolder}/clox"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::wkx-parser::binds"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::wkx-parser::debug"
+         :args ["-b" "./examplerc"]
+         :MIMode "gdb"
+         :program "${workspaceFolder}/wkx-parser"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::wkx-parser::debug"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::wkx-parser::debug"
+         :args ["-d" "./examplerc"]
+         :MIMode "gdb"
+         :program "${workspaceFolder}/wkx-parser"
          :cwd "${workspaceFolder}")))
 
 (setq +doom-dashboard-pwd-policy "~/"
@@ -234,17 +252,33 @@
 
 ;; (setq doom-theme 'doom-one)
 (setq doom-theme 'doom-kanagawa)
+;; (add-hook! 'highlight-indent-guides-mode-hook
+;;   (doom/reload-theme))
+;; (add-hook! 'highlight-indent-guides-mode-hook
+;;   (remove-hook! 'highlight-indent-guides-mode-hook
+;;     #'doom/reload-theme))
+;; (setq my-theme-reloaded nil)
+(add-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+           #'my-reload-theme)
+;; (add-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+;;            #'doom/reload-theme)
+;; (add-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+;;   (remove-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+;;     #'doom/reload-theme))
+;; (after! indent-guides
+;;   (setq doom-theme 'doom-kanagawa))
 
 ;; Get file icons in dired
+;; "-ahl -v --group-directories-first"
 (add-hook! 'dired-mode-hook
            ;; 'all-the-icons-dired-mode
            'dired-hide-details-mode)
 
-(setq doom-font (font-spec :font "Monospace" :size 18)
+(setq doom-font (font-spec :font "Monospace" :size 14.0)
       doom-big-font (font-spec :font "Monospace" :size 36)
-      doom-variable-pitch-font (font-spec :font "Sans" :size 18)
-      doom-unicode-font (font-spec :font "Monospace" :size 18)
-      doom-serif-font (font-spec :font "Monospace" :size 18))
+      doom-variable-pitch-font (font-spec :font "Sans" :size 14.0)
+      doom-symbol-font (font-spec :font "Monospace" :size 14.0)
+      doom-serif-font (font-spec :font "Monospace" :size 14.0))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -348,6 +382,8 @@
         (kbd "g h") 'ibuffer-do-kill-lines
         (kbd "g H") 'ibuffer-update)
 
+(after! dired
+  (setq dired-listing-switches "-ahl --group-directories-first"))
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Dired jump to current" "j" #'dired-jump)
@@ -492,16 +528,17 @@
       :desc "Quit Emacs"   "q e" #'save-buffers-kill-terminal
       :desc "Delete frame" "q q" #'save-buffers-kill-emacs)
 
-(map! :localleader
-      :map org-mode-map
-      (:prefix ("m" . "my maps")
-       (:prefix ("e" . "export")
-        :desc "Export to gfm" "g" #'org-pandoc-export-to-gfm
-        :desc "Export as gfm" "G" #'org-pandoc-export-as-gfm)))
+;; (map! :localleader
+;;       :map org-mode-map
+;;       (:prefix ("m" . "my maps")
+;;        (:prefix ("e" . "export")
+;;         :desc "Export to gfm" "g" #'org-pandoc-export-to-gfm
+;;         :desc "Export as gfm" "G" #'org-pandoc-export-as-gfm)))
 
 (map! :leader
-      :desc "Toggle line numbers" "t L" #'doom/toggle-line-numbers
-      :desc "Toggle lsp server (restart)" "t l" #'lsp-workspace-restart)
+      (:prefix ("t" . "toggle")
+       :desc "Toggle line numbers" "L" #'doom/toggle-line-numbers
+       :desc "Toggle lsp server"   "l" #'lsp-workspace-restart))
 
 (evil-global-set-key 'insert (kbd "M-v") 'evil-paste-before)
 (evil-global-set-key 'insert (kbd "C-e") 'evil-scroll-line-to-center)

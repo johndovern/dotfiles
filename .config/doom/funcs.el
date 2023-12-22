@@ -327,6 +327,15 @@
             (lambda ()
               (prompt-if-file-name-matches file-pattern command))))
 
+;; reload my theme for gay bullshit
+(defvar my-theme-reloaded 0)
+(defun my-reload-theme ()
+  "Reload my theme if needed"
+  (if (< my-theme-reloaded 2)
+      ((lambda ()
+         (doom/reload-theme)
+         (setq my-theme-reloaded (1+ my-theme-reloaded))))))
+
 ;; (defun rename-org-file-based-on-header (directory)
 ;;   "Rename Org files in DIRECTORY based on the first header in the file."
 ;;   (interactive (list (read-directory-name "Directory: " default-directory)))
