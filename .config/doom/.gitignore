@@ -12,5 +12,6 @@
 !init.el
 #init.el.bak
 !packages.el
+!packages
 !snippets
 !themes

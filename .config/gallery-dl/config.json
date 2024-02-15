@@ -2,6 +2,42 @@
     "extractor":
     {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0",
+        "retries": 4,
+        "timeout": 30.0,
+        "verify": true,
+        "fallback": true,
+
+        "sleep": 0,
+        "sleep-request": 0,
+        "sleep-extractor": 0,
+
+        "path-restrict": "auto",
+        "path-replace": "_",
+        "path-remove": "\\u0000-\\u001f\\u007f",
+        "path-strip": "auto",
+        "path-extended": true,
+
+        "extension-map": {
+            "jpeg": "jpg",
+            "jpe" : "jpg",
+            "jfif": "jpg",
+            "jif" : "jpg",
+            "jfi" : "jpg"
+        },
+
+        "#": "replace invalid path characters with unicode alternatives",
+        "path-restrict": {
+            "\\": "⧹",
+            "/" : "⧸",
+            "|" : "￨",
+            ":" : "꞉",
+            "*" : "∗",
+            "?" : "？",
+            "\"": "″",
+            "<" : "﹤",
+            ">" : "﹥"
+        },
+
         "artstation":
         {
             "external": false,
@@ -12,6 +48,11 @@
             "username": null,
             "password": null,
             "recursive": true
+        },
+        "batoto":
+        {
+            "directory": ["{chapter:>03}{chapter_minor|_lit[.0]}"],
+            "filename": "{num|page:>03}.{extension}"
         },
         "bbc": {
             "width": 1920
@@ -143,7 +184,14 @@
         },
         "mangadex":
         {
-            "lang": "en"
+            "lang": "en",
+            "directory": ["{chapter:>03}{chapter_minor|_lit[.0]}"],
+            "filename": "{num|page:>03}.{extension}"
+        },
+        "mangasee":
+        {
+            "directory": ["{chapter:>03}{chapter_minor|_lit[.0]}"],
+            "filename": "{num|page:>03}.{extension}"
         },
         "mangoxo":
         {

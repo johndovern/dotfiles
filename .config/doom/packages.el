@@ -70,3 +70,10 @@
   :recipe (:host github
            :repo "kmonad/kbd-mode"))
 (package! autothemer)
+(package! pacfiles-mode)
+(package! wks-mode
+  :recipe (:local-repo "packages/wks-mode"
+           :build (:not compile)))
+(package! meson-mode
+  :recipe (:host github
+           :repo "wentasah/meson-mode"))

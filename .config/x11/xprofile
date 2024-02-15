@@ -8,8 +8,7 @@
 #   xrandr --dpi 120 &
 #   sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 120/' "$HOME/.config/x11/xresources"
 # else
-  xrandr --dpi 150 &
-  pidof -s monitor_setup_4k.sh || setsid -f monitor_setup_4k.sh
+pidof -s monitor_setup_2k.sh || setsid -f monitor_setup_2k.sh
 #   sed -i 's/Xft\.dpi.*$/Xft\.dpi\: 96/' "$HOME/.config/x11/xresources"
 # fi
 # set the background with the `setbg` script
@@ -43,11 +42,14 @@ setsid -f unclutter --ignore-scrolling
 
 # autostart="mpd remaps xcompmgr dunst unclutter"
 # autostart="mpd remaps dunst"
-autostart="mpd remaps dunst dwmblocks"
+autostart="mpd remaps dunst"
 
 for program in $autostart; do
   pidof -s "$program" || setsid -f "$program"
 done >/dev/null 2>&1
+
+killall -q dwmblocks
+setsid -f dwmblocks-script
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"

@@ -39,6 +39,11 @@ Can be an integer to determine the exact padding."
   :group 'doom-kanagawa-theme
   :type '(choice integer boolean))
 
+(defcustom doom-kanagawa-red-cursor nil
+  "If non-nil, cursor will be red."
+  :group 'doom-kanagawa-theme
+  :type 'boolean)
+
 
 ;;
 ;;; Theme definition
@@ -202,7 +207,7 @@ Can be an integer to determine the exact padding."
 
 
   ;;;; Base theme face overrides
-  ((cursor :background fg-alt)
+  ((cursor :background (if doom-kanagawa-red-cursor red fg-alt))
    ((line-number &override) :foreground base5)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
@@ -215,13 +220,13 @@ Can be an integer to determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-kanagawa-brighter-modeline base8 highlight))
 
-   ;;;; Whitespace-indentation
+   ;;;; indent-guides
    (highlight-indent-guides-character-face :foreground base4)
    (highlight-indent-guides-top-character-face :foreground base4)
    (highlight-indent-guides-stack-character-face :foreground base4)
 
    ;;;; evil-snipe
-   (evil-snipe-first-match-face :foreground bg-alt :background blue)
+   (evil-snipe-first-match-face :foreground (if doom-kanagawa-red-cursor red blue) :background bg-alt)
 
    ;;;; treesitter
    ;; (tree-sitter-hl-face:function.call   :foreground dragonOrange)

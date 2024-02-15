@@ -2,6 +2,7 @@
 %[ $LF_LEVEL -eq 1 ] || echo "Warning: You're in a nested lf instance"
 
 # Bindings
+# map ,j   %xdotool key ctrl+b j
 map ,am  animove
 map ,bs  bscript
 map ,ce  cred
@@ -25,8 +26,11 @@ map ,rf  replace_files
 map ,T   track
 map ,ts  $cd ~/.local/bin/scripts ; nvim tscript
 map ,ut  untar
+map ,yb  yank-basename
 map ,yp  yank-path
 map ,yd  yank-dirname
+map ,sf  fzf_search
+map ,/   fzf_jump
 
 map <a-z> $sudo make uninstall && sudo make clean install && renew-dwm
 
@@ -63,6 +67,32 @@ cmd cred ${{
   printf "file name: "
   read ans
   [ ! -e $ans ] && nvim $ans
+}}
+
+cmd fzf_jump ${{
+    clear; tput cup $(($(tput lines)/10 * 6))
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' --height 60%)"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+
+cmd fzf_search ${{
+    clear; tput cup $(($(tput lines)/10 * 6))
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
 }}
 
 cmd lf_chmod ${{
@@ -166,3 +196,5 @@ cmd untar ${{
 cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
 
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+
+cmd yank-basename $basename -- "$f" | head -c-1 | xclip -i -selection clipboard

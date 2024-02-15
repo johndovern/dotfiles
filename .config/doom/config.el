@@ -73,6 +73,33 @@
          :program "${workspaceFolder}/clox"
          :cwd "${workspaceFolder}"))
   (dap-register-debug-template
+   "cpptools::Run::wk::args"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::wk::args"
+         :args ["--fg"]
+         :MIMode "gdb"
+         :program "${workspaceFolder}/wk"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::wk::chordFile"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::wk::chordFile"
+         :args ["-D" "--chords" "./example.wks"]
+         :MIMode "gdb"
+         :program "${workspaceFolder}/wk"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
+   "cpptools::Run::wk::main"
+   (list :type "cppdbg"
+         :request "launch"
+         :name "cpptools::Run::wk::main"
+         :args []
+         :MIMode "gdb"
+         :program "${workspaceFolder}/wk"
+         :cwd "${workspaceFolder}"))
+  (dap-register-debug-template
    "cpptools::Run::wkx-parser::binds"
    (list :type "cppdbg"
          :request "launch"
@@ -107,7 +134,7 @@
 
 ;; (setq company-statistics-mode t)
 (setq company-minimum-prefix-length 2
-      company-idle-delay 0.0) ;; default is 0.2
+      company-idle-delay 0.2) ;; default is 0.2
 
 (setq lsp-signature-doc-lines 5)
 (after! company
@@ -274,11 +301,11 @@
            ;; 'all-the-icons-dired-mode
            'dired-hide-details-mode)
 
-(setq doom-font (font-spec :font "Monospace" :size 14.0)
+(setq doom-font (font-spec :font "Monospace" :size 15.0)
       doom-big-font (font-spec :font "Monospace" :size 36)
-      doom-variable-pitch-font (font-spec :font "Sans" :size 14.0)
-      doom-symbol-font (font-spec :font "Monospace" :size 14.0)
-      doom-serif-font (font-spec :font "Monospace" :size 14.0))
+      doom-variable-pitch-font (font-spec :font "Sans" :size 15.0)
+      doom-symbol-font (font-spec :font "Monospace" :size 15.0)
+      doom-serif-font (font-spec :font "Monospace" :size 15.0))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -286,6 +313,7 @@
         doom-themes-treemacs-enable-variable-pitch nil
         doom-themes-treemacs-theme 'doom-kanagawa
         doom-kanagawa-brighter-comments t
+        doom-kanagawa-red-cursor t
         doom-one-light-brighter-comments t
         doom-one-brighter-comments t))
 
@@ -334,14 +362,14 @@
 (add-to-list 'auto-mode-alist '("xresources" . conf-mode))
 (run-after-saving 'conf-mode-hook "/xresources$"
                   "xrdb \"$HOME/.config/x11/xresources\"")
-(maybe-run-after-saving 'c-mode-hook "/config\.h$" "dwmup")
+;; (maybe-run-after-saving 'c-mode-hook "/config\.h$" "dwmup")
 ;; (add-hook! 'conf-mode-hook
 ;;   (when (stringp buffer-file-name)
 ;;     (when (string-match-p "/xresources$" buffer-file-name)
 ;;       (add-hook! 'after-save-hook :local
 ;;         (shell-command "xrdb \"$HOME/.config/x11/xresources\"")))))
 
-(run-after-saving-unix-mode "/dunstrc$" "systemctl --user restart dunst.service")
+(run-after-saving-unix-mode "/dunstrc$" "pkill dunst; systemctl --user restart dunst.service")
 ;; (add-hook! 'conf-unix-mode-hook
 ;;   (when (stringp buffer-file-name)
 ;;       (if (string-match-p "/dunstrc$" buffer-file-name)
@@ -383,7 +411,7 @@
         (kbd "g H") 'ibuffer-update)
 
 (after! dired
-  (setq dired-listing-switches "-ahl --group-directories-first"))
+  (setq dired-listing-switches "-ahvl --group-directories-first"))
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Dired jump to current" "j" #'dired-jump)
@@ -545,6 +573,7 @@
 
 (map! :after evil
       :map evil-normal-state-map
+      "C-z"     nil
       "q q"     #'evil-fill-and-move
       "Q"       #'evil-fill-and-move)
 
@@ -552,6 +581,8 @@
   :after '(evil-window-split evil-window-vsplit)
   (consult-buffer))
 
+(global-set-key (kbd "C-z") nil)
+(map! :im "C-z" nil)
 (map! :leader
       "h" nil
       :desc "Help" "H" help-map

@@ -7,19 +7,19 @@
 /* fc-list > fonts.txt */
 /* and search for your desired font name in that file */
 St.font:  monospace:size=14
-St.font1: IPAGothic:pixelsize=24:antialias=true:autohint=true
-St.font2: Source Han Sans JP:pixelsize=24:antialias=true:autohint=true
-St.font3: M+ 1c:pixelsize=24:antialias=true:autohint=true
-St.font4: Joypixels:pixelsize=16:antialias=true:autohint=true
+St.font1: IPAGothic:pixelsize=22:antialias=true:autohint=true
+St.font2: Source Han Sans JP:pixelsize=22:antialias=true:autohint=true
+St.font3: M+ 1c:pixelsize=22:antialias=true:autohint=true
+St.font4: Joypixels:pixelsize=14:antialias=true:autohint=true
 
-dmenu.font:  monospace:size=12
+dmenu.font:  monospace:size=14
 dmenu.font1: IPAGothic:pixelsize=16:antialias=true:autohint=true
 dmenu.font2: Source Han Sans JP:pixelsize=16:antialias=true:autohint=true
 dmenu.font3: M+ 1c:pixelsize=16:antialias=true:autohint=true
 dmenu.font4: Joypixels:pixelsize=14:antialias=true:autohint=true
 
 /* hiDPI setting */
-Xft.dpi: 150
+Xft.dpi: 96
 Xft.antialias: 1
 Xft.hinting: 1
 Xft.autohint: false

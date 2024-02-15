@@ -8,7 +8,7 @@
     horizontal_padding = 8
     frame_width = 3
     transparency = 10
-    font = monospace 12
+    font = monospace 13
     format = "<b>%s</b>\n%b"
 
 [urgency_low]

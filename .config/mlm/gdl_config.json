@@ -2,6 +2,6 @@
     "extractor":
     {
         "directory": ["{chapter:>03}{chapter_minor|_lit[.0]}"],
-        "filename": "{page:>03}"
+        "filename": "{num|page:>03}.{extension}"
     }
 }

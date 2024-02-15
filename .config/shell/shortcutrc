@@ -10,7 +10,6 @@ m="cd /home/anon/music && ls -a" \
 mn="cd /mnt && ls -a" \
 pp="cd /home/anon/pictures && ls -a" \
 sc="cd /home/anon/.local/bin && ls -a" \
-src="cd /home/anon/.local/src && ls -a" \
 vv="cd /home/anon/videos && ls -a" \
 bf="$EDITOR /home/anon/.config/shell/bm-files" \
 bd="$EDITOR /home/anon/.config/shell/bm-dirs" \

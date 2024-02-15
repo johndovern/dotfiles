@@ -5,14 +5,16 @@ case "$(readlink -f /sbin/init)" in
   *) ctl='loginctl' ;;
 esac
 
-actions=("Lock"
-  "Leave-dwm"
+actions=(
+  "Lock"
+  "Leave dwm"
   "Reboot"
   "Hibernate"
   "Sleep"
-  "Renew-dwm"
+  "Renew dwm"
   "Shutdown"
-  "Display-off"
+  "Safe Shutdown"
+  "Display off"
 )
 
 [ "$#" -eq 1 ] && SYS_ACTION="$1"
@@ -26,10 +28,10 @@ case "$SYS_ACTION" in
     xset dpms force off
     slock
     ;;
-  'Leave-dwm')
+  'Leave dwm')
     kill -TERM "$(pgrep -u "$USER" "\bdwm$")"
     ;;
-  'Renew-dwm')
+  'Renew dwm')
     kill -HUP "$(pgrep -u "$USER" "\bdwm$")"
     if xdotool search --name -- "Passwords - KeePassXC" >/dev/null 2>&1; then
       sleep 1 && keepasshide
@@ -48,7 +50,10 @@ case "$SYS_ACTION" in
     st -e key-zip 1
     ;;
   'Shutdown')
-    st -e poweroff
+    st -e shutdown now
+    ;;
+  'Safe Shutdown')
+    st -e key-zip 0
     ;;
   'Display-off')
     xset dpms force off
