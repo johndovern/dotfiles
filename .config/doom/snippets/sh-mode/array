@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: array
+# uuid: rearray
+# key: rearray
+# condition: t
+# --
+TMP_IFS=$IFS
+IFS=$'\n' read -r -d '' -a ${1:VAR} < <(${2:command} && printf '\0')
+IFS=$TMP_IFS
