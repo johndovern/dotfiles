@@ -6,3 +6,4 @@
 !features
 !keymap.c
 #keymap.c.bak
+!rules.mk
