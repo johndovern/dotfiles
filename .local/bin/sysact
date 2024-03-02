@@ -55,7 +55,7 @@ case "$SYS_ACTION" in
   'Safe Shutdown')
     st -e key-zip 0
     ;;
-  'Display-off')
+  'Display off')
     xset dpms force off
     ;;
   *) exit 1 ;;

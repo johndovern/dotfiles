@@ -8,22 +8,35 @@ enum custom_keycodes {
     LLOCK,
 };
 
+// Tap Dance declarations
+enum {
+    TD_BEG_END,
+};
+
+// Tap Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_BEG_END] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_DLR),
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
     switch (keycode) {
     case MAC_ZZ:
-        if (record->event.pressed) {
+        if (record->event.pressed)
+        {
             SEND_STRING("ZZ");
         }
         break;
-
     case MAC_ZQ:
-        if (record->event.pressed) {
+        if (record->event.pressed)
+        {
             SEND_STRING("ZQ");
         }
         break;
     case MAC_CW:
-        if (record->event.pressed) {
+        if (record->event.pressed)
+        {
            SEND_STRING(":w\n");
         }
         break;
@@ -43,8 +56,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define _NUM    5
 #define _SYM    6
 #define _FUN    7
-#define _MANGA  8
-#define _SYMBL  9
+#define _BOOT   8
 
 // Some basic macros
 #define TASK   LCTL(LSFT(KC_ESC))
@@ -65,16 +77,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define SHF_BKS SFT_T(KC_BSPC)
 #define SH_LBRC S(KC_LBRC)
 #define SH_RBRC S(KC_RBRC)
+#define ALT_COM A(KC_COMM)
 
 // CTRL Keys
 #define CTL_BSL CTL_T(KC_BSLS)
 #define CTL_SPC CTL_T(KC_SPC)
 #define KC_TMUX C(KC_B)
-
-// Layer Keys
-#define MANG_Q  LT(_MANGA, KC_Q)
-#define SYM_ESC LT(_SYMBL, KC_ESC)
-#define SYM_PER LT(_SYMBL, KC_LPRN)
 
 // Base home row
 #define LS_T    SFT_T(KC_T)
@@ -85,12 +93,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define CTL_I   CTL_T(KC_I)
 #define ALT_A   ALT_T(KC_A)
 #define ALT_O   ALT_T(KC_O)
-#define MEH_C   MEH_T(KC_C)
-#define MEH_COM MEH_T(KC_COMM)
 #define MEH_M   MEH_T(KC_M)
 #define MEH_G   MEH_T(KC_G)
-#define BUTT_Z  LT(_BUTTON, KC_Z)
-#define BUTT_SL LT(_BUTTON, KC_SLSH)
+#define BOOT_Z  LT(_BOOT, KC_Z)
+#define BOOT_SL LT(_BOOT, KC_SLSH)
 
 // Base Thumb keys
 #define MOU_ESC LT(_MOUSE, KC_ESC)
@@ -100,6 +106,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define NUM_SPC LT(_NUM, KC_SPC)
 #define FUN_DEL LT(_FUN, KC_DEL)
 
+// Extra Thumb keys
+#define MOU_HM  LT(_MOUSE, TO(_BASE))
+#define NAV_CAP LT(_NAV, CW_TOGG)
+#define MED_CW  LT(_MEDIA, MAC_CW)
+#define SYM_TMX LT(_SYM, KC_TMUX)
+#define NUM_ZQ  LT(_NUM, MAC_ZQ)
+#define FUN_ZZ  LT(_FUN, MAC_ZZ)
+
 // Nav keys
 #define REDO    C(KC_R)
 #define CUT     C(KC_X)
@@ -107,13 +121,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define PASTE   C(KC_P)
 #define UNDO    C(KC_Z)
 
+// Misc. keys
+#define BOOT_HM LT(_BOOT, TO(_BASE))
+
     /* Blank Layer
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   _______,  _______,
+        _______,   KC_LGUI,   KC_LALT,   KC_LCTL,   KC_LSFT,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,
-        _______,   _______,   _______,   _______,
+        _______,   _______,   TO(_BASE), QK_BOOT,
                                     _______,  _______,
                                     _______,  _______,
                                     _______,  _______,
@@ -130,7 +147,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,
         _______,   _______,   _______,   _______,
                                     _______,  _______,
@@ -141,7 +158,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
                           _______,   _______,   KC_LSFT,   KC_LCTL,   KC_LALT,   KC_LGUI,   _______,
                                      _______,   _______,   _______,   _______,   _______,   _______,
-                                                           _______,   _______,   _______,   _______,
+                                                           QK_BOOT,   TO(_BASE), _______,   _______,
              _______, _______,
              _______, _______,
              _______, _______
@@ -151,21 +168,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_5x7(
         // left hand
-        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   DM_REC1,
-        MH_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,   KC_B,   DM_PLY1,
-        LS_ESC,     ALT_A,   CTL_R,   GUI_S,  LS_T,   MEH_G,  KC_VOLU,
-        KC_LCTL,    BUTT_Z,  KC_X,    MEH_C,  KC_D,   KC_V,
-        TT(_SYMBL), MAC_ZZ,  TAB_L,   SH_RBRC,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   KC_Q,      KC_W,      KC_F,      KC_P,      KC_B,     _______,
+        _______,   ALT_A,     CTL_R,     GUI_S,     LS_T,      MEH_G,    _______,
+        _______,   BOOT_Z,    KC_X,      KC_C,      KC_D,      KC_V,
+        _______,   _______,   MAC_ZZ,   SH_RBRC,
                                     KC_TMUX, MOU_ESC,
-                                    DM_RSTP, NAV_BCS,
-                                    TG(_MANGA), MED_TAB,
+                                    ALT_COM, NAV_BCS,
+                             TD(TD_BEG_END), MED_TAB,
         // right hand
-                          DM_REC2,  KC_6,    KC_7,    KC_8,     KC_9,     KC_0,     KC_BSPC,
-                          DM_PLY2, KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,  KC_EQL,
-                          KC_VOLD, MEH_M,   LS_N,    GUI_E,    CTL_I,    ALT_O,    MH_ENT,
-                                   KC_K,    KC_H,    MEH_COM,  KC_DOT,   BUTT_SL,  LS_QOUT,
-                                                     SH_LBRC,  SH_RBRC,  MAC_ZQ,   CTL_BSL,
-             SYM_ENT, LS_RBRC,
+                          _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                          _______,   KC_J,      KC_L,      KC_U,      KC_Y,      KC_QUOT,   _______,
+                          _______,   MEH_M,     LS_N,      GUI_E,     CTL_I,     ALT_O,     _______,
+                                     KC_K,      KC_H,      KC_COMM,   KC_DOT,    BOOT_SL,   _______,
+                                                SH_LBRC,   MAC_ZQ,   _______,   _______,
+             SYM_ENT, MOU_HM,
              NUM_SPC, CW_TOGG,
              FUN_DEL, MAC_CW
     ),
@@ -174,9 +191,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   _______,  _______,
+        _______,   KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_MEH,   _______,
         _______,   _______,   _______,   KC_MEH,    LLOCK,     _______,
-        _______,   _______,   _______,   _______,
+        _______,   _______,   TO(_BASE), QK_BOOT,
                                     _______,  _______,
                                     _______,  _______,
                                     _______,  _______,
@@ -185,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______,   REDO,      PASTE,     COPY,      CUT,       UNDO,      _______,
                           _______,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RGHT,   KC_CAPS,   _______,
                                      KC_HOME,   KC_PGDN,   KC_PGUP,   KC_END,    KC_INS,    _______,
-                                                           _______,   _______,   _______,   _______,
+                                                           QK_BOOT,   _______,   _______,   _______,
              KC_DEL,  _______,
              KC_SPC,  _______,
              KC_ENT,  _______
@@ -195,9 +212,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   _______,  _______,
+        _______,   KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_MEH,   _______,
         _______,   _______,   _______,   KC_MEH,    LLOCK,     _______,
-        _______,   _______,   _______,   _______,
+        _______,   _______,   TO(_BASE), QK_BOOT,
                                     _______,  _______,
                                     _______,  _______,
                                     _______,  _______,
@@ -215,10 +232,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BUTTON] = LAYOUT_5x7(
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        _______,   UNDO,      CUT,       COPY,      PASTE,     REDO,     _______,
-        TO(_BASE), KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   _______,  _______,
-        _______,   UNDO,      CUT,       COPY,      PASTE,     REDO,
-        _______,   _______,   _______,   _______,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_MEH,   _______,
+        _______,   _______,   _______,   KC_MEH,    LLOCK,     _______,
+        _______,   _______,   TO(_BASE), QK_BOOT,
                                     _______,  _______,
                                     _______,  _______,
                                     _______,  _______,
@@ -237,9 +254,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   _______,  _______,
+        _______,   KC_LALT,   KC_LCTL,   KC_LGUI,   KC_LSFT,   KC_MEH,   _______,
         _______,   _______,   _______,   KC_MEH,    LLOCK,     _______,
-        _______,   _______,   _______,   _______,
+        _______,   _______,   TO(_BASE), QK_BOOT,
                                     _______,  _______,
                                     _______,  _______,
                                     _______,  _______,
@@ -258,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   KC_LBRC,   KC_7,      KC_8,      KC_9,      KC_RBRC,  _______,
-        TO(_BASE), KC_SCLN,   KC_4,      KC_5,      KC_6,      KC_EQL,   _______,
+        _______,   KC_SCLN,   KC_4,      KC_5,      KC_6,      KC_EQL,   _______,
         _______,   KC_GRV,    KC_1,      KC_2,      KC_3,      KC_BSLS,
         _______,   _______,   _______,   _______,
                                     _______,  KC_DOT,
@@ -267,9 +284,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                          _______,   _______,   KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
+                          _______,   KC_MEH,    KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
                                      _______,   LLOCK,     KC_MEH,    _______,   _______,   _______,
-                                                           _______,   _______,   _______,   _______,
+                                                           QK_BOOT,   TO(_BASE), _______,   _______,
              _______, _______,
              _______, _______,
              _______, _______
@@ -279,7 +296,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   KC_LCBR,   KC_AMPR,   KC_ASTR,   KC_LPRN,   KC_RCBR,  _______,
-        TO(_BASE), KC_COLN,   KC_DLR,    KC_PERC,   KC_CIRC,   KC_PLUS,  _______,
+        _______,   KC_COLN,   KC_DLR,    KC_PERC,   KC_CIRC,   KC_PLUS,  _______,
         _______,   KC_TILD,   KC_EXLM,   KC_AT,     KC_HASH,   KC_PIPE,
         _______,   _______,   _______,   _______,
                                     _______,  KC_LPRN,
@@ -288,9 +305,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                          _______,   _______,   KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
-                                     _______,   LLOCK,     _______,   _______,   _______,   _______,
-                                                           _______,   _______,   _______,   _______,
+                          _______,   KC_MEH,    KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
+                                     _______,   LLOCK,     KC_MEH,    _______,   _______,   _______,
+                                                           QK_BOOT,   TO(_BASE), _______,   _______,
              _______, _______,
              _______, _______,
              _______, _______
@@ -300,7 +317,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         _______,   _______,   _______,   _______,   _______,   _______,  _______,
         _______,   KC_F12,    KC_F7,     KC_F8,     KC_F9,     KC_PSCR,  _______,
-        TO(_BASE), KC_F11,    KC_F4,     KC_F5,     KC_F6,     KC_SCRL,  _______,
+        _______,   KC_F11,    KC_F4,     KC_F5,     KC_F6,     KC_SCRL,  _______,
         _______,   KC_F10,    KC_F1,     KC_F2,     KC_F3,     KC_PAUS,
         _______,   _______,   _______,   _______,
                                     _______,  _______,
@@ -309,54 +326,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                          _______,   _______,   KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
+                          _______,   KC_MEH,    KC_LSFT,   KC_LGUI,   KC_LCTL,   KC_LALT,   _______,
                                      _______,   LLOCK,     KC_MEH,    _______,   _______,   _______,
-                                                           _______,   _______,   _______,   _______,
+                                                           QK_BOOT,   TO(_BASE), _______,   _______,
              _______, _______,
              _______, _______,
              _______, _______
     ),
 
-    [_SYMBL] = LAYOUT_5x7(
+    [_BOOT] = LAYOUT_5x7(
         // left hand
-        _______,   KC_F1,     KC_F2,      KC_F3,    KC_F4,     KC_F5,    KC_F6,
-        _______,   _______,   _______,    KC_UP,    _______,   _______,  _______,
-        TO(_BASE),   S(KC_1),   S(KC_2),    S(KC_3),  S(KC_4),   S(KC_5),  QK_BOOT,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   _______,   _______,   _______,   _______,   _______,  _______,
+        _______,   QK_BOOT,   _______,   _______,   _______,   _______,  _______,
         _______,   _______,   _______,   _______,   _______,   _______,
-        _______,   KC_MPLY,   KC_MPRV,   KC_MNXT,
-                                    _______, _______,
-                                    _______, _______,
-                                    _______, _______,
+        _______,   _______,   _______,   QK_BOOT,
+                                    _______,  _______,
+                                    _______,  _______,
+                                    _______,  _______,
         // right hand
-                          KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,
                           _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                          _______,   S(KC_6),   S(KC_7),   S(KC_8),   S(KC_9),   S(KC_0),   _______,
+                          _______,   _______,   _______,   _______,   _______,   _______,   _______,
+                          _______,   _______,   _______,   _______,   _______,   QK_BOOT,   _______,
                                      _______,   _______,   _______,   _______,   _______,   _______,
-                                                           _______,   _______,   _______,   _______,
-             KC_DEL,  _______,
+                                                           QK_BOOT,   _______,   _______,   _______,
+             _______, _______,
              _______, _______,
              _______, _______
-    ),
-
-    [_MANGA] = LAYOUT_5x7(
-        // left hand
-        _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        _______,   _______,   _______,   _______,   _______,   _______,  _______,
-        TO(_BASE), _______,   _______,   _______,   _______,   _______,  _______,
-        KC_K,      KC_H,      KC_L,      S(KC_P),   _______,   _______,
-        KC_J,      KC_EQL,    KC_MINS,   S(KC_N),
-                                    _______,    _______,
-                                    _______,    _______,
-                                    TG(_MANGA), _______,
-        // right hand
-                          _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                          _______,   KC_DOWN,   KC_RGHT,   _______,   _______,   _______,   _______,
-                          _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                                     KC_UP,     KC_LEFT,   S(KC_P),   KC_H,      KC_L,      KC_K,
-                                                           S(KC_N),   KC_MINS,   KC_EQL,    KC_J,
-             KC_C,      KC_PENT,
-             _______,   _______,
-             TO(_BASE), _______
     ),
 };
 
